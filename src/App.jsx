@@ -293,8 +293,8 @@ function Connect() {
   const socials = [
     { icon: Twitter, label: 'Twitter', handle: '@tylerdotai', href: 'https://twitter.com/tylerdotai' },
     { icon: Github, label: 'GitHub', handle: '@tylerdotai', href: 'https://github.com/tylerdotai' },
-    { icon: Linkedin, label: 'LinkedIn', handle: 'Tyler Delano', href: 'https://linkedin.com/in/tylerdelano' },
-    { icon: Mail, label: 'Email', handle: 'tyler@tylerdelano.com', href: 'mailto:tyler@tylerdelano.com' },
+    { icon: Linkedin, label: 'LinkedIn', handle: 'tylerpdelano', href: 'https://linkedin.com/in/tylerpdelano' },
+    { icon: Mail, label: 'Email', handle: 'tyler.delano@icloud.com', href: 'mailto:tyler.delano@icloud.com' },
     { icon: Send, label: 'Telegram', handle: '@tylerdotai', href: 'https://t.me/tylerdotai' },
   ];
 
