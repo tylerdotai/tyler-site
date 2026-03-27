@@ -1,5 +1,9 @@
 # <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif" width="30px" /> Hi, I'm Tyler
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/tylerdotai/tylerdotai/main/tyler-headshot.jpg" width="200" alt="Tyler Delano" style="border-radius: 50%;" />
+</p>
+
 ### <img src="https://media.giphy.com/media/LnQjpWaONlNnxkMVVx/giphy.gif" width="30px" />  Building the Flume SaaS Factory
 
 ---
@@ -67,9 +71,10 @@
 ## 🔗 Connect
 
 <p align="center">
+  <a href="https://tylerdotai.com"><img src="https://img.shields.io/badge/Website-tylerdotai.com-orange?style=for-the-badge&logo=firefox&logoColor=white" /></a>
   <a href="https://twitter.com/tylerdotai"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
   <a href="https://github.com/tylerdotai"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-  <a href="https://flumeusa.com"><img src="https://img.shields.io/badge/Website-FlumeUSA-orange?style=for-the-badge&logo=firefox&logoColor=white" /></a>
+  <a href="https://flumeusa.com"><img src="https://img.shields.io/badge/Flume-FlumeUSA-orange?style=for-the-badge&logo=firefox&logoColor=white" /></a>
 </p>
 
 ---
