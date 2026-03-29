@@ -1,114 +1,162 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { cn } from '@/lib/utils'
-import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
 
 const navLinks = [
-  { href: '#blog', label: 'Writing' },
+  { href: '#hero', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#projects', label: 'Projects' },
   { href: '#connect', label: 'Connect' },
 ]
 
 export default function NavBar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-
-      // Scroll spy
-      const sections = navLinks.map((link) => link.href.slice(1))
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 150) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const handleNavClick = (href: string) => {
-    setIsMobileOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <>
-      <header
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          isScrolled
-            ? 'bg-bg-primary/80 backdrop-blur-md border-b border-border'
-            : 'bg-transparent'
-        )}
+    <nav
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        padding: '20px 40px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        background: 'linear-gradient(to bottom, rgba(10,10,10,0.9) 0%, transparent 100%)',
+      }}
+    >
+      {/* Logo / Name */}
+      <a
+        href="#hero"
+        style={{
+          fontFamily: 'var(--font-display)',
+          fontWeight: 700,
+          fontSize: 18,
+          color: '#f0f0f0',
+          textDecoration: 'none',
+          letterSpacing: '-0.02em',
+        }}
       >
-        <nav className="container flex items-center justify-between h-16">
-          <a
-            href="/"
-            className="font-display text-xl font-[200] tracking-tight hover:text-accent transition-colors"
-          >
-            tylerdotai
-          </a>
+        Tyler<span style={{ color: '#ff6b00' }}>.</span>
+      </a>
 
-          {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <button
-                  onClick={() => handleNavClick(link.href)}
-                  className={cn(
-                    'nav-link font-body text-base text-text-secondary hover:text-text-primary transition-colors',
-                    activeSection === link.href.slice(1) && 'active text-accent'
-                  )}
-                >
-                  {link.label}
-                </button>
-              </li>
-            ))}
-          </ul>
+      {/* Desktop nav */}
+      <ul
+        style={{
+          display: 'flex',
+          gap: 40,
+          listStyle: 'none',
+          margin: 0,
+          padding: 0,
+        }}
+        className="hidden md:flex"
+      >
+        {navLinks.map((link) => (
+          <li key={link.href}>
+            <a
+              href={link.href}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 14,
+                color: '#a0a0a0',
+                textDecoration: 'none',
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#ff6b00')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#a0a0a0')}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden p-2 text-text-primary hover:text-accent transition-colors"
-            aria-label={isMobileOpen ? 'Close menu' : 'Open menu'}
-          >
-            {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-      </header>
+      {/* Mobile hamburger */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="md:hidden"
+        style={{
+          background: 'none',
+          border: 'none',
+          cursor: 'none',
+          padding: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 5,
+        }}
+        aria-label="Toggle menu"
+      >
+        <span
+          style={{
+            display: 'block',
+            width: 24,
+            height: 2,
+            background: '#f0f0f0',
+            transition: 'transform 0.2s, opacity 0.2s',
+            transform: isOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
+          }}
+        />
+        <span
+          style={{
+            display: 'block',
+            width: 24,
+            height: 2,
+            background: '#f0f0f0',
+            opacity: isOpen ? 0 : 1,
+            transition: 'opacity 0.2s',
+          }}
+        />
+        <span
+          style={{
+            display: 'block',
+            width: 24,
+            height: 2,
+            background: '#f0f0f0',
+            transition: 'transform 0.2s, opacity 0.2s',
+            transform: isOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
+          }}
+        />
+      </button>
 
-      {/* Mobile overlay */}
-      {isMobileOpen && (
-        <div className="fixed inset-0 z-40 bg-bg-primary md:hidden">
-          <div className="flex flex-col items-center justify-center h-full gap-8">
-            {navLinks.map((link, index) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className="font-display text-3xl font-[200] text-text-primary hover:text-accent transition-colors animate-fade-in-up"
-                style={{ animationDelay: `${index * 80}ms` }}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
+      {/* Mobile menu */}
+      {isOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            top: 70,
+            background: '#0a0a0a',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 40,
+            zIndex: 99,
+          }}
+          className="md:hidden"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 700,
+                fontSize: 32,
+                color: '#f0f0f0',
+                textDecoration: 'none',
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       )}
-    </>
+    </nav>
   )
 }
