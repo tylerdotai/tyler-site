@@ -36,8 +36,15 @@ body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-body);
-  cursor: none;
   overflow-x: hidden;
+}
+
+/* Hide native cursor only on devices with a fine pointer (mouse) */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
