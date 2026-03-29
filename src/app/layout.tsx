@@ -19,36 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="min-h-screen bg-[#0a0a0a] text-[#f0f0f0] antialiased">
-        {/* Agent-node canvas background */}
-        <canvas
-          id="agent-canvas"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 0,
-            pointerEvents: 'none',
-          }}
-        />
-        {/* Scratch marks layer */}
-        <div
-          id="scratch-layer"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 9998,
-            pointerEvents: 'none',
-          }}
-        />
-        {/* Custom cursor */}
-        <div
-          id="custom-cursor"
-          style={{
-            position: 'fixed',
-            zIndex: 9999,
-            pointerEvents: 'none',
-          }}
-        />
-        {/* Page content */}
+        {/* Page content — client components render their own layers */}
         <main style={{ position: 'relative', zIndex: 1 }}>
           {children}
         </main>
