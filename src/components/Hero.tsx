@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react'
 
 const TAGLINES = [
   'Building agents that ship.',
-  'IT Pro. AI Builder. Chicken Farmer.',
+  'IT Pro. AI Builder. Flume Founder.',
   'I make AI agents work. Then I make them work harder.',
 ]
 
@@ -66,8 +66,8 @@ export default function Hero() {
 
         {/* Subtext */}
         <p className="font-body font-[300] text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-          IT Support Associate at Amazon by day. AI agent builder by night. Living the
-          homestead life in Springtown, Texas.
+          IT Support Associate at Amazon by day. AI agent builder by night. Building the
+          future of software with autonomous agent teams in Springtown, Texas.
         </p>
 
         {/* CTA */}

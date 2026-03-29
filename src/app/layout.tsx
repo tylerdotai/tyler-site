@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Tyler Delano | IT Pro. AI Builder. Homesteader.',
+    default: 'Tyler Delano | IT Pro. AI Builder. Agent Builder.',
     template: '%s | Tyler Delano',
   },
   description:
