@@ -2,28 +2,21 @@
 @import "tailwindcss";
 
 @theme {
-  /* Dark palette */
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #141414;
   --color-bg-elevated: #1e1e1e;
-  
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #a0a0a0;
   --color-text-muted: #606060;
-  
   --color-accent: #ff6b00;
   --color-accent-glow: rgba(255, 107, 0, 0.4);
-  
   --color-border: #1e1e1e;
   --color-border-strong: #2e2e2e;
-
-  /* Fonts */
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Literata', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Global resets */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -37,6 +30,8 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Hide native cursor only on devices with a fine pointer (mouse) */
@@ -45,11 +40,7 @@ body {
     cursor: none;
   }
 }
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -57,7 +48,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -72,19 +62,16 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-border-strong);
 }
 
-/* Selection */
 ::selection {
   background: var(--color-accent);
   color: #000;
 }
 
-/* Focus */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
