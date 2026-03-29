@@ -1,0 +1,53 @@
+---
+title: Why I Built agent-hosting
+date: 2026-03-28
+excerpt: First principles on AI agent deployment — why I think the current state of agent hosting is broken, and how I'm fixing it.
+tags: [AI, Projects]
+---
+
+I've been running AI agents in production for over a year now. Every week, I'm reminded of the same painful truth: **deploying agents is still harder than it should be**.
+
+## The Problem
+
+Most "agent platforms" are either:
+
+1. **Too complex** — Kubernetes, Docker, YAML configs, environment variables everywhere. By the time you deploy your first agent, you've lost a day.
+2. **Too restrictive** — You can only use their pre-built agents, their specific tools, their proprietary runtime. Goodbye flexibility.
+3. **Too expensive** — Enterprise pricing that makes sense for a Fortune 500, not for indie builders or small teams.
+
+## First Principles
+
+What do you actually need to deploy an AI agent?
+
+- A way to give it **tools** (functions it can call)
+- A way to give it **memory** (context that persists)
+- A way to **expose it** (webhook, API, chat interface)
+- A way to **monitor it** (logs, errors, usage)
+
+That's it. Everything else is ceremony.
+
+## My Approach
+
+agent-hosting is built around these four primitives. You define your agent in a simple config file, wire up your tools, and hit deploy. 
+
+```typescript
+const agent = createAgent({
+  model: 'gpt-4',
+  tools: [weatherTool, calculator],
+  memory: persistentMemory(),
+})
+
+export agent
+```
+
+The platform handles the rest: scaling, logging, error recovery, monitoring.
+
+## Why This Matters
+
+We're entering the age of the agent workforce. But that workforce can't scale if deployment is a pain. Every hour spent wrestling with infrastructure is an hour not spent improving the agent's logic, UX, or business value.
+
+I built agent-hosting because I wanted it to exist. Now it does.
+
+---
+
+*Want early access?* [Check out agent-hosting](https://flumeusa.com/agent-hosting)
