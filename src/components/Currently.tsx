@@ -1,10 +1,10 @@
 export default function Currently() {
   const items = [
     'Building agent-hosting v2',
-    'Reading The Making of the Atomic Bomb',
-    'Growing tomatoes (poorly)',
-    'Teaching Spencer to code',
-    'Shipping Clawplex community features',
+    'Growing the Clawplex DFW community',
+    'Shipping AI agent workflows for Flume clients',
+    'Running production agents on OpenClaw',
+    'Experimenting with local models on Titan',
   ]
 
   return (

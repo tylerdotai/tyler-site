@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
 const interests = [
-  'AI / Agents',
-  'Homesteader',
-  'IT Pro',
-  '3D Printing',
-  'DFW Community',
+  'AI / Agentic Workflows',
+  'OpenClaw Platform',
+  'Flume SaaS Factory',
+  'Clawplex Community',
+  'Local LLM Infrastructure',
 ]
 
 export default function About() {
@@ -20,7 +20,7 @@ export default function About() {
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-border">
               <Image
                 src="/tyler-headshot.jpg"
-                alt="Tyler Delano on his homestead in Springtown, Texas"
+                alt="Tyler Delano"
                 fill
                 className="object-cover"
                 priority
@@ -32,18 +32,20 @@ export default function About() {
           <div>
             <div className="font-body text-lg leading-relaxed space-y-6 text-text-primary">
               <p>
-                I'm an IT Support Associate at Amazon by day, and an AI agent builder by night. I
-                live on a small homestead in Springtown, Texas with my wife Justine and son
-                Spencer. We raise chickens, grow vegetables, and I spend every spare cycle
-                building SaaS products with AI agent teams.
+                IT Support Associate at Amazon by day. AI agent builder and SaaS founder by night.
+                Based in Springtown, Texas — building the future of software with autonomous agent teams.
               </p>
               <p>
-                I believe the future of software is autonomous agents working together. I'm
-                building that future at{' '}
-                <a href="https://flumeusa.com" className="text-accent hover:underline">
+                I run <a href="https://flumeusa.com" className="text-accent hover:underline">
                   Flume SaaS Factory
-                </a>
-                .
+                </a> — products include agent-hosting, Clawplex, and client portal. I also organize the{' '}
+                <a href="https://clawplex.dev" className="text-accent hover:underline">
+                  Clawplex community
+                </a>, a DFW-based network of builders shipping with AI agents.
+              </p>
+              <p>
+                I believe the future of software is autonomous agents working together — and I'm
+                building that future now, one agent team at a time.
               </p>
             </div>
 

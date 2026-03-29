@@ -67,7 +67,7 @@ export default function Hero() {
         {/* Subtext */}
         <p className="font-body font-[300] text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
           IT Support Associate at Amazon by day. AI agent builder by night. Living the
-          homestead life in Springtown, Texas with my wife Justine and son Spencer.
+          homestead life in Springtown, Texas.
         </p>
 
         {/* CTA */}
