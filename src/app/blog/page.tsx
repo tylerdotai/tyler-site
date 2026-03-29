@@ -1,16 +1,32 @@
-import { getSortedPosts } from '@/lib/posts'
-import BlogCard from '@/components/BlogCard'
+'use client'
+
+import { useState, useEffect } from 'react'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
-import type { Metadata } from 'next'
+import { ArrowRight } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Writing',
-  description: 'Thoughts on AI agents, homesteader life, IT pro tips, and building SaaS.',
+interface Post {
+  slug: string
+  title: string
+  date: string
+  excerpt: string
+  content: string
+  tags?: string[]
 }
 
 export default function BlogIndex() {
-  const posts = getSortedPosts()
+  const [posts, setPosts] = useState<Post[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('/api/posts')
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts(data)
+        setLoading(false)
+      })
+      .catch(() => setLoading(false))
+  }, [])
 
   return (
     <>
@@ -22,10 +38,25 @@ export default function BlogIndex() {
             Thoughts on AI agents, homesteader life, IT pro tips, and building SaaS.
           </p>
 
-          {posts.length > 0 ? (
+          {loading ? (
+            <p className="text-text-secondary font-body">Loading...</p>
+          ) : posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
+                <a
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group block p-6 bg-bg-secondary border border-border rounded-lg transition-colors hover:border-accent"
+                >
+                  <h2 className="font-display font-bold text-xl mb-2 group-hover:text-accent transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="font-body text-sm text-text-secondary mb-4">{post.date}</p>
+                  <p className="font-body text-text-secondary mb-4 line-clamp-3">{post.excerpt}</p>
+                  <span className="inline-flex items-center gap-2 font-mono text-xs text-accent">
+                    Read <ArrowRight size={14} />
+                  </span>
+                </a>
               ))}
             </div>
           ) : (
