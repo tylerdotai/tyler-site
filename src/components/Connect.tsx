@@ -18,7 +18,7 @@ const socialLinks = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/tylerdelano',
+    url: 'https://linkedin.com/in/tylerpdelano',
     icon: Linkedin,
   },
 ]

@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
 const interests = [
-  { icon: '🤖', label: 'AI / Agents' },
-  { icon: '🌾', label: 'Homesteader' },
-  { icon: '💻', label: 'IT Pro' },
-  { icon: '🖨️', label: '3D Printing' },
-  { icon: '🏘️', label: 'DFW Community' },
+  'AI / Agents',
+  'Homesteader',
+  'IT Pro',
+  '3D Printing',
+  'DFW Community',
 ]
 
 export default function About() {
@@ -56,15 +56,12 @@ export default function About() {
 
             {/* Interests grid */}
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {interests.map((item) => (
+              {interests.map((label) => (
                 <div
-                  key={item.label}
-                  className="flex items-center gap-3 px-4 py-3 border border-border rounded-lg text-text-secondary hover:border-accent hover:text-accent transition-colors"
+                  key={label}
+                  className="px-4 py-3 border border-border rounded-lg text-text-secondary hover:border-accent hover:text-accent transition-colors"
                 >
-                  <span className="text-xl" role="img" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                  <span className="font-body text-sm">{item.label}</span>
+                  <span className="font-body text-sm">{label}</span>
                 </div>
               ))}
             </div>
