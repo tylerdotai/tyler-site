@@ -1,43 +1,103 @@
+'use client'
+
+import { useState, useRef } from 'react'
+
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&'
+
+function ScrambleText({ text, className }: { text: string; className?: string }) {
+  const [active, setActive] = useState(false)
+  const [displayed, setDisplayed] = useState(text)
+  const frameRef = useRef<number | null>(null)
+  const startRef = useRef<number>(0)
+
+  const animate = (now: number) => {
+    const elapsed = now - startRef.current
+    const duration = 400
+    const progress = Math.min(elapsed / duration, 1)
+
+    let result = ''
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === ' ') {
+        result += ' '
+        continue
+      }
+      if (progress > i / text.length) {
+        result += text[i]
+      } else {
+        result += CHARS[Math.floor(Math.random() * CHARS.length)]
+      }
+    }
+    setDisplayed(result)
+
+    if (progress < 1) {
+      frameRef.current = requestAnimationFrame(animate)
+    }
+  }
+
+  const handleEnter = () => {
+    setActive(true)
+    startRef.current = performance.now()
+    const frame = requestAnimationFrame(animate)
+    frameRef.current = frame
+  }
+
+  const handleLeave = () => {
+    setActive(false)
+    setDisplayed(text)
+    if (frameRef.current) cancelAnimationFrame(frameRef.current)
+  }
+
+  return (
+    <span
+      className={className}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      {displayed}
+    </span>
+  )
+}
+
 const projects = [
   {
-    name: 'agent-hosting',
-    tagline: 'Your OpenClaw agent, always on.',
+    name: 'fortOS',
+    tagline: 'AI agents that run your business.',
     description:
-      'Deploy and manage AI agents on your own infrastructure. Built for developers and teams who want the power of autonomous agents without surrendering control to a third-party API. VPS provisioning, Telegram/Discord integration, persistent sessions, and 99.5–99.9% SLA.',
-    url: 'https://flumeusa.com/agent-hosting',
+      'Autonomous AI agents handle operations, client communication, and delivery — so you focus on building. The operating system for agent-powered businesses.',
+    url: 'https://fort-os.com',
     status: 'Live',
     statusColor: '#22c55e',
-    tags: ['OpenClaw', 'Infrastructure', 'Node.js'],
+    tags: ['AI Agents', 'Operations', 'SaaS'],
   },
   {
     name: 'clawplex',
     tagline: 'DFW AI builder community.',
     description:
-      "The community feed for AI agent builders in the Dallas-Fort Worth area. Built with a team of sub-agents, maintained in public. If you're building with AI agents in North Texas, you're already part of it whether you know it or not.",
+      "The gathering point for AI agent builders in North Texas. Built with a team of sub-agents, maintained in public. If you're building with AI agents in DFW, you're already part of it.",
     url: 'https://clawplex.dev',
     status: 'Live',
     statusColor: '#22c55e',
     tags: ['Community', 'Next.js', 'OpenClaw'],
   },
   {
-    name: 'client-portal',
-    tagline: 'Professional workspace for your clients.',
+    name: 'fwpdhockey.com',
+    tagline: 'Fort Worth Panthers Police Hockey.',
     description:
-      'A clean, minimal client portal for Flume projects. Share deliverables, track progress, and keep client relationships organized without the bloat of full CRM systems. Built for flume, usable by anyone.',
-    url: 'https://client-portal.flumeusa.com',
-    status: 'MVP',
-    statusColor: '#ff6b00',
-    tags: ['SaaS', 'Next.js', 'Vercel'],
+      'Official site for the Fort Worth Panthers Police Hockey Team. Schedule, roster, and team info for the men and women in badge and blade.',
+    url: 'https://fwpanthers.vercel.app',
+    status: 'Live',
+    statusColor: '#22c55e',
+    tags: ['Sports', 'Next.js', 'Vercel'],
   },
   {
-    name: 'agent-to-agent-sms',
-    tagline: 'Agent SMS via Sendblue.',
+    name: 'tylerdotai.com',
+    tagline: 'This site.',
     description:
-      'Open-source tool for sending SMS and iMessages between AI agents. Uses Sendblue API to give your agent fleet a phone number. Useful for alerts, coordination, and making your agent team reachable without tying into personal phone lines.',
-    url: 'https://github.com/tylerdotai/agent-to-agent-sms',
-    status: 'Open Source',
-    statusColor: '#a78bfa',
-    tags: ['Open Source', 'SMS', 'MCP'],
+      'AI agent builder. IT Pro at Amazon by day. Building the future of autonomous operations by night. Springtown, Texas.',
+    url: 'https://tylerdotai.com',
+    status: 'Live',
+    statusColor: '#22c55e',
+    tags: ['Personal', 'Next.js', 'OpenClaw'],
   },
 ]
 
@@ -72,7 +132,7 @@ export default function Projects() {
           maxWidth: 500,
         }}
       >
-        Real things, shipping to real users.
+        Things that exist and work.
       </p>
 
       <div
@@ -134,7 +194,7 @@ export default function Projects() {
               {project.status}
             </span>
 
-            {/* Name */}
+            {/* Name — scramble on hover */}
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
@@ -143,9 +203,10 @@ export default function Projects() {
                 color: '#f0f0f0',
                 marginBottom: 8,
                 letterSpacing: '-0.01em',
+                cursor: 'pointer',
               }}
             >
-              {project.name}
+              <ScrambleText text={project.name} />
             </h3>
 
             {/* Tagline */}

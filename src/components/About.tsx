@@ -1,3 +1,5 @@
+'use client'
+
 export default function About() {
   return (
     <section
@@ -36,7 +38,7 @@ export default function About() {
             lineHeight: 1.8,
           }}
         >
-          I'm an IT Support Associate at Amazon by day. By night, I'm building Flume SaaS Factory — a product studio where AI agents do the heavy lifting so small businesses don't have to pay enterprise prices for enterprise software.
+          IT Support Associate at Amazon by day. AI agent builder by night. I spend my off-hours building autonomous systems that do the work so operators don&apos;t have to.
         </p>
 
         <p
@@ -47,7 +49,7 @@ export default function About() {
             lineHeight: 1.8,
           }}
         >
-          The short version: I've spent 15 years in IT learning how systems actually work. Now I'm applying that to AI agent infrastructure — building tools, hosting platforms, and automation systems that make autonomous agents actually useful in the real world.
+          15 years in IT taught me how systems actually work. Now I&apos;m applying that to AI agent infrastructure — building tools, hosting platforms, and automation systems that make autonomous agents actually useful in the real world. Not demos. Not prompts. Systems that run.
         </p>
 
         <p
@@ -58,7 +60,7 @@ export default function About() {
             lineHeight: 1.8,
           }}
         >
-          I live in Springtown, Texas with my wife Justine and our son Spencer. We raise chickens, grow food, and generally try to stay stubborn about doing hard things without asking big tech for permission.
+          Springtown, Texas. Married to Justine, dad to Spencer. Chickens, garden, and a stubborn refusal to ask big tech for permission to build things.
         </p>
 
         {/* Key facts */}
@@ -75,8 +77,8 @@ export default function About() {
           {[
             { label: 'Location', value: 'Springtown, TX' },
             { label: 'Day Job', value: 'L3 IT Support @ Amazon' },
-            { label: 'Night Job', value: 'Co-founder, Flume' },
-            { label: 'Focus', value: 'AI Agent Infrastructure' },
+            { label: 'Night Job', value: 'AI Agent Builder' },
+            { label: 'Focus', value: 'Autonomous Operations' },
           ].map((fact) => (
             <div key={fact.label}>
               <p

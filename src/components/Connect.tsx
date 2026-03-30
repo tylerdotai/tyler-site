@@ -19,9 +19,9 @@ const links = [
   },
   {
     label: 'Email',
-    handle: 'tyler@tyler.ai',
+    handle: 'tyler.delano@icloud.com',
     description: 'Direct line.',
-    href: 'mailto:tyler@tyler.ai',
+    href: 'mailto:tyler.delano@icloud.com',
   },
 ]
 
