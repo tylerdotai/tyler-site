@@ -65,8 +65,8 @@ const personJsonLd = {
     addressRegion: 'TX',
     addressCountry: 'US',
   },
-  jobTitle: 'IT Support Associate (L3)',
-  worksFor: { '@type': 'Organization', name: 'Amazon' },
+  jobTitle: 'AI Developer',
+  worksFor: { '@type': 'Organization', name: 'Agent Builders Club' },
 };
 ---
 
@@ -139,7 +139,7 @@ const personJsonLd = {
   <body class="min-h-screen flex flex-col bg-[#D2D2D2]">
     <slot />
 
-    <!-- Scroll reveal -->
+    <!-- Scroll reveal — all .reveal-* variants -->
     <script>
       const observer = new IntersectionObserver(
         (entries) => {
@@ -149,9 +149,9 @@ const personJsonLd = {
             }
           });
         },
-        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
       );
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>

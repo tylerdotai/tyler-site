@@ -9,7 +9,7 @@ export const SITE = {
   description: 'AI Developer. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
   author: 'Tyler Delano',
   tagline: 'AI DEVELOPER',
-  bio: 'IT Support Associate (L3) at Amazon by day. AI agent builder by night. Exceeds High Bar.',
+  bio: 'Community builder. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
   location: 'DFW, Texas',
   email: 'tyler@tylerdotai.com',
   github: 'https://github.com/tylerdotai',
@@ -81,7 +81,7 @@ export const PILLARS = [
 // ABOUT — homepage bio section
 // -----------------------------------------------------------------------------
 export const ABOUT = {
-  year: '2024',
+  year: '2026',
   yearLabel: 'YEAR OF THE AGENT',
   heading: 'FROM PIP TO\nDEVELOPER',
   paragraphs: [
@@ -152,10 +152,10 @@ export const COMMUNITY = {
   nodeCount: 6,
   location: 'Dallas-Fort Worth Metroplex',
   nextEvent: {
-    date: 'August 2, 2025',
-    time: '5–8pm',
-    venue: '113 Barnett Blvd, Highland Village, TX 75077',
-    host: 'Rony Daniel',
+    date: 'July 15, 2026',
+    time: '5–7pm',
+    venue: 'The DEC Network @ Fort Worth · 600 Bryan Ave #220, Fort Worth, TX',
+    host: 'ClawPlex × FWTX DAO',
     rsvpUrl: null as string | null,
   },
   about: 'The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.',

@@ -1,7 +1,7 @@
 /* ============================================================
-   TYLER DELANO — VIBRANT MINIMALIST NEO-BRUTALISM
+   TYLER DELANO — NEO-BRUTALISM
    Palette: #D2D2D2 / #000000 / #00B8FF / #FFFFFF / #4D4D4D
-   5 COLORS ONLY. No variants.
+   5 COLORS ONLY.
    Fonts: Bebas Neue (display) + Space Grotesk (body) + Space Mono (mono)
    ============================================================ */
 
@@ -99,7 +99,21 @@
     padding-inline: 1.5rem;
   }
 
-  /* Buttons */
+  /* ── NOISE TEXTURE OVERLAY ── */
+  /* SVG noise filter applied to the page via a pseudo-element */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+  }
+
+  /* ── Buttons ── */
   .btn-primary {
     color: #FFFFFF;
     text-transform: uppercase;
@@ -114,21 +128,23 @@
     font-size: 0.8rem;
     font-weight: 700;
     text-decoration: none;
-    transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+    transition: transform 0.08s, box-shadow 0.08s, background 0.08s;
     display: inline-flex;
-    box-shadow: 4px 4px 0 #000000;
+    /* Hard 3D block shadow — the neo-brutalist signature */
+    box-shadow: 6px 6px 0 #000000;
+    position: relative;
   }
 
   .btn-primary:hover {
     color: #FFFFFF;
     background: #000000;
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #00B8FF;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #00B8FF;
   }
 
   .btn-primary:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #000000;
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #000000;
   }
 
   .btn-ghost {
@@ -145,63 +161,76 @@
     font-size: 0.8rem;
     font-weight: 700;
     text-decoration: none;
-    transition: transform 0.1s, box-shadow 0.1s, background 0.1s, color 0.1s;
+    transition: transform 0.08s, box-shadow 0.08s, background 0.08s, color 0.08s;
     display: inline-flex;
-    box-shadow: 4px 4px 0 #4D4D4D;
+    box-shadow: 6px 6px 0 #FFFFFF;
+    position: relative;
   }
 
   .btn-ghost:hover {
     color: #000000;
-    background: #FFFFFF;
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #4D4D4D;
+    background: #00B8FF;
+    border-color: #000000;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #000000;
   }
 
   .btn-ghost:active {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #FFFFFF;
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #FFFFFF;
   }
 
-  /* Cards */
+  /* ── Cards ── */
   .card {
     background: #FFFFFF;
     border: 3px solid #000000;
-    transition: transform 0.1s, box-shadow 0.1s;
-    box-shadow: 4px 4px 0 #000000;
+    transition: transform 0.08s, box-shadow 0.08s;
+    box-shadow: 6px 6px 0 #000000;
   }
 
   .card:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #000000;
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #000000;
   }
 
   .card-accent {
     background: #FFFFFF;
     border: 3px solid #000000;
-    transition: transform 0.1s, box-shadow 0.1s;
-    box-shadow: 4px 4px 0 #00B8FF;
+    transition: transform 0.08s, box-shadow 0.08s;
+    box-shadow: 6px 6px 0 #00B8FF;
   }
 
   .card-accent:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #00B8FF;
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #00B8FF;
   }
 
-  /* Section label */
+  /* ── Brutal stat pill ── */
+  .brutal-stat {
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    box-shadow: 5px 5px 0 #00B8FF;
+  }
+
+  /* ── Section label ── */
   .section-label {
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     color: #00B8FF;
     font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     display: inline-block;
   }
 
-  /* Stats */
+  /* ── Stats ── */
   .stat-number {
     color: #00B8FF;
     letter-spacing: -0.01em;
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
     line-height: 1;
@@ -218,15 +247,7 @@
     display: block;
   }
 
-  .brutal-stat {
-    background: #FFFFFF;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-    display: flex;
-  }
-
-  /* Nav */
+  /* ── Nav ── */
   .nav-link {
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -258,21 +279,21 @@
   .nav-link:hover { color: #FFFFFF; }
   .nav-link.active { color: #00B8FF; }
 
-  /* Vault card */
+  /* ── Vault card ── */
   .vault-card {
     background: #FFFFFF;
     border: 3px solid #000000;
-    transition: transform 0.1s, box-shadow 0.1s;
+    transition: transform 0.08s, box-shadow 0.08s;
     overflow: hidden;
-    box-shadow: 4px 4px 0 #000000;
+    box-shadow: 6px 6px 0 #000000;
   }
 
   .vault-card:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #00B8FF;
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #00B8FF;
   }
 
-  /* Tags */
+  /* ── Tags ── */
   .tag {
     text-transform: uppercase;
     letter-spacing: 0.12em;
@@ -305,19 +326,129 @@
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
   }
+
+  /* ── Brutal divider ── */
+  .brutal-divider {
+    border: none;
+    border-top: 4px solid #000000;
+    box-shadow: 0 3px 0 #00B8FF;
+    margin: 0;
+  }
+
+  /* ── Floating label sticker ── */
+  .sticker-label {
+    display: inline-block;
+    background: #00B8FF;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0 #000000;
+    padding: 0.4rem 0.75rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+  }
+
+  .sticker-label-ink {
+    display: inline-block;
+    background: #000000;
+    border: 3px solid #000000;
+    box-shadow: 4px 4px 0 #00B8FF;
+    padding: 0.4rem 0.75rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+  }
+
+  /* ── Grid overlay lines (decorative) ── */
+  .grid-lines {
+    position: relative;
+  }
+  .grid-lines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+  }
+
+  /* ── Section number accent ── */
+  .section-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(6rem, 15vw, 14rem);
+    color: transparent;
+    -webkit-text-stroke: 3px #4D4D4D;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    top: -1.5rem;
+    left: -0.5rem;
+    z-index: 0;
+  }
 }
 
-/* ── Reveal animation ── */
+/* ── Reveal animations — kinetic, hard-cut brutalism ── */
 @layer utilities {
+
   .reveal {
     opacity: 0;
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-    transform: translateY(20px);
+    transform: translateY(32px);
+    transition:
+      opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Hard slide-in from left */
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition:
+      opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Hard slide-in from right */
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition:
+      opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Scale up from nothing — hard cut */
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.93);
+    transition:
+      opacity 0.2s ease-out,
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .reveal-scale.visible {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 

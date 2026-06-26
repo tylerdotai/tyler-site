@@ -5,56 +5,6 @@ import Footer from '../components/Footer.astro';
 import { COMMUNITY } from '../config';
 
 const nextEvent = COMMUNITY.nextEvent;
-
-const pastEvents = [
-  {
-    node: 'DFW Node 06 — Hermes',
-    date: 'JUNE 10, 2026',
-    location: 'Spark Coworking, Arlington',
-    photos: [
-      { src: '/assets/community/node-06-hermes-01.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
-      { src: '/assets/community/node-06-hermes-02.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
-      { src: '/assets/community/node-06-hermes-03.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
-    ],
-    description: 'Builders filled Spark Coworking in Arlington for a deep look at Hermes Agent — live demos, debugging, and a real conversation about what it actually means to ship an agent that gets better the more you use it.',
-  },
-  {
-    node: 'DFW Node 05 — Claude Tools',
-    date: 'JUNE 3, 2026',
-    location: 'Office Evolution, Southlake',
-    photos: [
-      { src: '/assets/community/node-05-claude-tools-01.webp', alt: 'DFW Node 05 — Claude Tools at Office Evolution Southlake' },
-    ],
-    description: '30+ DFW builders gathered for an honest conversation about the AI tools actually on their desks — Cursor, Claude Code, OpenCode, OpenAI, Hermes, OpenClaw, and more. No slides, no pitches.',
-  },
-  {
-    node: 'DFW Node 04 — Frisco',
-    date: 'MAY 13, 2026',
-    location: '25N Coworking, Frisco',
-    photos: [
-      { src: '/assets/community/node-04-frisco-01.jpeg', alt: 'DFW Node 04 — Frisco at 25N Coworking' },
-    ],
-    description: 'Claude In The Wild Meetup. Informal session where people are putting Claude to work on real projects and sharing what actually helps in day-to-day use. Heavy token users showing workflows, automations, and practical setups.',
-  },
-  {
-    node: 'DFW Node 03 — Fort Worth',
-    date: 'MAY 6, 2026',
-    location: 'Fort Worth',
-    photos: [
-      { src: '/assets/community/node-03-fort-worth-01.png', alt: 'DFW Node 03 — Fort Worth Mac Mini OpenClaw Workshop' },
-    ],
-    description: 'Hands-on Mac Mini + OpenClaw install workshop. Live demo of the Mac Mini OpenClaw setup. Great networking and builders of all levels.',
-  },
-  {
-    node: 'ClawCon DFW',
-    date: '2026',
-    location: 'DFW',
-    photos: [
-      { src: '/assets/community/clawcon-01.webp', alt: 'ClawCon DFW — inaugural AI builders conference' },
-    ],
-    description: 'The inaugural ClawCon — DFW\'s first AI builders conference. A full day of live demos, agent builds, and honest conversations about what\'s actually working in AI right now.',
-  },
-];
 ---
 
 <BaseLayout
@@ -65,126 +15,393 @@ const pastEvents = [
 
   <main>
 
-    <!-- ── STATS ROW ── -->
-    <section class="bg-[var(--color-ground)] border-b-4 border-black">
-      <div class="container py-16 md:py-24">
-        <div class="grid grid-cols-3 divide-x divide-black text-center">
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="bg-[#000000] relative overflow-hidden border-b-4 border-[#000000]">
+      <!-- Background ghost type -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[18vw] text-[#FFFFFF] opacity-[0.03] leading-none whitespace-nowrap">
+          AGENT BUILDERS CLUB
+        </span>
+      </div>
+
+      <div class="container py-20 md:py-32 relative z-10">
+        <div class="grid lg:grid-cols-[auto_1fr] gap-12 items-center">
+
+          <!-- Mascot cell -->
+          <div class="relative reveal-left">
+            <div class="border-4 border-[#FFFFFF] shadow-[8px_8px_0_#00B8FF] relative">
+              <img
+                src="/assets/community/mascot-abc.jpg"
+                alt="Agent Builders Club mascot"
+                class="w-72 h-72 object-cover block"
+                width="288"
+                height="288"
+                loading="eager"
+              />
+            </div>
+            <!-- Rotated sticker — bottom right of photo -->
+            <div class="absolute -bottom-4 -right-4 rotate-[-4deg]">
+              <span class="sticker-label">EST. 2026</span>
+            </div>
+          </div>
+
+          <!-- Heading + tagline -->
+          <div class="reveal-right">
+            <span class="section-label mb-4 block">DFW AI COMMUNITY</span>
+            <h1 class="text-white mb-6" style="font-size:var(--text-h1);">
+              AGENT<br/>BUILDERS<br/>CLUB
+            </h1>
+            <p class="text-[#D2D2D2] text-lg mb-10 max-w-lg leading-relaxed">
+              600+ members across 6 DFW locations learning to build AI-powered workflows. No fluff. Just builders showing each other what works.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-primary">JOIN DISCORD</a>
+              <a href="https://lu.ma/clawplex" target="_blank" rel="noopener noreferrer" class="btn-ghost">NEXT MEETUP</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         STATS ROW
+    ═══════════════════════════════════════════ -->
+    <section class="border-b-4 border-black">
+      <div class="container">
+        <div class="grid grid-cols-3 divide-x-4 divide-black">
+          <!-- Members -->
           <div class="brutal-stat">
             <span class="stat-number">600+</span>
             <span class="stat-label">Members</span>
           </div>
-          <div class="brutal-stat">
-            <span class="stat-number">6</span>
-            <span class="stat-label">Nodes</span>
+          <!-- DFW Nodes -->
+          <div class="brutal-stat" style="background:#000000;">
+            <span class="stat-number" style="color:#00B8FF;">6</span>
+            <span class="stat-label" style="color:#D2D2D2;">DFW Nodes</span>
           </div>
+          <!-- Free -->
           <div class="brutal-stat">
-            <span class="stat-number">Monthly</span>
-            <span class="stat-label">Meetups</span>
+            <span class="stat-number">FREE</span>
+            <span class="stat-label">Always</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── ABOUT ── -->
-    <section class="border-b-4 border-black">
-      <div class="container py-24 md:py-32">
+    <!-- ═══════════════════════════════════════════
+         UPCOMING EVENT
+    ═══════════════════════════════════════════ -->
+    {nextEvent && (
+      <section id="upcoming" class="border-b-4 border-black relative overflow-hidden">
+        <!-- Background ghost type -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+          <span class="font-display text-[18vw] text-[#000000] opacity-[0.04] leading-none">
+            NEXT UP
+          </span>
+        </div>
 
-        <!-- Outer bordered grid: 3 distinct rows -->
-        <div class="border-4 border-black">
+        <div class="container py-20 md:py-28 relative z-10">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
 
-          <!-- Row 1: Mascot | Heading -->
-          <div class="grid md:grid-cols-[auto_1fr] border-b-4 border-black">
-            <!-- Mascot cell -->
-            <div class="border-r-4 border-black p-6 flex items-center">
-              <img
-                src="/assets/community/mascot-abc.jpg"
-                alt="Agent Builders Club mascot"
-                class="h-72 w-auto object-contain"
-              />
+            <!-- Event details -->
+            <div class="reveal-left">
+              <span class="section-label mb-4 block">NEXT MEETUP</span>
+              <h2 class="mb-8" style="font-size:var(--text-h2);">
+                {nextEvent.date.toUpperCase()}
+              </h2>
+
+              <div class="space-y-4 mb-10">
+                <div class="flex items-start gap-3">
+                  <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF] mt-1 w-12 shrink-0">WHEN</span>
+                  <span class="text-[var(--text-body)]">{nextEvent.date} · {nextEvent.time} CT</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF] mt-1 w-12 shrink-0">WHERE</span>
+                  <span class="text-[var(--text-body)]">{nextEvent.venue}</span>
+                </div>
+                {nextEvent.host && (
+                  <div class="flex items-start gap-3">
+                    <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF] mt-1 w-12 shrink-0">HOST</span>
+                    <span class="text-[var(--text-body)]">{nextEvent.host}</span>
+                  </div>
+                )}
+              </div>
+
+              {nextEvent.rsvpUrl ? (
+                <a href={nextEvent.rsvpUrl} target="_blank" rel="noopener noreferrer" class="btn-primary">
+                  RSVP — FREE
+                </a>
+              ) : (
+                <div class="flex flex-wrap gap-3">
+                  <span class="sticker-label-ink">SOLD OUT</span>
+                  <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+                    JOIN DISCORD
+                  </a>
+                </div>
+              )}
             </div>
-            <!-- Heading cell -->
-            <div class="p-6 flex flex-col justify-center">
-              <span class="section-label mb-4 block reveal">DFW AI Community</span>
-              <h1 class="font-display">
-                AGENT<br/>BUILDERS<br/>CLUB
-              </h1>
+
+            <!-- Event card accent -->
+            <div class="reveal-right">
+              <div class="relative">
+                <div class="border-4 border-[#000000] shadow-[8px_8px_0_#00B8FF] p-8 bg-[#FFFFFF]">
+                  <div class="sticker-label-ink mb-4 inline-block">
+                    {nextEvent.date.toUpperCase()}
+                  </div>
+                  <h3 class="font-display mb-3" style="font-size:var(--text-h3);">
+                    AGENT BUILDERS CLUB · DFW
+                  </h3>
+                  <p class="text-[var(--text-body)] text-[#4D4D4D] mb-4">
+                    {nextEvent.time} · {nextEvent.venue}
+                  </p>
+                  <div class="border-t-2 border-[#000000] pt-4">
+                    <p class="text-sm text-[#000000]">
+                      Informal meetup for builders working with AI. Bring what you're working on. Free to attend.
+                    </p>
+                  </div>
+                </div>
+                <!-- Sticker overlay -->
+                <div class="absolute -top-4 -right-4 rotate-[3deg]">
+                  <span class="sticker-label">FREE · 5–7PM</span>
+                </div>
+              </div>
             </div>
+
           </div>
+        </div>
+      </section>
+    )}
 
-          <!-- Row 2: Description -->
-          <div class="border-b-4 border-black p-6">
-            <p class="text-[var(--text-body)] leading-relaxed mb-4">
+    <!-- ═══════════════════════════════════════════
+         ABOUT / MANIFESTO
+    ═══════════════════════════════════════════ -->
+    <section class="border-b-4 border-black relative overflow-hidden bg-[#FFFFFF]">
+      <!-- Background ghost type -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[15vw] text-[#000000] opacity-[0.04] leading-none whitespace-nowrap">
+          NOT A COURSE NOT A MASTERMIND
+        </span>
+      </div>
+
+      <div class="container py-24 md:py-32 relative z-10">
+        <div class="max-w-3xl reveal">
+          <span class="section-label mb-4 block">HOW WE'RE DIFFERENT</span>
+          <h2 class="mb-12" style="font-size:var(--text-h2);">
+            NOT A COURSE.<br/>NOT A MASTERMIND.<br/>NOT A CONTENT PLAY.
+          </h2>
+
+          <div class="space-y-6">
+            <p class="text-[var(--text-body)] text-lg leading-relaxed">
               Agent Builders Club started as a side project in 2026. The idea was simple: a place where people building with AI could show each other the real stuff — workflows, prompts, agent architectures, failures, wins.
             </p>
-            <p class="text-[var(--text-body)] leading-relaxed mb-4">
+            <p class="text-[var(--text-body)] text-lg leading-relaxed">
               Not a course. Not a mastermind. Not a content play. Just people who want to build things with AI, meeting regularly to do exactly that.
             </p>
-            <p class="text-[var(--text-body)] leading-relaxed">
+            <p class="text-[var(--text-body)] text-lg leading-relaxed">
               The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.
             </p>
           </div>
 
-          <!-- Row 3: Buttons -->
-          <div class="p-6">
-            <div class="flex flex-wrap gap-4 reveal">
-              <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-primary">JOIN DISCORD</a>
-              <a href="https://lu.ma/clawplex" target="_blank" rel="noopener noreferrer" class="btn-ghost">SEE ALL EVENTS</a>
-            </div>
+          <!-- Sticker row -->
+          <div class="flex flex-wrap gap-3 mt-10">
+            <span class="sticker-label">DFW ONLY</span>
+            <span class="sticker-label">FREE ALWAYS</span>
+            <span class="sticker-label">NO SALES PITCHES</span>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ── PAST EVENTS GALLERY ── -->
+    <!-- ═══════════════════════════════════════════
+         PAST EVENTS / DFW NODES
+    ═══════════════════════════════════════════ -->
     <section class="border-b-4 border-black">
-      <div class="container py-24 md:py-32">
-        <div class="mb-12">
+      <div class="container py-20 md:py-28">
+
+        <!-- Header -->
+        <div class="mb-16 relative">
           <span class="section-label mb-4 block reveal">DFW Nodes · 2026</span>
-          <h2 class="font-display reveal">
+          <h2 class="reveal" style="font-size:var(--text-h2);">
             PAST<br/>EVENTS
           </h2>
+          <!-- Decorative ghost number -->
+          <span class="font-display text-[12vw] text-[#000000] opacity-[0.06] leading-none absolute -bottom-8 right-0 pointer-events-none select-none">
+            06
+          </span>
         </div>
 
-        <div class="space-y-20">
+        <!-- Events list -->
+        <div class="space-y-16">
 
-          {pastEvents.map((event) => (
-            <div class="reveal">
-              <div class="flex flex-col md:flex-row gap-6 mb-6">
-                {event.photos.map((photo) => (
-                  <div class="card-accent flex-1 overflow-hidden relative">
+          <!-- Node 06 — Hermes -->
+          <div class="reveal">
+            <div class="grid lg:grid-cols-3 gap-4 mb-4">
+              {['node-06-hermes-01.webp', 'node-06-hermes-02.webp', 'node-06-hermes-03.webp'].map((src, i) => (
+                <div class={`relative overflow-hidden ${i === 1 ? 'lg:-mt-6' : ''} ${i === 2 ? 'lg:-mt-12' : ''}`}>
+                  <div class="border-4 border-[#000000] shadow-[6px_6px_0_#00B8FF]">
                     <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      class="w-full h-64 object-cover"
+                      src={`/assets/community/${src}`}
+                      alt={`DFW Node 06 — Hermes at Spark Coworking Arlington`}
+                      class="w-full h-56 object-cover block"
                       loading="lazy"
                     />
-                    <!-- Dark ink label overlay on photo -->
-                    <div class="absolute bottom-0 left-0 right-0 bg-[#000000] px-4 py-3 border-t-3 border-[#000000]">
-                      <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#FFFFFF]">
-                        {event.node}
-                      </span>
-                    </div>
                   </div>
-                ))}
-              </div>
-              <!-- Dark ink description container with white text -->
-              <div class="bg-[#000000] border-3 border-[#000000] p-5">
-                <div class="flex flex-wrap gap-4 items-center mb-2">
-                  <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#00B8FF]">{event.node}</span>
-                  <span class="font-mono text-xs text-[#D2D2D2]">·</span>
-                  <span class="font-mono text-xs text-[#D2D2D2]">{event.date}</span>
-                  <span class="font-mono text-xs text-[#D2D2D2]">·</span>
-                  <span class="font-mono text-xs text-[#D2D2D2]">{event.location}</span>
+                  {i === 0 && (
+                    <div class="absolute -top-3 -left-3 rotate-[-3deg]">
+                      <span class="sticker-label">SPARK COWORKING</span>
+                    </div>
+                  )}
                 </div>
-                <p class="text-sm leading-relaxed text-[#D2D2D2]">
-                  {event.description}
+              ))}
+            </div>
+            <!-- Event metadata -->
+            <div class="bg-[#000000] border-4 border-[#000000] p-5">
+              <div class="flex flex-wrap gap-3 items-center mb-3">
+                <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#00B8FF]">DFW NODE 06</span>
+                <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                <span class="font-mono text-xs text-[#D2D2D2]">JUNE 10, 2026</span>
+                <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                <span class="font-mono text-xs text-[#D2D2D2]">Spark Coworking, Arlington</span>
+              </div>
+              <p class="text-sm leading-relaxed text-[#D2D2D2]">
+                Builders filled Spark Coworking in Arlington for a deep look at Hermes Agent — live demos, debugging, and a real conversation about what it actually means to ship an agent that gets better the more you use it.
+              </p>
+            </div>
+          </div>
+
+          <!-- Node 05 — Claude Tools -->
+          <div class="reveal">
+            <div class="grid lg:grid-cols-[2fr_1fr] gap-4 items-start">
+              <div class="relative">
+                <div class="border-4 border-[#000000] shadow-[6px_6px_0_#00B8FF]">
+                  <img
+                    src="/assets/community/node-05-claude-tools-01.webp"
+                    alt="DFW Node 05 — Claude Tools at Office Evolution Southlake"
+                    class="w-full h-64 object-cover block"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="absolute -top-3 -left-3 rotate-[-2deg]">
+                  <span class="sticker-label-ink">30+ BUILDERS</span>
+                </div>
+              </div>
+              <div class="space-y-4 lg:pt-8">
+                <h3 class="font-display" style="font-size:var(--text-h3);">DFW NODE 05<br/>CLAUDE TOOLS</h3>
+                <p class="text-sm text-[#4D4D4D]">Office Evolution, Southlake · June 3, 2026</p>
+                <p class="text-sm leading-relaxed">
+                  An honest conversation about the AI tools actually on people's desks — Cursor, Claude Code, OpenCode, OpenAI, Hermes, OpenClaw, and more. No slides. No pitches.
                 </p>
               </div>
             </div>
-          ))}
+          </div>
+
+          <!-- Node 04 — Frisco -->
+          <div class="reveal">
+            <div class="grid lg:grid-cols-[1fr_2fr] gap-4 items-start">
+              <div class="space-y-4 lg:text-right lg:pt-8">
+                <h3 class="font-display" style="font-size:var(--text-h3);">DFW NODE 04<br/>FRISCO</h3>
+                <p class="text-sm text-[#4D4D4D]">25N Coworking, Frisco · May 13, 2026</p>
+                <p class="text-sm leading-relaxed">
+                  Heavy token users showing workflows, automations, and practical setups. People putting Claude to work on real projects and sharing what actually helps day-to-day.
+                </p>
+              </div>
+              <div class="relative">
+                <div class="border-4 border-[#000000] shadow-[6px_6px_0_#000000]">
+                  <img
+                    src="/assets/community/node-04-frisco-01.jpeg"
+                    alt="DFW Node 04 — Frisco at 25N Coworking"
+                    class="w-full h-64 object-cover block"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="absolute -bottom-3 -right-3 rotate-[2deg]">
+                  <span class="sticker-label">25N COWORKING</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Node 03 — Fort Worth + ClawCon row -->
+          <div class="reveal">
+            <div class="grid md:grid-cols-2 gap-4">
+              <!-- Node 03 -->
+              <div class="relative">
+                <div class="border-4 border-[#000000] shadow-[6px_6px_0_#00B8FF]">
+                  <img
+                    src="/assets/community/node-03-fort-worth-01.png"
+                    alt="DFW Node 03 — Fort Worth Mac Mini OpenClaw Workshop"
+                    class="w-full h-64 object-cover block"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="absolute -top-3 -right-3 rotate-[3deg]">
+                  <span class="sticker-label">MAC MINI WORKSHOP</span>
+                </div>
+                <div class="bg-[#000000] border-4 border-[#000000] border-t-0 p-4">
+                  <div class="flex flex-wrap gap-2 items-center mb-2">
+                    <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#00B8FF]">DFW NODE 03</span>
+                    <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                    <span class="font-mono text-xs text-[#D2D2D2]">MAY 6, 2026</span>
+                  </div>
+                  <p class="text-xs leading-relaxed text-[#D2D2D2]">
+                    Hands-on Mac Mini + OpenClaw install workshop. Live demo of the Mac Mini OpenClaw setup. Great networking and builders of all levels.
+                  </p>
+                </div>
+              </div>
+
+              <!-- ClawCon -->
+              <div class="relative">
+                <div class="border-4 border-[#000000] shadow-[6px_6px_0_#000000]">
+                  <img
+                    src="/assets/community/clawcon-01.webp"
+                    alt="ClawCon DFW — inaugural AI builders conference"
+                    class="w-full h-64 object-cover block"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="absolute -top-4 -right-4 rotate-[3deg]">
+                  <span class="sticker-label-ink">INAUGURAL</span>
+                </div>
+                <div class="bg-[#000000] border-4 border-[#000000] border-t-0 p-4">
+                  <div class="flex flex-wrap gap-2 items-center mb-2">
+                    <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#00B8FF]">CLAWCON DFW</span>
+                    <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                    <span class="font-mono text-xs text-[#D2D2D2]">2026</span>
+                  </div>
+                  <p class="text-xs leading-relaxed text-[#D2D2D2]">
+                    DFW's first AI builders conference. A full day of live demos, agent builds, and honest conversations about what's actually working in AI right now.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-16 p-8 bg-[#000000] border-4 border-[#000000] shadow-[8px_8px_0_#00B8FF] reveal">
+          <div class="flex flex-col md:flex-row gap-8 items-center justify-between">
+            <div>
+              <h3 class="text-white font-display mb-2" style="font-size:var(--text-h3);">
+                WANT TO SHOW UP AND BUILD?
+              </h3>
+              <p class="text-[#D2D2D2] text-sm">
+                Every node is free. Every meetup is hands-on. Just show up.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-3 shrink-0">
+              <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                JOIN DISCORD
+              </a>
+              <a href="https://lu.ma/clawplex" target="_blank" rel="noopener noreferrer" class="btn-ghost">
+                SEE ALL EVENTS
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 

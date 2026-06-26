@@ -62,6 +62,9 @@ test('mobile menu toggle works', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto(BASE);
 
+  // Wait for React (client:load) to fully hydrate before interacting
+  await page.waitForLoadState('networkidle');
+
   // React-based shadcn Sheet — click the hamburger-style button
   const toggle = page.locator('button[aria-label="Open menu"]').first();
   await expect(toggle).toBeVisible();
@@ -70,7 +73,7 @@ test('mobile menu toggle works', async ({ page }) => {
 
   // Wait for Sheet to render and find nav links inside it
   const sheetNav = page.locator('[data-slot="sheet-content"] a');
-  await expect(sheetNav.first()).toBeVisible({ timeout: 5000 });
+  await expect(sheetNav.first()).toBeVisible({ timeout: 8000 });
 
   // Verify a link inside the sheet is correct
   await expect(sheetNav.filter({ hasText: 'Builds' }).first()).toBeVisible();
