@@ -179,6 +179,16 @@
     box-shadow: 3px 3px 0 #FFFFFF;
   }
 
+  /* ── Pillar card stagger — lg+ only, stacked on mobile ── */
+  .pillar-stagger {
+    margin-top: 0;
+  }
+  @media (min-width: 1024px) {
+    .pillar-stagger {
+      margin-top: 1.5rem;
+    }
+  }
+
   /* ── Cards ── */
   .card {
     background: #FFFFFF;
