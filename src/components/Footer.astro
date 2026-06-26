@@ -9,27 +9,32 @@ const links = [
 ---
 
 <footer class="mt-auto border-t-[3px] border-black bg-white">
-  <div class="container py-8">
-    <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
-      <div class="neo-panel">
-        <p class="font-body text-sm font-bold uppercase tracking-widest">
-          &copy; {year} @tylerdotai // signal vault
+  <div class="container py-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <!-- Copyright -->
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-black">
+          &copy; {year} <span class="text-blue font-bold">@tylerdotai</span> // signal vault
+        </p>
+        <p class="font-mono text-[10px] uppercase tracking-[0.15em] text-black/50 mt-1">
+          tylerdotai.com
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-3">
+      <!-- Social links -->
+      <nav class="flex flex-wrap items-center gap-2" aria-label="Social links">
         {links.map((link) => (
           <a
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="btn-ghost text-xs"
+            class="font-mono text-[11px] uppercase tracking-[0.15em] text-black border-b-2 border-blue hover:text-blue transition-colors pb-0.5"
             aria-label={link.label}
           >
             {link.label}
           </a>
         ))}
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
