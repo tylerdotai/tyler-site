@@ -21,7 +21,7 @@ const sizeClass = {
 
 <button
   type="button"
-  class:list={[`vault-card ${sizeClass} w-full bg-white border-3 border-black shadow-[4px_4px_0_#000000] overflow-hidden cursor-pointer text-left`, className]}
+  class:list={[`vault-card vault-card-animated ${sizeClass} w-full bg-white border-3 border-black shadow-[4px_4px_0_#000000] overflow-hidden cursor-pointer text-left`, className]}
   data-lightbox-src={image}
   data-lightbox-title={title}
   data-lightbox-meta={`${label} // ${meta}`}
@@ -45,8 +45,34 @@ const sizeClass = {
 </button>
 
 <style>
+  /* Cards visible by default — no IntersectionObserver dependency */
   .vault-card {
+    opacity: 1;
     transition: box-shadow 0.1s, transform 0.1s;
+  }
+
+  .vault-card-animated {
+    animation: vaultFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .vault-card-animated:nth-child(2) { animation-delay: 0.05s; }
+  .vault-card-animated:nth-child(3) { animation-delay: 0.10s; }
+  .vault-card-animated:nth-child(4) { animation-delay: 0.15s; }
+  .vault-card-animated:nth-child(5) { animation-delay: 0.20s; }
+  .vault-card-animated:nth-child(6) { animation-delay: 0.25s; }
+  .vault-card-animated:nth-child(7) { animation-delay: 0.30s; }
+  .vault-card-animated:nth-child(8) { animation-delay: 0.35s; }
+  .vault-card-animated:nth-child(9) { animation-delay: 0.40s; }
+
+  @keyframes vaultFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .vault-card:hover {
