@@ -2,7 +2,7 @@
 
 @theme {
   /* Neo-Brutalist Color Palette */
-  --color-yellow: #FFE600;
+  --color-yellow: #FFF176;
   --color-blue: #0055FF;
   --color-white: #FFFFFF;
   --color-black: #000000;
@@ -20,7 +20,7 @@
 
   /* Accent colors */
   --color-accent: #0055FF;
-  --color-accent-hover: #FFE600;
+  --color-accent-hover: #FFF176;
 
   /* Neo-Brutalist Typography */
   --font-display: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
