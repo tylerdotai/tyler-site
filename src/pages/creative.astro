@@ -136,15 +136,20 @@ const socialLinks = [
         <!-- Content -->
         <div class="relative container flex min-h-[90vh] items-end pb-16 pt-32">
           <div class="max-w-5xl">
-            <span class="section-label mb-5 inline-block reveal">@TYLERDOTAI // SIGNAL VAULT</span>
-            <h1 class="font-display mb-6 reveal font-bebas text-[var(--text-h1)] font-normal uppercase leading-[0.9] text-white">
-              SIGNAL<br/>VAULT
-            </h1>
-            <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end reveal">
-            <p class="max-w-2xl text-lg leading-relaxed text-[#D2D2D2]">
-              Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
-            </p>
-            <div class="bg-black border-3 border-[#4D4D4D] p-4 px-5 box-content shadow-[4px_4px_0_#00B8FF] ml-auto min-w-[180px]">
+            <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-end reveal">
+            <div>
+              <span class="section-label mb-5 inline-block reveal">@TYLERDOTAI // SIGNAL VAULT</span>
+              <div class="flex items-end gap-6 mb-6">
+                <h1 class="font-display mb-0 reveal font-bebas text-[var(--text-h1)] font-normal uppercase leading-[0.9] text-white">
+                  SIGNAL<br/>VAULT
+                </h1>
+                <span class="font-mono text-xs text-[#4D4D4D] uppercase tracking-widest mb-3 hidden md:block">02</span>
+              </div>
+              <p class="max-w-2xl text-lg leading-relaxed text-[#D2D2D2] reveal">
+                Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
+              </p>
+            </div>
+            <div class="bg-black border-3 border-[#4D4D4D] p-4 px-5 box-content shadow-[4px_4px_0_#00B8FF] min-w-[180px]">
               <p class="font-mono text-xs leading-relaxed text-[#D2D2D2] font-space-mono">
                 <span class="text-[#00B8FF]">MODE</span> // NEO-BRUTALIST<br/>
                 <span class="text-[#00B8FF]">DEVICE</span> // SONY ZV-E10
@@ -172,10 +177,10 @@ const socialLinks = [
           </p>
         </div>
 
-        <!-- Grid -->
-        <div class="grid gap-6 md:grid-cols-3 lg:grid-rows-[340px]">
+        <!-- Grid — auto-size rows so images never collapse -->
+        <div class="grid gap-6 md:grid-cols-3 md:auto-rows-[280px]">
           {vaultItems.map((item, index) => (
-            <VaultCard {...item} index={index + 1} />
+            <VaultCard {...item} index={index + 1} class="reveal" />
           ))}
         </div>
       </div>

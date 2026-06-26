@@ -7,9 +7,10 @@ interface Props {
   meta: string;
   index: number;
   size?: string;
+  class?: string;
 }
 
-const { label, title, image, alt, meta, index: _index, size = 'square' } = Astro.props;
+const { label, title, image, alt, meta, index: _index, size = 'square', class: className } = Astro.props;
 const normalizedSize = ['wide', 'tall', 'square'].includes(size) ? size : 'square';
 const sizeClass = {
   wide: 'md:col-span-2',
@@ -20,7 +21,7 @@ const sizeClass = {
 
 <button
   type="button"
-  class={`vault-card ${sizeClass} w-full bg-white border-3 border-black shadow-[4px_4px_0_#000000] overflow-hidden cursor-pointer text-left`}
+  class:list={[`vault-card ${sizeClass} w-full bg-white border-3 border-black shadow-[4px_4px_0_#000000] overflow-hidden cursor-pointer text-left`, className]}
   data-lightbox-src={image}
   data-lightbox-title={title}
   data-lightbox-meta={`${label} // ${meta}`}
