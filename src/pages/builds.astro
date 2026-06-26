@@ -57,7 +57,7 @@ const projects = [
           {projects.map((project, i) => (
             <article
               class="card reveal"
-              style={i % 2 === 0 ? 'border-right: 3px solid #212121;' : 'border-left: 3px solid #212121;'}
+              style={i % 2 === 0 ? 'border-right: 3px solid #000000;' : 'border-left: 3px solid #000000;'}
             >
               <div class="p-8 md:p-10">
                 <!-- Title -->
@@ -104,8 +104,8 @@ const projects = [
 <style>
   /* Page header */
   .page-header {
-    background: #E6E6E6;
-    border-bottom: 4px solid #212121;
+    background: #D2D2D2;
+    border-bottom: 4px solid #000000;
   }
 
   .page-title {
@@ -115,7 +115,7 @@ const projects = [
     text-transform: uppercase;
     line-height: 0.85;
     letter-spacing: -0.02em;
-    color: #212121;
+    color: #000000;
     margin-bottom: 1.5rem;
   }
 
@@ -123,7 +123,7 @@ const projects = [
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.0625rem;
     line-height: 1.65;
-    color: #212121;
+    color: #000000;
   }
 
   .section-label {
@@ -131,26 +131,26 @@ const projects = [
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #FF3D00;
+    color: #007AFF;
   }
 
   /* Projects section */
   .projects-section {
-    background: #E6E6E6;
+    background: #D2D2D2;
   }
 
   /* Card */
   .card {
     background: #FFFFFF;
-    border-top: 3px solid #212121;
-    border-bottom: 3px solid #212121;
-    box-shadow: 4px 4px 0 #212121;
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+    box-shadow: 4px 4px 0 #000000;
     transition: transform 0.1s, box-shadow 0.1s;
   }
 
   .card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #212121;
+    box-shadow: 6px 6px 0 #000000;
   }
 
   .card-title {
@@ -160,14 +160,14 @@ const projects = [
     text-transform: uppercase;
     line-height: 0.95;
     letter-spacing: -0.02em;
-    color: #212121;
+    color: #000000;
   }
 
   .card-description {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.0625rem;
     line-height: 1.65;
-    color: #212121;
+    color: #000000;
   }
 
   /* Tag */
@@ -178,8 +178,8 @@ const projects = [
     letter-spacing: 0.1em;
     padding: 0.25rem 0.6rem;
     background: transparent;
-    color: #FF3D00;
-    border: 2px solid #FF3D00;
+    color: #007AFF;
+    border: 2px solid #007AFF;
     font-weight: 400;
   }
 
@@ -194,22 +194,22 @@ const projects = [
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: #FFFFFF;
-    background: #FF3D00;
-    border: 3px solid #212121;
+    background: #007AFF;
+    border: 3px solid #000000;
     padding: 0.75rem 1.25rem;
-    box-shadow: 4px 4px 0 #212121;
+    box-shadow: 4px 4px 0 #000000;
     text-decoration: none;
     transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
   }
 
   .btn-primary:hover {
-    background: #212121;
+    background: #000000;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #212121;
+    box-shadow: 6px 6px 0 #000000;
   }
 
   .btn-primary:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #212121;
+    box-shadow: 2px 2px 0 #000000;
   }
 </style>

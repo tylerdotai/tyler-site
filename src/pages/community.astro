@@ -71,14 +71,14 @@ const pastEvents = [
   <main>
 
     <!-- ── STATS ROW ── -->
-    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
+    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
       <div class="container py-16 md:py-24">
         <div class="grid grid-cols-3 gap-0 text-center">
-          <div class="brutal-stat" style="border-right: 4px solid #212121;">
+          <div class="brutal-stat" style="border-right: 4px solid #000000;">
             <span class="stat-number">600+</span>
             <span class="stat-label">Members</span>
           </div>
-          <div class="brutal-stat" style="border-right: 4px solid #212121;">
+          <div class="brutal-stat" style="border-right: 4px solid #000000;">
             <span class="stat-number">6</span>
             <span class="stat-label">Nodes</span>
           </div>
@@ -91,13 +91,13 @@ const pastEvents = [
     </section>
 
     <!-- ── ABOUT ── -->
-    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
+    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
       <div class="container py-24 md:py-32">
         <div class="grid lg:grid-cols-2 gap-16">
           <!-- Left: heading -->
           <div>
             <span class="section-label mb-6 block reveal">DFW AI Community</span>
-            <h1 class="font-display mb-8" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#212121; font-size:var(--text-h1);">
+            <h1 class="font-display mb-8" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#000000; font-size:var(--text-h1);">
               AGENT<br/>BUILDERS<br/>CLUB
             </h1>
           </div>
@@ -123,23 +123,23 @@ const pastEvents = [
     </section>
 
     <!-- ── NEXT EVENT ── -->
-    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
+    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
       <div class="container py-16 md:py-24">
         <span class="section-label mb-8 block reveal">Next Event</span>
         <div class="reveal">
           <div class="card-signal" style="padding: 2.5rem;">
             <div class="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 class="text-4xl md:text-5xl mb-4" style="color:#212121; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.95;">
+                <h2 class="text-4xl md:text-5xl mb-4" style="color:#000000; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.95;">
                   {nextEvent.title}
                 </h2>
                 <div class="space-y-1">
-                  <p class="font-mono text-sm" style="color:#212121; font-family:'Space Mono',monospace;">{nextEvent.date}</p>
-                  <p class="font-mono text-sm" style="color:#212121; font-family:'Space Mono',monospace;">{nextEvent.location}</p>
+                  <p class="font-mono text-sm" style="color:#000000; font-family:'Space Mono',monospace;">{nextEvent.date}</p>
+                  <p class="font-mono text-sm" style="color:#000000; font-family:'Space Mono',monospace;">{nextEvent.location}</p>
                 </div>
               </div>
               <div>
-                <p class="text-base mb-6" style="color:#212121;">{nextEvent.description}</p>
+                <p class="text-base mb-6" style="color:#000000;">{nextEvent.description}</p>
                 <a
                   href={nextEvent.url}
                   target="_blank"
@@ -156,11 +156,11 @@ const pastEvents = [
     </section>
 
     <!-- ── PAST EVENTS GALLERY ── -->
-    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
+    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
       <div class="container py-24 md:py-32">
         <div class="mb-12">
           <span class="section-label mb-4 block reveal">DFW Nodes · 2026</span>
-          <h2 class="font-display reveal" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#212121; font-size:var(--text-h2);">
+          <h2 class="font-display reveal" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#000000; font-size:var(--text-h2);">
             PAST<br/>EVENTS
           </h2>
         </div>
@@ -171,7 +171,7 @@ const pastEvents = [
             <div class="reveal">
               <div class="flex flex-col md:flex-row gap-6 mb-6">
                 {event.photos.map((photo) => (
-                  <div class="card" style="flex:1; box-shadow: 4px 4px 0 #FF3D00; position:relative; overflow:hidden;">
+                  <div class="card" style="flex:1; box-shadow: 4px 4px 0 #007AFF; position:relative; overflow:hidden;">
                     <img
                       src={photo.src}
                       alt={photo.alt}
@@ -179,7 +179,7 @@ const pastEvents = [
                       loading="lazy"
                     />
                     <!-- Dark ink label overlay on photo -->
-                    <div style="position:absolute; bottom:0; left:0; right:0; background:#212121; padding:0.75rem 1rem; border-top:3px solid #212121;">
+                    <div style="position:absolute; bottom:0; left:0; right:0; background:#000000; padding:0.75rem 1rem; border-top:3px solid #000000;">
                       <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#FFFFFF; font-family:'Space Mono',monospace;">
                         {event.node}
                       </span>
@@ -188,15 +188,15 @@ const pastEvents = [
                 ))}
               </div>
               <!-- Dark ink description container with white text -->
-              <div style="background:#212121; border:3px solid #212121; padding:1.25rem;">
+              <div style="background:#000000; border:3px solid #000000; padding:1.25rem;">
                 <div class="flex flex-wrap gap-4 items-center mb-2">
-                  <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#FF3D00; font-family:'Space Mono',monospace;">{event.node}</span>
-                  <span class="font-mono text-xs" style="color:#E6E6E6;">·</span>
-                  <span class="font-mono text-xs" style="color:#E6E6E6; font-family:'Space Mono',monospace;">{event.date}</span>
-                  <span class="font-mono text-xs" style="color:#E6E6E6;">·</span>
-                  <span class="font-mono text-xs" style="color:#E6E6E6; font-family:'Space Mono',monospace;">{event.location}</span>
+                  <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#007AFF; font-family:'Space Mono',monospace;">{event.node}</span>
+                  <span class="font-mono text-xs" style="color:#D2D2D2;">·</span>
+                  <span class="font-mono text-xs" style="color:#D2D2D2; font-family:'Space Mono',monospace;">{event.date}</span>
+                  <span class="font-mono text-xs" style="color:#D2D2D2;">·</span>
+                  <span class="font-mono text-xs" style="color:#D2D2D2; font-family:'Space Mono',monospace;">{event.location}</span>
                 </div>
-                <p class="text-sm leading-relaxed" style="color:#E6E6E6;">
+                <p class="text-sm leading-relaxed" style="color:#D2D2D2;">
                   {event.description}
                 </p>
               </div>

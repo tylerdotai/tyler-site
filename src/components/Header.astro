@@ -95,14 +95,14 @@ const pathname = Astro.url.pathname;
     left: 0;
     right: 0;
     z-index: 100;
-    background: #212121;
+    background: #000000;
     transition: border-color 200ms ease;
-    border-bottom: 3px solid #212121;
+    border-bottom: 3px solid #000000;
     border-radius: 0;
   }
 
   #site-header.scrolled {
-    border-bottom-color: #212121;
+    border-bottom-color: #000000;
   }
 
   .header-inner {
@@ -162,7 +162,7 @@ const pathname = Astro.url.pathname;
     left: 0;
     width: 0;
     height: 2px;
-    background: #FF3D00;
+    background: #007AFF;
     transition: width 120ms ease;
   }
 
@@ -175,12 +175,12 @@ const pathname = Astro.url.pathname;
   }
 
   .nav-link.active {
-    color: #FF3D00;
+    color: #007AFF;
   }
 
   .nav-link.active::after {
     width: 100%;
-    background: #FF3D00;
+    background: #007AFF;
   }
 
   .nav-link--social {
@@ -188,7 +188,7 @@ const pathname = Astro.url.pathname;
   }
 
   .nav-link--social:hover {
-    color: #FF3D00;
+    color: #007AFF;
   }
 
   /* Hamburger */
@@ -239,7 +239,7 @@ const pathname = Astro.url.pathname;
     display: none;
     position: fixed;
     inset: 0;
-    background: #212121;
+    background: #000000;
     z-index: 150;
     flex-direction: column;
     justify-content: center;
@@ -269,6 +269,6 @@ const pathname = Astro.url.pathname;
   }
 
   .mobile-nav-link:hover {
-    color: #FF3D00;
+    color: #007AFF;
   }
 </style>

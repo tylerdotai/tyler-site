@@ -1,7 +1,7 @@
 /* ============================================================
-   TYLER DELANO — BOLD NEO-BRUTALISM COLOR CLASH
-   Palette: #E6E6E6 / #FF3D00 / #00B0FF / #212121
-   4 COLORS ONLY. No variants. No dim variants.
+   TYLER DELANO — VIBRANT MINIMALIST NEO-BRUTALISM
+   Palette: #D2D2D2 / #000000 / #007AFF / #FFFFFF / #4D4D4D
+   5 COLORS ONLY. No variants.
    Fonts: Bebas Neue (display) + Space Grotesk (body) + Space Mono (mono)
    ============================================================ */
 
@@ -11,11 +11,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
 
 @theme {
-  /* ── THE 4 COLORS ONLY ── */
-  --color-ground:    #E6E6E6;
-  --color-signal:    #FF3D00;
-  --color-electric:  #00B0FF;
-  --color-ink:       #212121;
+  /* ── THE 5 COLORS ONLY ── */
+  --color-ground:    #D2D2D2;
+  --color-ink:       #000000;
+  --color-accent:    #007AFF;
+  --color-surface:   #FFFFFF;
+  --color-muted:     #4D4D4D;
 
   /* ── Typography ── */
   --font-display: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
@@ -46,43 +47,40 @@
   }
 
   body {
-    background: #E6E6E6;
-    color: #212121;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    overflow-x: hidden;
+    background: #D2D2D2;
+    color: #000000;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
-    font-weight: 400;
-    color: #212121;
-    line-height: 0.92;
+    color: #000000;
     letter-spacing: -0.01em;
     text-transform: uppercase;
+    font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
+    font-weight: 400;
+    line-height: 0.92;
   }
 
   h1 { font-size: var(--text-h1); }
   h2 { font-size: var(--text-h2); }
   h3 { font-size: var(--text-h3); }
 
-  p { line-height: 1.7; }
-
-  a { color: #00B0FF; }
+  p  { line-height: 1.7; }
+  a  { color: #007AFF; }
 
   ::selection {
-    background-color: #FF3D00;
-    color: #E6E6E6;
+    color: #FFFFFF;
+    background-color: #007AFF;
   }
 
   :focus-visible {
-    outline: 3px solid #FF3D00;
     outline-offset: 3px;
+    outline: 3px solid #007AFF;
   }
 
   img, video { max-width: 100%; display: block; }
 }
 
-/* ── Layout ── */
+/* ── Components ── */
 @layer components {
   .container {
     max-width: var(--max-width-container);
@@ -90,155 +88,155 @@
     padding-inline: 1.5rem;
   }
 
-  /* ── Buttons ── */
+  /* Buttons */
   .btn-primary {
-    display: inline-flex;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    background: #007AFF;
+    border: 3px solid #000000;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
-    background: #FF3D00;
-    color: #E6E6E6;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: 3px solid #212121;
-    box-shadow: 4px 4px 0 #212121;
-    transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease;
-    cursor: pointer;
     text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+    display: inline-flex;
+    box-shadow: 4px 4px 0 #000000;
   }
 
   .btn-primary:hover {
-    background: #212121;
-    color: #E6E6E6;
+    color: #FFFFFF;
+    background: #000000;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #212121;
+    box-shadow: 6px 6px 0 #007AFF;
   }
 
   .btn-primary:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #212121;
+    box-shadow: 2px 2px 0 #000000;
   }
 
   .btn-ghost {
-    display: inline-flex;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    background: transparent;
+    border: 3px solid #000000;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
-    background: transparent;
-    color: #212121;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: 3px solid #212121;
-    box-shadow: 4px 4px 0 #212121;
-    transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease, color 100ms ease;
-    cursor: pointer;
     text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.1s, color 0.1s;
+    display: inline-flex;
+    box-shadow: 4px 4px 0 #000000;
   }
 
   .btn-ghost:hover {
-    background: #212121;
-    color: #E6E6E6;
+    color: #FFFFFF;
+    background: #000000;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #212121;
+    box-shadow: 6px 6px 0 #007AFF;
   }
 
   .btn-ghost:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #212121;
+    box-shadow: 2px 2px 0 #000000;
   }
 
-  /* ── Cards ── */
+  /* Cards */
   .card {
     background: #FFFFFF;
-    border: 3px solid #212121;
-    box-shadow: 4px 4px 0 #212121;
-    transition: transform 100ms ease, box-shadow 100ms ease;
+    border: 3px solid #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 4px 4px 0 #000000;
   }
 
   .card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #212121;
+    box-shadow: 7px 7px 0 #000000;
   }
 
-  .card-signal {
+  .card-accent {
     background: #FFFFFF;
-    border: 3px solid #212121;
-    box-shadow: 4px 4px 0 #FF3D00;
-    transition: transform 100ms ease, box-shadow 100ms ease;
+    border: 3px solid #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 4px 4px 0 #007AFF;
   }
 
-  .card-signal:hover {
+  .card-accent:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #FF3D00;
+    box-shadow: 7px 7px 0 #007AFF;
   }
 
-  /* ── Section label ── */
+  /* Section label */
   .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: #FF3D00;
+    color: #007AFF;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
     display: inline-block;
   }
 
-  /* ── Stats ── */
+  /* Stats */
   .stat-number {
+    color: #007AFF;
+    letter-spacing: -0.01em;
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
-    color: #FF3D00;
     line-height: 1;
     display: block;
-    letter-spacing: -0.01em;
   }
 
   .stat-label {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #212121;
+    color: #4D4D4D;
     margin-top: 0.35rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
     display: block;
   }
 
   .brutal-stat {
-    display: flex;
+    background: #FFFFFF;
     flex-direction: column;
     align-items: center;
     padding: 1.5rem;
-    background: #FFFFFF;
+    display: flex;
   }
 
-  /* ── Nav ── */
+  /* Nav */
   .nav-link {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #FFFFFF;
+    padding-bottom: 2px;
     font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #E6E6E6;
     text-decoration: none;
     position: relative;
-    padding-bottom: 2px;
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
+    background: #007AFF;
+    width: 0;
+    height: 3px;
+    transition: width 0.1s;
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 0;
-    height: 3px;
-    background: #FF3D00;
-    transition: width 100ms ease;
   }
 
   .nav-link:hover::after,
@@ -246,69 +244,64 @@
     width: 100%;
   }
 
-  .nav-link:hover {
-    color: #E6E6E6;
-  }
+  .nav-link:hover { color: #FFFFFF; }
+  .nav-link.active { color: #007AFF; }
 
-  .nav-link.active {
-    color: #FF3D00;
-  }
-
-  /* ── Vault card ── */
+  /* Vault card */
   .vault-card {
     background: #FFFFFF;
-    border: 3px solid #212121;
-    box-shadow: 4px 4px 0 #212121;
+    border: 3px solid #000000;
+    transition: transform 0.1s, box-shadow 0.1s;
     overflow: hidden;
-    transition: transform 100ms ease, box-shadow 100ms ease;
+    box-shadow: 4px 4px 0 #000000;
   }
 
   .vault-card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #FF3D00;
+    box-shadow: 7px 7px 0 #007AFF;
   }
 
-  /* ── Tag / badge ── */
+  /* Tags */
   .tag {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
+    color: #000000;
+    background: #D2D2D2;
+    border: 2px solid #000000;
     padding: 0.2rem 0.5rem;
-    border: 2px solid #212121;
-    background: #E6E6E6;
-    color: #212121;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
   }
 
-  .tag-signal {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
+  .tag-accent {
     text-transform: uppercase;
     letter-spacing: 0.12em;
+    color: #FFFFFF;
+    background: #007AFF;
+    border: 2px solid #000000;
     padding: 0.2rem 0.5rem;
-    border: 2px solid #212121;
-    background: #FF3D00;
-    color: #E6E6E6;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
   }
 
-  .tag-electric {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
+  .tag-muted {
     text-transform: uppercase;
     letter-spacing: 0.12em;
+    color: #FFFFFF;
+    background: #4D4D4D;
+    border: 2px solid #000000;
     padding: 0.2rem 0.5rem;
-    border: 2px solid #212121;
-    background: #00B0FF;
-    color: #E6E6E6;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
   }
 }
 
-/* ── Scroll reveal animation ── */
+/* ── Reveal animation ── */
 @layer utilities {
   .reveal {
     opacity: 0;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     transform: translateY(20px);
-    transition: opacity 400ms ease-out, transform 400ms ease-out;
   }
 
   .reveal.visible {

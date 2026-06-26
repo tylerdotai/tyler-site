@@ -118,7 +118,7 @@ const socialLinks = [
 
   <main>
     <!-- ── HERO: full-bleed video ── -->
-    <section style="background:#212121; border-bottom: 4px solid #212121;">
+    <section style="background:#000000; border-bottom: 4px solid #000000;">
       <div class="relative min-h-[90vh] overflow-hidden">
         <!-- Video: 60% opacity — visible but readable -->
         <video
@@ -133,7 +133,7 @@ const socialLinks = [
           <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
         </video>
         <!-- Dark overlay for text readability -->
-        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(33,33,33,0.85) 0%, rgba(33,33,33,0.3) 60%, rgba(33,33,33,0.5) 100%);"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.5) 100%);"></div>
         <!-- Content -->
         <div class="relative container flex min-h-[90vh] items-end pb-16 pt-32">
           <div class="max-w-5xl">
@@ -142,11 +142,11 @@ const socialLinks = [
               SIGNAL<br/>VAULT
             </h1>
             <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end reveal">
-              <p class="max-w-2xl text-lg leading-relaxed" style="color:#E6E6E6;">
+              <p class="max-w-2xl text-lg leading-relaxed" style="color:#D2D2D2;">
                 Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
               </p>
-              <div style="background:#212121; border: 3px solid #212121; padding:0.75rem 1rem; box-shadow: 4px 4px 0 #FF3D00;">
-                <p class="font-mono text-xs uppercase tracking-widest" style="color:#E6E6E6; font-family:'Space Mono',monospace;">
+              <div style="background:#000000; border: 3px solid #000000; padding:0.75rem 1rem; box-shadow: 4px 4px 0 #007AFF;">
+                <p class="font-mono text-xs uppercase tracking-widest" style="color:#D2D2D2; font-family:'Space Mono',monospace;">
                   MODE: NEO-BRUTALIST // MEDIA: 9 PHOTOS / 2 VIDEOS // DEVICE: SONY ZV-E10
                 </p>
               </div>
@@ -157,7 +157,7 @@ const socialLinks = [
     </section>
 
     <!-- ── PHOTO VAULT ── -->
-    <section style="background:#212121; border-bottom: 4px solid #212121;">
+    <section style="background:#000000; border-bottom: 4px solid #000000;">
       <div class="container py-24 md:py-32">
         <!-- Section heading -->
         <div class="grid gap-6 mb-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-end reveal">
@@ -167,7 +167,7 @@ const socialLinks = [
               PHOTO<br/>DATASET
             </h2>
           </div>
-          <p class="max-w-3xl leading-relaxed" style="color:#E6E6E6;">
+          <p class="max-w-3xl leading-relaxed" style="color:#D2D2D2;">
             Every unique standalone photo in the archive shown once. No duplicates rendered publicly. Video posters live in The Reel — separate from the still dataset.
           </p>
         </div>
@@ -182,7 +182,7 @@ const socialLinks = [
     </section>
 
     <!-- ── REEL ── -->
-    <section style="background:#212121; border-bottom: 4px solid #212121;">
+    <section style="background:#000000; border-bottom: 4px solid #000000;">
       <div class="container py-24 md:py-32">
         <div class="mb-10 reveal">
           <span class="section-label mb-4 inline-block">The Reel</span>
@@ -192,13 +192,13 @@ const socialLinks = [
         </div>
         <div class="grid md:grid-cols-2 gap-6">
           {reelItems.map((item) => (
-            <div class="reveal" style="border: 3px solid #212121; box-shadow: 4px 4px 0 #FF3D00; overflow:hidden;">
+            <div class="reveal" style="border: 3px solid #000000; box-shadow: 4px 4px 0 #007AFF; overflow:hidden;">
               <!-- Label -->
-              <div style="background:#212121; border-bottom: 3px solid #212121; padding: 0.75rem 1rem;">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#00B0FF; font-family:'Space Mono',monospace;">{item.label}</span>
+              <div style="background:#000000; border-bottom: 3px solid #000000; padding: 0.75rem 1rem;">
+                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#007AFF; font-family:'Space Mono',monospace;">{item.label}</span>
               </div>
               <!-- Video -->
-              <div class="relative" style="background:#000;">
+              <div class="relative" style="background:#000000;">
                 <video
                   class="w-full aspect-video object-cover"
                   poster={item.poster}
@@ -207,21 +207,21 @@ const socialLinks = [
                 >
                   <source src={item.src} type="video/mp4" />
                 </video>
-                <div style="background:#212121; border-top: 3px solid #212121; padding:0.5rem 1rem;" class="flex items-center justify-between">
-                  <span class="font-mono text-xs" style="color:#00B0FF; font-family:'Space Mono',monospace;">{item.duration}</span>
-                  <span class="font-mono text-xs" style="color:#00B0FF; font-family:'Space Mono',monospace;">{item.stillLabel}</span>
+                <div style="background:#000000; border-top: 3px solid #000000; padding:0.5rem 1rem;" class="flex items-center justify-between">
+                  <span class="font-mono text-xs" style="color:#007AFF; font-family:'Space Mono',monospace;">{item.duration}</span>
+                  <span class="font-mono text-xs" style="color:#007AFF; font-family:'Space Mono',monospace;">{item.stillLabel}</span>
                 </div>
               </div>
               <!-- Info -->
-              <div style="background:#E6E6E6; border-top: 3px solid #212121; padding:1.25rem;">
-                <h3 class="text-lg mb-2" style="color:#212121; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;">{item.title}</h3>
-                <p class="text-xs leading-relaxed mb-4" style="color:#212121;">{item.note}</p>
+              <div style="background:#D2D2D2; border-top: 3px solid #000000; padding:1.25rem;">
+                <h3 class="text-lg mb-2" style="color:#000000; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;">{item.title}</h3>
+                <p class="text-xs leading-relaxed mb-4" style="color:#000000;">{item.note}</p>
                 <a
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="font-mono text-xs uppercase tracking-widest font-bold"
-                  style="color:#FF3D00;"
+                  style="color:#007AFF;"
                 >
                   VIEW ON X →
                 </a>
@@ -233,7 +233,7 @@ const socialLinks = [
     </section>
 
     <!-- ── CREATIVE DIAGNOSTICS ── -->
-    <section style="background:#212121; border-bottom: 4px solid #212121;">
+    <section style="background:#000000; border-bottom: 4px solid #000000;">
       <div class="container py-24 md:py-32">
         <div class="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] reveal">
           <div>
@@ -242,26 +242,26 @@ const socialLinks = [
               CREATIVE<br/>DIAGNOSTICS
             </h2>
           </div>
-          <div style="background:#212121; border: 3px solid #212121; box-shadow: 4px 4px 0 #FF3D00; overflow:hidden;">
-            <div style="background:#E6E6E6; border-bottom: 3px solid #212121; padding: 0.75rem 1rem;">
-              <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#212121; font-family:'Space Mono',monospace;">/usr/tyler/creative_profile</span>
+          <div style="background:#000000; border: 3px solid #000000; box-shadow: 4px 4px 0 #007AFF; overflow:hidden;">
+            <div style="background:#D2D2D2; border-bottom: 3px solid #000000; padding: 0.75rem 1rem;">
+              <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#000000; font-family:'Space Mono',monospace;">/usr/tyler/creative_profile</span>
             </div>
-            <dl class="grid gap-px" style="background:#212121;">
-              <div style="background:#E6E6E6; padding: 1rem;">
-                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#212121; font-family:'Space Mono',monospace;">CAMERA</dt>
-                <dd class="font-mono text-sm font-bold" style="color:#212121; font-family:'Space Mono',monospace;">Sony Alpha ZV-E10</dd>
+            <dl class="grid gap-px" style="background:#000000;">
+              <div style="background:#D2D2D2; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#000000; font-family:'Space Mono',monospace;">CAMERA</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#000000; font-family:'Space Mono',monospace;">Sony Alpha ZV-E10</dd>
               </div>
-              <div style="background:#E6E6E6; padding: 1rem;">
-                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#212121; font-family:'Space Mono',monospace;">EDIT STACK</dt>
-                <dd class="font-mono text-sm font-bold" style="color:#212121; font-family:'Space Mono',monospace;">CapCut + desktop timeline work</dd>
+              <div style="background:#D2D2D2; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#000000; font-family:'Space Mono',monospace;">EDIT STACK</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#000000; font-family:'Space Mono',monospace;">CapCut + desktop timeline work</dd>
               </div>
-              <div style="background:#E6E6E6; padding: 1rem;">
-                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#212121; font-family:'Space Mono',monospace;">STYLE</dt>
-                <dd class="font-mono text-sm font-bold" style="color:#212121; font-family:'Space Mono',monospace;">Real-life frames, shallow depth, documentary texture</dd>
+              <div style="background:#D2D2D2; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#000000; font-family:'Space Mono',monospace;">STYLE</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#000000; font-family:'Space Mono',monospace;">Real-life frames, shallow depth, documentary texture</dd>
               </div>
-              <div style="background:#E6E6E6; padding: 1rem;">
-                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#212121; font-family:'Space Mono',monospace;">RULE</dt>
-                <dd class="font-mono text-sm font-bold" style="color:#FF3D00; font-family:'Space Mono',monospace;">No stock. No AI imagery. No fake filler.</dd>
+              <div style="background:#D2D2D2; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#000000; font-family:'Space Mono',monospace;">RULE</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#007AFF; font-family:'Space Mono',monospace;">No stock. No AI imagery. No fake filler.</dd>
               </div>
             </dl>
           </div>
@@ -270,7 +270,7 @@ const socialLinks = [
     </section>
 
     <!-- ── CONNECT ── -->
-    <section style="background:#212121;">
+    <section style="background:#000000;">
       <div class="container py-24 md:py-32">
         <div class="grid gap-8 md:grid-cols-[1fr_auto] md:items-center reveal">
           <div>
@@ -278,7 +278,7 @@ const socialLinks = [
             <h2 class="font-display mb-4" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h2);">
               CONNECT<br/>CHANNELS
             </h2>
-            <p class="max-w-2xl leading-relaxed" style="color:#E6E6E6;">
+            <p class="max-w-2xl leading-relaxed" style="color:#D2D2D2;">
               The live creative stream stays on social. This archive stays curated and media-truthful.
             </p>
           </div>
@@ -301,7 +301,7 @@ const socialLinks = [
     <!-- ── LIGHTBOX ── -->
     <dialog
       id="vault-lightbox"
-      style="background:rgba(33,33,33,0.97); border: 3px solid #212121; backdrop-filter:none;"
+      style="background:rgba(0,0,0,0.97); border: 3px solid #000000; backdrop-filter:none;"
       class="m-0 h-screen w-screen max-w-none p-0 text-white"
     >
       <div style="display:grid; min-height:100vh; place-items:center; padding:1rem;">
@@ -309,12 +309,12 @@ const socialLinks = [
           <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.75rem;">
             <span
               id="lightbox-meta"
-              style="font-family:'Space Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; background:#00B0FF; color:#212121; border:2px solid #212121; padding:0.4rem 0.75rem; font-weight:700;"
+              style="font-family:'Space Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; background:#007AFF; color:#FFFFFF; border:2px solid #000000; padding:0.4rem 0.75rem; font-weight:700;"
             >PHOTO</span>
             <button
               id="lightbox-close"
               type="button"
-              style="font-family:'Space Mono',monospace; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; background:#FF3D00; color:#FFFFFF; border:2px solid #212121; padding:0.4rem 0.75rem; cursor:pointer;"
+              style="font-family:'Space Mono',monospace; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; background:#007AFF; color:#FFFFFF; border:2px solid #000000; padding:0.4rem 0.75rem; cursor:pointer;"
             >
               CLOSE
             </button>
@@ -323,7 +323,7 @@ const socialLinks = [
             id="lightbox-image"
             src=""
             alt=""
-            style="width:100%; max-height:70vh; object-fit:contain; border:3px solid #212121; background:#E6E6E6;"
+            style="width:100%; max-height:70vh; object-fit:contain; border:3px solid #000000; background:#D2D2D2;"
           />
           <h3
             id="lightbox-title"
