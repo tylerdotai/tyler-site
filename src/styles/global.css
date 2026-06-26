@@ -54,7 +54,7 @@
   }
 
   body {
-    background: #D2D2D2;
+    background: #FAF8F5;
     color: #000000;
     @apply bg-background text-foreground;
   }
