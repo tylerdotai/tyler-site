@@ -6,9 +6,9 @@
 export const SITE = {
   url: 'https://tylerdotai.com',
   title: 'Tyler Delano',
-  description: 'Tinkerer of AI. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
+  description: 'AI Developer. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
   author: 'Tyler Delano',
-  tagline: 'TINKERER OF AI',
+  tagline: 'AI DEVELOPER',
   bio: 'IT Support Associate (L3) at Amazon by day. AI agent builder by night. Exceeds High Bar.',
   location: 'DFW, Texas',
   email: 'tyler@tylerdotai.com',
@@ -44,7 +44,7 @@ export const FONTS = {
 // HERO — homepage
 // -----------------------------------------------------------------------------
 export const HERO = {
-  heading: 'TINKERER\nOF AI',
+  heading: 'DEVELOPER\nOF AI',
   subheading: 'Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
   ctaPrimary:   { label: 'SEE WHAT I BUILD', href: '/builds' },
   ctaSecondary: { label: 'AGENT BUILDERS CLUB', href: '/community' },
@@ -83,7 +83,7 @@ export const PILLARS = [
 export const ABOUT = {
   year: '2024',
   yearLabel: 'YEAR OF THE AGENT',
-  heading: 'FROM PIP TO\nTINKERER',
+  heading: 'FROM PIP TO\nDEVELOPER',
   paragraphs: [
     'March 2024, Amazon put me on a Performance Improvement Plan. Three months to turn it around or get cut. Instead of panic-applying to jobs, I got curious about AI agents.',
     'Built a crew of AI subagents to handle the PIP tasks for me. They didn\'t save my job — but they showed me what was actually possible when you stop using AI as a chatbot and start treating it like a workforce.',
