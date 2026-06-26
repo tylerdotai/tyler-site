@@ -56,7 +56,6 @@
   body {
     background: #F8F0E3;
     color: #000000;
-    @apply bg-background text-foreground;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -497,7 +496,7 @@
 
 :root {
   /* ── SHADCN SEMANTIC TOKENS → 5-COLOR PALETTE ── */
-  --background:    #D2D2D2;
+  --background:    #F8F0E3;
   --foreground:    #000000;
   --card:          #FFFFFF;
   --card-foreground: #000000;
