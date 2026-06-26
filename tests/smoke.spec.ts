@@ -46,8 +46,7 @@ test('footer is present', async ({ page }) => {
 
 test('homepage hero section', async ({ page }) => {
   await page.goto(BASE);
-  await expect(page.locator('h1')).toContainText('Tyler Delano');
-  await expect(page.locator('text=Tinkerer of AI')).toBeVisible();
+  await expect(page.locator('h1')).toContainText('TINKERER');
 });
 
 test('parkinson language toggle works', async ({ page }) => {

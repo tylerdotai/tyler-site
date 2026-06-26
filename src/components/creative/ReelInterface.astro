@@ -18,53 +18,63 @@ const { items } = Astro.props;
 const main = items[0];
 ---
 
-<section id="reel" class="section border-y border-[#263344]">
+<section id="reel" class="section border-b-3 border-black">
   <div class="container">
     <div class="grid lg:grid-cols-12 gap-8 mb-10 items-end">
       <div class="lg:col-span-4">
-        <p class="section-label mb-4">THE REEL</p>
-        <h2 class="chrome-text text-4xl md:text-6xl leading-none">CINEMA<br />CHANNEL</h2>
+        <span class="section-label mb-4 inline-block">THE REEL</span>
+        <h2 class="text-4xl md:text-6xl leading-none font-display uppercase">VIDEO<br />ARCHIVE</h2>
       </div>
-      <p class="lg:col-span-8 text-[#8EA3B8] leading-relaxed max-w-3xl">
+      <p class="lg:col-span-8 text-black leading-relaxed max-w-3xl">
         Video work is separated from the photo vault. Poster frames are labeled as video stills — not standalone photos.
       </p>
     </div>
 
     <div class="grid lg:grid-cols-[1fr_320px] gap-6">
-      <div class="y2k-panel p-3">
-        <div class="flex items-center justify-between border-b border-[#263344] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#8EA3B8]">
+      <!-- Main Video Panel -->
+      <div class="brutal-panel p-3">
+        <div class="flex items-center justify-between border-b-3 border-black px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-black bg-yellow">
           <span id="reel-label">{main.label}</span>
           <span id="reel-duration">{main.duration}</span>
         </div>
-        <video
-          id="main-reel"
-          class="aspect-video w-full bg-black object-cover"
-          poster={main.poster}
-          preload="metadata"
-          playsinline
-        >
-          <source src={main.src} type="video/mp4" />
-          Your browser does not support video.
-        </video>
-        <div class="grid gap-3 border-t border-[#263344] p-3 md:grid-cols-[1fr_auto] md:items-center">
+        <div class="relative">
+          <video
+            id="main-reel"
+            class="aspect-video w-full bg-black object-cover"
+            poster={main.poster}
+            preload="metadata"
+            playsinline
+          >
+            <source src={main.src} type="video/mp4" />
+            Your browser does not support video.
+          </video>
+          <!-- VIDEO STILL label overlay -->
+          <div class="absolute top-3 left-3">
+            <span class="font-mono text-xs tracking-[0.2em] text-black bg-yellow border-2 border-black px-3 py-1 font-bold uppercase">
+              VIDEO STILL
+            </span>
+          </div>
+        </div>
+        <div class="grid gap-3 border-t-3 border-black p-3 md:grid-cols-[1fr_auto] md:items-center">
           <div>
-            <p id="reel-still" class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#39FF14]">{main.stillLabel}</p>
-            <h3 id="reel-title" class="mt-1 text-2xl text-[#F2F7FF]">{main.title}</h3>
-            <p id="reel-note" class="mt-2 text-sm text-[#8EA3B8]">{main.note}</p>
+            <p id="reel-still" class="font-mono text-[10px] uppercase tracking-[0.18em] text-black bg-yellow border border-black px-2 py-1 inline-block mb-2">{main.stillLabel}</p>
+            <h3 id="reel-title" class="text-2xl text-black font-display uppercase">{main.title}</h3>
+            <p id="reel-note" class="mt-2 text-sm text-black">{main.note}</p>
           </div>
           <div class="flex flex-wrap gap-2 font-mono text-xs uppercase tracking-[0.16em]">
-            <button id="reel-play" type="button" class="border border-[#00F5FF] px-3 py-2 text-[#00F5FF] hover:bg-[#00F5FF] hover:text-[#05070A]">▶ Play</button>
-            <button id="reel-mute" type="button" class="border border-[#00F5FF] px-3 py-2 text-[#00F5FF] hover:bg-[#00F5FF] hover:text-[#05070A]">Mute</button>
-            <a id="reel-link" href={main.href} target="_blank" rel="noopener noreferrer" class="border border-[#FF2BD6] px-3 py-2 text-[#FF2BD6] hover:bg-[#FF2BD6] hover:text-[#05070A]">Source</a>
+            <button id="reel-play" type="button" class="brutal-btn bg-yellow border-3 border-black shadow-[3px_3px_0_black] text-black font-bold px-4 py-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0_black] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0_black] transition-all">▶ Play</button>
+            <button id="reel-mute" type="button" class="brutal-btn bg-white border-3 border-black shadow-[3px_3px_0_black] text-black font-bold px-4 py-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0_black] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0_black] transition-all">Mute</button>
+            <a id="reel-link" href={main.href} target="_blank" rel="noopener noreferrer" class="brutal-btn bg-blue border-3 border-black shadow-[3px_3px_0_black] text-white font-bold px-4 py-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0_black] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0_black] transition-all">Source ↗</a>
           </div>
         </div>
       </div>
 
+      <!-- Video Thumbnails -->
       <div class="grid gap-4">
         {items.map((item, index) => (
           <button
             type="button"
-            class="reel-thumb y2k-panel grid grid-cols-[96px_1fr] gap-3 p-2 text-left transition hover:border-[#00F5FF]"
+            class="reel-thumb brutal-card grid grid-cols-[96px_1fr] gap-3 p-3 text-left transition hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0_black]"
             data-src={item.src}
             data-poster={item.poster}
             data-label={item.label}
@@ -75,11 +85,14 @@ const main = items[0];
             data-note={item.note}
             aria-label={`Load ${item.title}`}
           >
-            <img src={item.poster} alt={`${item.title} video still`} loading="lazy" class="h-20 w-24 object-cover" />
+            <div class="relative">
+              <img src={item.poster} alt={`${item.title} video still`} loading="lazy" class="h-20 w-24 object-cover border-2 border-black" />
+              <span class="absolute bottom-1 left-1 font-mono text-[8px] tracking-[0.15em] text-black bg-yellow border border-black px-1 py-0.5 font-bold uppercase">VIDEO STILL</span>
+            </div>
             <span>
-              <span class="block font-mono text-[10px] uppercase tracking-[0.18em] text-[#39FF14]">{index === 0 ? 'ACTIVE' : 'QUEUE'}</span>
-              <span class="mt-1 block text-sm font-bold uppercase text-[#F2F7FF]">{item.title}</span>
-              <span class="mt-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-[#8EA3B8]">{item.stillLabel}</span>
+              <span class="block font-mono text-[10px] uppercase tracking-[0.18em] text-black bg-yellow border border-black px-2 py-0.5 mb-1 font-bold">{index === 0 ? 'ACTIVE' : 'QUEUE'}</span>
+              <span class="mt-1 block text-sm font-bold uppercase text-black font-display">{item.title}</span>
+              <span class="mt-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-black">{item.duration}</span>
             </span>
           </button>
         ))}
@@ -87,6 +100,25 @@ const main = items[0];
     </div>
   </div>
 </section>
+
+<style>
+  .brutal-panel {
+    background: white;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0 black;
+  }
+
+  .brutal-card {
+    background: white;
+    border: 3px solid black;
+    box-shadow: 6px 6px 0 black;
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .brutal-btn {
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+</style>
 
 <script>
   const reel = document.getElementById('main-reel');

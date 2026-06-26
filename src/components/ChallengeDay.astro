@@ -11,25 +11,26 @@ interface Props {
 const { dayNumber, title, quote, quoteSource, imageSrc, alt } = Astro.props;
 ---
 
-<article class="grid md:grid-cols-2 gap-8 items-center py-8 border-b border-[#263344] last:border-b-0">
+<article class="grid gap-8 py-8 border-b-[3px] border-black last:border-b-0 md:grid-cols-2 md:items-center">
   <div class="relative">
     <img
       src={imageSrc}
       alt={alt}
       loading="lazy"
       decoding="async"
-      class="w-full h-80 object-cover rounded"
+      class="w-full h-80 object-cover border-[3px] border-black"
+      style="box-shadow: 6px 6px 0 #000;"
     />
-    <span class="absolute top-4 left-4 px-3 py-1 bg-[#00F5FF] text-[#05070A] text-xs font-mono rounded">
+    <span class="absolute top-4 left-4 bg-yellow px-3 py-1 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black" style="box-shadow: 3px 3px 0 #000;">
       Day {dayNumber}
     </span>
   </div>
 
-  <div>
-    <h3 class="font-serif text-2xl mb-3">{title}</h3>
-    <blockquote class="border-l-2 border-[#00F5FF] pl-4 mb-2">
-      <p class="text-[#8EA3B8] italic">"{quote}"</p>
+  <div class="neo-panel">
+    <h3 class="font-display text-3xl text-black mb-4">{title}</h3>
+    <blockquote class="border-l-[6px] border-blue pl-4 mb-3">
+      <p class="font-body text-black italic">"{quote}"</p>
     </blockquote>
-    {quoteSource && <p class="text-xs text-[#8EA3B8]">— {quoteSource}</p>}
+    {quoteSource && <p class="font-body text-sm font-bold uppercase tracking-wider text-black opacity-60">— {quoteSource}</p>}
   </div>
 </article>

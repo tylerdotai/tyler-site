@@ -134,19 +134,26 @@ const reelItems = [
     note: 'Social cut with native playback here and source link preserved.',
   },
 ];
+
+const socialLinks = [
+  { href: 'https://x.com/tylerdotai', label: 'X / Twitter', primary: true },
+  { href: 'https://github.com/tylerdotai', label: 'GitHub', primary: false },
+  { href: 'https://www.linkedin.com/in/tylerpdelano', label: 'LinkedIn', primary: false },
+];
 ---
 
 <BaseLayout
   title="Creative"
-  description="Tyler Delano visual archive — photography and video from the Sony ZV-E10 challenge, presented as a Modern Y2K media vault."
+  description="Tyler Delano visual archive — photography and video from the Sony ZV-E10 challenge, presented as a Neo-Brutalist media vault."
   ogImage="/assets/creative/tyler-extreme-closeup.jpg"
 >
   <Header />
 
-  <main class="creative-y2k">
-    <section class="relative min-h-[86vh] overflow-hidden border-b border-[#263344]">
+  <main class="creative-page">
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[86vh] overflow-hidden border-b-3 border-black bg-white">
       <video
-        class="absolute inset-0 h-full w-full object-cover opacity-32 saturate-[1.15]"
+        class="absolute inset-0 h-full w-full object-cover opacity-20"
         autoplay
         muted
         loop
@@ -156,40 +163,41 @@ const reelItems = [
       >
         <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
       </video>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(0,245,255,0.20),transparent_28rem),linear-gradient(90deg,#05070A_0%,rgba(5,7,10,0.78)_45%,rgba(5,7,10,0.40)_100%)]"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
       <div class="relative container flex min-h-[86vh] items-end pb-12 pt-24 md:pb-20">
         <div class="max-w-5xl">
-          <p class="section-label mb-5">TYLERDOTAI // VISUAL ARCHIVE</p>
-          <h1 class="chrome-text text-6xl leading-[0.82] md:text-8xl lg:text-[8.5rem]">
+          <span class="section-label mb-5 inline-block">TYLERDOTAI // VISUAL ARCHIVE</span>
+          <h1 class="text-6xl leading-[0.82] md:text-8xl lg:text-[8.5rem] font-display uppercase">
             SIGNAL<br />VAULT
           </h1>
           <div class="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
-            <p class="max-w-2xl text-lg leading-relaxed text-[#B8C6D6]">
+            <p class="max-w-2xl text-lg leading-relaxed text-black">
               Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
             </p>
-            <div class="y2k-panel p-4 font-mono text-xs uppercase tracking-[0.14em] text-[#8EA3B8]">
-              <p><span class="text-[#00F5FF]">MODE:</span> CYBER-Y2K</p>
-              <p><span class="text-[#39FF14]">MEDIA:</span> {vaultItems.length} PHOTOS / {reelItems.length} VIDEOS</p>
-              <p><span class="text-[#FF2BD6]">DEVICE:</span> SONY ZV-E10</p>
+            <div class="brutal-panel p-4 font-mono text-xs uppercase tracking-[0.14em] text-black">
+              <p><span class="text-black bg-yellow px-1 border border-black">MODE:</span> NEO-BRUTALIST</p>
+              <p><span class="text-black bg-yellow px-1 border border-black">MEDIA:</span> {vaultItems.length} PHOTOS / {reelItems.length} VIDEOS</p>
+              <p><span class="text-black bg-yellow px-1 border border-black">DEVICE:</span> SONY ZV-E10</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="vault" class="section">
+    <!-- PHOTO VAULT SECTION -->
+    <section id="vault" class="section border-b-3 border-black">
       <div class="container">
         <div class="mb-10 grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
           <div>
-            <p class="section-label mb-4">THE VAULT</p>
-            <h2 class="text-4xl leading-none md:text-6xl">PHOTO<br />DATASET</h2>
+            <span class="section-label mb-4 inline-block">THE VAULT</span>
+            <h2 class="text-4xl leading-none md:text-6xl font-display uppercase">PHOTO<br />DATASET</h2>
           </div>
-          <p class="max-w-3xl text-[#8EA3B8] leading-relaxed">
+          <p class="max-w-3xl text-black leading-relaxed">
             Every unique standalone photo currently in the archive is shown once. Duplicate file copies stay in assets, but the public vault does not repeat the same image twice. Video posters are handled separately in The Reel.
           </p>
         </div>
 
-        <div class="grid grid-flow-dense auto-rows-auto gap-4 md:grid-cols-3">
+        <div class="grid grid-flow-dense auto-rows-auto gap-6 md:grid-cols-3">
           {vaultItems.map((item, index) => (
             <VaultCard {...item} index={index + 1} />
           ))}
@@ -197,33 +205,35 @@ const reelItems = [
       </div>
     </section>
 
+    <!-- REEL SECTION -->
     <ReelInterface items={reelItems} />
 
-    <section class="section border-b border-[#263344]">
+    <!-- CREATIVE DIAGNOSTICS SECTION -->
+    <section class="section border-b-3 border-black">
       <div class="container">
         <div class="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
           <div>
-            <p class="section-label mb-4">SYSTEM SPECS</p>
-            <h2 class="text-4xl leading-none md:text-6xl">CREATIVE<br />DIAGNOSTICS</h2>
+            <span class="section-label mb-4 inline-block">SYSTEM SPECS</span>
+            <h2 class="text-4xl leading-none md:text-6xl font-display uppercase">CREATIVE<br />DIAGNOSTICS</h2>
           </div>
-          <div class="y2k-panel overflow-hidden">
-            <div class="border-b border-[#263344] px-4 py-3 font-mono text-xs uppercase tracking-[0.18em] text-[#00F5FF]">/usr/tyler/creative_profile</div>
-            <dl class="grid gap-px bg-[#263344] font-mono text-sm md:grid-cols-2">
-              <div class="bg-[#05070A] p-4">
-                <dt class="text-[#8EA3B8]">CAMERA</dt>
-                <dd class="mt-1 text-[#F2F7FF]">Sony Alpha ZV-E10</dd>
+          <div class="brutal-panel overflow-hidden">
+            <div class="border-b-3 border-black px-4 py-3 font-mono text-xs uppercase tracking-[0.18em] text-black bg-yellow font-bold">/usr/tyler/creative_profile</div>
+            <dl class="grid gap-px bg-black font-mono text-sm md:grid-cols-2">
+              <div class="bg-white p-4">
+                <dt class="text-black text-xs uppercase tracking-widest">CAMERA</dt>
+                <dd class="mt-1 text-black font-bold">Sony Alpha ZV-E10</dd>
               </div>
-              <div class="bg-[#05070A] p-4">
-                <dt class="text-[#8EA3B8]">EDIT STACK</dt>
-                <dd class="mt-1 text-[#F2F7FF]">CapCut + desktop timeline work</dd>
+              <div class="bg-white p-4">
+                <dt class="text-black text-xs uppercase tracking-widest">EDIT STACK</dt>
+                <dd class="mt-1 text-black font-bold">CapCut + desktop timeline work</dd>
               </div>
-              <div class="bg-[#05070A] p-4">
-                <dt class="text-[#8EA3B8]">STYLE</dt>
-                <dd class="mt-1 text-[#F2F7FF]">Real-life frames, shallow depth, documentary texture</dd>
+              <div class="bg-white p-4">
+                <dt class="text-black text-xs uppercase tracking-widest">STYLE</dt>
+                <dd class="mt-1 text-black font-bold">Real-life frames, shallow depth, documentary texture</dd>
               </div>
-              <div class="bg-[#05070A] p-4">
-                <dt class="text-[#8EA3B8]">RULE</dt>
-                <dd class="mt-1 text-[#F2F7FF]">No stock. No AI imagery. No fake filler.</dd>
+              <div class="bg-white p-4">
+                <dt class="text-black text-xs uppercase tracking-widest">RULE</dt>
+                <dd class="mt-1 text-black font-bold">No stock. No AI imagery. No fake filler.</dd>
               </div>
             </dl>
           </div>
@@ -231,34 +241,43 @@ const reelItems = [
       </div>
     </section>
 
+    <!-- CONNECT SECTION -->
     <section class="section">
       <div class="container">
-        <div class="y2k-panel grid gap-8 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+        <div class="brutal-panel grid gap-8 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
           <div>
-            <p class="section-label mb-3">SIGNAL TRANSMIT</p>
-            <h2 class="text-3xl leading-none md:text-5xl">CONNECT<br />CHANNELS</h2>
-            <p class="mt-4 max-w-2xl text-[#8EA3B8]">
+            <span class="section-label mb-3 inline-block">SIGNAL TRANSMIT</span>
+            <h2 class="text-3xl leading-none md:text-5xl font-display uppercase">CONNECT<br />CHANNELS</h2>
+            <p class="mt-4 max-w-2xl text-black">
               The live creative stream stays on social. This archive stays curated and media-truthful.
             </p>
           </div>
-          <div class="flex flex-wrap gap-3">
-            <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-primary">X / Twitter</a>
-            <a href="https://github.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
-            <a href="https://www.linkedin.com/in/tylerpdelano" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+          <div class="flex flex-wrap gap-4">
+            {socialLinks.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={link.primary ? 'btn-primary' : 'btn-ghost'}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>
     </section>
 
-    <dialog id="vault-lightbox" class="m-0 h-screen w-screen max-w-none bg-black/92 p-0 text-[#F2F7FF] backdrop:bg-black/88">
+    <!-- LIGHTBOX -->
+    <dialog id="vault-lightbox" class="m-0 h-screen w-screen max-w-none bg-black/95 p-0 text-black backdrop:bg-black/90">
       <div class="grid min-h-screen place-items-center p-4 md:p-8">
         <div class="w-full max-w-6xl">
-          <div class="mb-3 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-[#8EA3B8]">
-            <span id="lightbox-meta">PHOTO</span>
-            <button id="lightbox-close" type="button" class="border border-[#00F5FF] px-3 py-2 text-[#00F5FF] hover:bg-[#00F5FF] hover:text-[#05070A]">Close</button>
+          <div class="mb-3 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em]">
+            <span id="lightbox-meta" class="bg-yellow border-2 border-black px-3 py-2 font-bold text-black">PHOTO</span>
+            <button id="lightbox-close" type="button" class="brutal-btn bg-yellow border-3 border-black shadow-[3px_3px_0_black] text-black font-bold px-4 py-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0_black] transition-all">Close</button>
           </div>
-          <img id="lightbox-image" src="" alt="" class="max-h-[78vh] w-full object-contain y2k-panel p-2" />
-          <h3 id="lightbox-title" class="mt-4 text-3xl text-[#F2F7FF]"></h3>
+          <img id="lightbox-image" src="" alt="" class="max-h-[78vh] w-full object-contain border-3 border-black bg-white p-2" />
+          <h3 id="lightbox-title" class="mt-4 text-3xl text-white font-display uppercase"></h3>
         </div>
       </div>
     </dialog>
@@ -294,4 +313,16 @@ const reelItems = [
       if (event.target === dialog && dialog instanceof HTMLDialogElement) dialog.close();
     });
   </script>
+
+  <style>
+    .brutal-panel {
+      background: white;
+      border: 3px solid black;
+      box-shadow: 6px 6px 0 black;
+    }
+
+    .brutal-btn {
+      transition: transform 100ms ease, box-shadow 100ms ease;
+    }
+  </style>
 </BaseLayout>

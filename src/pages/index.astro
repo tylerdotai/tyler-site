@@ -10,164 +10,218 @@ import Footer from '../components/Footer.astro';
 >
   <Header />
 
-  <main>
+  <main class="bg-white">
     <!-- Hero -->
-    <section class="section border-b border-[#263344]">
+    <section class="section bg-yellow border-b-3 border-black">
       <div class="container">
-        <div class="max-w-3xl">
-          <p class="section-label mb-4">Tinkerer of AI. Creative guy. Collaborative community builder.</p>
-          <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-tight">
-            Tyler Delano
-          </h1>
-          <p class="text-xl text-[#8EA3B8] mb-8 leading-relaxed">
-            IT Support Associate by day. AI agent builder by night. Running the Agent Builders Club
-            — a DFW community of 600+ people learning to build with AI. Filmmaker on the side.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="/builds" class="btn-primary">See what I build</a>
-            <a href="/community" class="btn-ghost">Agent Builders Club</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Origin Story -->
-    <section class="section border-b border-[#263344]">
-      <div class="container">
-        <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p class="section-label mb-4">How I got here</p>
-            <h2 class="text-3xl font-serif mb-4">From PIP to tinkerer.</h2>
-            <p class="text-[#8EA3B8] mb-4 leading-relaxed">
-              March 2024, Amazon put me on a Performance Improvement Plan. Three months to turn it around
-              or get cut. Instead of panic-applying to jobs, I got curious about AI agents.
+            <span class="section-label mb-6 block border-2 border-black shadow-[4px_4px_0_#000]">TYLER DELANO</span>
+            <h1 class="font-display text-black mt-4 mb-6" style="font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9;">
+              TINKERER<br/>OF AI
+            </h1>
+            <p class="text-lg text-black/70 mb-8 max-w-lg font-body leading-relaxed">
+              IT Support Associate by day. AI agent builder by night. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.
             </p>
-            <p class="text-[#8EA3B8] mb-4 leading-relaxed">
-              Built a crew of AI subagents to handle the PIP tasks for me. They didn't save my job —
-              but they did something better. They showed me what was actually possible when you stop
-              using AI as a chatbot and start treating it like a workforce.
-            </p>
-            <p class="text-[#8EA3B8] leading-relaxed">
-              Got rated "Exceeds High Bar" on my mid-year review. Got a raise. Decided: this is the
-              thing. Let's go all in.
-            </p>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div class="card text-center">
-              <span class="text-4xl font-serif" style="color:#00F5FF">600+</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">Community members</p>
-            </div>
-            <div class="card text-center">
-              <span class="text-4xl font-serif" style="color:#00F5FF">6</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">DFW locations</p>
-            </div>
-            <div class="card text-center">
-              <span class="text-4xl font-serif" style="color:#00F5FF">2024</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">Year the agents shipped</p>
-            </div>
-            <div class="card text-center">
-              <span class="text-4xl font-serif" style="color:#00F5FF">1</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">ZV-E10 running</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="/builds" class="btn-primary bg-yellow text-black border-black shadow-[6px_6px_0_#000] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0_#000]">
+                SEE WHAT I BUILD
+              </a>
+              <a href="/community" class="btn-ghost bg-white text-black border-black shadow-[6px_6px_0_#000] hover:bg-yellow hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0_#000]">
+                AGENT BUILDERS CLUB
+              </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- What I'm building -->
-    <section class="section border-b border-[#263344]">
-      <div class="container">
-        <p class="section-label mb-4">Recent builds</p>
-        <h2 class="text-3xl font-serif mb-8">Tools, agents, and pipelines.</h2>
-
-        <div class="grid md:grid-cols-3 gap-6 mb-8">
-          <a href="https://github.com/tylerdotai/singularity" target="_blank" rel="noopener noreferrer" class="nav-card group">
-            <h3 class="font-serif text-xl mb-2 group-hover:text-[#00F5FF] transition-colors">Singularity</h3>
-            <p class="text-sm text-[#8EA3B8] mb-3">Provider-neutral AI agent harness. Bun, TypeScript, SQLite. Runs on your own API keys.</p>
-            <span class="text-xs font-mono text-[#8EA3B8]">github.com/tylerdotai/singularity</span>
-          </a>
-
-          <a href="https://github.com/tylerdotai/agent-loop-system" target="_blank" rel="noopener noreferrer" class="nav-card group">
-            <h3 class="font-serif text-xl mb-2 group-hover:text-[#00F5FF] transition-colors">Agent Loop System</h3>
-            <p class="text-sm text-[#8EA3B8] mb-3">Closed-loop agent harness with Python and JSON. Structured outputs, step-by-step reasoning.</p>
-            <span class="text-xs font-mono text-[#8EA3B8]">github.com/tylerdotai/agent-loop-system</span>
-          </a>
-
-          <a href="https://github.com/tylerdotai/parkinson-research" target="_blank" rel="noopener noreferrer" class="nav-card group">
-            <h3 class="font-serif text-xl mb-2 group-hover:text-[#00F5FF] transition-colors">AIAgainstParkinson</h3>
-            <p class="text-sm text-[#8EA3B8] mb-3">Daily AI research pipeline for Parkinson's. PubMed → summary → EN/ES delivery. Every day, automatically.</p>
-            <span class="text-xs font-mono text-[#8EA3B8]">github.com/tylerdotai/parkinson-research</span>
-          </a>
-        </div>
-
-        <a href="/builds" class="btn-ghost">All builds →</a>
-      </div>
-    </section>
-
-    <!-- Community -->
-    <section class="section border-b border-[#263344]">
-      <div class="container">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p class="section-label mb-4">DFW AI Community</p>
-            <h2 class="text-3xl font-serif mb-4">Agent Builders Club</h2>
-            <p class="text-[#8EA3B8] mb-4 leading-relaxed">
-              Started as a side project. Now 600+ people across 6 physical locations in Dallas-Fort Worth
-              learning how to build AI-powered workflows and agents. No fluff. Just builders showing
-              each other what works.
-            </p>
-            <a href="/community" class="btn-primary">Learn more</a>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div class="card text-center">
-              <span class="text-3xl font-serif" style="color:#00F5FF">600+</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">Members</p>
-            </div>
-            <div class="card text-center">
-              <span class="text-3xl font-serif" style="color:#00F5FF">6</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">Physical nodes</p>
-            </div>
-            <div class="card text-center">
-              <span class="text-3xl font-serif" style="color:#00F5FF">DFW</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">Metro area</p>
-            </div>
-            <div class="card text-center">
-              <span class="text-3xl font-serif" style="color:#00F5FF">2026</span>
-              <p class="text-sm text-[#8EA3B8] mt-1">Founded</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Filming -->
-    <section class="section">
-      <div class="container">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p class="section-label mb-4">Sony ZV-E10 Challenge</p>
-            <h2 class="text-3xl font-serif mb-4">No crew. No script.</h2>
-            <p class="text-[#8EA3B8] mb-4 leading-relaxed">
-              30 days with the Sony ZV-E10. Every clip is a real moment. No production team.
-              No plan. Just a camera and whatever showed up that day.
-            </p>
-            <p class="text-[#8EA3B8] mb-6 leading-relaxed">
-              The documentary-style content is the brand amplifier. It's not a business.
-              It's a habit. Follow along as it builds.
-            </p>
-            <a href="/creative" class="btn-ghost">See the footage →</a>
-          </div>
-
-          <div>
+          <div class="relative">
             <img
-              src="/assets/creative/day2-sony.jpg"
-              alt="Sony ZV-E10"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-64 object-cover rounded"
+              src="/assets/creative/tyler-portrait.jpg"
+              alt="Tyler Delano"
+              class="neo-image w-full h-auto"
             />
+            <div class="absolute -bottom-4 -right-4 bg-blue text-white px-4 py-2 border-3 border-black shadow-[6px_6px_0_#000]">
+              <span class="font-display text-2xl">600+</span>
+              <span class="font-body text-xs block">COMMUNITY MEMBERS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Build / Community / Create Cards -->
+    <section class="section bg-surface">
+      <div class="container">
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Build Card -->
+          <div class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000]">
+            <div class="bg-blue text-white px-3 py-1 inline-block mb-4 border-2 border-black">
+              <span class="font-body text-xs font-bold tracking-wider">01 / BUILD</span>
+            </div>
+            <h3 class="font-display text-4xl text-black mb-4">AGENTS &<br/>TOOLS</h3>
+            <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
+              Provider-neutral AI agent harnesses, closed-loop systems, and research pipelines. Bun, TypeScript, Python — whatever gets the job done.
+            </p>
+            <a href="/builds" class="neo-link font-body text-sm font-bold uppercase tracking-wider">VIEW ALL BUILDS →</a>
+          </div>
+
+          <!-- Community Card -->
+          <div class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000]">
+            <div class="bg-yellow px-3 py-1 inline-block mb-4 border-2 border-black">
+              <span class="font-body text-xs font-bold tracking-wider">02 / COMMUNITY</span>
+            </div>
+            <h3 class="font-display text-4xl text-black mb-4">AGENT<br/>BUILDERS CLUB</h3>
+            <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
+              600+ members across 6 DFW locations learning to build AI-powered workflows and agents. No fluff. Just builders showing each other what works.
+            </p>
+            <a href="/community" class="neo-link font-body text-sm font-bold uppercase tracking-wider">JOIN THE CLUB →</a>
+          </div>
+
+          <!-- Create Card -->
+          <div class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000]">
+            <div class="bg-black text-white px-3 py-1 inline-block mb-4 border-2 border-black">
+              <span class="font-body text-xs font-bold tracking-wider">03 / CREATE</span>
+            </div>
+            <h3 class="font-display text-4xl text-black mb-4">FILM &<br/>DOCUMENTARY</h3>
+            <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
+              30 days with the Sony ZV-E10. Every clip is a real moment. No crew. No script. Just a camera and whatever showed up that day.
+            </p>
+            <a href="/creative" class="neo-link font-body text-sm font-bold uppercase tracking-wider">SEE THE FOOTAGE →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Snippet -->
+    <section class="section bg-white border-t-3 border-black">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="relative">
+            <img
+              src="/assets/creative/tyler-extreme-closeup.jpg"
+              alt="Tyler Delano - Portrait"
+              class="neo-image w-full"
+            />
+            <div class="absolute -top-4 -left-4 bg-yellow px-4 py-2 border-3 border-black shadow-[6px_6px_0_#000]">
+              <span class="font-display text-xl">2024</span>
+              <span class="font-body text-xs block">YEAR OF THE AGENT</span>
+            </div>
+          </div>
+          <div>
+            <span class="section-label mb-4 block">HOW I GOT HERE</span>
+            <h2 class="font-display text-5xl md:text-6xl text-black mb-6">FROM PIP TO<br/>TINKERER</h2>
+            <div class="space-y-4">
+              <p class="text-black/70 font-body leading-relaxed">
+                March 2024, Amazon put me on a Performance Improvement Plan. Three months to turn it around or get cut. Instead of panic-applying to jobs, I got curious about AI agents.
+              </p>
+              <p class="text-black/70 font-body leading-relaxed">
+                Built a crew of AI subagents to handle the PIP tasks for me. They didn't save my job — but they did something better. They showed me what was actually possible when you stop using AI as a chatbot and start treating it like a workforce.
+              </p>
+              <p class="text-black/70 font-body leading-relaxed">
+                Got rated "Exceeds High Bar" on my mid-year review. Got a raise. Decided: this is the thing. Let's go all in.
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mt-8">
+              <div class="neo-panel bg-yellow">
+                <span class="font-display text-4xl">600+</span>
+                <span class="font-body text-xs block mt-1">COMMUNITY MEMBERS</span>
+              </div>
+              <div class="neo-panel">
+                <span class="font-display text-4xl">6</span>
+                <span class="font-body text-xs block mt-1">DFW LOCATIONS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section bg-surface border-t-3 border-black">
+      <div class="container">
+        <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+          <div>
+            <span class="section-label mb-4 block">RECENT BUILDS</span>
+            <h2 class="font-display text-5xl md:text-6xl text-black">TOOLS, AGENTS<br/>& PIPELINES</h2>
+          </div>
+          <a href="/builds" class="btn-ghost bg-white text-black border-black shadow-[6px_6px_0_#000] hover:bg-yellow">
+            ALL BUILDS →
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Singularity -->
+          <a href="https://github.com/tylerdotai/singularity" target="_blank" rel="noopener noreferrer" class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000] group">
+            <div class="flex items-start justify-between mb-4">
+              <span class="neo-badge">BUN · TS</span>
+            </div>
+            <h3 class="font-display text-3xl text-black mb-3 group-hover:text-blue">SINGULARITY</h3>
+            <p class="text-black/70 font-body text-sm mb-4 leading-relaxed">
+              Provider-neutral AI agent harness. Runs on your own API keys. Bun, TypeScript, SQLite.
+            </p>
+            <span class="font-mono text-xs text-black/50">github.com/tylerdotai/singularity</span>
+          </a>
+
+          <!-- Agent Loop System -->
+          <a href="https://github.com/tylerdotai/agent-loop-system" target="_blank" rel="noopener noreferrer" class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000] group">
+            <div class="flex items-start justify-between mb-4">
+              <span class="neo-badge">PYTHON</span>
+            </div>
+            <h3 class="font-display text-3xl text-black mb-3 group-hover:text-blue">AGENT LOOP SYSTEM</h3>
+            <p class="text-black/70 font-body text-sm mb-4 leading-relaxed">
+              Closed-loop agent harness with Python and JSON. Structured outputs, step-by-step reasoning.
+            </p>
+            <span class="font-mono text-xs text-black/50">github.com/tylerdotai/agent-loop-system</span>
+          </a>
+
+          <!-- AIAgainstParkinson -->
+          <a href="https://github.com/tylerdotai/parkinson-research" target="_blank" rel="noopener noreferrer" class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000] group">
+            <div class="flex items-start justify-between mb-4">
+              <span class="neo-badge neo-badge-yellow">RESEARCH</span>
+            </div>
+            <h3 class="font-display text-3xl text-black mb-3 group-hover:text-blue">AIAGAINST<br/>PARKINSON</h3>
+            <p class="text-black/70 font-body text-sm mb-4 leading-relaxed">
+              Daily AI research pipeline. PubMed → summary → EN/ES delivery. Every day, automatically.
+            </p>
+            <span class="font-mono text-xs text-black/50">github.com/tylerdotai/parkinson-research</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Yellow CTA Block -->
+    <section class="section bg-yellow border-t-3 border-black">
+      <div class="container">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="font-display text-5xl md:text-7xl text-black mb-6">WANT TO<br/>BUILD WITH ME?</h2>
+            <p class="text-black/70 font-body text-lg mb-8 max-w-lg leading-relaxed">
+              Join the Agent Builders Club — 600+ DFW builders learning to ship AI-powered workflows. No hype. Just hands-on work and real connections.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="/community" class="btn-primary bg-black text-yellow border-black shadow-[6px_6px_0_#000] hover:bg-blue hover:text-white">
+                JOIN AGENT BUILDERS CLUB
+              </a>
+              <a href="/builds" class="btn-ghost bg-yellow text-black border-black shadow-[6px_6px_0_#000] hover:bg-black hover:text-yellow">
+                SEE MY PROJECTS
+              </a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="neo-panel bg-white">
+              <span class="font-display text-5xl">600+</span>
+              <span class="font-body text-xs block mt-2">MEMBERS</span>
+            </div>
+            <div class="neo-panel bg-black text-white">
+              <span class="font-display text-5xl">6</span>
+              <span class="font-body text-xs block mt-2">PHYSICAL NODES</span>
+            </div>
+            <div class="neo-panel bg-black text-white">
+              <span class="font-display text-5xl">DFW</span>
+              <span class="font-body text-xs block mt-2">METRO AREA</span>
+            </div>
+            <div class="neo-panel bg-white">
+              <span class="font-display text-5xl">2026</span>
+              <span class="font-body text-xs block mt-2">FOUNDED</span>
+            </div>
           </div>
         </div>
       </div>
@@ -176,3 +230,29 @@ import Footer from '../components/Footer.astro';
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .border-3 {
+    border-width: 3px;
+  }
+  
+  .bg-surface {
+    background: var(--color-surface);
+  }
+  
+  .bg-yellow {
+    background: var(--color-yellow);
+  }
+  
+  .text-yellow {
+    color: var(--color-yellow);
+  }
+  
+  .hover\:text-blue:hover {
+    color: var(--color-blue);
+  }
+  
+  .text-blue {
+    color: var(--color-blue);
+  }
+</style>

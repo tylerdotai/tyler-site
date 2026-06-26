@@ -7,7 +7,7 @@ interface Props {
 const { value, label } = Astro.props;
 ---
 
-<div class="flex flex-col">
-  <span class="text-4xl font-serif" style="color:#00F5FF">{value}</span>
-  <span class="text-sm text-[#8EA3B8] mt-1">{label}</span>
+<div class="neo-panel">
+  <span class="font-display text-5xl text-black">{value}</span>
+  <span class="mt-2 block font-body text-sm font-bold uppercase tracking-wider text-black opacity-70">{label}</span>
 </div>

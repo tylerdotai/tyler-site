@@ -9,22 +9,23 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-40 border-b border-[#263344] bg-[#05070A]/86 backdrop-blur-xl">
+<header class="sticky top-0 z-40 border-b-[3px] border-black bg-white">
   <div class="container flex h-16 items-center justify-between">
-    <a href="/" class="group flex items-center gap-3 font-mono text-xs font-extrabold uppercase tracking-[0.22em]" aria-label="Tyler Delano — Home">
-      <span class="grid h-8 w-8 place-items-center border border-[#00F5FF] text-[#39FF14] shadow-[4px_4px_0_rgba(255,43,214,0.55)]">TD</span>
-      <span>tyler<span class="text-[#00F5FF]">dot</span>ai</span>
+    <a href="/" class="group flex items-center gap-3" aria-label="Tyler Delano — Home">
+      <span class="flex h-10 w-10 items-center justify-center bg-yellow font-display text-xl text-black border-[3px] border-black shadow-[4px_4px_0_#000]">TD</span>
+      <span class="font-display text-2xl tracking-wide">TYLER<span class="text-blue">DELANO</span></span>
     </a>
 
-    <nav class="hidden items-center gap-2 md:flex" aria-label="Main navigation">
+    <nav class="hidden items-center gap-3 md:flex" aria-label="Main navigation">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class={`border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+          class={`px-4 py-2 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black transition-all ${
             currentPath === href
-              ? 'border-[#00F5FF] bg-[#00F5FF] text-[#05070A]'
-              : 'border-transparent text-[#8EA3B8] hover:border-[#00F5FF] hover:text-[#00F5FF]'
+              ? 'bg-blue text-white'
+              : 'bg-white text-black hover:bg-yellow'
           }`}
+          style={currentPath !== href ? 'box-shadow: 3px 3px 0 #000;' : ''}
           aria-current={currentPath === href ? 'page' : undefined}
         >
           {label}
@@ -34,31 +35,33 @@ const currentPath = Astro.url.pathname;
 
     <button
       id="mobile-menu-toggle"
-      class="border border-[#00F5FF] p-2 text-[#00F5FF] md:hidden"
+      class="flex h-10 w-10 items-center justify-center bg-yellow border-[3px] border-black md:hidden"
+      style="box-shadow: 3px 3px 0 #000;"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Toggle navigation menu"
     >
-      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square">
         <line x1="4" y1="6" x2="20" y2="6" />
         <line x1="4" y1="12" x2="20" y2="12" />
         <line x1="4" y1="18" x2="20" y2="18" />
       </svg>
-      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="hidden">
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" class="hidden">
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
   </div>
 
-  <nav id="mobile-menu" class="hidden border-t border-[#263344] md:hidden" aria-label="Mobile navigation">
+  <nav id="mobile-menu" class="hidden border-t-[3px] border-black md:hidden" aria-label="Mobile navigation">
     <div class="container flex flex-col gap-2 py-4">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class={`border px-3 py-3 font-mono text-xs uppercase tracking-[0.18em] ${
-            currentPath === href ? 'border-[#00F5FF] bg-[#00F5FF] text-[#05070A]' : 'border-[#263344] text-[#8EA3B8]'
+          class={`px-4 py-3 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black ${
+            currentPath === href ? 'bg-blue text-white' : 'bg-white text-black'
           }`}
+          style={currentPath !== href ? 'box-shadow: 3px 3px 0 #000;' : ''}
           aria-current={currentPath === href ? 'page' : undefined}
         >
           {label}
