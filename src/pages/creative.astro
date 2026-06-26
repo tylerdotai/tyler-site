@@ -2,160 +2,189 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const photoWork = [
+  {
+    label: 'Homestead',
+    title: 'Life on the homestead.',
+    href: 'https://x.com/tylerdotai/status/2069166572497776894?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    image: '/assets/creative/day1-homestead-dog.jpg',
+    alt: 'Golden Retriever sitting outside on the homestead',
+    size: 'large',
+  },
+  {
+    label: 'Homestead',
+    title: 'Homestead chickens.',
+    href: 'https://x.com/tylerdotai/status/2069166572497776894?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    image: '/assets/creative/day1-chickens-farm.jpg',
+    alt: 'Chickens on the homestead',
+    size: 'small',
+  },
+  {
+    label: 'Roadside',
+    title: 'Press the shutter and see what happens.',
+    href: 'https://x.com/tylerdotai/status/2069524641077494222?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    image: '/assets/creative/day2-gas-station.jpg',
+    alt: 'Gas station exterior shot',
+    size: 'large',
+  },
+  {
+    label: 'Interior',
+    title: 'Kitchen frame.',
+    href: 'https://x.com/tylerdotai/status/2069840988256841871?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    image: '/assets/creative/video-preview.jpg',
+    alt: 'Kitchen interior frame from the Sony ZV-E10 video clip',
+    size: 'large',
+  },
+];
 ---
 
 <BaseLayout
   title="Creative"
-  description="Sony ZV-E10 challenge. No crew. No script. 39 days of documentary-style filmmaking."
+  description="Selected Sony ZV-E10 photos and videos by Tyler Delano."
 >
   <Header />
 
   <main>
-    <!-- Hero -->
-    <section class="section border-b border-[#2A2A2A]">
-      <div class="container">
-        <p class="section-label mb-4">Filmmaking</p>
-        <h1 class="text-5xl font-serif mb-4">Sony ZV-E10 Challenge</h1>
-        <p class="text-xl text-[#888888] max-w-2xl mb-6">
-          39 days. One camera. No crew. No script. Every clip is a real moment.
-          This is documentary-style filmmaking as a brand amplifier — not a business.
-        </p>
-        <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-ghost">
-          Follow on X for new clips
-        </a>
-      </div>
-    </section>
+    <!-- Portfolio hero -->
+    <section class="border-b border-[#2A2A2A]">
+      <div class="container py-16 md:py-24">
+        <div class="grid lg:grid-cols-12 gap-10 items-end">
+          <div class="lg:col-span-5">
+            <p class="section-label mb-5">Photo + video</p>
+            <h1 class="font-serif text-6xl md:text-8xl leading-[0.9] mb-6">
+              Selected<br />field notes.
+            </h1>
+            <p class="text-lg md:text-xl text-[#888888] max-w-xl leading-relaxed">
+              A selected archive of stills and clips — homestead animals, roadside frames, kitchen light, and small details worth keeping.
+            </p>
+          </div>
 
-    <!-- Philosophy -->
-    <section class="section border-b border-[#2A2A2A]">
-      <div class="container">
-        <div class="max-w-2xl">
-          <h2 class="font-serif text-3xl mb-6">No crew. No script.</h2>
-          <p class="text-[#888888] mb-4 leading-relaxed">
-            Most "content" is produced. There's a team, a script, a brand strategy,
-            and a content calendar. This is different.
-          </p>
-          <p class="text-[#888888] mb-4 leading-relaxed">
-            The ZV-E10 challenge is a daily filming habit. I carry the camera everywhere.
-            Whatever happens, happens. The documentary-style framing — the real moments,
-            the homestead, the road — that's the point. Not the footage itself.
-          </p>
-          <p class="text-[#888888]">
-            The footage accumulates. The habit compounds. The authenticity is the brand.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Photo Gallery — editorial two-column layout -->
-    <section class="section border-b border-[#2A2A2A]">
-      <div class="container">
-        <p class="section-label mb-8">From the archive</p>
-        <div class="grid md:grid-cols-2 gap-6">
-          <figure>
+          <figure class="lg:col-span-7 lg:-mb-10">
             <img
-              src="/assets/creative/day1-homestead-dog.jpg"
-              alt="Dog on the homestead"
-              loading="lazy"
+              src="/assets/creative/desk-setup.jpg"
+              alt="Desk setup with warm light"
+              loading="eager"
               decoding="async"
-              class="w-full h-72 object-cover rounded"
+              class="w-full h-[560px] object-cover rounded"
             />
-            <figcaption class="mt-2 text-sm text-[#888888]">Day 1 — Homestead</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/creative/day1-homestead-cat.jpg"
-              alt="Cat on the homestead"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-72 object-cover rounded"
-            />
-            <figcaption class="mt-2 text-sm text-[#888888]">Day 1 — Cat</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/creative/day1-chickens-farm.jpg"
-              alt="Chickens on the farm"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-72 object-cover rounded"
-            />
-            <figcaption class="mt-2 text-sm text-[#888888]">Day 1 — Chickens</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/creative/day2-gas-station.jpg"
-              alt="Gas station"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-72 object-cover rounded"
-            />
-            <figcaption class="mt-2 text-sm text-[#888888]">Day 2 — Gas station</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/creative/day2-sony.jpg"
-              alt="Sony ZV-E10"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-72 object-cover rounded"
-            />
-            <figcaption class="mt-2 text-sm text-[#888888]">Day 2 — Camera</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/creative/day3-kitchen.jpg"
-              alt="Kitchen natural light"
-              loading="lazy"
-              decoding="async"
-              class="w-full h-72 object-cover rounded"
-            />
-            <figcaption class="mt-2 text-sm text-[#888888]">Day 3 — Kitchen</figcaption>
+            <figcaption class="mt-3 flex items-center justify-between gap-4 text-sm text-[#888888]">
+              <span>Desk setup — selected archive.</span>
+              <span class="font-mono text-xs">SONY ALPHA ZV-E10</span>
+            </figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- Video Clips -->
+    <!-- Photo showcase -->
     <section class="section border-b border-[#2A2A2A]">
       <div class="container">
-        <p class="section-label mb-8">Video</p>
+        <div class="grid lg:grid-cols-12 gap-8 mb-12">
+          <p class="section-label lg:col-span-3">Photos</p>
+          <div class="lg:col-span-9">
+            <h2 class="font-serif text-4xl md:text-5xl mb-4">Not a feed. A cut.</h2>
+            <p class="text-[#888888] max-w-2xl leading-relaxed">
+              A tight cut of the strongest frames: homestead, roadside, and kitchen light.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {photoWork.map((item) => (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`${item.size === 'large' ? 'lg:col-span-2' : ''} group block overflow-hidden rounded border border-[#2A2A2A] bg-[#1A1A1A]`}
+            >
+              <img
+                src={item.image}
+                alt={item.alt}
+                loading="eager"
+                decoding="async"
+                class={`${item.size === 'large' ? 'h-[420px]' : 'h-[260px]'} w-full object-contain bg-[#0E0E0E] transition-opacity duration-150 group-hover:opacity-85`}
+              />
+              <div class="p-4 border-t border-[#2A2A2A]">
+                <p class="font-mono text-xs uppercase tracking-[0.18em] text-[#C9A84C] mb-1">{item.label}</p>
+                <h3 class="font-serif text-2xl leading-tight">{item.title}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Video showcase -->
+    <section class="section border-b border-[#2A2A2A]">
+      <div class="container">
+        <div class="grid lg:grid-cols-12 gap-8 mb-10">
+          <p class="section-label lg:col-span-3">Video</p>
+          <div class="lg:col-span-9">
+            <h2 class="font-serif text-4xl md:text-5xl mb-4">Motion pieces.</h2>
+            <p class="text-[#888888] max-w-2xl leading-relaxed">
+              Short clips shot on the Sony Alpha ZV-E10 and edited for social. Embedded here as selected work, not a feed dump.
+            </p>
+          </div>
+        </div>
+
         <div class="grid md:grid-cols-2 gap-8">
-          <div>
-            <h2 class="font-serif text-xl mb-3">Homestead — Kitchen</h2>
+          <article class="border border-[#2A2A2A] rounded overflow-hidden bg-[#1A1A1A]">
             <video
               controls
               preload="metadata"
-              class="w-full rounded"
+              class="w-full"
               poster="/assets/creative/video-preview.jpg"
             >
-              <source src="/assets/creative/dayx-homestead-video.mov" type="video/quicktime" />
+              <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <p class="mt-2 text-sm text-[#888888]">Day X — Natural light, ice dispenser moment.</p>
-          </div>
+            <div class="p-5">
+              <p class="section-label mb-2">Kitchen light</p>
+              <h3 class="font-serif text-2xl">Natural kitchen light + Dr Pepper.</h3>
+              <p class="mt-2 text-sm text-[#888888]">Wide, medium, close — one frame at a time.</p>
+              <a
+                href="https://x.com/tylerdotai/status/2069840988256841871?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block text-sm text-[#888888] hover:text-[#C9A84C] transition-colors"
+              >
+                View original post →
+              </a>
+            </div>
+          </article>
 
-          <div>
-            <h2 class="font-serif text-xl mb-3">Homestead — Doorway</h2>
+          <article class="border border-[#2A2A2A] rounded overflow-hidden bg-[#1A1A1A]">
             <video
               controls
               preload="metadata"
-              class="w-full rounded"
+              class="w-full"
               poster="/assets/creative/video2-preview.jpg"
             >
-              <source src="/assets/creative/dayx-homestead-video2.mov" type="video/quicktime" />
+              <source src="/assets/creative/god-bless-usa.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <p class="mt-2 text-sm text-[#888888]">Day X — Ford F-150, bright daylight narrative.</p>
-          </div>
+            <div class="p-5">
+              <p class="section-label mb-2">God bless the USA</p>
+              <h3 class="font-serif text-2xl">Shot on Sony Alpha ZV-E10. Edited in CapCut.</h3>
+              <a
+                href="https://x.com/tylerdotai/status/2069950589060936108?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-4 inline-block text-sm text-[#888888] hover:text-[#C9A84C] transition-colors"
+              >
+                View original post →
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- Social CTA -->
     <section class="section">
       <div class="container text-center">
-        <p class="text-[#888888] mb-4">New clips post as they're filmed.</p>
+        <p class="text-[#888888] mb-4">New photos and clips post socially. This page stays curated.</p>
         <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-primary">
           Follow on X
         </a>

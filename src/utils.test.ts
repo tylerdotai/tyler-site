@@ -6,12 +6,9 @@ describe('site utility functions', () => {
     expect(year).toBe(2026);
   });
 
-  it('should validate color contrast values', () => {
-    // Accent orange: #FF6B00
-    // Background: #FFFEF9
-    // These are the actual brand values from SPEC.md
-    const accent = '#FF6B00';
-    const background = '#FFFEF9';
+  it('should validate current dark editorial color values', () => {
+    const accent = '#C9A84C';
+    const background = '#0E0E0E';
     expect(accent).toMatch(/^#[0-9A-Fa-f]{6}$/);
     expect(background).toMatch(/^#[0-9A-Fa-f]{6}$/);
   });
@@ -22,10 +19,9 @@ describe('site utility functions', () => {
       { href: '/builds', label: 'Builds' },
       { href: '/community', label: 'Community' },
       { href: '/creative', label: 'Creative' },
-      { href: '/parkinson', label: 'Parkinson' },
     ];
 
-    expect(navLinks).toHaveLength(5);
+    expect(navLinks).toHaveLength(4);
     navLinks.forEach((link) => {
       expect(link.href).toMatch(/^\//);
       expect(link.label.length).toBeGreaterThan(0);
@@ -50,21 +46,21 @@ describe('site utility functions', () => {
     });
   });
 
-  it('should validate creative day data structure', () => {
-    const days = [
+  it('should validate creative archive data structure', () => {
+    const entries = [
       {
-        dayNumber: 1,
-        title: 'Life on the Homestead',
-        quote: 'Day 1.',
+        label: 'Day One',
+        title: 'Life on the homestead.',
         imageSrc: '/assets/creative/day1-homestead-dog.jpg',
-        alt: 'Dog on homestead',
+        alt: 'Golden Retriever sitting outside on the homestead',
       },
     ];
 
-    days.forEach((day) => {
-      expect(day.dayNumber).toBeGreaterThan(0);
-      expect(day.title.length).toBeGreaterThan(0);
-      expect(day.imageSrc).toMatch(/^\/assets/);
+    entries.forEach((entry) => {
+      expect(entry.label.length).toBeGreaterThan(0);
+      expect(entry.title.length).toBeGreaterThan(0);
+      expect(entry.imageSrc).toMatch(/^\/assets/);
+      expect(entry.alt.length).toBeGreaterThan(0);
     });
   });
 });

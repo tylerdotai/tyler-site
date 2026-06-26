@@ -31,7 +31,7 @@ Reference: dark-mode creative agencies, documentary film branding.
 | Text muted | `#888888` | Captions, metadata |
 | Accent | `#C9A84C` | Warm gold — used sparingly: links on hover, focus rings, logo mark, one CTA |
 
-**Zero orange. Zero #FF6B00 anywhere.**
+**Zero orange anywhere.**
 
 ### Typography
 | Role | Font | Fallback |
@@ -251,7 +251,7 @@ jobs:
 
 ### Creative Page
 **ZV-E10 Challenge:**
-> 39 days. One camera. No crew, no script.
+> 30 days. One camera. No crew, no script.
 
 ### Parkinson Page
 **Mission:**
