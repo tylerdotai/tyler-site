@@ -32,7 +32,7 @@ const nextEvent = {
             <span class="stat-label">Nodes</span>
           </div>
           <div class="brutal-stat">
-            <span class="stat-number !text-2xl md:!text-5xl">MONTHLY</span>
+            <span class="stat-number">Monthly</span>
             <span class="stat-label">Meetups</span>
           </div>
         </div>
@@ -119,7 +119,7 @@ const nextEvent = {
 
   .stat-number {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.5rem;
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
     line-height: 1;
     color: #1A1AFF;
     letter-spacing: 0.02em;
@@ -136,14 +136,14 @@ const nextEvent = {
 
   .brutal-card {
     position: relative;
-    border: 3px solid #1A1AFF;
-    background: #FFFDF0;
-    box-shadow: 6px 6px 0 #1A1AFF;
+    border: 3px solid #000000;
+    background: #FFFF00;
+    box-shadow: 6px 6px 0 #000000;
     transition: box-shadow 150ms ease, transform 150ms ease;
   }
 
   .brutal-card:hover {
-    box-shadow: 10px 10px 0 #1A1AFF;
+    box-shadow: 10px 10px 0 #000000;
     transform: translate(-2px, -2px);
   }
 
@@ -156,18 +156,18 @@ const nextEvent = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #1A1AFF;
-    border: 3px solid #1A1AFF;
+    color: #FFFDF0;
+    border: 3px solid #000000;
     padding: 0.8rem 1.2rem;
-    background: #FFFF00;
-    box-shadow: 4px 4px 0 #1A1AFF;
+    background: #1A1AFF;
+    box-shadow: 4px 4px 0 #000000;
     transition: box-shadow 150ms ease, transform 150ms ease;
   }
 
   .brutal-cta:hover {
-    background: #1A1AFF;
-    color: #FFFDF0;
-    box-shadow: 6px 6px 0 #FFFF00;
+    background: #FFFDF0;
+    color: #1A1AFF;
+    box-shadow: 6px 6px 0 #000000;
     transform: translate(-2px, -2px);
   }
 </style>
