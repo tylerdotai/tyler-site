@@ -1,8 +1,8 @@
 /* ============================================================
    TYLER DELANO — BOLD NEO-BRUTALISM COLOR CLASH
-   Palette: #E6E6E6 (ground) / #FF3D00 (signal) / #00B0FF (electric) / #212121 (ink)
+   Palette: #E6E6E6 / #FF3D00 / #00B0FF / #212121
+   4 COLORS ONLY. No variants. No dim variants.
    Fonts: Bebas Neue (display) + Space Grotesk (body) + Space Mono (mono)
-   Reference: lydiaamaruch.com, studio-job.com
    ============================================================ */
 
 @import "tailwindcss";
@@ -11,32 +11,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
 
 @theme {
-  /* ── Ground (page background) ── */
+  /* ── THE 4 COLORS ONLY ── */
   --color-ground:    #E6E6E6;
-  --color-bg:        #E6E6E6;
-
-  /* ── Ink (near-black — text + borders) ── */
-  --color-ink:       #212121;
-  --color-bg-surface: #E0E0E0;
-  --color-bg-elevated: #FFFFFF;
-
-  /* ── Signal (red-orange — primary accent) ── */
   --color-signal:    #FF3D00;
-  --color-signal-dim: #E03500;
-
-  /* ── Electric (light blue — secondary accent) ── */
   --color-electric:  #00B0FF;
-  --color-electric-dim: #0090DD;
-
-  /* ── Text ── */
-  --color-text:      #212121;
-  --color-text-body: #212121;
-  --color-text-muted: #555555;
-  --color-text-inverse: #FFFFFF;
-
-  /* ── Structural ── */
-  --color-border:    #212121;
-  --color-border-dim: #AAAAAA;
+  --color-ink:       #212121;
 
   /* ── Typography ── */
   --font-display: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
@@ -58,8 +37,6 @@
   --spacing-section-md:  8rem;
 }
 
-/* ── Google Fonts already loaded above @theme ── */
-
 /* ── Base ── */
 @layer base {
   html {
@@ -69,16 +46,16 @@
   }
 
   body {
-    background: var(--color-ground);
-    color: var(--color-text-body);
-    font-family: var(--font-body);
+    background: #E6E6E6;
+    color: #212121;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 400; /* Bebas Neue only has one weight */
-    color: var(--color-text);
+    font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
+    font-weight: 400;
+    color: #212121;
     line-height: 0.92;
     letter-spacing: -0.01em;
     text-transform: uppercase;
@@ -90,15 +67,15 @@
 
   p { line-height: 1.7; }
 
-  a { color: var(--color-electric); }
+  a { color: #00B0FF; }
 
   ::selection {
-    background-color: var(--color-signal);
-    color: #FFFFFF;
+    background-color: #FF3D00;
+    color: #E6E6E6;
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-signal);
+    outline: 3px solid #FF3D00;
     outline-offset: 3px;
   }
 
@@ -114,176 +91,120 @@
   }
 
   /* ── Buttons ── */
-
-  /* Primary — signal fill (red-orange) */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
-    background: var(--color-signal);
-    color: #FFFFFF;
-    font-family: var(--font-body);
+    background: #FF3D00;
+    color: #E6E6E6;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-ink);
+    border: 3px solid #212121;
+    box-shadow: 4px 4px 0 #212121;
     transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease;
     cursor: pointer;
     text-decoration: none;
   }
 
   .btn-primary:hover {
-    background: var(--color-ink);
-    color: #FFFFFF;
+    background: #212121;
+    color: #E6E6E6;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--color-ink);
+    box-shadow: 6px 6px 0 #212121;
   }
 
   .btn-primary:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--color-ink);
+    box-shadow: 2px 2px 0 #212121;
   }
 
-  /* Ghost — outline on light */
   .btn-ghost {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
     background: transparent;
-    color: var(--color-ink);
-    font-family: var(--font-body);
+    color: #212121;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-ink);
+    border: 3px solid #212121;
+    box-shadow: 4px 4px 0 #212121;
     transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease, color 100ms ease;
     cursor: pointer;
     text-decoration: none;
   }
 
   .btn-ghost:hover {
-    background: var(--color-ink);
-    color: #FFFFFF;
+    background: #212121;
+    color: #E6E6E6;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--color-ink);
+    box-shadow: 6px 6px 0 #212121;
   }
 
   .btn-ghost:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--color-ink);
-  }
-
-  /* Electric button — blue variant */
-  .btn-electric {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.75rem;
-    background: var(--color-electric);
-    color: #FFFFFF;
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-ink);
-    transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  .btn-electric:hover {
-    background: var(--color-ink);
-    color: #FFFFFF;
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--color-ink);
+    box-shadow: 2px 2px 0 #212121;
   }
 
   /* ── Cards ── */
   .card {
     background: #FFFFFF;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-ink);
+    border: 3px solid #212121;
+    box-shadow: 4px 4px 0 #212121;
     transition: transform 100ms ease, box-shadow 100ms ease;
   }
 
   .card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-ink);
+    box-shadow: 7px 7px 0 #212121;
   }
 
-  .brutal-card {
-    background: #FFFFFF;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-ink);
-    transition: transform 100ms ease, box-shadow 100ms ease;
-  }
-
-  .brutal-card:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-ink);
-  }
-
-  /* Signal card — red-orange shadow accent */
   .card-signal {
     background: #FFFFFF;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-signal);
+    border: 3px solid #212121;
+    box-shadow: 4px 4px 0 #FF3D00;
     transition: transform 100ms ease, box-shadow 100ms ease;
   }
 
   .card-signal:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-signal);
-  }
-
-  /* Electric card — blue shadow accent */
-  .card-electric {
-    background: #FFFFFF;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-electric);
-    transition: transform 100ms ease, box-shadow 100ms ease;
-  }
-
-  .card-electric:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-electric);
+    box-shadow: 7px 7px 0 #FF3D00;
   }
 
   /* ── Section label ── */
   .section-label {
-    font-family: var(--font-mono);
+    font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--color-signal);
+    color: #FF3D00;
     display: inline-block;
   }
 
   /* ── Stats ── */
   .stat-number {
-    font-family: var(--font-display);
+    font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 400;
-    color: var(--color-signal);
+    color: #FF3D00;
     line-height: 1;
     display: block;
     letter-spacing: -0.01em;
   }
 
   .stat-label {
-    font-family: var(--font-body);
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-text-muted);
+    color: #212121;
     margin-top: 0.35rem;
     display: block;
   }
@@ -296,34 +217,14 @@
     background: #FFFFFF;
   }
 
-  /* ── Dark panel (for contrast sections) ── */
-  .neo-panel {
-    background: var(--color-ink);
-    border: 3px solid var(--color-ink);
-  }
-
-  /* ── Neo link ── */
-  .neo-link {
-    color: var(--color-electric);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 2px;
-    font-weight: 500;
-    transition: color 100ms ease;
-  }
-
-  .neo-link:hover {
-    color: var(--color-signal);
-  }
-
   /* ── Nav ── */
   .nav-link {
-    font-family: var(--font-body);
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--color-ink);
+    color: #E6E6E6;
     text-decoration: none;
     position: relative;
     padding-bottom: 2px;
@@ -336,7 +237,7 @@
     left: 0;
     width: 0;
     height: 3px;
-    background: var(--color-signal);
+    background: #FF3D00;
     transition: width 100ms ease;
   }
 
@@ -346,59 +247,59 @@
   }
 
   .nav-link:hover {
-    color: var(--color-ink);
+    color: #E6E6E6;
   }
 
   .nav-link.active {
-    color: var(--color-signal);
+    color: #FF3D00;
   }
 
   /* ── Vault card ── */
   .vault-card {
     background: #FFFFFF;
-    border: 3px solid var(--color-ink);
-    box-shadow: 4px 4px 0 var(--color-ink);
+    border: 3px solid #212121;
+    box-shadow: 4px 4px 0 #212121;
     overflow: hidden;
     transition: transform 100ms ease, box-shadow 100ms ease;
   }
 
   .vault-card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-signal);
+    box-shadow: 7px 7px 0 #FF3D00;
   }
 
   /* ── Tag / badge ── */
   .tag {
-    font-family: var(--font-mono);
+    font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding: 0.2rem 0.5rem;
-    border: 2px solid var(--color-ink);
-    background: var(--color-ground);
-    color: var(--color-ink);
+    border: 2px solid #212121;
+    background: #E6E6E6;
+    color: #212121;
   }
 
   .tag-signal {
-    font-family: var(--font-mono);
+    font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding: 0.2rem 0.5rem;
-    border: 2px solid var(--color-ink);
-    background: var(--color-signal);
-    color: #FFFFFF;
+    border: 2px solid #212121;
+    background: #FF3D00;
+    color: #E6E6E6;
   }
 
   .tag-electric {
-    font-family: var(--font-mono);
+    font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding: 0.2rem 0.5rem;
-    border: 2px solid var(--color-ink);
-    background: var(--color-electric);
-    color: #FFFFFF;
+    border: 2px solid #212121;
+    background: #00B0FF;
+    color: #E6E6E6;
   }
 }
 
