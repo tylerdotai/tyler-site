@@ -249,7 +249,7 @@ export const NAV_LINKS = [
 // FOOTER
 // -----------------------------------------------------------------------------
 export const FOOTER = {
-  copyright: `© ${new Date().getFullYear()} Tyler Delano. Built with OpenClaw.`,
+  copyright: `© ${new Date().getFullYear()} Tyler Delano. All rights reserved.`,
   links: [
     { label: 'GitHub',  href: SITE.github },
     { label: 'X',       href: SITE.x },

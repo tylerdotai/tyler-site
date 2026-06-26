@@ -22,15 +22,13 @@ export function MobileNav({ currentPath }: MobileNavProps) {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger>
-        <button
-          aria-label="Open menu"
-          className="flex flex-col justify-center gap-[5px] w-8 h-8 bg-transparent border-none cursor-pointer p-0 z-50 relative"
-        >
-          <span className="block w-full h-[2px] bg-white transition-transform duration-200 origin-center" />
-          <span className="block w-full h-[2px] bg-white transition-opacity duration-200" />
-          <span className="block w-full h-[2px] bg-white transition-transform duration-200 origin-center" />
-        </button>
+      <SheetTrigger
+        aria-label="Open menu"
+        className="flex flex-col justify-center gap-[5px] w-8 h-8 bg-transparent border-none cursor-pointer p-0 z-50 relative"
+      >
+        <span className="block w-full h-[2px] bg-white transition-transform duration-200 origin-center" />
+        <span className="block w-full h-[2px] bg-white transition-opacity duration-200" />
+        <span className="block w-full h-[2px] bg-white transition-transform duration-200 origin-center" />
       </SheetTrigger>
 
       <SheetContent

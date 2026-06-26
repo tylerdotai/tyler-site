@@ -60,7 +60,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #000000;
+    color: inherit;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     font-family: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
