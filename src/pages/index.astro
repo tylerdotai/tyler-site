@@ -12,16 +12,16 @@ import Footer from '../components/Footer.astro';
 
   <main>
     <!-- ── HERO ── -->
-    <section class="border-b border-[#333]">
+    <section style="background:#212121;">
       <div class="container py-24 md:py-40">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <!-- Text -->
           <div>
             <span class="section-label mb-6 block reveal">TYLER DELANO</span>
-            <h1 class="text-[var(--text-hero)] font-display leading-[0.9] tracking-[0.01em] mb-8 reveal" style="color:#FFFFFF; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase;">
+            <h1 class="text-[var(--text-hero)] font-display leading-[0.9] tracking-[0.01em] mb-8 reveal" style="color:#FFFFFF; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase;">
               TINKERER<br/>OF AI
             </h1>
-            <p class="text-[var(--text-body)] text-lg mb-10 max-w-lg leading-relaxed reveal">
+            <p class="text-[var(--text-body)] text-lg mb-10 max-w-lg leading-relaxed reveal" style="color:#E6E6E6;">
               Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.
             </p>
             <div class="flex flex-wrap gap-4 reveal">
@@ -32,7 +32,7 @@ import Footer from '../components/Footer.astro';
 
           <!-- Photo -->
           <div class="relative reveal">
-            <div style="border: 2px solid #FFFFFF; box-shadow: 6px 6px 0 #CCFF00;">
+            <div style="border: 3px solid #FFFFFF; box-shadow: 6px 6px 0 #FF3D00;">
               <img
                 src="/assets/creative/tyler-portrait-bedroom.jpg"
                 alt="Tyler Delano — ZV-E10 portrait, cream walls, gold hoop earring, black t-shirt"
@@ -43,9 +43,9 @@ import Footer from '../components/Footer.astro';
               />
             </div>
             <!-- Stat pill -->
-            <div class="absolute -bottom-4 -right-4 px-5 py-3" style="background:#CCFF00; border: 2px solid #0A0A0A; box-shadow: 4px 4px 0 #0A0A0A;">
-              <span class="font-mono font-bold text-2xl" style="color:#0A0A0A; font-family:'JetBrains Mono',monospace;">600+</span>
-              <span class="font-body text-xs block" style="color:#0A0A0A;">COMMUNITY MEMBERS</span>
+            <div class="brutal-stat absolute -bottom-4 -right-4 px-5 py-3">
+              <span class="stat-number">600+</span>
+              <span class="stat-label">COMMUNITY MEMBERS</span>
             </div>
           </div>
         </div>

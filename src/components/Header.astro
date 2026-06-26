@@ -95,13 +95,14 @@ const pathname = Astro.url.pathname;
     left: 0;
     right: 0;
     z-index: 100;
-    background: #0A0A0A;
+    background: #212121;
     transition: border-color 200ms ease;
-    border-bottom: 1px solid transparent;
+    border-bottom: 3px solid #212121;
+    border-radius: 0;
   }
 
   #site-header.scrolled {
-    border-bottom-color: #333333;
+    border-bottom-color: #212121;
   }
 
   .header-inner {
@@ -113,14 +114,15 @@ const pathname = Astro.url.pathname;
 
   /* Logo */
   .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #CCFF00;
+    color: #FFFFFF;
     text-decoration: none;
     transition: opacity 120ms ease;
+    border-radius: 0;
   }
 
   .logo:hover {
@@ -142,14 +144,15 @@ const pathname = Astro.url.pathname;
 
   .nav-link {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: #888888;
+    color: #FFFFFF;
     text-decoration: none;
     transition: color 120ms ease;
     position: relative;
+    border-radius: 0;
   }
 
   .nav-link::after {
@@ -158,8 +161,8 @@ const pathname = Astro.url.pathname;
     bottom: -4px;
     left: 0;
     width: 0;
-    height: 1px;
-    background: #CCFF00;
+    height: 2px;
+    background: #FF3D00;
     transition: width 120ms ease;
   }
 
@@ -172,19 +175,20 @@ const pathname = Astro.url.pathname;
   }
 
   .nav-link.active {
-    color: #FFFFFF;
+    color: #FF3D00;
   }
 
   .nav-link.active::after {
     width: 100%;
+    background: #FF3D00;
   }
 
   .nav-link--social {
-    color: #CCFF00;
+    color: #FFFFFF;
   }
 
   .nav-link--social:hover {
-    color: #FFFFFF;
+    color: #FF3D00;
   }
 
   /* Hamburger */

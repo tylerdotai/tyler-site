@@ -118,7 +118,7 @@ const socialLinks = [
 
   <main>
     <!-- ── HERO: full-bleed video ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section style="background:#212121; border-bottom: 4px solid #212121;">
       <div class="relative min-h-[90vh] overflow-hidden">
         <!-- Video: 60% opacity — visible but readable -->
         <video
@@ -133,7 +133,7 @@ const socialLinks = [
           <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
         </video>
         <!-- Dark overlay for text readability -->
-        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 60%, rgba(10,10,10,0.5) 100%);"></div>
+        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(33,33,33,0.85) 0%, rgba(33,33,33,0.3) 60%, rgba(33,33,33,0.5) 100%);"></div>
         <!-- Content -->
         <div class="relative container flex min-h-[90vh] items-end pb-16 pt-32">
           <div class="max-w-5xl">
@@ -142,11 +142,11 @@ const socialLinks = [
               SIGNAL<br/>VAULT
             </h1>
             <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end reveal">
-              <p class="max-w-2xl text-lg leading-relaxed" style="color:#CCCCCC;">
+              <p class="max-w-2xl text-lg leading-relaxed" style="color:#E6E6E6;">
                 Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
               </p>
-              <div style="background:#0A0A0A; border: 2px solid #333; padding:0.75rem 1rem; box-shadow: 4px 4px 0 #CCFF00;">
-                <p class="font-mono text-xs uppercase tracking-widest" style="color:#888888; font-family:'JetBrains Mono',monospace;">
+              <div style="background:#212121; border: 3px solid #212121; padding:0.75rem 1rem; box-shadow: 4px 4px 0 #FF3D00;">
+                <p class="font-mono text-xs uppercase tracking-widest" style="color:#E6E6E6; font-family:'JetBrains Mono',monospace;">
                   MODE: NEO-BRUTALIST // MEDIA: 9 PHOTOS / 2 VIDEOS // DEVICE: SONY ZV-E10
                 </p>
               </div>
@@ -157,7 +157,7 @@ const socialLinks = [
     </section>
 
     <!-- ── PHOTO VAULT ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section style="background:#212121; border-bottom: 4px solid #212121;">
       <div class="container py-24 md:py-32">
         <!-- Section heading -->
         <div class="grid gap-6 mb-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-end reveal">
@@ -167,7 +167,7 @@ const socialLinks = [
               PHOTO<br/>DATASET
             </h2>
           </div>
-          <p class="max-w-3xl leading-relaxed" style="color:#888888;">
+          <p class="max-w-3xl leading-relaxed" style="color:#E6E6E6;">
             Every unique standalone photo in the archive shown once. No duplicates rendered publicly. Video posters live in The Reel — separate from the still dataset.
           </p>
         </div>
@@ -182,7 +182,7 @@ const socialLinks = [
     </section>
 
     <!-- ── REEL ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section style="background:#212121; border-bottom: 4px solid #212121;">
       <div class="container py-24 md:py-32">
         <div class="mb-10 reveal">
           <span class="section-label mb-4 inline-block">The Reel</span>
@@ -192,10 +192,10 @@ const socialLinks = [
         </div>
         <div class="grid md:grid-cols-2 gap-6">
           {reelItems.map((item) => (
-            <div class="reveal" style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden;">
+            <div class="reveal" style="border: 3px solid #212121; box-shadow: 4px 4px 0 #FF3D00; overflow:hidden;">
               <!-- Label -->
-              <div style="background:#0A0A0A; border-bottom: 1px solid #333; padding: 0.75rem 1rem;">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">{item.label}</span>
+              <div style="background:#212121; border-bottom: 3px solid #212121; padding: 0.75rem 1rem;">
+                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#00B0FF; font-family:'JetBrains Mono',monospace;">{item.label}</span>
               </div>
               <!-- Video -->
               <div class="relative" style="background:#000;">
@@ -207,21 +207,21 @@ const socialLinks = [
                 >
                   <source src={item.src} type="video/mp4" />
                 </video>
-                <div style="background:#0A0A0A; border-top: 1px solid #333; padding:0.5rem 1rem;" class="flex items-center justify-between">
-                  <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">{item.duration}</span>
-                  <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">{item.stillLabel}</span>
+                <div style="background:#212121; border-top: 3px solid #212121; padding:0.5rem 1rem;" class="flex items-center justify-between">
+                  <span class="font-mono text-xs" style="color:#00B0FF; font-family:'JetBrains Mono',monospace;">{item.duration}</span>
+                  <span class="font-mono text-xs" style="color:#00B0FF; font-family:'JetBrains Mono',monospace;">{item.stillLabel}</span>
                 </div>
               </div>
               <!-- Info -->
-              <div style="background:#111111; border-top: 1px solid #333; padding:1.25rem;">
-                <h3 class="text-lg mb-2" style="color:#FFFFFF; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase;">{item.title}</h3>
-                <p class="text-xs leading-relaxed mb-4" style="color:#888888;">{item.note}</p>
+              <div style="background:#E6E6E6; border-top: 3px solid #212121; padding:1.25rem;">
+                <h3 class="text-lg mb-2" style="color:#212121; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase;">{item.title}</h3>
+                <p class="text-xs leading-relaxed mb-4" style="color:#212121;">{item.note}</p>
                 <a
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="font-mono text-xs uppercase tracking-widest font-bold"
-                  style="color:#CCFF00;"
+                  style="color:#FF3D00;"
                 >
                   VIEW ON X →
                 </a>

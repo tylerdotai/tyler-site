@@ -5,97 +5,26 @@ const year = new Date().getFullYear();
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <!-- Top row: logo + nav -->
-      <div class="footer-top">
-        <a href="/" class="footer-logo">@TYLERDOTAI</a>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="/">Home</a>
-          <a href="/builds">Builds</a>
-          <a href="/community">Community</a>
-          <a href="/creative">Creative</a>
-          <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://linkedin.com/in/tylerpdelano" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/tylerdotai" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </nav>
-      </div>
-
-      <!-- Divider -->
-      <div class="footer-divider"></div>
-
-      <!-- Bottom row: copyright + tagline -->
-      <div class="footer-bottom">
-        <p class="footer-copy">
-          &copy; {year} @tylerdotai
-        </p>
-        <p class="footer-tagline">
-          Tinkerer of AI, creative guy, collaborative community builder.
-        </p>
-      </div>
+      <p class="footer-copy">
+        &copy; {year} @tylerdotai
+      </p>
+      <nav class="footer-socials" aria-label="Social links">
+        <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://linkedin.com/in/tylerpdelano" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/tylerdotai" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    background: #0A0A0A;
-    border-top: 1px solid #333333;
-    padding: 3rem 0 2rem;
+    background: #212121;
+    border-top: 4px solid #212121;
+    padding: 2rem 0;
   }
 
   .footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .footer-top {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .footer-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #CCFF00;
-    text-decoration: none;
-  }
-
-  .footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1.5rem;
-  }
-
-  .footer-nav a {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #888888;
-    text-decoration: none;
-    transition: color 120ms ease;
-  }
-
-  .footer-nav a:hover {
-    color: #FFFFFF;
-  }
-
-  .footer-divider {
-    width: 100%;
-    height: 1px;
-    background: #333333;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-bottom {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -104,16 +33,27 @@ const year = new Date().getFullYear();
   }
 
   .footer-copy {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: #888888;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #E6E6E6;
     letter-spacing: 0.05em;
   }
 
-  .footer-tagline {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 0.7rem;
-    color: #555555;
-    letter-spacing: 0.02em;
+  .footer-socials {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-socials a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 120ms ease;
+  }
+
+  .footer-socials a:hover {
+    color: #FF3D00;
   }
 </style>

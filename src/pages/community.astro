@@ -10,6 +10,56 @@ const nextEvent = {
   description: 'Monthly in-person meetup. This month: live agent demos + open build time. Bring your project.',
   url: 'https://clawplex.dev',
 };
+
+const pastEvents = [
+  {
+    node: 'DFW Node 06 — Hermes',
+    date: 'JUNE 10, 2026',
+    location: 'Spark Coworking, Arlington',
+    photos: [
+      { src: '/assets/community/node-06-hermes-01.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
+      { src: '/assets/community/node-06-hermes-02.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
+      { src: '/assets/community/node-06-hermes-03.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
+    ],
+    description: 'Builders filled Spark Coworking in Arlington for a deep look at Hermes Agent — live demos, debugging, and a real conversation about what it actually means to ship an agent that gets better the more you use it.',
+  },
+  {
+    node: 'DFW Node 05 — Claude Tools',
+    date: 'JUNE 3, 2026',
+    location: 'Office Evolution, Southlake',
+    photos: [
+      { src: '/assets/community/node-05-claude-tools-01.webp', alt: 'DFW Node 05 — Claude Tools at Office Evolution Southlake' },
+    ],
+    description: '30+ DFW builders gathered for an honest conversation about the AI tools actually on their desks — Cursor, Claude Code, OpenCode, OpenAI, Hermes, OpenClaw, and more. No slides, no pitches.',
+  },
+  {
+    node: 'DFW Node 04 — Frisco',
+    date: 'MAY 13, 2026',
+    location: '25N Coworking, Frisco',
+    photos: [
+      { src: '/assets/community/node-04-frisco-01.jpeg', alt: 'DFW Node 04 — Frisco at 25N Coworking' },
+    ],
+    description: 'Claude In The Wild Meetup. Informal session where people are putting Claude to work on real projects and sharing what actually helps in day-to-day use. Heavy token users showing workflows, automations, and practical setups.',
+  },
+  {
+    node: 'DFW Node 03 — Fort Worth',
+    date: 'MAY 6, 2026',
+    location: 'Fort Worth',
+    photos: [
+      { src: '/assets/community/node-03-fort-worth-01.png', alt: 'DFW Node 03 — Fort Worth Mac Mini OpenClaw Workshop' },
+    ],
+    description: 'Hands-on Mac Mini + OpenClaw install workshop. Live demo of the Mac Mini OpenClaw setup. Great networking and builders of all levels.',
+  },
+  {
+    node: 'ClawCon DFW',
+    date: '2026',
+    location: 'DFW',
+    photos: [
+      { src: '/assets/community/clawcon-01.webp', alt: 'ClawCon DFW — inaugural AI builders conference' },
+    ],
+    description: 'The inaugural ClawCon — DFW\'s first AI builders conference. A full day of live demos, agent builds, and honest conversations about what\'s actually working in AI right now.',
+  },
+];
 ---
 
 <BaseLayout
@@ -19,19 +69,20 @@ const nextEvent = {
   <Header />
 
   <main>
+
     <!-- ── STATS ROW ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
       <div class="container py-16 md:py-24">
         <div class="grid grid-cols-3 gap-0 text-center">
-          <div class="community-stat" style="border-right: 1px solid #333;">
+          <div class="brutal-stat" style="border-right: 4px solid #212121;">
             <span class="stat-number">600+</span>
             <span class="stat-label">Members</span>
           </div>
-          <div class="community-stat" style="border-right: 1px solid #333;">
+          <div class="brutal-stat" style="border-right: 4px solid #212121;">
             <span class="stat-number">6</span>
             <span class="stat-label">Nodes</span>
           </div>
-          <div class="community-stat">
+          <div class="brutal-stat">
             <span class="stat-number">Monthly</span>
             <span class="stat-label">Meetups</span>
           </div>
@@ -40,13 +91,13 @@ const nextEvent = {
     </section>
 
     <!-- ── ABOUT ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
       <div class="container py-24 md:py-32">
         <div class="grid lg:grid-cols-2 gap-16">
           <!-- Left: heading -->
           <div>
             <span class="section-label mb-6 block reveal">DFW AI Community</span>
-            <h1 class="font-display mb-8" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h1);">
+            <h1 class="font-display mb-8" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#212121; font-size:var(--text-h1);">
               AGENT<br/>BUILDERS<br/>CLUB
             </h1>
           </div>
@@ -72,29 +123,28 @@ const nextEvent = {
     </section>
 
     <!-- ── NEXT EVENT ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
       <div class="container py-16 md:py-24">
         <span class="section-label mb-8 block reveal">Next Event</span>
         <div class="reveal">
-          <div style="background:#CCFF00; border: 2px solid #0A0A0A; box-shadow: 6px 6px 0 #0A0A0A; padding: 2.5rem;">
+          <div class="card-signal" style="padding: 2.5rem;">
             <div class="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 class="text-4xl md:text-5xl mb-4" style="color:#0A0A0A; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.95;">
+                <h2 class="text-4xl md:text-5xl mb-4" style="color:#212121; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.95;">
                   {nextEvent.title}
                 </h2>
                 <div class="space-y-1">
-                  <p class="font-mono text-sm" style="color:#555555; font-family:'JetBrains Mono',monospace;">{nextEvent.date}</p>
-                  <p class="font-mono text-sm" style="color:#555555; font-family:'JetBrains Mono',monospace;">{nextEvent.location}</p>
+                  <p class="font-mono text-sm" style="color:#555555; font-family:'Space Mono',monospace;">{nextEvent.date}</p>
+                  <p class="font-mono text-sm" style="color:#555555; font-family:'Space Mono',monospace;">{nextEvent.location}</p>
                 </div>
               </div>
               <div>
-                <p class="text-base mb-6" style="color:#0A0A0A;">{nextEvent.description}</p>
+                <p class="text-base mb-6" style="color:#212121;">{nextEvent.description}</p>
                 <a
                   href={nextEvent.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="btn-primary"
-                  style="background:#0A0A0A; color:#CCFF00; border-color:#0A0A0A; box-shadow: 4px 4px 0 #0A0A0A;"
                 >
                   RSVP ON CLAWPLEX.DEV →
                 </a>
@@ -106,140 +156,58 @@ const nextEvent = {
     </section>
 
     <!-- ── PAST EVENTS GALLERY ── -->
-    <section style="background:#111111; border-bottom: 1px solid #333;">
+    <section style="background:#E6E6E6; border-bottom: 4px solid #212121;">
       <div class="container py-24 md:py-32">
         <div class="mb-12">
           <span class="section-label mb-4 block reveal">DFW Nodes · 2026</span>
-          <h2 class="font-display reveal" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h2);">
+          <h2 class="font-display reveal" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#212121; font-size:var(--text-h2);">
             PAST<br/>EVENTS
           </h2>
         </div>
 
         <div class="space-y-20">
 
-          <!-- DFW Node 06 — Hermes -->
-          <div class="reveal">
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/node-06-hermes-01.webp" alt="DFW Node 06 — Hermes at Spark Coworking Arlington" class="w-full h-64 object-cover" loading="lazy" />
+          {pastEvents.map((event) => (
+            <div class="reveal">
+              <div class="flex flex-col md:flex-row gap-6 mb-6">
+                {event.photos.map((photo) => (
+                  <div class="card" style="flex:1; box-shadow: 4px 4px 0 #FF3D00; position:relative; overflow:hidden;">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      class="w-full h-64 object-cover"
+                      loading="lazy"
+                    />
+                    <!-- Dark ink label overlay on photo -->
+                    <div style="position:absolute; bottom:0; left:0; right:0; background:#212121; padding:0.75rem 1rem; border-top:3px solid #212121;">
+                      <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#FFFFFF; font-family:'Space Mono',monospace;">
+                        {event.node}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/node-06-hermes-02.webp" alt="DFW Node 06 — Hermes at Spark Coworking Arlington" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/node-06-hermes-03.webp" alt="DFW Node 06 — Hermes at Spark Coworking Arlington" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div style="background:#0A0A0A; border: 1px solid #333; padding:1.25rem;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">DFW Node 06 — Hermes</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">JUNE 10, 2026</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">Spark Coworking, Arlington</span>
-              </div>
-              <p class="text-sm leading-relaxed" style="color:#888888;">
-                Builders filled Spark Coworking in Arlington for a deep look at Hermes Agent — live demos, debugging, and a real conversation about what it actually means to ship an agent that gets better the more you use it.
-              </p>
-            </div>
-          </div>
-
-          <!-- DFW Node 05 — Claude Tools -->
-          <div class="reveal">
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/node-05-claude-tools-01.webp" alt="DFW Node 05 — Claude Tools at Office Evolution Southlake" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div style="background:#0A0A0A; border: 1px solid #333; padding:1.25rem;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">DFW Node 05 — Claude Tools</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">JUNE 3, 2026</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">Office Evolution, Southlake</span>
-              </div>
-              <p class="text-sm leading-relaxed" style="color:#888888;">
-                30+ DFW builders gathered for an honest conversation about the AI tools actually on their desks — Cursor, Claude Code, OpenCode, OpenAI, Hermes, OpenClaw, and more. No slides, no pitches.
-              </p>
-            </div>
-          </div>
-
-          <!-- DFW Node 04 — Frisco -->
-          <div class="reveal">
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/node-04-frisco-01.jpeg" alt="DFW Node 04 — Frisco at 25N Coworking" class="w-full h-64 object-cover" loading="lazy" />
+              <!-- Dark ink description container with white text -->
+              <div style="background:#212121; border:3px solid #212121; padding:1.25rem;">
+                <div class="flex flex-wrap gap-4 items-center mb-2">
+                  <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#FF3D00; font-family:'Space Mono',monospace;">{event.node}</span>
+                  <span class="font-mono text-xs" style="color:#888888;">·</span>
+                  <span class="font-mono text-xs" style="color:#888888; font-family:'Space Mono',monospace;">{event.date}</span>
+                  <span class="font-mono text-xs" style="color:#888888;">·</span>
+                  <span class="font-mono text-xs" style="color:#888888; font-family:'Space Mono',monospace;">{event.location}</span>
+                </div>
+                <p class="text-sm leading-relaxed" style="color:#E6E6E6;">
+                  {event.description}
+                </p>
               </div>
             </div>
-            <div style="background:#0A0A0A; border: 1px solid #333; padding:1.25rem;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">DFW Node 04 — Frisco</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">MAY 13, 2026</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">25N Coworking, Frisco</span>
-              </div>
-              <p class="text-sm leading-relaxed" style="color:#888888;">
-                Claude In The Wild Meetup. Informal session where people are putting Claude to work on real projects and sharing what actually helps in day-to-day use. Heavy token users showing workflows, automations, and practical setups.
-              </p>
-            </div>
-          </div>
-
-          <!-- DFW Node 03 — Fort Worth -->
-          <div class="reveal">
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/node-03-fort-worth-01.png" alt="DFW Node 03 — Fort Worth Mac Mini OpenClaw Workshop" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div style="background:#0A0A0A; border: 1px solid #333; padding:1.25rem;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">DFW Node 03 — Fort Worth</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">MAY 6, 2026</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">Fort Worth</span>
-              </div>
-              <p class="text-sm leading-relaxed" style="color:#888888;">
-                Hands-on Mac Mini + OpenClaw install workshop. Live demo of the Mac Mini OpenClaw setup. Great networking and builders of all levels.
-              </p>
-            </div>
-          </div>
-
-          <!-- ClawCon DFW -->
-          <div class="reveal">
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; flex:1;">
-                <img src="/assets/community/clawcon-01.webp" alt="ClawCon DFW — inaugural AI builders conference" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div style="background:#0A0A0A; border: 1px solid #333; padding:1.25rem;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">ClawCon DFW</span>
-                <span class="font-mono text-xs" style="color:#555555;">·</span>
-                <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">2026</span>
-              </div>
-              <p class="text-sm leading-relaxed" style="color:#888888;">
-                The inaugural ClawCon — DFW's first AI builders conference. A full day of live demos, agent builds, and honest conversations about what's actually working in AI right now.
-              </p>
-            </div>
-          </div>
+          ))}
 
         </div>
       </div>
     </section>
+
   </main>
 
   <Footer />
 </BaseLayout>
-
-<style>
-  .community-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-    background: transparent;
-  }
-</style>

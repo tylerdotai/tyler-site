@@ -25,10 +25,10 @@ const sizeClass = {
   data-lightbox-title={title}
   data-lightbox-meta={`${label} // ${meta}`}
   aria-label={`Open ${title}`}
-  style="display:block; width:100%; background:#111111; border: 1px solid #333333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden; cursor:pointer; text-align:left; transition: border-color 120ms ease, box-shadow 120ms ease;"
+  style="display:block; width:100%; background:#FFFFFF; border: 3px solid #212121; box-shadow: 4px 4px 0 #212121; overflow:hidden; cursor:pointer; text-align:left; transition: box-shadow 0.1s, transform 0.1s; border-radius:0;"
 >
   <!-- Index label -->
-  <div style="position:absolute; left:0.75rem; top:0.75rem; z-index:10; font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; background:#CCFF00; color:#0A0A0A; padding:0.25rem 0.5rem; font-weight:700; border: 1px solid #0A0A0A;">
+  <div style="position:absolute; left:0.75rem; top:0.75rem; z-index:10; font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; background:#212121; color:#FFFFFF; padding:0.25rem 0.5rem; font-weight:700; border: 1px solid #212121;">
     IMG_{String(index).padStart(2, '0')}
   </div>
 
@@ -43,19 +43,19 @@ const sizeClass = {
   />
 
   <!-- Caption bar -->
-  <div style="position:absolute; inset-x:0; bottom:0; padding:0.75rem; background:#0A0A0A; border-top: 1px solid #333333;">
-    <p style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; background:#CCFF00; color:#0A0A0A; padding:0.2rem 0.4rem; font-weight:700; display:inline-block; margin-bottom:0.4rem; border:1px solid #0A0A0A;">
+  <div style="position:absolute; inset-x:0; bottom:0; padding:0.75rem; background:#FFFFFF; border-top: 3px solid #212121;">
+    <p style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; background:#212121; color:#FFFFFF; padding:0.2rem 0.4rem; font-weight:700; display:inline-block; margin-bottom:0.4rem; border:1px solid #212121;">
       {label}
     </p>
-    <h3 style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; color:#FFFFFF; font-size:1rem; line-height:1.1; margin-bottom:0.25rem;">{title}</h3>
-    <p style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:#555555;">{meta}</p>
+    <h3 style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; color:#212121; font-size:1rem; line-height:1.1; margin-bottom:0.25rem;">{title}</h3>
+    <p style="font-family:'JetBrains Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:#00B0FF;">{meta}</p>
   </div>
 </button>
 
 <style>
   .vault-card:hover {
-    border-color: #CCFF00;
-    box-shadow: 6px 6px 0 #CCFF00;
+    box-shadow: 7px 7px 0 #FF3D00;
+    transform: translate(-2px, -2px);
   }
 
   .vault-card:hover .vault-img {

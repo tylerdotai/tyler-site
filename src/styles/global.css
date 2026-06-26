@@ -1,42 +1,54 @@
-@import "tailwindcss";
-
 /* ============================================================
-   TYLER DELANO — NEO-BRUTALIST DARK DESIGN SYSTEM
-   Colors: #0A0A0A bg / #CCFF00 accent / white structure
-   Fonts: Syne (display) + Space Grotesk (body) + JetBrains Mono
+   TYLER DELANO — BOLD NEO-BRUTALISM COLOR CLASH
+   Palette: #E6E6E6 (ground) / #FF3D00 (signal) / #00B0FF (electric) / #212121 (ink)
+   Fonts: Bebas Neue (display) + Space Grotesk (body) + Space Mono (mono)
+   Reference: lydiaamaruch.com, studio-job.com
    ============================================================ */
 
+@import "tailwindcss";
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+
 @theme {
-  /* ── Backgrounds (dark foundation) ── */
-  --color-bg:          #0A0A0A;
-  --color-bg-surface: #111111;
-  --color-bg-elevated: #1A1A1A;
+  /* ── Ground (page background) ── */
+  --color-ground:    #E6E6E6;
+  --color-bg:        #E6E6E6;
+
+  /* ── Ink (near-black — text + borders) ── */
+  --color-ink:       #212121;
+  --color-bg-surface: #E0E0E0;
+  --color-bg-elevated: #FFFFFF;
+
+  /* ── Signal (red-orange — primary accent) ── */
+  --color-signal:    #FF3D00;
+  --color-signal-dim: #E03500;
+
+  /* ── Electric (light blue — secondary accent) ── */
+  --color-electric:  #00B0FF;
+  --color-electric-dim: #0090DD;
 
   /* ── Text ── */
-  --color-text:       #FFFFFF;
-  --color-text-body:  #E5E5E5;
-  --color-text-muted: #888888;
-
-  /* ── SINGLE ACCENT: #CCFF00 electric lime ── */
-  /* Used ONLY for: CTAs, active nav, section labels, stat accents */
-  --color-accent:     #CCFF00;
-  --color-accent-dim: #AAE000;
+  --color-text:      #212121;
+  --color-text-body: #212121;
+  --color-text-muted: #555555;
+  --color-text-inverse: #FFFFFF;
 
   /* ── Structural ── */
-  --color-border:     #FFFFFF;
-  --color-border-dim: #333333;
+  --color-border:    #212121;
+  --color-border-dim: #AAAAAA;
 
   /* ── Typography ── */
-  --font-display: 'Syne', 'Arial Black', sans-serif;
+  --font-display: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
   --font-body:    'Space Grotesk', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --font-mono:    'Space Mono', ui-monospace, monospace;
 
   /* ── Type Scale ── */
-  --text-hero:   clamp(4rem, 12vw, 10rem);
+  --text-hero:   clamp(5rem, 14vw, 12rem);
   --text-h1:     clamp(2.5rem, 6vw, 5rem);
   --text-h2:     clamp(1.75rem, 4vw, 3rem);
   --text-h3:     clamp(1.25rem, 2.5vw, 1.75rem);
-  --text-body:   1rem;
+  --text-body:   1.0625rem;
   --text-sm:     0.875rem;
   --text-xs:     0.75rem;
 
@@ -47,7 +59,7 @@
 }
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
 
 /* ── Base ── */
 @layer base {
@@ -58,7 +70,7 @@
   }
 
   body {
-    background: var(--color-bg);
+    background: var(--color-ground);
     color: var(--color-text-body);
     font-family: var(--font-body);
     overflow-x: hidden;
@@ -66,10 +78,10 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 800;
+    font-weight: 400; /* Bebas Neue only has one weight */
     color: var(--color-text);
-    line-height: 0.95;
-    letter-spacing: 0.01em;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
     text-transform: uppercase;
   }
 
@@ -79,13 +91,15 @@
 
   p { line-height: 1.7; }
 
+  a { color: var(--color-electric); }
+
   ::selection {
-    background-color: var(--color-accent);
-    color: #0A0A0A;
+    background-color: var(--color-signal);
+    color: #FFFFFF;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 3px solid var(--color-signal);
     outline-offset: 3px;
   }
 
@@ -102,92 +116,146 @@
 
   /* ── Buttons ── */
 
-  /* Primary — accent fill */
+  /* Primary — signal fill (red-orange) */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
-    background: var(--color-accent);
-    color: #0A0A0A;
+    background: var(--color-signal);
+    color: #FFFFFF;
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 2px solid #0A0A0A;
-    box-shadow: 4px 4px 0 #0A0A0A;
-    transition: transform 120ms ease, box-shadow 120ms ease;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease;
     cursor: pointer;
     text-decoration: none;
   }
 
   .btn-primary:hover {
+    background: var(--color-ink);
+    color: #FFFFFF;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #0A0A0A;
+    box-shadow: 6px 6px 0 var(--color-ink);
   }
 
   .btn-primary:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #0A0A0A;
+    box-shadow: 2px 2px 0 var(--color-ink);
   }
 
-  /* Ghost — outline on dark */
+  /* Ghost — outline on light */
   .btn-ghost {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
     background: transparent;
-    color: var(--color-text);
+    color: var(--color-ink);
     font-family: var(--font-body);
     font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 2px solid var(--color-border);
-    box-shadow: 4px 4px 0 var(--color-border);
-    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, color 120ms ease;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease, color 100ms ease;
     cursor: pointer;
     text-decoration: none;
   }
 
   .btn-ghost:hover {
-    background: var(--color-text);
-    color: #0A0A0A;
+    background: var(--color-ink);
+    color: #FFFFFF;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--color-border);
+    box-shadow: 6px 6px 0 var(--color-ink);
   }
 
   .btn-ghost:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 var(--color-border);
+    box-shadow: 2px 2px 0 var(--color-ink);
   }
 
-  /* ── Cards (white on dark — INVERTED is the neo-brutalist move) ── */
+  /* Electric button — blue variant */
+  .btn-electric {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--color-electric);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition: transform 100ms ease, box-shadow 100ms ease, background 100ms ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-electric:hover {
+    background: var(--color-ink);
+    color: #FFFFFF;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--color-ink);
+  }
+
+  /* ── Cards ── */
   .card {
-    background: var(--color-text);
-    border: 2px solid #0A0A0A;
-    box-shadow: 4px 4px 0 var(--color-accent);
-    transition: transform 120ms ease, box-shadow 120ms ease;
+    background: #FFFFFF;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition: transform 100ms ease, box-shadow 100ms ease;
   }
 
   .card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-accent);
+    box-shadow: 7px 7px 0 var(--color-ink);
   }
 
-  /* ── Brutal Card (creative vault) ── */
   .brutal-card {
-    background: var(--color-text);
-    border: 2px solid #0A0A0A;
-    box-shadow: 4px 4px 0 var(--color-accent);
-    transition: transform 120ms ease, box-shadow 120ms ease;
+    background: #FFFFFF;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition: transform 100ms ease, box-shadow 100ms ease;
   }
 
   .brutal-card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 var(--color-accent);
+    box-shadow: 7px 7px 0 var(--color-ink);
+  }
+
+  /* Signal card — red-orange shadow accent */
+  .card-signal {
+    background: #FFFFFF;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-signal);
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .card-signal:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 var(--color-signal);
+  }
+
+  /* Electric card — blue shadow accent */
+  .card-electric {
+    background: #FFFFFF;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-electric);
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .card-electric:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 var(--color-electric);
   }
 
   /* ── Section label ── */
@@ -196,18 +264,19 @@
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--color-accent);
+    color: var(--color-signal);
     display: inline-block;
   }
 
   /* ── Stats ── */
   .stat-number {
-    font-family: var(--font-mono);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    color: var(--color-accent);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 400;
+    color: var(--color-signal);
     line-height: 1;
     display: block;
+    letter-spacing: -0.01em;
   }
 
   .stat-label {
@@ -220,15 +289,23 @@
     display: block;
   }
 
-  /* ── Dark panel ── */
+  .brutal-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: #FFFFFF;
+  }
+
+  /* ── Dark panel (for contrast sections) ── */
   .neo-panel {
-    background: var(--color-bg-surface);
-    border: 1px solid var(--color-border-dim);
+    background: var(--color-ink);
+    border: 3px solid var(--color-ink);
   }
 
   /* ── Neo link ── */
   .neo-link {
-    color: var(--color-accent);
+    color: var(--color-electric);
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-thickness: 2px;
@@ -237,7 +314,92 @@
   }
 
   .neo-link:hover {
-    color: var(--color-text);
+    color: var(--color-signal);
+  }
+
+  /* ── Nav ── */
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--color-signal);
+    transition: width 100ms ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+
+  .nav-link.active {
+    color: var(--color-signal);
+  }
+
+  /* ── Vault card ── */
+  .vault-card {
+    background: #FFFFFF;
+    border: 3px solid var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    overflow: hidden;
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .vault-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 var(--color-signal);
+  }
+
+  /* ── Tag / badge ── */
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid var(--color-ink);
+    background: var(--color-ground);
+    color: var(--color-ink);
+  }
+
+  .tag-signal {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid var(--color-ink);
+    background: var(--color-signal);
+    color: #FFFFFF;
+  }
+
+  .tag-electric {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.2rem 0.5rem;
+    border: 2px solid var(--color-ink);
+    background: var(--color-electric);
+    color: #FFFFFF;
   }
 }
 
