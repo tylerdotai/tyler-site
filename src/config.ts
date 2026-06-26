@@ -152,11 +152,11 @@ export const COMMUNITY = {
   nodeCount: 6,
   location: 'Dallas-Fort Worth Metroplex',
   nextEvent: {
-    date: 'August 2, 2025',
+    date: 'July 15, 2026',
     time: '5–8pm',
     venue: '113 Barnett Blvd, Highland Village, TX 75077',
     host: 'Rony Daniel',
-    rsvpUrl: null as string | null,
+    rsvpUrl: 'https://luma.com/evimcn31',
   },
   about: 'The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.',
   nodes: [
