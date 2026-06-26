@@ -1,0 +1,53 @@
+---
+interface Props {
+  variant?: 'surface' | 'accent';
+  padding?: 'sm' | 'md' | 'lg';
+  href?: string;
+  class?: string;
+}
+
+const { variant = 'surface', padding = 'md', href, class: className } = Astro.props;
+
+const paddingMap = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8',
+};
+
+const isAccent = variant === 'accent';
+const shadowColor = isAccent ? '#00B8FF' : '#000000';
+const staticShadow = `shadow-[4px_4px_0_${shadowColor}]`;
+const hoverShadow = `hover:shadow-[7px_7px_0_${shadowColor}]`;
+---
+
+{href ? (
+  <a
+    href={href}
+    class:list={[
+      'bg-white border-[3px] border-black transition-transform duration-100',
+      paddingMap[padding],
+      staticShadow,
+      hoverShadow,
+      'hover:translate-x-[-3px] hover:translate-y-[-3px]',
+      'translate-x-0 translate-y-0',
+      className,
+    ]}
+    style="display: block; text-decoration: none;"
+  >
+    <slot />
+  </a>
+) : (
+  <div
+    class:list={[
+      'bg-white border-[3px] border-black transition-transform duration-100',
+      paddingMap[padding],
+      staticShadow,
+      hoverShadow,
+      'hover:translate-x-[-3px] hover:translate-y-[-3px]',
+      'translate-x-0 translate-y-0',
+      className,
+    ]}
+  >
+    <slot />
+  </div>
+)}

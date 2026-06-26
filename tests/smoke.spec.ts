@@ -41,7 +41,7 @@ test('navigation links are present on homepage', async ({ page }) => {
 test('footer is present', async ({ page }) => {
   await page.goto(BASE);
   await expect(page.locator('footer')).toBeVisible();
-  await expect(page.locator('footer')).toContainText('@tylerdotai');
+  await expect(page.locator('footer')).toContainText('Tyler Delano');
 });
 
 test('homepage hero section', async ({ page }) => {

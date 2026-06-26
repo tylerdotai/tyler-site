@@ -1,17 +1,17 @@
 ---
-const year = new Date().getFullYear();
+import { FOOTER } from '../config';
 ---
 
 <footer>
   <div class="container">
     <div class="footer-inner">
       <p class="footer-copy">
-        &copy; {year} @tylerdotai
+        {FOOTER.copyright}
       </p>
       <nav class="footer-socials" aria-label="Social links">
-        <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://linkedin.com/in/tylerpdelano" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/tylerdotai" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {FOOTER.links.map(link => (
+          <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
+        ))}
       </nav>
     </div>
   </div>
