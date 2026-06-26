@@ -153,10 +153,10 @@ export const COMMUNITY = {
   location: 'Dallas-Fort Worth Metroplex',
   nextEvent: {
     date: 'July 15, 2026',
-    time: '5–8pm',
-    venue: '113 Barnett Blvd, Highland Village, TX 75077',
-    host: 'Rony Daniel',
-    rsvpUrl: 'https://luma.com/evimcn31',
+    time: '5–7pm',
+    venue: 'The DEC Network @ Fort Worth · 600 Bryan Ave #220, Fort Worth, TX',
+    host: 'ClawPlex × FWTX DAO',
+    rsvpUrl: null as string | null,
   },
   about: 'The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.',
   nodes: [
