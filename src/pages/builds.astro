@@ -11,32 +11,32 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main>
-    <section class="section border-b border-[#E8E4DC]">
+    <section class="section border-b border-[#2A2A2A]">
       <div class="container">
         <p class="section-label mb-4">Open source</p>
         <h1 class="text-5xl font-serif mb-4">What I build.</h1>
-        <p class="text-lg text-[#6B6B6B] max-w-2xl">
+        <p class="text-lg text-[#888888] max-w-2xl">
           AI tools, agent harnesses, and research pipelines. Most of it's open.
           The stuff that isn't is because I'm still figuring it out.
         </p>
       </div>
     </section>
 
-    <section class="section border-b border-[#E8E4DC]">
+    <section class="section">
       <div class="container">
-        <div class="space-y-8">
+        <div class="space-y-12">
           <!-- Singularity -->
           <article class="grid md:grid-cols-3 gap-8 items-start">
             <div>
-              <h2 class="font-serif text-2xl mb-2">Singularity</h2>
+              <h2 class="font-serif text-2xl mb-3">Singularity</h2>
               <div class="flex flex-wrap gap-2 mb-3">
                 {['Bun', 'TypeScript', 'SQLite'].map(t => (
-                  <span class="text-xs font-mono bg-[#F7F4EE] text-[#6B6B6B] px-2 py-1 rounded">{t}</span>
+                  <span class="text-xs font-mono bg-[#1A1A1A] text-[#888888] px-2 py-1 rounded border border-[#2A2A2A]">{t}</span>
                 ))}
               </div>
             </div>
             <div class="md:col-span-2">
-              <p class="text-[#6B6B6B] mb-4">
+              <p class="text-[#888888] mb-4 leading-relaxed">
                 Provider-neutral AI agent harness. Swap between OpenAI, Anthropic, Ollama,
                 or anything with an OpenAI-compatible API — the agent logic stays the same.
                 Structured tool calling, JSON state, SQLite persistence. Built for agents that
@@ -56,20 +56,20 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
 
-          <div class="border-t border-[#E8E4DC]"></div>
+          <div class="border-t border-[#2A2A2A]"></div>
 
           <!-- Agent Loop System -->
           <article class="grid md:grid-cols-3 gap-8 items-start">
             <div>
-              <h2 class="font-serif text-2xl mb-2">Agent Loop System</h2>
+              <h2 class="font-serif text-2xl mb-3">Agent Loop System</h2>
               <div class="flex flex-wrap gap-2 mb-3">
                 {['Python', 'JSON', 'SQLite'].map(t => (
-                  <span class="text-xs font-mono bg-[#F7F4EE] text-[#6B6B6B] px-2 py-1 rounded">{t}</span>
+                  <span class="text-xs font-mono bg-[#1A1A1A] text-[#888888] px-2 py-1 rounded border border-[#2A2A2A]">{t}</span>
                 ))}
               </div>
             </div>
             <div class="md:col-span-2">
-              <p class="text-[#6B6B6B] mb-4">
+              <p class="text-[#888888] mb-4 leading-relaxed">
                 Closed-loop agent harness with structured outputs and step-by-step reasoning.
                 Python-first. Define your agent's tools in JSON, wire them up, and get
                 traceable, auditable agent runs. Good for agents that need to justify
@@ -89,20 +89,20 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
 
-          <div class="border-t border-[#E8E4DC]"></div>
+          <div class="border-t border-[#2A2A2A]"></div>
 
           <!-- AIAgainstParkinson -->
           <article class="grid md:grid-cols-3 gap-8 items-start">
             <div>
-              <h2 class="font-serif text-2xl mb-2">AIAgainstParkinson</h2>
+              <h2 class="font-serif text-2xl mb-3">AIAgainstParkinson</h2>
               <div class="flex flex-wrap gap-2 mb-3">
                 {['Python', 'PubMed', 'MiniMax'].map(t => (
-                  <span class="text-xs font-mono bg-[#F7F4EE] text-[#6B6B6B] px-2 py-1 rounded">{t}</span>
+                  <span class="text-xs font-mono bg-[#1A1A1A] text-[#888888] px-2 py-1 rounded border border-[#2A2A2A]">{t}</span>
                 ))}
               </div>
             </div>
             <div class="md:col-span-2">
-              <p class="text-[#6B6B6B] mb-4">
+              <p class="text-[#888888] mb-4 leading-relaxed">
                 Daily automated research pipeline for Parkinson's disease. Every morning,
                 a cron job pulls the latest PubMed papers, generates plain-language summaries
                 in English and Spanish, and delivers them — automatically. No paywall. No algorithm.
@@ -122,20 +122,20 @@ import Footer from '../components/Footer.astro';
             </div>
           </article>
 
-          <div class="border-t border-[#E8E4DC]"></div>
+          <div class="border-t border-[#2A2A2A]"></div>
 
           <!-- Voice Agent -->
           <article class="grid md:grid-cols-3 gap-8 items-start">
             <div>
-              <h2 class="font-serif text-2xl mb-2">Voice Agent</h2>
+              <h2 class="font-serif text-2xl mb-3">Voice Agent</h2>
               <div class="flex flex-wrap gap-2 mb-3">
                 {['Python', 'WebRTC', 'LLM'].map(t => (
-                  <span class="text-xs font-mono bg-[#F7F4EE] text-[#6B6B6B] px-2 py-1 rounded">{t}</span>
+                  <span class="text-xs font-mono bg-[#1A1A1A] text-[#888888] px-2 py-1 rounded border border-[#2A2A2A]">{t}</span>
                 ))}
               </div>
             </div>
             <div class="md:col-span-2">
-              <p class="text-[#6B6B6B] mb-4">
+              <p class="text-[#888888] mb-4 leading-relaxed">
                 Real-time voice agent using WebRTC and a local LLM. No cloud API for the
                 voice leg — the audio stays local. Built for agents that need to talk
                 without latency or dependency on a third-party voice API.
