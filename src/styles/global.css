@@ -1,6 +1,6 @@
 /* ============================================================
    TYLER DELANO — VIBRANT MINIMALIST NEO-BRUTALISM
-   Palette: #D2D2D2 / #000000 / #007AFF / #FFFFFF / #4D4D4D
+   Palette: #D2D2D2 / #000000 / #00B8FF / #FFFFFF / #4D4D4D
    5 COLORS ONLY. No variants.
    Fonts: Bebas Neue (display) + Space Grotesk (body) + Space Mono (mono)
    ============================================================ */
@@ -14,9 +14,10 @@
   /* ── THE 5 COLORS ONLY ── */
   --color-ground:    #D2D2D2;
   --color-ink:       #000000;
-  --color-accent:    #007AFF;
+  --color-accent:    #00B8FF;
   --color-surface:   #FFFFFF;
   --color-muted:     #4D4D4D;
+  --color-border:    #4D4D4D;
 
   /* ── Typography ── */
   --font-display: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
@@ -65,16 +66,16 @@
   h3 { font-size: var(--text-h3); }
 
   p  { line-height: 1.7; }
-  a  { color: #007AFF; }
+  a  { color: #00B8FF; }
 
   ::selection {
     color: #FFFFFF;
-    background-color: #007AFF;
+    background-color: #00B8FF;
   }
 
   :focus-visible {
     outline-offset: 3px;
-    outline: 3px solid #007AFF;
+    outline: 3px solid #00B8FF;
   }
 
   img, video { max-width: 100%; display: block; }
@@ -94,7 +95,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     cursor: pointer;
-    background: #007AFF;
+    background: #00B8FF;
     border: 3px solid #000000;
     align-items: center;
     gap: 0.5rem;
@@ -112,7 +113,7 @@
     color: #FFFFFF;
     background: #000000;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #007AFF;
+    box-shadow: 6px 6px 0 #00B8FF;
   }
 
   .btn-primary:active {
@@ -121,12 +122,12 @@
   }
 
   .btn-ghost {
-    color: #000000;
+    color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     cursor: pointer;
-    background: transparent;
-    border: 3px solid #000000;
+    background: #000000;
+    border: 3px solid #FFFFFF;
     align-items: center;
     gap: 0.5rem;
     padding: 0.875rem 1.75rem;
@@ -136,19 +137,19 @@
     text-decoration: none;
     transition: transform 0.1s, box-shadow 0.1s, background 0.1s, color 0.1s;
     display: inline-flex;
-    box-shadow: 4px 4px 0 #000000;
+    box-shadow: 4px 4px 0 #4D4D4D;
   }
 
   .btn-ghost:hover {
-    color: #FFFFFF;
-    background: #000000;
+    color: #000000;
+    background: #FFFFFF;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #007AFF;
+    box-shadow: 6px 6px 0 #4D4D4D;
   }
 
   .btn-ghost:active {
     transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #000000;
+    box-shadow: 2px 2px 0 #FFFFFF;
   }
 
   /* Cards */
@@ -168,19 +169,19 @@
     background: #FFFFFF;
     border: 3px solid #000000;
     transition: transform 0.1s, box-shadow 0.1s;
-    box-shadow: 4px 4px 0 #007AFF;
+    box-shadow: 4px 4px 0 #00B8FF;
   }
 
   .card-accent:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #007AFF;
+    box-shadow: 7px 7px 0 #00B8FF;
   }
 
   /* Section label */
   .section-label {
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: #007AFF;
+    color: #00B8FF;
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
     display: inline-block;
@@ -188,7 +189,7 @@
 
   /* Stats */
   .stat-number {
-    color: #007AFF;
+    color: #00B8FF;
     letter-spacing: -0.01em;
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(3rem, 6vw, 5rem);
@@ -230,7 +231,7 @@
 
   .nav-link::after {
     content: "";
-    background: #007AFF;
+    background: #00B8FF;
     width: 0;
     height: 3px;
     transition: width 0.1s;
@@ -245,7 +246,7 @@
   }
 
   .nav-link:hover { color: #FFFFFF; }
-  .nav-link.active { color: #007AFF; }
+  .nav-link.active { color: #00B8FF; }
 
   /* Vault card */
   .vault-card {
@@ -258,7 +259,7 @@
 
   .vault-card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 #007AFF;
+    box-shadow: 7px 7px 0 #00B8FF;
   }
 
   /* Tags */
@@ -277,7 +278,7 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: #FFFFFF;
-    background: #007AFF;
+    background: #00B8FF;
     border: 2px solid #000000;
     padding: 0.2rem 0.5rem;
     font-family: 'Space Mono', monospace;

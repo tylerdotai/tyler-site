@@ -27,10 +27,6 @@ const sizeClass = {
   aria-label={`Open ${title}`}
   style="display:block; width:100%; background:#FFFFFF; border: 3px solid #000000; box-shadow: 4px 4px 0 #000000; overflow:hidden; cursor:pointer; text-align:left; transition: box-shadow 0.1s, transform 0.1s; border-radius:0;"
 >
-  <!-- Index label -->
-  <div style="position:absolute; left:0.75rem; top:0.75rem; z-index:10; font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; background:#000000; color:#FFFFFF; padding:0.25rem 0.5rem; font-weight:700; border: 1px solid #000000;">
-    IMG_{String(index).padStart(2, '0')}
-  </div>
 
   <!-- Image -->
   <img
@@ -48,13 +44,13 @@ const sizeClass = {
       {label}
     </p>
     <h3 style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; color:#000000; font-size:1rem; line-height:1.1; margin-bottom:0.25rem;">{title}</h3>
-    <p style="font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:#007AFF;">{meta}</p>
+    <p style="font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:#00B8FF;">{meta}</p>
   </div>
 </button>
 
 <style>
   .vault-card:hover {
-    box-shadow: 7px 7px 0 #007AFF;
+    box-shadow: 7px 7px 0 #00B8FF;
     transform: translate(-2px, -2px);
   }
 

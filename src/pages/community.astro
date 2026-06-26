@@ -8,7 +8,7 @@ const nextEvent = {
   date: 'Thursday, June 26 · 7:00 PM',
   location: 'ClawPlex HQ, DFW',
   description: 'Monthly in-person meetup. This month: live agent demos + open build time. Bring your project.',
-  url: 'https://clawplex.dev',
+  url: 'https://lu.ma/clawplex',
 };
 
 const pastEvents = [
@@ -114,41 +114,8 @@ const pastEvents = [
               The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.
             </p>
             <div class="flex gap-6 reveal">
-              <a href="https://discord.gg" target="_blank" rel="noopener noreferrer" class="btn-primary">JOIN DISCORD</a>
-              <a href="https://clawplex.dev/events" target="_blank" rel="noopener noreferrer" class="btn-ghost">SEE ALL EVENTS</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── NEXT EVENT ── -->
-    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
-      <div class="container py-16 md:py-24">
-        <span class="section-label mb-8 block reveal">Next Event</span>
-        <div class="reveal">
-          <div class="card-signal" style="padding: 2.5rem;">
-            <div class="grid lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 class="text-4xl md:text-5xl mb-4" style="color:#000000; font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.95;">
-                  {nextEvent.title}
-                </h2>
-                <div class="space-y-1">
-                  <p class="font-mono text-sm" style="color:#000000; font-family:'Space Mono',monospace;">{nextEvent.date}</p>
-                  <p class="font-mono text-sm" style="color:#000000; font-family:'Space Mono',monospace;">{nextEvent.location}</p>
-                </div>
-              </div>
-              <div>
-                <p class="text-base mb-6" style="color:#000000;">{nextEvent.description}</p>
-                <a
-                  href={nextEvent.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn-primary"
-                >
-                  RSVP ON CLAWPLEX.DEV →
-                </a>
-              </div>
+              <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-primary">JOIN DISCORD</a>
+              <a href="https://lu.ma/clawplex" target="_blank" rel="noopener noreferrer" class="btn-ghost">SEE ALL EVENTS</a>
             </div>
           </div>
         </div>
@@ -171,7 +138,7 @@ const pastEvents = [
             <div class="reveal">
               <div class="flex flex-col md:flex-row gap-6 mb-6">
                 {event.photos.map((photo) => (
-                  <div class="card" style="flex:1; box-shadow: 4px 4px 0 #007AFF; position:relative; overflow:hidden;">
+                  <div class="card" style="flex:1; box-shadow: 4px 4px 0 #00B8FF; position:relative; overflow:hidden;">
                     <img
                       src={photo.src}
                       alt={photo.alt}
@@ -190,7 +157,7 @@ const pastEvents = [
               <!-- Dark ink description container with white text -->
               <div style="background:#000000; border:3px solid #000000; padding:1.25rem;">
                 <div class="flex flex-wrap gap-4 items-center mb-2">
-                  <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#007AFF; font-family:'Space Mono',monospace;">{event.node}</span>
+                  <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#00B8FF; font-family:'Space Mono',monospace;">{event.node}</span>
                   <span class="font-mono text-xs" style="color:#D2D2D2;">·</span>
                   <span class="font-mono text-xs" style="color:#D2D2D2; font-family:'Space Mono',monospace;">{event.date}</span>
                   <span class="font-mono text-xs" style="color:#D2D2D2;">·</span>
