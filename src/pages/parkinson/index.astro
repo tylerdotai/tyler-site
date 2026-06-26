@@ -15,17 +15,17 @@ const lang = 'en';
 
   <main>
     <!-- Hero -->
-    <section style="background:#000000; border-bottom: 4px solid #000000;">
-      <div class="container" style="padding-top:4rem; padding-bottom:4rem;">
-        <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
-          <span style="font-family:'Space Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em; color:#00B8FF;">AIAgainstParkinson</span>
+    <section class="bg-[#000000] border-b-4 border-black">
+      <div class="container pt-16 pb-16">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-[#00B8FF]">AIAgainstParkinson</span>
           <LanguageToggle currentLang={lang} />
         </div>
 
-        <h1 style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h1); margin-bottom:1rem;">
+        <h1 class="font-display text-[#FFFFFF] mb-4">
           Every day.<br />Every paper.
         </h1>
-        <p style="font-size:1.125rem; color:#D2D2D2; max-width:42rem; line-height:1.7;">
+        <p class="text-lg text-[#D2D2D2] max-w-2xl leading-relaxed">
           AIAgainstParkinson surfaces and summarizes the latest Parkinson's research
           every day — automatically. Built for patients, caregivers, and researchers
           who don't have time to read everything.
@@ -34,29 +34,29 @@ const lang = 'en';
     </section>
 
     <!-- Mission -->
-    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
-      <div class="container" style="padding-top:4rem; padding-bottom:4rem;">
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:3rem;">
+    <section class="bg-[#D2D2D2] border-b-4 border-black">
+      <div class="container pt-16 pb-16">
+        <div class="grid md:grid-cols-2 gap-12">
 
           <div>
-            <h2 style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.95; color:#000000; font-size:var(--text-h2); margin-bottom:1rem;">
+            <h2 class="font-display text-[#000000] mb-4">
               This is personal.
             </h2>
-            <p style="color:#000000; margin-bottom:1rem; line-height:1.7;">
+            <p class="text-[#000000] mb-4 leading-relaxed">
               Someone I care about lives with Parkinson's. Every morning, a cron job reads
               the latest PubMed papers, generates a plain-language summary in both English
               and Spanish, and posts it — automatically.
             </p>
-            <p style="color:#000000;">
+            <p class="text-[#000000]">
               No paywall. No algorithm. Just research, delivered.
             </p>
           </div>
 
           <div>
-            <h2 style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.95; color:#000000; font-size:var(--text-h2); margin-bottom:1rem;">
+            <h2 class="font-display text-[#000000] mb-4">
               Reports posting daily.
             </h2>
-            <p style="color:#000000; margin-bottom:1.5rem; line-height:1.7;">
+            <p class="text-[#000000] mb-6 leading-relaxed">
               Currently delivering in English and Spanish. Zero subscribers — the system runs
               regardless. Follow updates on X.
             </p>
@@ -75,9 +75,9 @@ const lang = 'en';
     </section>
 
     <!-- CTA -->
-    <section style="background:#D2D2D2;">
-      <div class="container" style="padding-top:4rem; padding-bottom:4rem; text-align:center;">
-        <p style="color:#000000; margin-bottom:1rem; line-height:1.7;">
+    <section class="bg-[#D2D2D2]">
+      <div class="container pt-16 pb-16 text-center">
+        <p class="text-[#000000] mb-4 leading-relaxed">
           AIAgainstParkinson is a daily automated research pipeline.
         </p>
         <a

@@ -20,35 +20,34 @@ const sizeClass = {
 
 <button
   type="button"
-  class={`vault-card ${sizeClass}`}
+  class={`vault-card ${sizeClass} w-full bg-white border-3 border-black shadow-[4px_4px_0_#000000] overflow-hidden cursor-pointer text-left`}
   data-lightbox-src={image}
   data-lightbox-title={title}
   data-lightbox-meta={`${label} // ${meta}`}
   aria-label={`Open ${title}`}
-  style="display:block; width:100%; background:#FFFFFF; border: 3px solid #000000; box-shadow: 4px 4px 0 #000000; overflow:hidden; cursor:pointer; text-align:left; transition: box-shadow 0.1s, transform 0.1s; border-radius:0;"
 >
-
   <!-- Image -->
   <img
     src={image}
     alt={alt}
     loading="eager"
     decoding="async"
-    style="width:100%; height:100%; object-fit:cover; display:block; transition: transform 200ms ease;"
-    class="vault-img"
+    class="vault-img w-full h-full object-cover block"
   />
 
-  <!-- Caption bar -->
-  <div style="position:absolute; inset-x:0; bottom:0; padding:0.75rem; background:#FFFFFF; border-top: 3px solid #000000; display:none;">
-    <p style="font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.15em; background:#000000; color:#FFFFFF; padding:0.2rem 0.4rem; font-weight:700; display:inline-block; margin-bottom:0.4rem; border:1px solid #000000;">
-      {label}
-    </p>
-    <h3 style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; color:#000000; font-size:1rem; line-height:1.1; margin-bottom:0.25rem;">{title}</h3>
-    <p style="font-family:'Space Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; color:#00B8FF;">{meta}</p>
+  <!-- Caption bar (hidden by default — lightbox shows the full overlay) -->
+  <div class="caption-bar">
+    <p class="caption-label">{label}</p>
+    <h3 class="caption-title">{title}</h3>
+    <p class="caption-meta">{meta}</p>
   </div>
 </button>
 
 <style>
+  .vault-card {
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+
   .vault-card:hover {
     box-shadow: 7px 7px 0 #00B8FF;
     transform: translate(-2px, -2px);
@@ -56,5 +55,10 @@ const sizeClass = {
 
   .vault-card:hover .vault-img {
     transform: scale(1.02);
+  }
+
+  /* Caption bar — hidden, used by lightbox overlay */
+  .caption-bar {
+    display: none;
   }
 </style>

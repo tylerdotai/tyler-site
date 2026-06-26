@@ -110,7 +110,7 @@ const pastEvents = [
             <!-- Heading cell -->
             <div class="p-6 flex flex-col justify-center">
               <span class="section-label mb-4 block reveal">DFW AI Community</span>
-              <h1 class="font-display" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#000000; font-size:var(--text-h1);">
+              <h1 class="font-display">
                 AGENT<br/>BUILDERS<br/>CLUB
               </h1>
             </div>
@@ -146,7 +146,7 @@ const pastEvents = [
       <div class="container py-24 md:py-32">
         <div class="mb-12">
           <span class="section-label mb-4 block reveal">DFW Nodes · 2026</span>
-          <h2 class="font-display reveal" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#000000; font-size:var(--text-h2);">
+          <h2 class="font-display reveal">
             PAST<br/>EVENTS
           </h2>
         </div>
@@ -157,7 +157,7 @@ const pastEvents = [
             <div class="reveal">
               <div class="flex flex-col md:flex-row gap-6 mb-6">
                 {event.photos.map((photo) => (
-                  <div class="card" style="flex:1; box-shadow: 4px 4px 0 #00B8FF; position:relative; overflow:hidden;">
+                  <div class="card-accent flex-1 overflow-hidden relative">
                     <img
                       src={photo.src}
                       alt={photo.alt}
@@ -165,8 +165,8 @@ const pastEvents = [
                       loading="lazy"
                     />
                     <!-- Dark ink label overlay on photo -->
-                    <div style="position:absolute; bottom:0; left:0; right:0; background:#000000; padding:0.75rem 1rem; border-top:3px solid #000000;">
-                      <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#FFFFFF; font-family:'Space Mono',monospace;">
+                    <div class="absolute bottom-0 left-0 right-0 bg-[#000000] px-4 py-3 border-t-3 border-[#000000]">
+                      <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#FFFFFF]">
                         {event.node}
                       </span>
                     </div>
@@ -174,15 +174,15 @@ const pastEvents = [
                 ))}
               </div>
               <!-- Dark ink description container with white text -->
-              <div style="background:#000000; border:3px solid #000000; padding:1.25rem;">
+              <div class="bg-[#000000] border-3 border-[#000000] p-5">
                 <div class="flex flex-wrap gap-4 items-center mb-2">
-                  <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#00B8FF; font-family:'Space Mono',monospace;">{event.node}</span>
-                  <span class="font-mono text-xs" style="color:#D2D2D2;">·</span>
-                  <span class="font-mono text-xs" style="color:#D2D2D2; font-family:'Space Mono',monospace;">{event.date}</span>
-                  <span class="font-mono text-xs" style="color:#D2D2D2;">·</span>
-                  <span class="font-mono text-xs" style="color:#D2D2D2; font-family:'Space Mono',monospace;">{event.location}</span>
+                  <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#00B8FF]">{event.node}</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">{event.date}</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">{event.location}</span>
                 </div>
-                <p class="text-sm leading-relaxed" style="color:#D2D2D2;">
+                <p class="text-sm leading-relaxed text-[#D2D2D2]">
                   {event.description}
                 </p>
               </div>

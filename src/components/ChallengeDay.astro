@@ -18,10 +18,9 @@ const { dayNumber, title, quote, quoteSource, imageSrc, alt } = Astro.props;
       alt={alt}
       loading="lazy"
       decoding="async"
-      class="w-full h-80 object-cover border-[3px] border-black"
-      style="box-shadow: 6px 6px 0 #000;"
+      class="w-full h-80 object-cover border-[3px] border-black shadow-[6px_6px_0_#000000]"
     />
-    <span class="absolute top-4 left-4 bg-yellow px-3 py-1 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black" style="box-shadow: 3px 3px 0 #000;">
+    <span class="absolute top-4 left-4 bg-yellow px-3 py-1 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black shadow-[3px_3px_0_#000000]">
       Day {dayNumber}
     </span>
   </div>
