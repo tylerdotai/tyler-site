@@ -56,10 +56,10 @@ const vaultItems = [
   },
   {
     label: 'Roadside / station',
-    title: 'Redbox at the station.',
+    title: 'Cornerstore vibes.',
     image: '/assets/creative/day2-gas-station.jpg',
     alt: 'Gas station convenience store with Redbox kiosk in the foreground',
-    meta: 'Photo / street-level frame',
+    meta: 'Photo / cornerstore frame',
     size: 'square',
   },
   {
@@ -119,27 +119,29 @@ const socialLinks = [
 
   <main class="creative-page">
     <!-- HERO SECTION -->
-    <section class="relative min-h-[86vh] overflow-hidden border-b-3 border-black bg-white">
+    <section class="relative min-h-[90vh] overflow-hidden border-b-3 border-black">
+      <!-- Video: 70% opacity — clearly visible -->
       <video
-        class="absolute inset-0 h-full w-full object-cover opacity-5"
+        class="absolute inset-0 h-full w-full object-cover"
+        style="opacity: 0.70;"
         autoplay
         muted
         loop
         playsinline
-        preload="metadata"
-        poster="/assets/creative/video-preview.jpg"
+        preload="auto"
       >
         <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
       </video>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-transparent"></div>
-      <div class="relative container flex min-h-[86vh] items-end pb-12 pt-24 md:pb-20">
+      <!-- Light dark overlay — readable text, visible video -->
+      <div class="absolute inset-0 bg-black/30"></div>
+      <div class="relative container flex min-h-[90vh] items-end pb-12 pt-24 md:pb-20">
         <div class="max-w-5xl">
           <span class="section-label mb-5 inline-block">@TYLERDOTAI // SIGNAL VAULT</span>
-          <h1 class="text-6xl leading-[0.82] md:text-8xl lg:text-[8.5rem] font-display uppercase">
+          <h1 class="text-6xl leading-[0.82] md:text-8xl lg:text-[8.5rem] font-display uppercase text-white">
             SIGNAL<br />VAULT
           </h1>
           <div class="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
-            <p class="max-w-2xl text-lg leading-relaxed text-black">
+            <p class="max-w-2xl text-lg leading-relaxed text-white/80">
               Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
             </p>
             <p class="brutal-panel p-4 font-mono text-xs uppercase tracking-[0.14em] text-black">
@@ -163,7 +165,7 @@ const socialLinks = [
           </p>
         </div>
 
-        <div class="grid grid-flow-dense auto-rows-auto gap-6 md:grid-cols-3">
+        <div class="grid grid-flow-dense gap-6 md:grid-cols-3 lg:grid-rows-[340px]">
           {vaultItems.map((item, index) => (
             <VaultCard {...item} index={index + 1} />
           ))}

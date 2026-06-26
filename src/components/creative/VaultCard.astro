@@ -16,7 +16,7 @@ const sizeClass = {
   tall: 'md:row-span-2',
   square: '',
 }[normalizedSize];
-const imgClass = normalizedSize === 'tall' ? 'h-[560px]' : normalizedSize === 'wide' ? 'h-[360px]' : 'h-[300px]';
+const imgClass = normalizedSize === 'tall' ? 'h-full' : normalizedSize === 'wide' ? 'h-full' : 'h-full';
 ---
 
 <button
@@ -27,38 +27,24 @@ const imgClass = normalizedSize === 'tall' ? 'h-[560px]' : normalizedSize === 'w
   data-lightbox-meta={`${label} // ${meta}`}
   aria-label={`Open ${title}`}
 >
+  <!-- Index label -->
   <div class="absolute left-3 top-3 z-10 font-mono text-[10px] tracking-[0.2em] text-black bg-yellow px-2 py-1 border-2 border-black">
     IMG_{String(index).padStart(2, '0')}
   </div>
+
+  <!-- Image — full color, no filter -->
   <img
     src={image}
     alt={alt}
     loading="eager"
     decoding="async"
-    class={`${imgClass} w-full object-cover grayscale-[20%] group-hover:grayscale-0 transition duration-200`}
+    class={`${imgClass} w-full object-cover transition duration-200`}
   />
+
+  <!-- Caption bar -->
   <div class="absolute inset-x-0 bottom-0 p-4 bg-white border-t-3 border-black">
     <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-black bg-yellow px-2 py-0.5 inline-block border border-black mb-2">{label}</p>
-    <h3 class="text-xl leading-tight text-black font-display uppercase">{title}</h3>
-    <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-black">{meta}</p>
+    <h3 class="text-lg leading-tight text-black font-display uppercase">{title}</h3>
+    <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-black/60">{meta}</p>
   </div>
 </button>
-
-<style>
-  .brutal-card {
-    background: white;
-    border: 3px solid black;
-    box-shadow: 6px 6px 0 black;
-    transition: transform 100ms ease, box-shadow 100ms ease;
-  }
-
-  .brutal-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0 black;
-  }
-
-  .brutal-card:active {
-    transform: translate(2px, 2px);
-    box-shadow: 4px 4px 0 black;
-  }
-</style>

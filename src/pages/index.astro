@@ -12,27 +12,27 @@ import Footer from '../components/Footer.astro';
 
   <main class="bg-white">
     <!-- Hero -->
-    <section class="section bg-yellow border-b-3 border-black">
+    <section class="section bg-yellow border-b-3 border-black overflow-hidden">
       <div class="container">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <span class="section-label mb-6 block border-2 border-black shadow-[4px_4px_0_#000]">TYLER DELANO</span>
-            <h1 class="font-display text-black mt-4 mb-6" style="font-size: clamp(4rem, 12vw, 10rem); line-height: 0.9;">
+            <span class="section-label mb-6 block">TYLER DELANO</span>
+            <h1 class="font-display text-black mt-4 mb-6">
               TINKERER<br/>OF AI
             </h1>
             <p class="text-lg text-black/70 mb-8 max-w-lg font-body leading-relaxed">
               Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.
             </p>
             <div class="flex flex-wrap gap-4">
-              <a href="/builds" class="btn-primary bg-yellow text-black border-black shadow-[6px_6px_0_#000] hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0_#000]">
+              <a href="/builds" class="btn-primary">
                 SEE WHAT I BUILD
               </a>
-              <a href="/community" class="btn-ghost bg-white text-black border-black shadow-[6px_6px_0_#000] hover:bg-yellow hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[9px_9px_0_#000]">
+              <a href="/community" class="btn-ghost">
                 AGENT BUILDERS CLUB
               </a>
             </div>
           </div>
-          <div class="relative">
+          <div class="relative lg:-mr-12">
             <img
               src="/assets/creative/tyler-portrait-bedroom.jpg"
               alt="Tyler Delano portrait — cream walls, gold hoop earring, black t-shirt, looking directly at camera"
@@ -52,10 +52,8 @@ import Footer from '../components/Footer.astro';
       <div class="container">
         <div class="grid md:grid-cols-3 gap-6">
           <!-- Build Card -->
-          <div class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000]">
-            <div class="bg-blue text-white px-3 py-1 inline-block mb-4 border-2 border-black">
-              <span class="font-body text-xs font-bold tracking-wider">01 / BUILD</span>
-            </div>
+          <div class="card">
+            <div class="neo-badge mb-4">01 / BUILD</div>
             <h3 class="font-display text-4xl text-black mb-4">AGENTS &<br/>TOOLS</h3>
             <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
               Provider-neutral AI agent harnesses, closed-loop systems, and research pipelines. Bun, TypeScript, Python — whatever gets the job done.
@@ -64,10 +62,8 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Community Card -->
-          <div class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000]">
-            <div class="bg-yellow px-3 py-1 inline-block mb-4 border-2 border-black">
-              <span class="font-body text-xs font-bold tracking-wider">02 / COMMUNITY</span>
-            </div>
+          <div class="card">
+            <div class="neo-badge neo-badge-yellow mb-4">02 / COMMUNITY</div>
             <h3 class="font-display text-4xl text-black mb-4">AGENT<br/>BUILDERS CLUB</h3>
             <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
               600+ members across 6 DFW locations learning to build AI-powered workflows and agents. No fluff. Just builders showing each other what works.
@@ -76,10 +72,8 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <!-- Create Card -->
-          <div class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000]">
-            <div class="bg-black text-white px-3 py-1 inline-block mb-4 border-2 border-black">
-              <span class="font-body text-xs font-bold tracking-wider">03 / CREATE</span>
-            </div>
+          <div class="card">
+            <div class="neo-badge mb-4" style="background: var(--color-black); color: var(--color-white);">03 / CREATE</div>
             <h3 class="font-display text-4xl text-black mb-4">FILM &<br/>DOCUMENTARY</h3>
             <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
               30 days with the Sony ZV-E10. Every clip is a real moment. No crew. No script. Just a camera and whatever showed up that day.
