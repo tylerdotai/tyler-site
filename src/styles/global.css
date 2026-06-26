@@ -1,0 +1,295 @@
+@import "tailwindcss";
+
+@theme {
+  /* Neo-Brutalist Color Palette */
+  --color-yellow: #FFF176;
+  --color-blue: #0055FF;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-red: #FF3B30;
+
+  /* Surface colors */
+  --color-background: #FFFFFF;
+  --color-surface: #F5F5F5;
+  --color-surface-2: #EDEDED;
+  --color-border: #000000;
+
+  /* Text colors */
+  --color-text: #000000;
+  --color-text-muted: #444444;
+
+  /* Accent colors */
+  --color-accent: #0055FF;
+  --color-accent-hover: #FFF176;
+
+  /* Neo-Brutalist Typography */
+  --font-display: 'Bebas Neue', 'Arial Black', Impact, sans-serif;
+  --font-body: 'Space Mono', 'Courier New', monospace;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+
+  /* Spacing */
+  --max-width-container: 1200px;
+  --spacing-section: 96px;
+  --spacing-section-mobile: 64px;
+
+  /* Neo-Brutalist Design Tokens */
+  --border-width: 3px;
+  --shadow-offset: 6px;
+  --shadow-color: #000000;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-white);
+  }
+
+  body {
+    position: relative;
+    min-height: 100vh;
+    background: var(--color-white);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  /* Harsh grid overlay - removed for cleaner neo-brutalist look */
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
+  h1 { font-size: clamp(3rem, 10vw, 8rem); }
+  h2 { font-size: clamp(2rem, 6vw, 4.5rem); }
+  h3 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  h4 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+
+  ::selection {
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+  }
+
+  :focus-visible {
+    outline: var(--border-width) solid var(--color-blue);
+    outline-offset: 3px;
+  }
+
+  img, video {
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .container {
+    max-width: var(--max-width-container);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  .section {
+    padding-block: var(--spacing-section-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-block: var(--spacing-section);
+    }
+  }
+
+  /* Neo-Brutalist Button - Primary */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-yellow);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: var(--border-width) solid var(--color-black);
+    border-radius: 0;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+    transition: transform 100ms ease, box-shadow 100ms ease;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: calc(var(--shadow-offset) + 3px) calc(var(--shadow-offset) + 3px) 0 var(--color-black);
+  }
+
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Button - Ghost */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-white);
+    color: var(--color-black);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: var(--border-width) solid var(--color-black);
+    border-radius: 0;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+    transition: transform 100ms ease, box-shadow 100ms ease;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    background: var(--color-yellow);
+    transform: translate(-3px, -3px);
+    box-shadow: calc(var(--shadow-offset) + 3px) calc(var(--shadow-offset) + 3px) 0 var(--color-black);
+  }
+
+  .btn-ghost:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Button - Blue */
+  .btn-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-blue);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: var(--border-width) solid var(--color-black);
+    border-radius: 0;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+    transition: transform 100ms ease, box-shadow 100ms ease;
+    cursor: pointer;
+  }
+
+  .btn-blue:hover {
+    background: var(--color-yellow);
+    color: var(--color-black);
+    transform: translate(-3px, -3px);
+    box-shadow: calc(var(--shadow-offset) + 3px) calc(var(--shadow-offset) + 3px) 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Card */
+  .card, .nav-card {
+    position: relative;
+    background: var(--color-white);
+    border: var(--border-width) solid var(--color-black);
+    border-radius: 0;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+    transition: transform 100ms ease, box-shadow 100ms ease;
+  }
+
+  .card:hover, .nav-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: calc(var(--shadow-offset) + 4px) calc(var(--shadow-offset) + 4px) 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Section Label */
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-black);
+    background: var(--color-yellow);
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border: 2px solid var(--color-black);
+  }
+
+  /* Neo-Brutalist Panel */
+  .neo-panel {
+    position: relative;
+    border: var(--border-width) solid var(--color-black);
+    background: var(--color-white);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+    padding: 2rem;
+  }
+
+  /* Neo-Brutalist Inverted Panel */
+  .neo-panel-inverted {
+    position: relative;
+    border: var(--border-width) solid var(--color-black);
+    background: var(--color-black);
+    color: var(--color-white);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-yellow);
+    padding: 2rem;
+  }
+
+  /* Neo-Brutalist Highlight Box */
+  .highlight-box {
+    background: var(--color-yellow);
+    border: var(--border-width) solid var(--color-black);
+    padding: 1rem 1.5rem;
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Link */
+  .neo-link {
+    color: var(--color-blue);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+    font-weight: 700;
+    transition: color 100ms ease;
+  }
+
+  .neo-link:hover {
+    color: var(--color-black);
+    background: var(--color-yellow);
+  }
+
+  /* Neo-Brutalist Divider */
+  .neo-divider {
+    height: var(--border-width);
+    background: var(--color-black);
+    box-shadow: 2px 2px 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Image with offset shadow */
+  .neo-image {
+    border: var(--border-width) solid var(--color-black);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--color-black);
+  }
+
+  /* Neo-Brutalist Badge */
+  .neo-badge {
+    display: inline-block;
+    background: var(--color-blue);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.6rem;
+    border: 2px solid var(--color-black);
+  }
+
+  .neo-badge-yellow {
+    background: var(--color-yellow);
+    color: var(--color-black);
+  }
+}

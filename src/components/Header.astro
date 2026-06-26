@@ -1,0 +1,87 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/builds', label: 'Builds' },
+  { href: '/community', label: 'Community' },
+  { href: '/creative', label: 'Creative' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b-[3px] border-black bg-white">
+  <div class="container flex h-16 items-center justify-between">
+    <a href="/" class="group flex items-center gap-3" aria-label="@tylerdotai — Home">
+      <span class="flex h-10 w-10 items-center justify-center bg-yellow font-display text-xl text-black border-[3px] border-black shadow-[4px_4px_0_#000]">TD</span>
+      <span class="font-display text-2xl tracking-wide">@<span class="text-blue">TYLERDOTAI</span></span>
+    </a>
+
+    <nav class="hidden items-center gap-3 md:flex" aria-label="Main navigation">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-4 py-2 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black transition-all ${
+            currentPath === href
+              ? 'bg-blue text-white'
+              : 'bg-white text-black hover:bg-yellow'
+          }`}
+          style={currentPath !== href ? 'box-shadow: 3px 3px 0 #000;' : ''}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <button
+      id="mobile-menu-toggle"
+      class="flex h-10 w-10 items-center justify-center bg-yellow border-[3px] border-black md:hidden"
+      style="box-shadow: 3px 3px 0 #000;"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden border-t-[3px] border-black md:hidden" aria-label="Mobile navigation">
+    <div class="container flex flex-col gap-2 py-4">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-4 py-3 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black ${
+            currentPath === href ? 'bg-blue text-white' : 'bg-white text-black'
+          }`}
+          style={currentPath !== href ? 'box-shadow: 3px 3px 0 #000;' : ''}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

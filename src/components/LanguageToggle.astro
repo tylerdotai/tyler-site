@@ -1,0 +1,28 @@
+---
+interface Props {
+  currentLang?: 'en' | 'es';
+}
+
+const { currentLang = 'en' } = Astro.props;
+---
+
+<div class="inline-flex items-center gap-0 border-[3px] border-black">
+  <a
+    href="/parkinson"
+    class={`px-4 py-2 font-body text-sm font-bold uppercase tracking-wider border-r-[3px] border-black ${
+      currentLang === 'en' ? 'bg-blue text-white' : 'bg-white text-black hover:bg-yellow'
+    }`}
+    style={currentLang !== 'en' ? 'box-shadow: 3px 3px 0 #000;' : ''}
+  >
+    English
+  </a>
+  <a
+    href="/parkinson/es"
+    class={`px-4 py-2 font-body text-sm font-bold uppercase tracking-wider ${
+      currentLang === 'es' ? 'bg-blue text-white' : 'bg-white text-black hover:bg-yellow'
+    }`}
+    style={currentLang !== 'es' ? 'box-shadow: 3px 3px 0 #000;' : ''}
+  >
+    Español
+  </a>
+</div>

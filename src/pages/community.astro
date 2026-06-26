@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const nextEvent = {
+  title: 'Agent Builders Meetup — June',
+  date: 'Thursday, June 26 · 7:00 PM',
+  location: 'ClawPlex HQ, DFW',
+  description: 'Monthly in-person meetup. This month: live agent demos + open build time. Bring your project.',
+  url: 'https://clawplex.dev',
+};
+---
+
+<BaseLayout
+  title="Community"
+  description="Agent Builders Club — DFW AI community. 600+ members, 6 physical nodes, learning to build with AI."
+>
+  <Header />
+
+  <main>
+    <!-- Stats Row -->
+    <section class="border-b-4 border-black" style="background:#FFFDF0;">
+      <div class="container py-12 md:py-16">
+        <div class="grid grid-cols-3 gap-0 text-center">
+          <div class="brutal-stat" style="border-right: 3px solid #1A1AFF;">
+            <span class="stat-number">600+</span>
+            <span class="stat-label">Members</span>
+          </div>
+          <div class="brutal-stat" style="border-right: 3px solid #1A1AFF;">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Nodes</span>
+          </div>
+          <div class="brutal-stat">
+            <span class="stat-number">Monthly</span>
+            <span class="stat-label">Meetups</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="border-b-4 border-black" style="background:#FFFDF0;">
+      <div class="container py-16 md:py-24">
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Left: text -->
+          <div>
+            <p class="font-mono text-sm uppercase tracking-widest mb-4" style="color:#1A1AFF;">DFW AI Community</p>
+            <h1 class="text-6xl md:text-8xl font-display leading-none mb-8" style="color:#1A1AFF; font-family:'Bebas Neue', sans-serif;">
+              AGENT<br/>BUILDERS<br/>CLUB
+            </h1>
+            <p class="text-base leading-relaxed mb-4" style="color:#1A1AFF;">
+              Agent Builders Club started as a side project in 2026. The idea was simple: a place where people building with AI could show each other the real stuff — workflows, prompts, agent architectures, failures, wins.
+            </p>
+            <p class="text-base leading-relaxed mb-4" style="color:#1A1AFF;">
+              Not a course. Not a mastermind. Not a content play. Just people who want to build things with AI, meeting regularly to do exactly that.
+            </p>
+            <p class="text-base leading-relaxed" style="color:#1A1AFF;">
+              The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.
+            </p>
+          </div>
+
+          <!-- Right: next event card -->
+          <div class="flex items-start">
+            <div class="brutal-card w-full">
+              <div class="p-8">
+                <p class="font-mono text-xs uppercase tracking-widest mb-4" style="color:#FFFF00;">Next event</p>
+                <h2 class="text-3xl md:text-4xl font-display mb-4" style="color:#1A1AFF; font-family:'Bebas Neue', sans-serif;">
+                  {nextEvent.title}
+                </h2>
+                <div class="space-y-2 mb-6">
+                  <p class="font-mono text-sm" style="color:#1A1AFF;">📅 {nextEvent.date}</p>
+                  <p class="font-mono text-sm" style="color:#1A1AFF;">📍 {nextEvent.location}</p>
+                </div>
+                <p class="text-sm leading-relaxed mb-8" style="color:#1A1AFF;">
+                  {nextEvent.description}
+                </p>
+                <a
+                  href={nextEvent.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="brutal-cta"
+                >
+                  JOIN THE DISCORD
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  .font-display {
+    font-family: 'Bebas Neue', 'Arial Black', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .font-mono {
+    font-family: 'Space Mono', ui-monospace, monospace;
+  }
+
+  .brutal-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: #FFFDF0;
+  }
+
+  .stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 3.5rem);
+    line-height: 1;
+    color: #1A1AFF;
+    letter-spacing: 0.02em;
+  }
+
+  .stat-label {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #1A1AFF;
+    margin-top: 0.5rem;
+  }
+
+  .brutal-card {
+    position: relative;
+    border: 3px solid #000000;
+    background: #FFFF00;
+    box-shadow: 6px 6px 0 #000000;
+    transition: box-shadow 150ms ease, transform 150ms ease;
+  }
+
+  .brutal-card:hover {
+    box-shadow: 10px 10px 0 #000000;
+    transform: translate(-2px, -2px);
+  }
+
+  .brutal-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #FFFDF0;
+    border: 3px solid #000000;
+    padding: 0.8rem 1.2rem;
+    background: #1A1AFF;
+    box-shadow: 4px 4px 0 #000000;
+    transition: box-shadow 150ms ease, transform 150ms ease;
+  }
+
+  .brutal-cta:hover {
+    background: #FFFDF0;
+    color: #1A1AFF;
+    box-shadow: 6px 6px 0 #000000;
+    transform: translate(-2px, -2px);
+  }
+</style>
