@@ -2,187 +2,296 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import VaultCard from '../components/creative/VaultCard.astro';
+import ReelInterface from '../components/creative/ReelInterface.astro';
 
-const photoWork = [
+const vaultItems = [
   {
-    label: 'Homestead',
+    label: 'Portrait / extreme close-up',
+    title: 'Direct signal.',
+    image: '/assets/creative/tyler-extreme-closeup.jpg',
+    alt: 'Extreme close-up portrait of Tyler Delano looking directly into the camera',
+    meta: 'Face study / shallow depth',
+    size: 'wide',
+  },
+  {
+    label: 'Portrait / studio',
+    title: 'Black background headshot.',
+    image: '/assets/creative/tyler-headshot.jpg',
+    alt: 'Studio-style portrait of Tyler Delano in a dark jacket against a black background',
+    meta: 'Portrait / controlled light',
+    size: 'square',
+  },
+  {
+    label: 'Homestead / cat',
     title: 'Garden cat.',
-    href: 'https://x.com/tylerdotai/status/2069166572497776894?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
     image: '/assets/creative/day1-cat-garden.jpg',
     alt: 'Cream-colored cat lying in grass outdoors',
-    size: 'small',
+    meta: 'Photo / outdoor animal portrait',
+    size: 'square',
   },
   {
-    label: 'Homestead',
-    title: 'Backyard chickens.',
-    href: 'https://x.com/tylerdotai/status/2069166572497776894?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    label: 'Homestead / cat',
+    title: 'Cat close-up in grass.',
+    image: '/assets/creative/day1-cat-closeup.jpg',
+    alt: 'Close-up portrait of a cream-colored cat outdoors with green grass behind',
+    meta: 'Photo / natural light',
+    size: 'square',
+  },
+  {
+    label: 'Homestead / cat',
+    title: 'Low-light carpet frame.',
+    image: '/assets/creative/day1-cat-carpet.jpg',
+    alt: 'Cream-colored cat lying on carpet in dim indoor light',
+    meta: 'Photo / indoor low light',
+    size: 'square',
+  },
+  {
+    label: 'Homestead / dog',
+    title: 'Golden retriever outside.',
+    image: '/assets/creative/day1-homestead-dog.jpg',
+    alt: 'Golden Retriever sitting outside on the homestead',
+    meta: 'Photo / outdoor portrait',
+    size: 'wide',
+  },
+  {
+    label: 'Homestead / chickens',
+    title: 'Chicken pen close-up.',
     image: '/assets/creative/day1-chickens-alt.jpg',
     alt: 'Backyard chickens behind a chain-link fence',
-    size: 'large',
+    meta: 'Photo / backyard pen',
+    size: 'square',
   },
   {
-    label: 'Roadside',
-    title: 'Press the shutter and see what happens.',
-    href: 'https://x.com/tylerdotai/status/2069524641077494222?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    label: 'Homestead / chickens',
+    title: 'Backyard flock.',
+    image: '/assets/creative/day1-chickens-farm.jpg',
+    alt: 'Several chickens in a backyard pen with green vegetation behind them',
+    meta: 'Photo / farm texture',
+    size: 'square',
+  },
+  {
+    label: 'Roadside / Chevron',
+    title: 'Canopy angle.',
+    image: '/assets/creative/day2-chevron-lowangle.jpg',
+    alt: 'Low-angle tilted photograph of a Chevron gas station canopy against a blue sky',
+    meta: 'Photo / low angle',
+    size: 'wide',
+  },
+  {
+    label: 'Roadside / station',
+    title: 'Redbox at the station.',
     image: '/assets/creative/day2-gas-station.jpg',
-    alt: 'Gas station exterior shot',
-    size: 'large',
+    alt: 'Gas station convenience store with Redbox kiosk in the foreground',
+    meta: 'Photo / street-level frame',
+    size: 'square',
+  },
+  {
+    label: 'Desk / edit bay',
+    title: 'Sony edit station.',
+    image: '/assets/creative/day2-sony.jpg',
+    alt: 'Desk setup with Sony monitor showing video editing software',
+    meta: 'Photo / workspace',
+    size: 'square',
+  },
+  {
+    label: 'Desk / interface',
+    title: 'Desktop timeline.',
+    image: '/assets/creative/desk-setup.jpg',
+    alt: 'Wide monitor and red keyboard on a desk setup',
+    meta: 'Photo / edit bay',
+    size: 'wide',
+  },
+  {
+    label: 'Exterior / rose',
+    title: 'Rose against siding.',
+    image: '/assets/creative/dayx-rose.jpg',
+    alt: 'Pink rose blooming against white exterior siding',
+    meta: 'Photo / exterior detail',
+    size: 'square',
+  },
+];
+
+const reelItems = [
+  {
+    label: 'VIDEO // DAY THREE',
+    title: 'Natural kitchen light + Dr Pepper.',
+    src: '/assets/creative/day3-kitchen-light.mp4',
+    poster: '/assets/creative/video-preview.jpg',
+    stillLabel: 'VIDEO STILL / kitchen frame poster',
+    duration: '00:29',
+    href: 'https://x.com/tylerdotai/status/2069840988256841871?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    note: 'Wide, medium, close — one frame at a time. The kitchen frame is a video poster, not a standalone photo.',
+  },
+  {
+    label: 'VIDEO // GOD BLESS THE USA',
+    title: 'Shot on Sony Alpha ZV-E10. Edited in CapCut.',
+    src: '/assets/creative/god-bless-usa.mp4',
+    poster: '/assets/creative/video2-preview.jpg',
+    stillLabel: 'VIDEO STILL / doorway poster',
+    duration: '00:43',
+    href: 'https://x.com/tylerdotai/status/2069950589060936108?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    note: 'Social cut with native playback here and source link preserved.',
   },
 ];
 ---
 
 <BaseLayout
   title="Creative"
-  description="Selected Sony ZV-E10 photos and videos by Tyler Delano."
+  description="Tyler Delano visual archive — photography and video from the Sony ZV-E10 challenge, presented as a Modern Y2K media vault."
+  ogImage="/assets/creative/tyler-extreme-closeup.jpg"
 >
   <Header />
 
-  <main>
-    <!-- Portfolio hero -->
-    <section class="border-b border-[#2A2A2A]">
-      <div class="container py-16 md:py-24">
-        <div class="grid lg:grid-cols-12 gap-10 items-end">
-          <div class="lg:col-span-5">
-            <p class="section-label mb-5">Photo + video</p>
-            <h1 class="font-serif text-6xl md:text-8xl leading-[0.9] mb-6">
-              Selected<br />field notes.
-            </h1>
-            <p class="text-lg md:text-xl text-[#888888] max-w-xl leading-relaxed">
-              A selected archive of stills and clips — portrait work, homestead frames, roadside light, and small moments worth keeping.
+  <main class="creative-y2k">
+    <section class="relative min-h-[86vh] overflow-hidden border-b border-[#263344]">
+      <video
+        class="absolute inset-0 h-full w-full object-cover opacity-32 saturate-[1.15]"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="/assets/creative/video-preview.jpg"
+      >
+        <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(0,245,255,0.20),transparent_28rem),linear-gradient(90deg,#05070A_0%,rgba(5,7,10,0.78)_45%,rgba(5,7,10,0.40)_100%)]"></div>
+      <div class="relative container flex min-h-[86vh] items-end pb-12 pt-24 md:pb-20">
+        <div class="max-w-5xl">
+          <p class="section-label mb-5">TYLERDOTAI // VISUAL ARCHIVE</p>
+          <h1 class="chrome-text text-6xl leading-[0.82] md:text-8xl lg:text-[8.5rem]">
+            SIGNAL<br />VAULT
+          </h1>
+          <div class="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+            <p class="max-w-2xl text-lg leading-relaxed text-[#B8C6D6]">
+              Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
             </p>
+            <div class="y2k-panel p-4 font-mono text-xs uppercase tracking-[0.14em] text-[#8EA3B8]">
+              <p><span class="text-[#00F5FF]">MODE:</span> CYBER-Y2K</p>
+              <p><span class="text-[#39FF14]">MEDIA:</span> {vaultItems.length} PHOTOS / {reelItems.length} VIDEOS</p>
+              <p><span class="text-[#FF2BD6]">DEVICE:</span> SONY ZV-E10</p>
+            </div>
           </div>
-
-          <figure class="lg:col-span-7 lg:-mb-10">
-            <img
-              src="/assets/creative/tyler-portrait.jpg"
-              alt="Extreme close-up portrait of Tyler Delano looking directly into the camera"
-              loading="eager"
-              decoding="async"
-              class="w-full h-[560px] object-cover rounded"
-            />
-            <figcaption class="mt-3 flex items-center justify-between gap-4 text-sm text-[#888888]">
-              <span>Close portrait — selected archive.</span>
-              <span class="font-mono text-xs">SONY ALPHA ZV-E10</span>
-            </figcaption>
-          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Photo showcase -->
-    <section class="section border-b border-[#2A2A2A]">
+    <section id="vault" class="section">
       <div class="container">
-        <div class="grid lg:grid-cols-12 gap-8 mb-12">
-          <p class="section-label lg:col-span-3">Photos</p>
-          <div class="lg:col-span-9">
-            <h2 class="font-serif text-4xl md:text-5xl mb-4">Not a feed. A cut.</h2>
-            <p class="text-[#888888] max-w-2xl leading-relaxed">
-              A tight cut of the strongest frames: portrait, homestead, and roadside light.
-            </p>
+        <div class="mb-10 grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+          <div>
+            <p class="section-label mb-4">THE VAULT</p>
+            <h2 class="text-4xl leading-none md:text-6xl">PHOTO<br />DATASET</h2>
           </div>
+          <p class="max-w-3xl text-[#8EA3B8] leading-relaxed">
+            Every unique standalone photo currently in the archive is shown once. Duplicate file copies stay in assets, but the public vault does not repeat the same image twice. Video posters are handled separately in The Reel.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {photoWork.map((item) => (
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={`${item.size === 'large' ? 'lg:col-span-2' : ''} group block overflow-hidden rounded border border-[#2A2A2A] bg-[#1A1A1A]`}
-            >
-              <img
-                src={item.image}
-                alt={item.alt}
-                loading="eager"
-                decoding="async"
-                class={`${item.size === 'large' ? 'h-[420px]' : 'h-[260px]'} w-full object-contain bg-[#0E0E0E] transition-opacity duration-150 group-hover:opacity-85`}
-              />
-              <div class="p-4 border-t border-[#2A2A2A]">
-                <p class="font-mono text-xs uppercase tracking-[0.18em] text-[#C9A84C] mb-1">{item.label}</p>
-                <h3 class="font-serif text-2xl leading-tight">{item.title}</h3>
-              </div>
-            </a>
+        <div class="grid grid-flow-dense auto-rows-auto gap-4 md:grid-cols-3">
+          {vaultItems.map((item, index) => (
+            <VaultCard {...item} index={index + 1} />
           ))}
         </div>
       </div>
     </section>
 
-    <!-- Video showcase -->
-    <section class="section border-b border-[#2A2A2A]">
+    <ReelInterface items={reelItems} />
+
+    <section class="section border-b border-[#263344]">
       <div class="container">
-        <div class="grid lg:grid-cols-12 gap-8 mb-10">
-          <p class="section-label lg:col-span-3">Video</p>
-          <div class="lg:col-span-9">
-            <h2 class="font-serif text-4xl md:text-5xl mb-4">Motion pieces.</h2>
-            <p class="text-[#888888] max-w-2xl leading-relaxed">
-              Short clips shot on the Sony Alpha ZV-E10 and edited for social. Embedded here as selected work, not a feed dump.
-            </p>
+        <div class="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
+          <div>
+            <p class="section-label mb-4">SYSTEM SPECS</p>
+            <h2 class="text-4xl leading-none md:text-6xl">CREATIVE<br />DIAGNOSTICS</h2>
+          </div>
+          <div class="y2k-panel overflow-hidden">
+            <div class="border-b border-[#263344] px-4 py-3 font-mono text-xs uppercase tracking-[0.18em] text-[#00F5FF]">/usr/tyler/creative_profile</div>
+            <dl class="grid gap-px bg-[#263344] font-mono text-sm md:grid-cols-2">
+              <div class="bg-[#05070A] p-4">
+                <dt class="text-[#8EA3B8]">CAMERA</dt>
+                <dd class="mt-1 text-[#F2F7FF]">Sony Alpha ZV-E10</dd>
+              </div>
+              <div class="bg-[#05070A] p-4">
+                <dt class="text-[#8EA3B8]">EDIT STACK</dt>
+                <dd class="mt-1 text-[#F2F7FF]">CapCut + desktop timeline work</dd>
+              </div>
+              <div class="bg-[#05070A] p-4">
+                <dt class="text-[#8EA3B8]">STYLE</dt>
+                <dd class="mt-1 text-[#F2F7FF]">Real-life frames, shallow depth, documentary texture</dd>
+              </div>
+              <div class="bg-[#05070A] p-4">
+                <dt class="text-[#8EA3B8]">RULE</dt>
+                <dd class="mt-1 text-[#F2F7FF]">No stock. No AI imagery. No fake filler.</dd>
+              </div>
+            </dl>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="grid md:grid-cols-2 gap-8">
-          <article class="border border-[#2A2A2A] rounded overflow-hidden bg-[#1A1A1A]">
-            <video
-              controls
-              preload="metadata"
-              class="w-full"
-              poster="/assets/creative/video-preview.jpg"
-            >
-              <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div class="p-5">
-              <p class="section-label mb-2">Kitchen light</p>
-              <h3 class="font-serif text-2xl">Natural kitchen light + Dr Pepper.</h3>
-              <p class="mt-2 text-sm text-[#888888]">Wide, medium, close — one frame at a time.</p>
-              <a
-                href="https://x.com/tylerdotai/status/2069840988256841871?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 inline-block text-sm text-[#888888] hover:text-[#C9A84C] transition-colors"
-              >
-                View original post →
-              </a>
-            </div>
-          </article>
-
-          <article class="border border-[#2A2A2A] rounded overflow-hidden bg-[#1A1A1A]">
-            <video
-              controls
-              preload="metadata"
-              class="w-full"
-              poster="/assets/creative/video2-preview.jpg"
-            >
-              <source src="/assets/creative/god-bless-usa.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <div class="p-5">
-              <p class="section-label mb-2">God bless the USA</p>
-              <h3 class="font-serif text-2xl">Shot on Sony Alpha ZV-E10. Edited in CapCut.</h3>
-              <a
-                href="https://x.com/tylerdotai/status/2069950589060936108?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-4 inline-block text-sm text-[#888888] hover:text-[#C9A84C] transition-colors"
-              >
-                View original post →
-              </a>
-            </div>
-          </article>
+    <section class="section">
+      <div class="container">
+        <div class="y2k-panel grid gap-8 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+          <div>
+            <p class="section-label mb-3">SIGNAL TRANSMIT</p>
+            <h2 class="text-3xl leading-none md:text-5xl">CONNECT<br />CHANNELS</h2>
+            <p class="mt-4 max-w-2xl text-[#8EA3B8]">
+              The live creative stream stays on social. This archive stays curated and media-truthful.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-primary">X / Twitter</a>
+            <a href="https://github.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-ghost">GitHub</a>
+            <a href="https://www.linkedin.com/in/tylerpdelano" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Social CTA -->
-    <section class="section">
-      <div class="container text-center">
-        <p class="text-[#888888] mb-4">New photos and clips post socially. This page stays curated.</p>
-        <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="btn-primary">
-          Follow on X
-        </a>
+    <dialog id="vault-lightbox" class="m-0 h-screen w-screen max-w-none bg-black/92 p-0 text-[#F2F7FF] backdrop:bg-black/88">
+      <div class="grid min-h-screen place-items-center p-4 md:p-8">
+        <div class="w-full max-w-6xl">
+          <div class="mb-3 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em] text-[#8EA3B8]">
+            <span id="lightbox-meta">PHOTO</span>
+            <button id="lightbox-close" type="button" class="border border-[#00F5FF] px-3 py-2 text-[#00F5FF] hover:bg-[#00F5FF] hover:text-[#05070A]">Close</button>
+          </div>
+          <img id="lightbox-image" src="" alt="" class="max-h-[78vh] w-full object-contain y2k-panel p-2" />
+          <h3 id="lightbox-title" class="mt-4 text-3xl text-[#F2F7FF]"></h3>
+        </div>
       </div>
-    </section>
+    </dialog>
   </main>
 
   <Footer />
+
+  <script>
+    const dialog = document.getElementById('vault-lightbox');
+    const image = document.getElementById('lightbox-image');
+    const title = document.getElementById('lightbox-title');
+    const meta = document.getElementById('lightbox-meta');
+    const close = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.vault-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        if (!(dialog instanceof HTMLDialogElement)) return;
+        if (!(image instanceof HTMLImageElement)) return;
+        const src = card.getAttribute('data-lightbox-src') ?? '';
+        image.src = src;
+        image.alt = card.getAttribute('data-lightbox-title') ?? '';
+        if (title) title.textContent = card.getAttribute('data-lightbox-title') ?? '';
+        if (meta) meta.textContent = card.getAttribute('data-lightbox-meta') ?? '';
+        dialog.showModal();
+      });
+    });
+
+    close?.addEventListener('click', () => {
+      if (dialog instanceof HTMLDialogElement) dialog.close();
+    });
+
+    dialog?.addEventListener('click', (event) => {
+      if (event.target === dialog && dialog instanceof HTMLDialogElement) dialog.close();
+    });
+  </script>
 </BaseLayout>

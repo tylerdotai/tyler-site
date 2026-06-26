@@ -1,0 +1,138 @@
+---
+interface ReelItem {
+  label: string;
+  title: string;
+  src: string;
+  poster: string;
+  stillLabel: string;
+  duration: string;
+  href: string;
+  note: string;
+}
+
+interface Props {
+  items: ReelItem[];
+}
+
+const { items } = Astro.props;
+const main = items[0];
+---
+
+<section id="reel" class="section border-y border-[#263344]">
+  <div class="container">
+    <div class="grid lg:grid-cols-12 gap-8 mb-10 items-end">
+      <div class="lg:col-span-4">
+        <p class="section-label mb-4">THE REEL</p>
+        <h2 class="chrome-text text-4xl md:text-6xl leading-none">CINEMA<br />CHANNEL</h2>
+      </div>
+      <p class="lg:col-span-8 text-[#8EA3B8] leading-relaxed max-w-3xl">
+        Video work is separated from the photo vault. Poster frames are labeled as video stills — not standalone photos.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[1fr_320px] gap-6">
+      <div class="y2k-panel p-3">
+        <div class="flex items-center justify-between border-b border-[#263344] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-[#8EA3B8]">
+          <span id="reel-label">{main.label}</span>
+          <span id="reel-duration">{main.duration}</span>
+        </div>
+        <video
+          id="main-reel"
+          class="aspect-video w-full bg-black object-cover"
+          poster={main.poster}
+          preload="metadata"
+          playsinline
+        >
+          <source src={main.src} type="video/mp4" />
+          Your browser does not support video.
+        </video>
+        <div class="grid gap-3 border-t border-[#263344] p-3 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p id="reel-still" class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#39FF14]">{main.stillLabel}</p>
+            <h3 id="reel-title" class="mt-1 text-2xl text-[#F2F7FF]">{main.title}</h3>
+            <p id="reel-note" class="mt-2 text-sm text-[#8EA3B8]">{main.note}</p>
+          </div>
+          <div class="flex flex-wrap gap-2 font-mono text-xs uppercase tracking-[0.16em]">
+            <button id="reel-play" type="button" class="border border-[#00F5FF] px-3 py-2 text-[#00F5FF] hover:bg-[#00F5FF] hover:text-[#05070A]">▶ Play</button>
+            <button id="reel-mute" type="button" class="border border-[#00F5FF] px-3 py-2 text-[#00F5FF] hover:bg-[#00F5FF] hover:text-[#05070A]">Mute</button>
+            <a id="reel-link" href={main.href} target="_blank" rel="noopener noreferrer" class="border border-[#FF2BD6] px-3 py-2 text-[#FF2BD6] hover:bg-[#FF2BD6] hover:text-[#05070A]">Source</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4">
+        {items.map((item, index) => (
+          <button
+            type="button"
+            class="reel-thumb y2k-panel grid grid-cols-[96px_1fr] gap-3 p-2 text-left transition hover:border-[#00F5FF]"
+            data-src={item.src}
+            data-poster={item.poster}
+            data-label={item.label}
+            data-title={item.title}
+            data-still={item.stillLabel}
+            data-duration={item.duration}
+            data-href={item.href}
+            data-note={item.note}
+            aria-label={`Load ${item.title}`}
+          >
+            <img src={item.poster} alt={`${item.title} video still`} loading="lazy" class="h-20 w-24 object-cover" />
+            <span>
+              <span class="block font-mono text-[10px] uppercase tracking-[0.18em] text-[#39FF14]">{index === 0 ? 'ACTIVE' : 'QUEUE'}</span>
+              <span class="mt-1 block text-sm font-bold uppercase text-[#F2F7FF]">{item.title}</span>
+              <span class="mt-1 block font-mono text-[10px] uppercase tracking-[0.12em] text-[#8EA3B8]">{item.stillLabel}</span>
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reel = document.getElementById('main-reel');
+  const play = document.getElementById('reel-play');
+  const mute = document.getElementById('reel-mute');
+  const label = document.getElementById('reel-label');
+  const duration = document.getElementById('reel-duration');
+  const title = document.getElementById('reel-title');
+  const still = document.getElementById('reel-still');
+  const note = document.getElementById('reel-note');
+  const link = document.getElementById('reel-link');
+
+  play?.addEventListener('click', async () => {
+    if (!(reel instanceof HTMLVideoElement)) return;
+    if (reel.paused) {
+      await reel.play();
+      play.textContent = '⏸ Pause';
+    } else {
+      reel.pause();
+      play.textContent = '▶ Play';
+    }
+  });
+
+  mute?.addEventListener('click', () => {
+    if (!(reel instanceof HTMLVideoElement)) return;
+    reel.muted = !reel.muted;
+    mute.textContent = reel.muted ? 'Unmute' : 'Mute';
+  });
+
+  document.querySelectorAll('.reel-thumb').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!(reel instanceof HTMLVideoElement)) return;
+      const source = reel.querySelector('source');
+      if (!(source instanceof HTMLSourceElement)) return;
+      const src = button.getAttribute('data-src') ?? '';
+      const poster = button.getAttribute('data-poster') ?? '';
+      source.src = src;
+      reel.poster = poster;
+      reel.load();
+      if (label) label.textContent = button.getAttribute('data-label') ?? '';
+      if (duration) duration.textContent = button.getAttribute('data-duration') ?? '';
+      if (title) title.textContent = button.getAttribute('data-title') ?? '';
+      if (still) still.textContent = button.getAttribute('data-still') ?? '';
+      if (note) note.textContent = button.getAttribute('data-note') ?? '';
+      if (link instanceof HTMLAnchorElement) link.href = button.getAttribute('data-href') ?? '#';
+      if (play) play.textContent = '▶ Play';
+    });
+  });
+</script>

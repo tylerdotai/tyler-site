@@ -2,31 +2,36 @@
 
 **Project:** tylerdotai.com personal brand hub  
 **Framework:** Astro 7 + Tailwind CSS 4  
-**Status:** Active direction — dark editorial, photography-first  
+**Status:** Active direction — Modern Y2K / Cyber-Y2K visual archive  
 **Date:** 2026-06-26
 
 ---
 
 ## Direction
 
-tylerdotai.com is Tyler Delano's personal hub: builder, community operator, and creative with a camera. The site should feel like a curated documentary archive connected to a real developer profile — not a startup landing page, not a generic portfolio, not a bright AI-template site.
+tylerdotai.com should present Tyler Delano's creative work like a high-end media terminal: Cyber-Y2K, neo-brutalist, scanlined, sharp, and media-first. The site should not look like a recolored template or generic dark portfolio.
 
 ## Visual system
 
-- Dark editorial background
-- Warm gold accent, used sparingly
-- Cormorant Garamond for display type
-- DM Sans for body copy
+- Obsidian/charcoal base
+- Digital cyan, acid green, hot magenta, chrome silver accents
+- Orbitron display typography
+- JetBrains Mono body/interface typography
+- Scanlines, retro grid overlays, hard-edged panels, corner markers
 - Real Sony ZV-E10 photography and video only
 - No AI-generated imagery
 - No stock imagery
-- No generic 3-column feature-grid sludge
+- No orange
 
-## Creative page
+## Media labeling rules
 
-The Sony ZV-E10 challenge lives on X and Instagram. The website creative page is **not** the challenge feed. It is a selected archive that showcases the best photos and videos with clean labels and links back to original posts.
+- Show every unique real standalone photo once in The Vault.
+- Keep duplicate asset files if needed, but do not render byte-identical duplicates as separate vault items.
+- Video stills/posters belong in The Reel, not The Vault.
+- The kitchen frame is a video poster/still, not a standalone photo.
+- Labels must describe visible content, not guessed challenge-day names.
 
-## Current source-of-truth copy
+## Source-of-truth creative copy
 
 ### Day One
 @Sony Alpha ZV-E10 Challenge

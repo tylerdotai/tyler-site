@@ -1,51 +1,34 @@
 ---
 const year = new Date().getFullYear();
+const links = [
+  { href: 'https://github.com/tylerdotai', label: 'GitHub' },
+  { href: 'https://linkedin.com/in/tylerpdelano', label: 'LinkedIn' },
+  { href: 'https://x.com/tylerdotai', label: 'X' },
+  { href: 'https://discord.gg/tylerdotai', label: 'Discord' },
+];
 ---
 
-<footer class="mt-auto border-t border-[#2A2A2A]">
+<footer class="mt-auto border-t border-[#263344] bg-[#05070A]/82">
   <div class="container py-8">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <p class="text-sm text-[#888888]">
-        &copy; {year} Tyler Delano. All rights reserved.
-      </p>
+    <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.2em] text-[#8EA3B8]">
+          &copy; {year} Tyler Delano // signal archive online
+        </p>
+      </div>
 
-      <div class="flex items-center gap-6">
-        <a
-          href="https://github.com/tylerdotai"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm text-[#888888] hover:text-[#C9A84C] transition-opacity"
-          aria-label="GitHub"
-        >
-          GitHub
-        </a>
-        <a
-          href="https://linkedin.com/in/tylerpdelano"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm text-[#888888] hover:text-[#C9A84C] transition-opacity"
-          aria-label="LinkedIn"
-        >
-          LinkedIn
-        </a>
-        <a
-          href="https://x.com/tylerdotai"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm text-[#888888] hover:text-[#C9A84C] transition-opacity"
-          aria-label="X / Twitter"
-        >
-          X
-        </a>
-        <a
-          href="https://discord.gg/tylerdotai"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-sm text-[#888888] hover:text-[#C9A84C] transition-opacity"
-          aria-label="Discord"
-        >
-          Discord
-        </a>
+      <div class="flex flex-wrap items-center gap-2">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="border border-[#263344] px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[#8EA3B8] transition-colors hover:border-[#00F5FF] hover:text-[#00F5FF]"
+            aria-label={link.label}
+          >
+            {link.label}
+          </a>
+        ))}
       </div>
     </div>
   </div>

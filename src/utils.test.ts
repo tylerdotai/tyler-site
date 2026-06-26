@@ -6,11 +6,13 @@ describe('site utility functions', () => {
     expect(year).toBe(2026);
   });
 
-  it('should validate current dark editorial color values', () => {
-    const accent = '#C9A84C';
-    const background = '#0E0E0E';
+  it('should validate current Cyber-Y2K color values', () => {
+    const accent = '#00F5FF';
+    const background = '#05070A';
+    const acid = '#39FF14';
     expect(accent).toMatch(/^#[0-9A-Fa-f]{6}$/);
     expect(background).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    expect(acid).toMatch(/^#[0-9A-Fa-f]{6}$/);
   });
 
   it('should validate nav link structure', () => {
@@ -49,10 +51,10 @@ describe('site utility functions', () => {
   it('should validate creative archive data structure', () => {
     const entries = [
       {
-        label: 'Day One',
-        title: 'Life on the homestead.',
-        imageSrc: '/assets/creative/day1-homestead-dog.jpg',
-        alt: 'Golden Retriever sitting outside on the homestead',
+        label: 'Homestead / cat',
+        title: 'Garden cat.',
+        imageSrc: '/assets/creative/day1-cat-garden.jpg',
+        alt: 'Cream-colored cat lying in grass outdoors',
       },
     ];
 

@@ -9,18 +9,21 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-[#0E0E0E] border-b border-[#2A2A2A]">
-  <div class="container flex items-center justify-between h-16">
-    <a href="/" class="font-serif text-xl tracking-tight" aria-label="Tyler Delano — Home">
-      tyler<span style="color:#C9A84C">dot</span>ai
+<header class="sticky top-0 z-40 border-b border-[#263344] bg-[#05070A]/86 backdrop-blur-xl">
+  <div class="container flex h-16 items-center justify-between">
+    <a href="/" class="group flex items-center gap-3 font-mono text-xs font-extrabold uppercase tracking-[0.22em]" aria-label="Tyler Delano — Home">
+      <span class="grid h-8 w-8 place-items-center border border-[#00F5FF] text-[#39FF14] shadow-[4px_4px_0_rgba(255,43,214,0.55)]">TD</span>
+      <span>tyler<span class="text-[#00F5FF]">dot</span>ai</span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+    <nav class="hidden items-center gap-2 md:flex" aria-label="Main navigation">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class={`text-sm font-sans transition-opacity duration-150 ${
-            currentPath === href ? 'text-[#C9A84C]' : 'text-[#888888] hover:text-[#C9A84C]'
+          class={`border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+            currentPath === href
+              ? 'border-[#00F5FF] bg-[#00F5FF] text-[#05070A]'
+              : 'border-transparent text-[#8EA3B8] hover:border-[#00F5FF] hover:text-[#00F5FF]'
           }`}
           aria-current={currentPath === href ? 'page' : undefined}
         >
@@ -31,29 +34,31 @@ const currentPath = Astro.url.pathname;
 
     <button
       id="mobile-menu-toggle"
-      class="md:hidden p-2 text-[#F5F5F0]"
+      class="border border-[#00F5FF] p-2 text-[#00F5FF] md:hidden"
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label="Toggle navigation menu"
     >
-      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter">
         <line x1="4" y1="6" x2="20" y2="6" />
         <line x1="4" y1="12" x2="20" y2="12" />
         <line x1="4" y1="18" x2="20" y2="18" />
       </svg>
-      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" class="hidden">
         <line x1="18" y1="6" x2="6" y2="18" />
         <line x1="6" y1="6" x2="18" y2="18" />
       </svg>
     </button>
   </div>
 
-  <nav id="mobile-menu" class="md:hidden hidden" aria-label="Mobile navigation">
-    <div class="container py-4 flex flex-col gap-4 border-t border-[#2A2A2A]">
+  <nav id="mobile-menu" class="hidden border-t border-[#263344] md:hidden" aria-label="Mobile navigation">
+    <div class="container flex flex-col gap-2 py-4">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class={`text-base font-sans py-2 ${currentPath === href ? 'text-[#C9A84C]' : 'text-[#888888]'}`}
+          class={`border px-3 py-3 font-mono text-xs uppercase tracking-[0.18em] ${
+            currentPath === href ? 'border-[#00F5FF] bg-[#00F5FF] text-[#05070A]' : 'border-[#263344] text-[#8EA3B8]'
+          }`}
           aria-current={currentPath === href ? 'page' : undefined}
         >
           {label}

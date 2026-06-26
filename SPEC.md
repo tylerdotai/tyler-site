@@ -1,262 +1,112 @@
 # tylerdotai.com — SPEC.md
-**Version:** 2.0
+**Version:** 3.0
 **Date:** 2026-06-26
 **Framework:** Astro 7.0.x + Vite 8.x + TypeScript
-**Hosting:** Vercel (auto-deploy from `tyler-site` repo)
+**Hosting:** Vercel
 
 ---
 
-## 1. Concept & Vision
+## 1. Current Direction
 
-tylerdotai.com is the hub for Tyler Delano's personal brand — a tinkerer of AI, a creative guy with a camera, and a collaborative community builder in DFW. The site feels like a photographer's archive fused with an engineer's codebase — documentary realism meets production-grade code. Dark, editorial, warm. Not bright. Not orange. Not a startup template.
+tylerdotai.com is Tyler Delano's personal brand hub and creative archive. The current visual direction is **Modern Y2K / Cyber-Y2K / Neo-Brutalist Interface**: high-contrast obsidian UI, neon signal colors, scanlines, wireframe panels, mono interface typography, and aggressive media-first composition.
 
-**Core message:** *"Tinkerer of AI, creative guy, collaborative community builder."*
-
----
-
-## 2. Design Language
-
-### Aesthetic Direction
-Dark editorial. Think: a filmmaker's personal archive meets a serious developer's project page. Dark backgrounds let real photography breathe. Warm gold as the only accent — restrained, not everywhere. Cormorant Garamond gives it literary weight; DM Sans keeps it clean.
-
-Reference: dark-mode creative agencies, documentary film branding.
-
-### Color Palette
-| Role | Value | Usage |
-|------|-------|-------|
-| Background | `#0E0E0E` | Near-black, warmer than pure black |
-| Surface | `#1A1A1A` | Cards, elevated elements, modals |
-| Border | `#2A2A2A` | Subtle dividers |
-| Text | `#F5F5F0` | Warm off-white — readable, not harsh |
-| Text muted | `#888888` | Captions, metadata |
-| Accent | `#C9A84C` | Warm gold — used sparingly: links on hover, focus rings, logo mark, one CTA |
-
-**Zero orange anywhere.**
-
-### Typography
-| Role | Font | Fallback |
-|------|------|----------|
-| Headings | `Cormorant Garamond`, serif | Georgia, serif |
-| Body | `DM Sans`, sans-serif | system-ui, sans-serif |
-| Mono/labels | `ui-monospace`, monospace | Menlo, monospace |
-
-**Scale:**
-- Hero: 3.5rem / 56px (large, editorial)
-- H1: 2.5rem / 40px
-- H2: 1.75rem / 28px
-- H3: 1.25rem / 20px
-- Body: 1rem / 16px
-- Small/caption: 0.875rem / 14px
-
-### Spatial System
-- Base unit: 4px
-- Section padding: 80px vertical (desktop), 48px (mobile)
-- Container max-width: 1120px
-- Card padding: 24px
-- Border radius: 2px (barely rounded — sharp, editorial)
-
-### Motion Philosophy
-Minimal. No entrance animations. Motion only for:
-- Link/button hover: `color 150ms ease`, `opacity 150ms ease`
-- Focus rings: `outline 2px solid #C9A84C`
-- Image hover: `opacity 150ms ease` (not scale, not zoom — that's trendy)
-
-### Visual Assets Strategy
-**No stock photography. No AI-generated imagery. No generic illustrations.**
-Photography is the primary visual asset — ZV-E10 challenge content on dark backgrounds.
-
-Favicon: Gold "t" on dark background — SVG.
+The site must not feel like a recolored startup template. It should read like a high-end media terminal: nostalgic late-90s/early-2000s interface energy with modern performance and clean responsive behavior.
 
 ---
 
-## 3. Layout & Structure
+## 2. Non-Negotiables
 
-### Pages
-```
-/                   — Home: Hero + About + Quick Links to all verticals
-/builds             — Projects: Singularity, Agent Loop System, AIAgainstParkinson
-/community          — Agent Builders Club: stats, nodes, events, links
-/creative           — Filmmaking: ZV-E10 challenge, photo gallery, documentary
-/parkinson          — AIAgainstParkinson: daily reports EN/ES, mission
-/parkinson/es       — Spanish version of AIAgainstParkinson
-```
-
-### Navigation
-- Fixed top nav, dark background with subtle bottom border
-- Logo (left): "tyler" in Cormorant Garamond serif, gold on "dotai"
-- Links (right): Home, Builds, Community, Creative
-- Mobile: hamburger, full-screen overlay
-
-### Homepage Structure
-1. **Hero** — Name, tagline, one-line origin summary
-2. **What I Build** — 3 cards (Singularity, Agent Loop System, AIAgainstParkinson)
-3. **Community** — Agent Builders Club stats, one-line description
-4. **Creative** — ZV-E10 challenge latest day, single featured photo
-5. **Connect** — GitHub, LinkedIn, X, Discord links
-6. **Footer** — Minimal, copyright only
-
-### Responsive Strategy
-- Desktop-first
-- Breakpoints: 1024px (tablet), 640px (mobile)
-- Cards stack vertically below 768px
-- Nav collapses to hamburger below 768px
+- **No orange.**
+- **No AI-generated visuals.**
+- **No stock imagery.**
+- **No fake filler content.**
+- **No Chinese text.**
+- **No mislabeled media.**
+- **No duplicate visual rendering of the same byte-identical image.** Duplicate files may remain in assets, but the public vault should show each unique photo once.
+- **Kitchen/video frames must be labeled as video stills/posters**, not standalone photos.
+- Creative page is a selected media archive, not a challenge-feed dump.
 
 ---
 
-## 4. Features & Interactions
+## 3. Design System
 
-### Global
-- Static site, minimal JS (mobile nav toggle only)
-- No analytics, no cookies
-- No newsletter forms
+| Role | Token |
+|---|---|
+| Background | `#05070A` obsidian |
+| Surface | `#0B1018` / `#111827` |
+| Border | `#263344` |
+| Text | `#F2F7FF` |
+| Muted text | `#8EA3B8` |
+| Primary neon | `#00F5FF` digital cyan |
+| Secondary neon | `#B6FF00` acid green |
+| Tertiary neon | `#FF2BD6` hot magenta |
+| Chrome | `#D7DEE8` |
+| Display font | Orbitron |
+| Body/interface font | JetBrains Mono |
 
-### Interactions
-- External links open in new tab with `rel="noopener noreferrer"`
-- Gold accent on hover for links and interactive elements
-- No animations beyond color transitions
-
-### Edge Cases
-- Missing photos: dark placeholder with gold border accent
-- Empty states: real copy, no Lorem ipsum
-
----
-
-## 5. Component Inventory
-
-### `<BaseLayout>`
-- `<head>` with meta: title, description, OG tags, canonical URL
-- Cormorant Garamond + DM Sans from Google Fonts
-- Dark background
-
-### `<Header>`
-- Logo: "tyler<span style="color:#C9A84C">dot</span>ai" in Cormorant Garamond
-- Nav links (desktop): right-aligned, DM Sans
-- Mobile: hamburger icon, full-screen overlay on dark
-- States: default, mobile-open
-
-### `<Footer>`
-- Copyright: `© 2026 Tyler Delano`
-- Connect links: GitHub, LinkedIn, X, Discord — gold on hover
-
-### `<ProjectCard>`
-- Props: name, description, techStack[], githubUrl
-- Background: `#1A1A1A`, border: 1px solid `#2A2A2A`
-- Hover: border-color shifts to `#C9A84C`
-
-### `<PhotoGrid>` (creative page)
-- 2-column on mobile, 3-column on desktop
-- Larger images — let photography breathe
-- Gap: 16px
-
-### `<ChallengeDay>`
-- Props: dayNumber, title, quote, quoteSource, imageSrc, alt
-- Full-width image with text overlay or side-by-side on desktop
-
-### `<StatBadge>`
-- Props: value, label
-- Large number in `#C9A84C` (gold), label in muted text
-
-### `<Button>`
-- Variants: primary (gold bg + dark text), ghost (gold border + gold text)
-- Hover: opacity shift
+UI should use:
+- scanline overlay;
+- retro grid background;
+- hard rectangular interface panels;
+- corner markers/crosshair energy;
+- chrome gradient text only where it creates impact;
+- no rounded friendly SaaS cards unless deliberately counterbalanced by Y2K interface details.
 
 ---
 
-## 6. Technical Approach
+## 4. Creative Page Architecture
 
-### Framework & Build
-- **Astro 7.0.x** — static site, file-based routing
-- **Vite 8.x** — build tool (Astro default)
-- **TypeScript** — strict mode
-- **Tailwind CSS 4.x** — utility styling with `@tailwindcss/vite`
-- **@astrojs/sitemap** — auto-generated sitemap
-- **@astrojs/tailwind** — removed (incompatible with Astro 7, use Vite plugin)
+### Hero
+- Video-backed hero using real ZV-E10/CapCut media.
+- Big title: `SIGNAL VAULT` / visual archive framing.
+- Media count module: photos + videos.
 
-### Project Structure
-```
-tyler-site/
-├── public/
-│   ├── favicon.svg
-│   └── assets/
-│       └── creative/          # ZV-E10 photos, videos
-├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   └── styles/
-│       └── global.css         # Tailwind base + custom properties
-├── astro.config.mjs
-├── tsconfig.json
-├── package.json
-└── SPEC.md
+### The Vault
+- Standalone photography only.
+- All unique real photos currently available in the creative asset folder should be represented once.
+- Labels must describe actual image content: portraits, cats, chickens, dog, roadside, desk/edit bay, rose, etc.
+- Click expands image into a lightbox.
+
+### The Reel
+- Video work only.
+- Video posters/stills are explicitly labeled as video stills/posters.
+- Main video player with Cyber-Y2K custom control shell and thumbnail queue.
+- MP4 sources only for browser playback.
+
+### System Specs
+- Creative profile presented as diagnostics/spec sheet.
+- Include camera, edit stack, style, rule.
+
+### Signal Transmit
+- Social links and contact direction; no dead backend form.
+
+---
+
+## 5. Content Facts
+
+- Tagline: `Tinkerer of AI, creative guy, collaborative community builder.`
+- Agent Builders Club started in **2026**.
+- Creative challenge is **30 days**, not 39.
+- AIAgainstParkinson has zero subscribers and is a landing/reporting project only.
+
+---
+
+## 6. Verification Gate
+
+Before push:
+
+```bash
+npm run check
+npm test
+npm run build
+npm run test:e2e
 ```
 
-### Testing Stack
-- **Vitest** — unit tests
-- **Playwright** — smoke tests (page loads, nav works)
-- **Coverage** — 80% minimum
-
-### CI Pipeline (GitHub Actions)
-```
-on: [push, pull_request]
-jobs:
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run check
-      - run: npm test
-      - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
-```
-
----
-
-## 7. Content Inventory
-
-### Home Page Copy
-**Hero:**
-> Tyler Delano
-> Tinkerer of AI. Creative guy. Collaborative community builder.
-
-**What I Build:**
-> Open-source tools, daily research pipelines, and community infrastructure. Real systems that run in production.
-
-**Community:**
-> Agent Builders Club — 600+ builders in DFW, 6 physical nodes, one mission: ship useful AI.
-
-### Builds Page
-**Singularity:**
-> A production-grade AI agent harness built with Bun, TypeScript, SQLite, and a Solid.js TUI.
-> Stack: Bun · TypeScript · SQLite · Solid.js · Docker · GitHub Actions
-
-**Agent Loop System:**
-> Python + JSON contracts for orchestrating multi-agent loops with evaluator gates.
-> Stack: Python · JSON · Docker · GitHub Actions
-
-**AIAgainstParkinson:**
-> Daily automated research reports on Parkinson's disease, in English and Spanish.
-> Stack: Python · Cron · EN/ES
-
-### Community Page
-**Agent Builders Club:**
-> A community of builders, not spectators. DFW's largest AI meetup network — 600+ members across 6 nodes.
-> Formerly ClawPlex. Category-first by design.
-
-### Creative Page
-**ZV-E10 Challenge:**
-> 30 days. One camera. No crew, no script.
-
-### Parkinson Page
-**Mission:**
-> AIAgainstParkinson surfaces and summarizes the latest Parkinson's research every day — automatically. Built for patients, caregivers, and researchers who don't have time to read everything.
-
----
-
-*SPEC.md is the source of truth. All build decisions trace back to this document. Update this first if the brief changes — no code changes without a spec update.*
+Also verify in browser:
+- no orange;
+- no Chinese;
+- all vault images visible;
+- no duplicated byte-identical images shown twice;
+- kitchen frame appears only as video still/poster;
+- videos playable;
+- layout works at desktop and mobile widths.

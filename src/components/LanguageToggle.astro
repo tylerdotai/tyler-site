@@ -7,17 +7,17 @@ const { currentLang = 'en' } = Astro.props;
 ---
 
 <div class="flex items-center gap-4">
-  <span class="text-sm text-[#888888]">Language:</span>
+  <span class="text-sm text-[#8EA3B8]">Language:</span>
   <a
     href="/parkinson"
-    class={`text-sm font-medium ${currentLang === 'en' ? 'text-[#C9A84C]' : 'text-[#888888] hover:text-[#C9A84C]'}`}
+    class={`text-sm font-medium ${currentLang === 'en' ? 'text-[#00F5FF]' : 'text-[#8EA3B8] hover:text-[#00F5FF]'}`}
   >
     English
   </a>
-  <span class="text-[#888888]">/</span>
+  <span class="text-[#8EA3B8]">/</span>
   <a
     href="/parkinson/es"
-    class={`text-sm font-medium ${currentLang === 'es' ? 'text-[#C9A84C]' : 'text-[#888888] hover:text-[#C9A84C]'}`}
+    class={`text-sm font-medium ${currentLang === 'es' ? 'text-[#00F5FF]' : 'text-[#8EA3B8] hover:text-[#00F5FF]'}`}
   >
     Español
   </a>
