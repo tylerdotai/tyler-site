@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 const BASE = 'http://localhost:4321';
 
 const pages = [
-  { path: '/', check: /Tyler Delano/i },
+  { path: '/', check: /@tylerdotai/i },
   { path: '/builds', check: /Builds/i },
   { path: '/community', check: /Community/i },
   { path: '/creative', check: /Creative/i },
@@ -41,7 +41,7 @@ test('navigation links are present on homepage', async ({ page }) => {
 test('footer is present', async ({ page }) => {
   await page.goto(BASE);
   await expect(page.locator('footer')).toBeVisible();
-  await expect(page.locator('footer')).toContainText('Tyler Delano');
+  await expect(page.locator('footer')).toContainText('@tylerdotai');
 });
 
 test('homepage hero section', async ({ page }) => {
