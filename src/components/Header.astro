@@ -1,0 +1,79 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/builds', label: 'Builds' },
+  { href: '/community', label: 'Community' },
+  { href: '/creative', label: 'Creative' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-[#FFFEF9] border-b border-[#E8E4DC]">
+  <div class="container flex items-center justify-between h-16">
+    <a href="/" class="font-serif text-xl tracking-tight" aria-label="Tyler Delano — Home">
+      tyler<span style="color:#FF6B00">dot</span>ai
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`text-sm font-medium transition-colors duration-150 ${
+            currentPath === href ? 'text-[#FF6B00]' : 'text-[#6B6B6B] hover:text-[#FF6B00]'
+          }`}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <button
+      id="mobile-menu-toggle"
+      class="md:hidden p-2 text-[#1A1A1A]"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="md:hidden hidden" aria-label="Mobile navigation">
+    <div class="container py-4 flex flex-col gap-4 border-t border-[#E8E4DC]">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`text-base font-medium py-2 ${currentPath === href ? 'text-[#FF6B00]' : 'text-[#6B6B6B]'}`}
+          aria-current={currentPath === href ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

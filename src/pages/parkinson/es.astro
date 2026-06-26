@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LanguageToggle from '../../components/LanguageToggle.astro';
+
+const lang = 'es';
+---
+
+<BaseLayout
+  title="Parkinson"
+  description="Informes diarios de investigación sobre el Parkinson, en inglés y español."
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="section border-b border-[#E8E4DC]">
+      <div class="container">
+        <div class="flex items-center gap-4 mb-4">
+          <span class="text-sm font-mono text-[#FF6B00] uppercase tracking-widest">AIAgainstParkinson</span>
+          <LanguageToggle currentLang={lang} />
+        </div>
+
+        <h1 class="font-serif text-4xl md:text-5xl mb-4">Cada día.<br />Cada estudio.</h1>
+        <p class="text-lg text-[#6B6B6B] max-w-2xl">
+          AIAgainstParkinson encuentra y resume lo último en investigación sobre
+          Parkinson cada día — automáticamente. Hecho para pacientes, cuidadores e
+          investigadores que no tienen tiempo de leer todo.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section border-b border-[#E8E4DC]">
+      <div class="container">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h2 class="font-serif text-2xl mb-4">Esto es personal.</h2>
+            <p class="text-[#6B6B6B] mb-4">
+              Alguien que me importa vive con Parkinson. Cada mañana, un cron job lee los
+              últimos artículos de PubMed, genera un resumen en lenguaje simple en inglés
+              y español, y lo publica — automáticamente.
+            </p>
+            <p class="text-[#6B6B6B]">
+              Sin paywall. Sin algoritmo. Solo investigación, entregada.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-serif text-2xl mb-4">Informes cada día.</h2>
+            <p class="text-[#6B6B6B] mb-6">
+              Disponible en inglés y español actualmente. Cero suscriptores — el sistema
+              corre sin importar nada. Sígueme en X / Twitter.
+            </p>
+            <a
+              href="https://github.com/tylerdotai/parkinson-research"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-ghost"
+            >
+              Ver en GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <div class="container text-center">
+        <p class="text-[#6B6B6B] mb-4">
+          AIAgainstParkinson es un pipeline de investigación automatizado.
+        </p>
+        <a
+          href="https://x.com/tylerdotai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary"
+        >
+          Seguir en X / Twitter
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
