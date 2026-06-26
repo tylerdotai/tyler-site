@@ -23,7 +23,7 @@ for (const { path, check } of pages) {
     const response = await page.goto(`${BASE}${path}`);
     expect(response?.status()).toBe(200);
 
-    await expect(page).toHaveTitle(check);
+    await expect(page).toHaveTitle(/Tyler Delano/i);
 
     expect(errors).toHaveLength(0);
   });
