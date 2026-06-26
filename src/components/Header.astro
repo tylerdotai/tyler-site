@@ -9,26 +9,30 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-40 border-b-[3px] border-black bg-white">
+<header class="sticky top-0 z-40 border-b-[3px] border-black bg-white pt-4">
   <div class="container flex h-16 items-center justify-between">
     <a href="/" class="group flex items-center gap-3" aria-label="@tylerdotai — Home">
-      <span class="flex h-10 w-10 items-center justify-center bg-yellow font-display text-xl text-black border-[3px] border-black shadow-[4px_4px_0_#000]">TD</span>
+      <span class="flex h-10 w-10 items-center justify-center bg-yellow font-display text-xl text-black border-[3px] border-black shadow-[4px_4px_0_#000] transition-transform group-hover:translate-x-[-2px] group-hover:translate-y-[-2px] group-hover:shadow-[6px_6px_0_#000]">TD</span>
       <span class="font-display text-2xl tracking-wide">@<span class="text-blue">TYLERDOTAI</span></span>
     </a>
 
-    <nav class="hidden items-center gap-3 md:flex" aria-label="Main navigation">
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Main navigation">
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class={`px-4 py-2 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black transition-all ${
+          class={`relative font-body text-sm font-bold uppercase tracking-wider transition-all ${
             currentPath === href
-              ? 'bg-blue text-white'
-              : 'bg-white text-black hover:bg-yellow'
+              ? 'text-blue'
+              : 'text-black hover:text-blue'
           }`}
-          style={currentPath !== href ? 'box-shadow: 3px 3px 0 #000;' : ''}
           aria-current={currentPath === href ? 'page' : undefined}
         >
           {label}
+          {currentPath === href ? (
+            <span class="absolute -bottom-1 left-0 h-[3px] w-full bg-blue"></span>
+          ) : (
+            <span class="absolute -bottom-1 left-0 h-[3px] w-0 bg-black transition-all duration-200 group-hover:w-full"></span>
+          )}
         </a>
       ))}
     </nav>
@@ -58,10 +62,11 @@ const currentPath = Astro.url.pathname;
       {navLinks.map(({ href, label }) => (
         <a
           href={href}
-          class={`px-4 py-3 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black ${
-            currentPath === href ? 'bg-blue text-white' : 'bg-white text-black'
+          class={`px-4 py-3 font-body text-sm font-bold uppercase tracking-wider border-[3px] border-black transition-all ${
+            currentPath === href
+              ? 'bg-blue text-white shadow-[4px_4px_0_#000]'
+              : 'bg-white text-black hover:border-blue'
           }`}
-          style={currentPath !== href ? 'box-shadow: 3px 3px 0 #000;' : ''}
           aria-current={currentPath === href ? 'page' : undefined}
         >
           {label}

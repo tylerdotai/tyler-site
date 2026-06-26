@@ -46,7 +46,7 @@ test('footer is present', async ({ page }) => {
 
 test('homepage hero section', async ({ page }) => {
   await page.goto(BASE);
-  await expect(page.locator('h1')).toContainText('TINKERER');
+  await expect(page.locator('main h1')).toContainText('TINKERER');
 });
 
 test('parkinson language toggle works', async ({ page }) => {
