@@ -56,10 +56,10 @@ const vaultItems = [
   },
   {
     label: 'Roadside / station',
-    title: 'Redbox at the station.',
+    title: 'Cornerstore vibes.',
     image: '/assets/creative/day2-gas-station.jpg',
     alt: 'Gas station convenience store with Redbox kiosk in the foreground',
-    meta: 'Photo / street-level frame',
+    meta: 'Photo / cornerstore frame',
     size: 'square',
   },
   {
@@ -165,7 +165,7 @@ const socialLinks = [
           </p>
         </div>
 
-        <div class="grid grid-flow-dense auto-rows-auto gap-6 md:grid-cols-3">
+        <div class="grid grid-flow-dense gap-6 md:grid-cols-3 lg:grid-rows-[340px]">
           {vaultItems.map((item, index) => (
             <VaultCard {...item} index={index + 1} />
           ))}
