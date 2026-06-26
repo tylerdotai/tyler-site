@@ -81,7 +81,7 @@ export const PILLARS = [
 // ABOUT — homepage bio section
 // -----------------------------------------------------------------------------
 export const ABOUT = {
-  year: '2024',
+  year: '2026',
   yearLabel: 'YEAR OF THE AGENT',
   heading: 'FROM PIP TO\nDEVELOPER',
   paragraphs: [
