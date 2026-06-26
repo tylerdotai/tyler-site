@@ -26,11 +26,11 @@ jobs:
       - name: Type check
         run: npm run check
 
-      - name: Test with coverage
+      - name: Test (unit)
         run: npm test
-
-      - name: Test E2E
-        run: npx playwright install --with-deps && npm run test:e2e
 
       - name: Build
         run: npm run build
+
+      - name: Test E2E
+        run: npx playwright install --with-deps chromium && npm run test:e2e
