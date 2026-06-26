@@ -1,0 +1,35 @@
+---
+interface Props {
+  dayNumber: number;
+  title: string;
+  quote: string;
+  quoteSource?: string;
+  imageSrc: string;
+  alt: string;
+}
+
+const { dayNumber, title, quote, quoteSource, imageSrc, alt } = Astro.props;
+---
+
+<article class="grid md:grid-cols-2 gap-8 items-center py-8 border-b border-[#E8E4DC] last:border-b-0">
+  <div class="relative">
+    <img
+      src={imageSrc}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      class="w-full h-80 object-cover rounded"
+    />
+    <span class="absolute top-4 left-4 px-3 py-1 bg-[#FF6B00] text-white text-xs font-mono rounded">
+      Day {dayNumber}
+    </span>
+  </div>
+
+  <div>
+    <h3 class="font-serif text-2xl mb-3">{title}</h3>
+    <blockquote class="border-l-2 border-[#FF6B00] pl-4 mb-2">
+      <p class="text-[#6B6B6B] italic">"{quote}"</p>
+    </blockquote>
+    {quoteSource && <p class="text-xs text-[#6B6B6B]">— {quoteSource}</p>}
+  </div>
+</article>
