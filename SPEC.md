@@ -1,146 +1,428 @@
-# tylerdotai.com — SPEC.md
-**Version:** 4.0
-**Date:** 2026-06-26
-**Framework:** Astro 7.0.x + Vite 8.x + TypeScript
-**Hosting:** Vercel
+# SPEC.md — Tyler Delano Personal Site
+## Neo-Brutalist Typography Site (Rebuild)
 
 ---
 
-## 1. Design Direction
+## 1. Concept & Vision
 
-**Neo-Brutalism** — the 2020s UI grammar, not the 90s web-raw kind. Thick outlines, hard offset shadows, saturated flat color blocks, oversized condensed type, zero border-radius, intentional broken-grid asymmetry. This is calculated chaos — structured rebellion, not accident.
+A personal brand hub that commands attention through **typographic aggression and spatial confidence** — not color noise. The site should feel like a high-end creative director's portfolio, not a SaaS landing page. Think: Pentagram meets fashion editorial meets Bauhaus. Every element earns its place. Nothing decorates for decoration's sake.
 
-Reference: reallygooddesigns.com/neo-brutalist-website-examples, problem.studio, Design Thinkers 2025
+**Core personality:** Direct. Confident. Builder-first. The site says "I ship things" without saying it.
 
 ---
 
-## 2. Design Tokens
+## 2. Design Language
 
-### Colors
+### Aesthetic Direction
+**Reference:** Lydia Amaruch (lydiaamaruch.com) — editorial neo-brutalism. Black foundation, white type, one electric accent. Magazine-grid layout with intentional negative space. Typography as the primary visual element.
+
+**NOT:** McDonald's配色 (red+yellow+blue simultaneously), SaaS gradient grids, rounded corners anywhere, generic blue "corporate trust" buttons.
+
+### Color Palette
+
 ```
---color-bg:         #FFFFFF   /* stark white — dominant surface */
---color-bg-alt:     #F5F5F0   /* off-white — alternate sections */
---color-ink:        #0A0A0A   /* near-black — primary text */
---color-accent:     #FFE500   /* saturated yellow — primary CTA, highlights */
---color-blue:       #255FFF   /* bold ultramarine — links, badges */
---color-red:        #FF3B30   /* alarm red — emphasis only */
---color-border:     #0A0A0A   /* black — thick structural borders */
---color-shadow:     #0A0A0A   /* hard offset shadow always black */
+Background (dark mode foundation):
+  --bg:          #0A0A0A    /* Near-black, not pure black — softer */
+  --bg-surface:  #111111    /* Card/section surfaces */
+  --bg-elevated: #1A1A1A    /* Hover states, elevated panels */
+
+Text:
+  --text:        #FFFFFF    /* Pure white for headings */
+  --text-body:   #E5E5E5    /* Off-white for body (easier on eyes) */
+  --text-muted:  #888888    /* Meta text, captions */
+
+Accent (SINGLE accent — used ONLY for emphasis):
+  --accent:      #CCFF00    /* Electric lime — modern, distinctive, NOT yellow */
+                             /* NOT: #FFE600 (McDonald's), NOT #FF3B30 (danger red) */
+                             /* This is the ONE color that everything else defers to */
+
+Borders & Structural:
+  --border:      #FFFFFF    /* White borders — structural, not heavy */
+  --border-dim:  #333333    /* Subtle dividers */
+
+Shadows:
+  --shadow:       4px 4px 0 #FFFFFF   /* White shadow on dark bg — inverts brutalist convention */
+  --shadow-sm:    2px 2px 0 #FFFFFF
 ```
+
+**Why #CCFF00 over #FFE600:**
+- `#FFE600` is fast-food energy (McDonald's, Febreze, Cartoons) — it signals cheap/childish
+- `#CCFF00` is electric/synthetic — it's what neon sign shops look like, what fresh code looks like — it's a BUILDER color
+- Same perceptual brightness, completely different cultural signal
+
+**Why no blue:**
+- `#0055FF` is corporate trust — bank websites, enterprise SaaS
+- Completely wrong personality for a creative builder who runs a community
+
+**Why no red:**
+- `#FF3B30` is danger/error — it should never be a primary accent on a personal site
 
 ### Typography
-- **Display/headings:** Bebas Neue — condensed, bold, uppercase, massive scale (80–160px for hero). No italic, no weight variation — just ONE weight.
-- **Body/UI:** Space Mono — monospaced, technical, grid-aligned. 14–16px body.
-- **Labels/badges:** Space Mono uppercase, tracked out.
 
-### Borders & Shadows
 ```
-border: 3px solid var(--color-border)
-box-shadow: 6px 6px 0 var(--color-shadow)   /* hard offset, no blur, no radius */
-border-radius: 0                              /* zero — everywhere, no exceptions */
-```
+Display Font:  "Syne" (Google Fonts) — geometric, bold, distinctive
+               NOT: Bebas Neue (overused, feels like movie posters)
+               NOT: Anton (too aggressive, no personality)
 
-### Spacing
-- Base unit: 8px
-- Generous section padding (80–120px vertical)
-- Intentional asymmetric gaps in grids
+Body Font:     "Space Grotesk" (Google Fonts) — geometric sans, readable, modern
+               NOT: Space Mono (too cold/monospace for body — save for code/labels)
 
----
-
-## 3. Component Grammar
-
-### BrutalCard
-- White fill, 3px black border, 6px hard offset shadow
-- No hover animation (just shadow shift: `4px 4px 0` on hover)
-- Cursor: pointer
-
-### BrutalButton
-```
-background: var(--color-accent)
-border: 3px solid var(--color-ink)
-box-shadow: 6px 6px 0 var(--color-ink)
-font-family: Space Mono
-font-weight: 700
-text-transform: uppercase
-transition: box-shadow 80ms ease, transform 80ms ease
-Hover: box-shadow: 3px 3px 0 var(--color-ink); transform: translate(3px, 3px)
+Mono Font:     "JetBrains Mono" (Google Fonts) — clean monospace for labels/captions
 ```
 
-### BrutalBadge
-- Solid fill (accent yellow or blue), black border 2px, no shadow
-- Space Mono uppercase, tracked
+**Type Scale:**
+```
+--text-hero:   clamp(4rem, 12vw, 10rem)   /* Massive — commands the page */
+--text-h1:     clamp(2.5rem, 6vw, 5rem)
+--text-h2:     clamp(1.75rem, 4vw, 3rem)
+--text-h3:     clamp(1.25rem, 2.5vw, 1.75rem)
+--text-body:   1rem (16px base)
+--text-sm:     0.875rem
+--text-xs:     0.75rem
+--text-label:  0.7rem uppercase tracked (Space Grotesk)
+```
 
-### Section Pattern
-- Alternating bg: white / off-white / solid color block
-- Headings: Bebas Neue, massive (clamp 60px–120px), uppercase
-- Subheadings: Space Mono, normal case, 14–16px
+**Letter-spacing:**
+- Display/H1: `0.01em` to `0.02em` (slight tracking, not loose)
+- Labels/tags: `0.15em` to `0.2em` (generous — editorial feel)
+- Body: `0` (default)
 
-### Navigation
-- Fixed or sticky top bar, white bg, thick bottom border
-- Logo: text mark "TYLER DELANO" in Bebas Neue
-- Nav links: Space Mono, uppercase, small
-- No hamburger menus unless mobile — prefer horizontal scroll or stacked
+**Line-height:**
+- Display: `0.9` to `0.95` (very tight — fills the space)
+- Body: `1.6` to `1.7` (readable)
 
-### Footer
-- Solid color block (ink black), white/yellow text
-- Simple columns: links, social, copyright
+### Spatial System
+
+```
+--space-xs:   0.5rem    /* 8px */
+--space-sm:   1rem      /* 16px */
+--space-md:   2rem      /* 32px */
+--space-lg:   4rem      /* 64px */
+--space-xl:   8rem      /* 128px */
+--space-2xl:  12rem     /* 192px */
+
+Section padding:  var(--space-xl) top/bottom on desktop, var(--space-lg) mobile
+Container max:    1400px
+Gutters:          1.5rem (24px) on each side
+```
+
+### Border & Shadow System
+
+```
+Borders:
+  --border:         2px solid var(--border)
+  --border-strong:  3px solid var(--border)
+
+Shadows (ON DARK BACKGROUND — white shadow is the brutalist move):
+  --shadow:    4px 4px 0 var(--border)        /* hard, no blur */
+  --shadow-sm: 2px 2px 0 var(--border)
+  --shadow-lg: 8px 8px 0 var(--border)
+
+Border-radius: 0 everywhere — NO rounded corners, NO border-radius
+```
+
+### Motion Philosophy
+
+```
+Duration:
+  Micro (hover):   120ms ease
+  Standard:        250ms ease
+  Page:            400ms ease
+
+Hover on cards/buttons: translate(-2px, -2px) + shadow grows
+  — Elements "lift" toward the viewer on dark background
+  — This INVERTS the usual light-mode brutalist shadow direction
+
+Page entrance:
+  — Sections fade + slide up on scroll (Intersection Observer)
+  — Stagger: 80ms between elements
+  — Duration: 400ms ease-out
+
+No: parallax, no mouse-following, no bouncy springs, no page transitions
+```
 
 ---
 
-## 4. Page Structure
+## 3. Layout & Structure
 
-### /
-1. **Hero** — Full-width, massive Bebas Neue name treatment (split color blocks), tagline in Space Mono, one CTA button
-2. **What I do** — 3-column brutal cards: Build, Community, Create
-3. **About snippet** — 2-col: text left, photo right (real photo, yellow border + shadow)
-4. **Selected work** — Horizontal scroll or grid of project cards
-5. **CTA** — Big yellow block, "LET'S TALK" button
+### Overall Architecture
 
-### /builds
-1. **Header** — Page title in Bebas Neue
-2. **Project grid** — BrutalCards in 2-col grid, each with: title, description, tech chips (yellow badges), link
+Dark foundation. Sections alternate between `#0A0A0A` (pure background) and `#111111` (surface) to create visual rhythm without borders.
 
-### /community
-1. **Header** — Page title + tagline
-2. **Stats row** — 3 big numbers (600+, 6, weekly) in brutal stat badges
-3. **About** — Paragraph + sidebar facts in brutal card
-4. **Events info** — Brutal card with next event details
-5. **CTA** — Yellow block to join
+### Page Structure
 
-### /creative
-1. **Header** — Page title
-2. **Vault grid** — All photos as neo-brutalist framed cards (yellow border + hard shadow), lightbox on click
-3. **Reel section** — Video poster frames, labeled as VIDEO STILL
-4. **Connect** — Social links in brutal button style
+```
+HEADER (fixed, transparent → solid on scroll)
+  Logo/wordmark left | Nav right
+  Height: 72px
+  Background: #0A0A0A with bottom border on scroll
 
-### /parkinson, /parkinson/es
-- Minimal: white bg, black text, one clean section — keep layout simple, focus is the content not the design
+HERO (100vh or auto-height)
+  — Massive name/type treatment — the main impression
+  — No background video, no gradients
+  — Just TYPOGRAPHY doing the work
+  — One line of body copy
+  — Two CTAs
+
+ABOUT (two-column asymmetric)
+  Left: Large pull quote or tagline (40% width)
+  Right: Bio paragraphs (60% width)
+  Alternating section backgrounds
+
+WORK/BUILDS (magazine grid)
+  — Not equal cards — some large, some small
+  — Asymmetric grid, 12-column base
+  — Project name in huge type overlapping images
+
+COMMUNITY (stats + narrative)
+  — Stats in a row (600+, 6 nodes, Monthly)
+  — Narrative paragraph below
+  — No yellow cards — the stat color comes from the accent
+
+CREATIVE (masonry or uneven grid)
+  — Photos/videos in an editorial layout
+  — Not uniform cards — varied sizes
+  — Minimal label treatment
+
+FOOTER
+  — Minimal, dark
+  — Social links, copyright
+  — One accent color line somewhere
+```
+
+### Grid Specifications
+
+**Hero:** Full-bleed, type set from edge to edge (fluid type)
+**About:** 40/60 split at lg breakpoint, stacked on mobile
+**Builds:** CSS Grid, `repeat(12, 1fr)`, items span varying column counts
+**Community stats:** Equal flex items, monospace numbers
+**Creative:** CSS Grid, `auto-fill`, items have `grid-column: span X` variants
+
+### Responsive Strategy
+
+```
+Mobile:    < 768px   — single column, reduced type scale
+Tablet:    768-1024  — 2-column grids
+Desktop:   1024+     — full asymmetric layouts
+Wide:      1400px+  — max-width container kicks in
+```
 
 ---
 
-## 5. Non-Negotiables
-- **Zero border-radius** anywhere in the design
-- **No orange**
-- **No Fraunces, Source Serif, Orbitron, or decorative serif fonts**
-- **No AI-generated visuals**
-- **No cyber/Y2K aesthetic** — this replaces the prior direction entirely
-- All photos: real ZV-E10 frames only
-- Video stills labeled explicitly as such
+## 4. Features & Interactions
+
+### Header
+- Fixed position, `backdrop-filter: blur(12px)` with slight dark tint
+- Transparent at top of page, gains `border-bottom` after 50px scroll
+- Logo: `@TYLERDOTAI` in Syne Bold, accent color
+- Nav links: Space Grotesk, uppercase, tracked — white, accent on hover
+- Mobile: hamburger → full-screen overlay menu
+
+### Hero
+- Name: `--text-hero` size, white, Syne Bold
+- Tagline below: body size, muted color
+- Two buttons: Primary (accent bg) + Ghost (outline)
+- Entrance: fade up from 20px below, 400ms
+
+### Cards (Builds)
+- Border: 2px white
+- Shadow on dark: 4px 4px 0 white
+- Hover: lift (-2px, -2px) + shadow grows (8px 8px 0 white)
+- Image: cover, no border-radius, full bleed top
+- Bottom section: white bg, black text (INVERTED from page — pop)
+- Tags: accent-colored monospace text
+
+### Community Stats
+- Large monospace numbers: `clamp(2.5rem, 5vw, 4rem)`
+- Labels: `text-xs uppercase tracked`
+- Divider lines between: 1px `--border-dim`
+- NO yellow backgrounds — the accent color is reserved for one element per section max
+
+### Creative Page
+- Vault grid: uniform row height (CSS grid `grid-rows-[340px]`)
+- Each item: photo fills cell, label overlaid at bottom
+- Video items: small play icon indicator, "VIDEO" label
+- Hover: slight scale (1.02) on image only
+
+### Buttons
+
+**Primary (accent fill):**
+- Background: `--accent` (#CCFF00)
+- Text: `#0A0A0A` (near-black for max contrast)
+- Border: 2px solid `#0A0A0A`
+- Shadow: 4px 4px 0 `#CCFF00` (same as bg — creates outline effect)
+- Hover: translate(-2px, -2px), shadow becomes 6px 6px 0 `#CCFF00`
+- Active: translate(2px, 2px), shadow collapses
+
+**Ghost (outline):**
+- Background: transparent
+- Text: white
+- Border: 2px solid white
+- Shadow: 4px 4px 0 white
+- Hover: background fills white, text goes black, shadow disappears
+
+### Scroll Animations
+- Intersection Observer, threshold 0.15
+- Elements start: `opacity: 0, transform: translateY(20px)`
+- Elements end: `opacity: 1, transform: translateY(0)`
+- Stagger: 80ms delay per child element
+- Duration: 400ms ease-out
+
+### Error/Empty States
+- 404: Large "404" in display type, brief message, ghost button home
+- Empty build list: "Nothing here yet. Check back soon." in body text
 
 ---
 
-## 6. Assets
-- Fonts: Google Fonts (Bebas Neue, Space Mono)
-- Icons: inline SVG only — no icon libraries
-- Photos: `/public/assets/creative/` — 13 unique standalone photos
-- Videos: `/public/assets/creative/*.mp4` — 2 videos
-- Video posters: `video-preview.jpg`, `video2-preview.jpg` — labeled VIDEO STILL in UI
+## 5. Component Inventory
+
+### `<Header />`
+States: transparent (top), solid (scrolled), mobile-open
+- Transparent: bg transparent, no border-bottom
+- Solid: bg `#0A0A0A` at 95% opacity, `border-bottom: 1px solid #333`
+- Mobile open: full-screen overlay, centered nav links at large type size
+
+### `<Footer />`
+- Dark bg `#0A0A0A`
+- Top border: 1px `#333`
+- Two rows: nav links (left) + copyright (right)
+- Social links: text only, accent on hover
+
+### `<Hero />`
+- Full-width, min-height 80vh
+- Name in display type, fluid
+- Tagline in body-muted
+- Two buttons side by side
+
+### `<BuildCard />`
+- Image top (16:9 or 4:3), no border-radius
+- Body: white bg, black text (INVERTED)
+- Tags: accent text, monospace
+- States: default, hover (lift), active (press)
+
+### `<StatBadge />`
+- Large number: clamp monospace
+- Small label below: uppercase tracked muted
+- Separated by vertical dividers in a flex row
+
+### `<VaultCard />` (Creative)
+- Full image fill
+- Label: bottom-left, small text, white with black bg pill
+- Video indicator: small play icon
+- Hover: scale image 1.03, label slides up slightly
+
+### `<SectionLabel />`
+- Font: Space Grotesk mono
+- Size: text-xs
+- Case: uppercase
+- Tracking: 0.15em
+- Color: accent or muted
 
 ---
 
-## 7. Quality Gates
-- `npm run check` → 0 errors
-- `npm test` → all pass
-- `npm run build` → success
-- `npm run test:e2e` → all pass
-- Browser visual verification → neo-brutalist design confirmed
+## 6. Technical Approach
+
+### Stack
+- **Astro 7** (static site, zero JS by default)
+- **Tailwind CSS v4** (`@tailwindcss/vite` plugin)
+- **TypeScript** (strict)
+- **No React/Vue** — pure Astro components
+
+### File Structure
+```
+src/
+  components/
+    Header.astro
+    Footer.astro
+    Hero.astro
+    BuildCard.astro
+    StatBadge.astro
+    VaultCard.astro
+    SectionLabel.astro
+    ScrollReveal.astro
+  layouts/
+    BaseLayout.astro
+  pages/
+    index.astro
+    builds.astro
+    community.astro
+    creative.astro
+    parkinson/
+      index.astro
+      es.astro
+  styles/
+    global.css
+public/
+  assets/
+    creative/
+    community/
+    builds/
+  favicon.svg
+```
+
+### CSS Architecture
+- Tailwind for utility classes (spacing, flex, grid)
+- Custom properties in `global.css` for: color tokens, type scale, shadow system
+- Component-scoped `<style>` in each `.astro` file for component-specific styles
+- NO Tailwind config file needed (Tailwind v4 uses CSS `@theme`)
+
+### JavaScript
+- Minimal JS: only for scroll-triggered header state and scroll-reveal animations
+- Use Astro's `<script>` tags (bundled, not inline)
+- Intersection Observer for scroll animations
+
+### Performance Targets
+- Lighthouse: 95+ across all metrics
+- No layout shift (explicit width/height on images)
+- Fonts: `font-display: swap`
+
+---
+
+## 7. Color Application by Element
+
+```
+PAGE BACKGROUND:        #0A0A0A
+SECTION SURFACE:        #111111 (alternating)
+
+HEADINGS (H1-H3):      #FFFFFF
+BODY TEXT:              #E5E5E5
+MUTED/META TEXT:        #888888
+
+ACCENT (ONE COLOR):      #CCFF00
+  — Used for: CTAs, active nav indicator, section labels, stat numbers (one per section), hover states
+
+CARDS:
+  Background: #FFFFFF (INVERTED — white card on dark page)
+  Text:      #0A0A0A (black text on white card)
+  Border:    2px solid #0A0A0A
+  Shadow:    4px 4px 0 #CCFF00 (accent shadow — card "pops" from page)
+
+BUTTON PRIMARY:
+  Background: #CCFF00
+  Text:       #0A0A0A
+  Shadow:     4px 4px 0 #0A0A0A (black shadow)
+
+BUTTON GHOST:
+  Background: transparent
+  Border:     2px solid #FFFFFF
+  Shadow:     4px 4px 0 #FFFFFF
+  Hover fill: #FFFFFF → text #0A0A0A
+
+SHADOW ON DARK:         4px 4px 0 #FFFFFF (white shadow = bold, confident)
+SHADOW ON WHITE CARD:   4px 4px 0 #CCFF00 (accent shadow = branded pop)
+```
+
+---
+
+## 8. Anti-Patterns (Do Not Repeat)
+
+1. ❌ `#FFE600` yellow on white — fast-food energy
+2. ❌ `#0055FF` blue as primary accent — corporate, generic
+3. ❌ Three saturated accent colors simultaneously — sensory overload
+4. ❌ Border-radius on any element — breaks brutalist geometry
+5. ❌ Rounded buttons/pills — zero brutalist DNA
+6. ❌ Yellow background sections — screams "sale at Target"
+7. ❌ Bebas Neue for body/UI text — overused movie poster font
+8. ❌ Grayscale filter on photos — cowardly, makes photography look washed out
+9. ❌ "support by day" or any variant — absent from all pages
+10. ❌ Generic stock-photo-style descriptions — real content only

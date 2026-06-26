@@ -62,14 +62,12 @@ test('mobile menu toggle works', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto(BASE);
 
-  const toggle = page.locator('#mobile-menu-toggle');
+  const toggle = page.locator('#hamburger');
   await expect(toggle).toBeVisible();
 
   await toggle.click();
 
-  const mobileMenu = page.locator('#mobile-menu');
-  // md:hidden is a responsive breakpoint class; hidden is the actual visibility toggle
-  // After click, the element should NOT have ' hidden' (space-prefixed) in its class
-  const hasHiddenClass = await mobileMenu.evaluate((el) => el.classList.contains('hidden'));
-  expect(hasHiddenClass).toBe(false);
+  const overlay = page.locator('#mobile-overlay');
+  const hasOpenClass = await overlay.evaluate((el) => el.classList.contains('open'));
+  expect(hasOpenClass).toBe(true);
 });

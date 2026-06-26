@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import VaultCard from '../components/creative/VaultCard.astro';
-import ReelInterface from '../components/creative/ReelInterface.astro';
 
 const vaultItems = [
   {
@@ -88,7 +87,7 @@ const reelItems = [
     poster: '/assets/creative/video-preview.jpg',
     stillLabel: 'VIDEO STILL / kitchen frame poster',
     duration: '00:29',
-    href: 'https://x.com/tylerdotai/status/2069840988256841871?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    href: 'https://x.com/tylerdotai/status/2069840988256841871',
     note: 'Wide, medium, close — one frame at a time. The kitchen frame is a video poster, not a standalone photo.',
   },
   {
@@ -98,7 +97,7 @@ const reelItems = [
     poster: '/assets/creative/video2-preview.jpg',
     stillLabel: 'VIDEO STILL / doorway poster',
     duration: '00:43',
-    href: 'https://x.com/tylerdotai/status/2069950589060936108?s=46&t=g8NfuQQ5IY2YsrcRkoEJGw',
+    href: 'https://x.com/tylerdotai/status/2069950589060936108',
     note: 'Social cut with native playback here and source link preserved.',
   },
 ];
@@ -117,55 +116,64 @@ const socialLinks = [
 >
   <Header />
 
-  <main class="creative-page">
-    <!-- HERO SECTION -->
-    <section class="relative min-h-[90vh] overflow-hidden border-b-3 border-black">
-      <!-- Video: 70% opacity — clearly visible -->
-      <video
-        class="absolute inset-0 h-full w-full object-cover"
-        style="opacity: 0.70;"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-      >
-        <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
-      </video>
-      <!-- Light dark overlay — readable text, visible video -->
-      <div class="absolute inset-0 bg-black/30"></div>
-      <div class="relative container flex min-h-[90vh] items-end pb-12 pt-24 md:pb-20">
-        <div class="max-w-5xl">
-          <span class="section-label mb-5 inline-block">@TYLERDOTAI // SIGNAL VAULT</span>
-          <h1 class="text-6xl leading-[0.82] md:text-8xl lg:text-[8.5rem] font-display uppercase text-white">
-            SIGNAL<br />VAULT
-          </h1>
-          <div class="mt-8 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
-            <p class="max-w-2xl text-lg leading-relaxed text-white/80">
-              Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
-            </p>
-            <p class="brutal-panel p-4 font-mono text-xs uppercase tracking-[0.14em] text-black">
-              MODE: NEO-BRUTALIST // MEDIA: 9 PHOTOS / 2 VIDEOS // DEVICE: SONY ZV-E10
-            </p>
+  <main>
+    <!-- ── HERO: full-bleed video ── -->
+    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+      <div class="relative min-h-[90vh] overflow-hidden">
+        <!-- Video: 60% opacity — visible but readable -->
+        <video
+          class="absolute inset-0 h-full w-full object-cover"
+          style="opacity: 0.60;"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="/assets/creative/day3-kitchen-light.mp4" type="video/mp4" />
+        </video>
+        <!-- Dark overlay for text readability -->
+        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 60%, rgba(10,10,10,0.5) 100%);"></div>
+        <!-- Content -->
+        <div class="relative container flex min-h-[90vh] items-end pb-16 pt-32">
+          <div class="max-w-5xl">
+            <span class="section-label mb-5 inline-block reveal">@TYLERDOTAI // SIGNAL VAULT</span>
+            <h1 class="font-display mb-6 reveal" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h1);">
+              SIGNAL<br/>VAULT
+            </h1>
+            <div class="grid gap-4 md:grid-cols-[1fr_auto] md:items-end reveal">
+              <p class="max-w-2xl text-lg leading-relaxed" style="color:#CCCCCC;">
+                Photography, video stills, and short-form motion work from Tyler Delano's Sony ZV-E10 archive — high contrast, real frames, no stock filler.
+              </p>
+              <div style="background:#0A0A0A; border: 2px solid #333; padding:0.75rem 1rem; box-shadow: 4px 4px 0 #CCFF00;">
+                <p class="font-mono text-xs uppercase tracking-widest" style="color:#888888; font-family:'JetBrains Mono',monospace;">
+                  MODE: NEO-BRUTALIST // MEDIA: 9 PHOTOS / 2 VIDEOS // DEVICE: SONY ZV-E10
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PHOTO VAULT SECTION -->
-    <section id="vault" class="section border-b-3 border-black">
-      <div class="container">
-        <div class="mb-10 grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+    <!-- ── PHOTO VAULT ── -->
+    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+      <div class="container py-24 md:py-32">
+        <!-- Section heading -->
+        <div class="grid gap-6 mb-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-end reveal">
           <div>
-            <span class="section-label mb-4 inline-block">THE VAULT</span>
-            <h2 class="text-4xl leading-none md:text-6xl font-display uppercase">PHOTO<br />DATASET</h2>
+            <span class="section-label mb-4 inline-block">The Vault</span>
+            <h2 class="font-display" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h2);">
+              PHOTO<br/>DATASET
+            </h2>
           </div>
-          <p class="max-w-3xl text-black leading-relaxed">
-            Every unique standalone photo currently in the archive is shown once. Duplicate file copies stay in assets, but the public vault does not repeat the same image twice. Video posters are handled separately in The Reel.
+          <p class="max-w-3xl leading-relaxed" style="color:#888888;">
+            Every unique standalone photo in the archive shown once. No duplicates rendered publicly. Video posters live in The Reel — separate from the still dataset.
           </p>
         </div>
 
-        <div class="grid grid-flow-dense gap-6 md:grid-cols-3 lg:grid-rows-[340px]">
+        <!-- Grid -->
+        <div class="grid gap-6 md:grid-cols-3 lg:grid-rows-[340px]" style="grid-auto-rows: 340px;">
           {vaultItems.map((item, index) => (
             <VaultCard {...item} index={index + 1} />
           ))}
@@ -173,35 +181,87 @@ const socialLinks = [
       </div>
     </section>
 
-    <!-- REEL SECTION -->
-    <ReelInterface items={reelItems} />
+    <!-- ── REEL ── -->
+    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+      <div class="container py-24 md:py-32">
+        <div class="mb-10 reveal">
+          <span class="section-label mb-4 inline-block">The Reel</span>
+          <h2 class="font-display" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h2);">
+            VIDEO<br/>ARCHIVE
+          </h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          {reelItems.map((item) => (
+            <div class="reveal" style="border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden;">
+              <!-- Label -->
+              <div style="background:#0A0A0A; border-bottom: 1px solid #333; padding: 0.75rem 1rem;">
+                <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">{item.label}</span>
+              </div>
+              <!-- Video -->
+              <div class="relative" style="background:#000;">
+                <video
+                  class="w-full aspect-video object-cover"
+                  poster={item.poster}
+                  controls
+                  preload="metadata"
+                >
+                  <source src={item.src} type="video/mp4" />
+                </video>
+                <div style="background:#0A0A0A; border-top: 1px solid #333; padding:0.5rem 1rem;" class="flex items-center justify-between">
+                  <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">{item.duration}</span>
+                  <span class="font-mono text-xs" style="color:#555555; font-family:'JetBrains Mono',monospace;">{item.stillLabel}</span>
+                </div>
+              </div>
+              <!-- Info -->
+              <div style="background:#111111; border-top: 1px solid #333; padding:1.25rem;">
+                <h3 class="text-lg mb-2" style="color:#FFFFFF; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase;">{item.title}</h3>
+                <p class="text-xs leading-relaxed mb-4" style="color:#888888;">{item.note}</p>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-mono text-xs uppercase tracking-widest font-bold"
+                  style="color:#CCFF00;"
+                >
+                  VIEW ON X →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-    <!-- CREATIVE DIAGNOSTICS SECTION -->
-    <section class="section border-b-3 border-black">
-      <div class="container">
-        <div class="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
+    <!-- ── CREATIVE DIAGNOSTICS ── -->
+    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+      <div class="container py-24 md:py-32">
+        <div class="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] reveal">
           <div>
-            <span class="section-label mb-4 inline-block">SYSTEM SPECS</span>
-            <h2 class="text-4xl leading-none md:text-6xl font-display uppercase">CREATIVE<br />DIAGNOSTICS</h2>
+            <span class="section-label mb-4 inline-block">System Specs</span>
+            <h2 class="font-display" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h2);">
+              CREATIVE<br/>DIAGNOSTICS
+            </h2>
           </div>
-          <div class="brutal-panel overflow-hidden">
-            <div class="border-b-3 border-black px-4 py-3 font-mono text-xs uppercase tracking-[0.18em] text-black bg-yellow font-bold">/usr/tyler/creative_profile</div>
-            <dl class="grid gap-px bg-black font-mono text-sm md:grid-cols-2">
-              <div class="bg-white p-4">
-                <dt class="text-black text-xs uppercase tracking-widest">CAMERA</dt>
-                <dd class="mt-1 text-black font-bold">Sony Alpha ZV-E10</dd>
+          <div style="background:#0A0A0A; border: 2px solid #333; box-shadow: 4px 4px 0 #CCFF00; overflow:hidden;">
+            <div style="background:#111111; border-bottom: 1px solid #333; padding: 0.75rem 1rem;">
+              <span class="font-mono text-xs uppercase tracking-widest font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">/usr/tyler/creative_profile</span>
+            </div>
+            <dl class="grid gap-px" style="background:#333;">
+              <div style="background:#0A0A0A; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#555555; font-family:'JetBrains Mono',monospace;">CAMERA</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#FFFFFF; font-family:'JetBrains Mono',monospace;">Sony Alpha ZV-E10</dd>
               </div>
-              <div class="bg-white p-4">
-                <dt class="text-black text-xs uppercase tracking-widest">EDIT STACK</dt>
-                <dd class="mt-1 text-black font-bold">CapCut + desktop timeline work</dd>
+              <div style="background:#0A0A0A; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#555555; font-family:'JetBrains Mono',monospace;">EDIT STACK</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#FFFFFF; font-family:'JetBrains Mono',monospace;">CapCut + desktop timeline work</dd>
               </div>
-              <div class="bg-white p-4">
-                <dt class="text-black text-xs uppercase tracking-widest">STYLE</dt>
-                <dd class="mt-1 text-black font-bold">Real-life frames, shallow depth, documentary texture</dd>
+              <div style="background:#0A0A0A; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#555555; font-family:'JetBrains Mono',monospace;">STYLE</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#FFFFFF; font-family:'JetBrains Mono',monospace;">Real-life frames, shallow depth, documentary texture</dd>
               </div>
-              <div class="bg-white p-4">
-                <dt class="text-black text-xs uppercase tracking-widest">RULE</dt>
-                <dd class="mt-1 text-black font-bold">No stock. No AI imagery. No fake filler.</dd>
+              <div style="background:#0A0A0A; padding: 1rem;">
+                <dt class="font-mono text-xs uppercase tracking-widest mb-1" style="color:#555555; font-family:'JetBrains Mono',monospace;">RULE</dt>
+                <dd class="font-mono text-sm font-bold" style="color:#CCFF00; font-family:'JetBrains Mono',monospace;">No stock. No AI imagery. No fake filler.</dd>
               </div>
             </dl>
           </div>
@@ -209,14 +269,16 @@ const socialLinks = [
       </div>
     </section>
 
-    <!-- CONNECT SECTION -->
-    <section class="section">
-      <div class="container">
-        <div class="brutal-panel grid gap-8 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8">
+    <!-- ── CONNECT ── -->
+    <section style="background:#0A0A0A;">
+      <div class="container py-24 md:py-32">
+        <div class="grid gap-8 md:grid-cols-[1fr_auto] md:items-center reveal">
           <div>
-            <span class="section-label mb-3 inline-block">SIGNAL TRANSMIT</span>
-            <h2 class="text-3xl leading-none md:text-5xl font-display uppercase">CONNECT<br />CHANNELS</h2>
-            <p class="mt-4 max-w-2xl text-black">
+            <span class="section-label mb-3 inline-block">Signal Transmit</span>
+            <h2 class="font-display mb-4" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h2);">
+              CONNECT<br/>CHANNELS
+            </h2>
+            <p class="max-w-2xl leading-relaxed" style="color:#888888;">
               The live creative stream stays on social. This archive stays curated and media-truthful.
             </p>
           </div>
@@ -236,16 +298,37 @@ const socialLinks = [
       </div>
     </section>
 
-    <!-- LIGHTBOX -->
-    <dialog id="vault-lightbox" class="m-0 h-screen w-screen max-w-none bg-black/95 p-0 text-black backdrop:bg-black/90">
-      <div class="grid min-h-screen place-items-center p-4 md:p-8">
-        <div class="w-full max-w-6xl">
-          <div class="mb-3 flex items-center justify-between gap-4 font-mono text-xs uppercase tracking-[0.18em]">
-            <span id="lightbox-meta" class="bg-yellow border-2 border-black px-3 py-2 font-bold text-black">PHOTO</span>
-            <button id="lightbox-close" type="button" class="brutal-btn bg-yellow border-3 border-black shadow-[3px_3px_0_black] text-black font-bold px-4 py-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0_black] transition-all">Close</button>
+    <!-- ── LIGHTBOX ── -->
+    <dialog
+      id="vault-lightbox"
+      style="background:rgba(10,10,10,0.97); border: 2px solid #333; backdrop-filter:none;"
+      class="m-0 h-screen w-screen max-w-none p-0 text-white"
+    >
+      <div style="display:grid; min-height:100vh; place-items:center; padding:1rem;">
+        <div style="width:100%; max-width:56rem;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.75rem;">
+            <span
+              id="lightbox-meta"
+              style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.15em; background:#CCFF00; color:#0A0A0A; border:2px solid #0A0A0A; padding:0.4rem 0.75rem; font-weight:700;"
+            >PHOTO</span>
+            <button
+              id="lightbox-close"
+              type="button"
+              style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; background:#CCFF00; color:#0A0A0A; border:2px solid #0A0A0A; padding:0.4rem 0.75rem; cursor:pointer;"
+            >
+              CLOSE
+            </button>
           </div>
-          <img id="lightbox-image" src="" alt="" class="max-h-[78vh] w-full object-contain border-3 border-black bg-white p-2" />
-          <h3 id="lightbox-title" class="mt-4 text-3xl text-white font-display uppercase"></h3>
+          <img
+            id="lightbox-image"
+            src=""
+            alt=""
+            style="width:100%; max-height:70vh; object-fit:contain; border:2px solid #333; background:#111;"
+          />
+          <h3
+            id="lightbox-title"
+            style="margin-top:1rem; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; color:#FFFFFF; font-size:1.75rem;"
+          ></h3>
         </div>
       </div>
     </dialog>
@@ -254,16 +337,15 @@ const socialLinks = [
   <Footer />
 
   <script>
-    const dialog = document.getElementById('vault-lightbox');
-    const image = document.getElementById('lightbox-image');
+    const dialog = document.getElementById('vault-lightbox') as HTMLDialogElement | null;
+    const image = document.getElementById('lightbox-image') as HTMLImageElement | null;
     const title = document.getElementById('lightbox-title');
     const meta = document.getElementById('lightbox-meta');
     const close = document.getElementById('lightbox-close');
 
     document.querySelectorAll('.vault-card').forEach((card) => {
       card.addEventListener('click', () => {
-        if (!(dialog instanceof HTMLDialogElement)) return;
-        if (!(image instanceof HTMLImageElement)) return;
+        if (!dialog || !image) return;
         const src = card.getAttribute('data-lightbox-src') ?? '';
         image.src = src;
         image.alt = card.getAttribute('data-lightbox-title') ?? '';
@@ -273,24 +355,9 @@ const socialLinks = [
       });
     });
 
-    close?.addEventListener('click', () => {
-      if (dialog instanceof HTMLDialogElement) dialog.close();
-    });
-
-    dialog?.addEventListener('click', (event) => {
-      if (event.target === dialog && dialog instanceof HTMLDialogElement) dialog.close();
+    close?.addEventListener('click', () => dialog?.close());
+    dialog?.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
     });
   </script>
-
-  <style>
-    .brutal-panel {
-      background: white;
-      border: 3px solid black;
-      box-shadow: 6px 6px 0 black;
-    }
-
-    .brutal-btn {
-      transition: transform 100ms ease, box-shadow 100ms ease;
-    }
-  </style>
 </BaseLayout>

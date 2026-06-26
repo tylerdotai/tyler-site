@@ -47,14 +47,29 @@ const canonical = canonicalUrl ?? new URL(Astro.url.pathname, siteUrl).href;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts: Bebas Neue display + Space Mono body -->
+    <!-- Fonts: Syne (display) + Space Grotesk (body) + JetBrains Mono (mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
     <title>{fullTitle}</title>
   </head>
-  <body class="min-h-screen flex flex-col bg-white">
+  <body class="min-h-screen flex flex-col" style="background:#0A0A0A;">
     <slot />
+
+    <!-- Scroll reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>
