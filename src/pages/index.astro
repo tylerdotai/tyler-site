@@ -10,117 +10,148 @@ import Footer from '../components/Footer.astro';
 >
   <Header />
 
-  <main class="bg-white">
-    <!-- Hero -->
-    <section class="section bg-yellow border-b-3 border-black overflow-hidden">
-      <div class="container">
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <main>
+    <!-- ── HERO ── -->
+    <section class="bg-[#000000]">
+      <div class="container py-24 md:py-40">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Text -->
           <div>
-            <span class="section-label mb-6 block">TYLER DELANO</span>
-            <h1 class="font-display text-black mt-4 mb-6">
+            <span class="section-label mb-6 block reveal">TYLER DELANO</span>
+            <h1 class="text-[var(--text-hero)] font-display leading-[0.9] tracking-[0.01em] mb-8 reveal text-white" style="color:#FFFFFF;">
               TINKERER<br/>OF AI
             </h1>
-            <p class="text-lg text-black/70 mb-8 max-w-lg font-body leading-relaxed">
+            <p class="text-[var(--text-body)] text-lg mb-10 max-w-lg leading-relaxed reveal" style="color:#D2D2D2;">
               Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.
             </p>
-            <div class="flex flex-wrap gap-4">
-              <a href="/builds" class="btn-primary">
-                SEE WHAT I BUILD
-              </a>
-              <a href="/community" class="btn-ghost">
-                AGENT BUILDERS CLUB
-              </a>
+            <div class="flex flex-wrap gap-4 reveal">
+              <a href="/builds" class="btn-primary">SEE WHAT I BUILD</a>
+              <a href="/community" class="btn-ghost">AGENT BUILDERS CLUB</a>
             </div>
           </div>
-          <div class="relative lg:-mr-12">
-            <img
-              src="/assets/creative/tyler-portrait-bedroom.jpg"
-              alt="Tyler Delano portrait — cream walls, gold hoop earring, black t-shirt, looking directly at camera"
-              class="neo-image w-full h-auto"
-            />
-            <div class="absolute -bottom-4 -right-4 bg-blue text-white px-4 py-2 border-3 border-black shadow-[6px_6px_0_#000]">
-              <span class="font-display text-2xl">600+</span>
-              <span class="font-body text-xs block">COMMUNITY MEMBERS</span>
+
+          <!-- Photo -->
+          <div class="relative reveal">
+            <div class="border-3 border-[#FFFFFF] shadow-[6px_6px_0_#00B8FF]">
+              <img
+                src="/assets/creative/tyler-portrait-bedroom.jpg"
+                alt="Tyler Delano — ZV-E10 portrait, cream walls, gold hoop earring, black t-shirt"
+                class="w-full h-auto block"
+                width="600"
+                height="750"
+                loading="eager"
+              />
+            </div>
+            <!-- Stat pill -->
+            <div class="brutal-stat absolute -bottom-4 -right-4 px-5 py-3">
+              <span class="stat-number">600+</span>
+              <span class="stat-label">COMMUNITY MEMBERS</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Build / Community / Create Cards -->
-    <section class="section bg-surface">
-      <div class="container">
+    <!-- ── THREE PILLARS ── -->
+    <section class="border-b-4 border-black">
+      <div class="container py-24 md:py-32">
         <div class="grid md:grid-cols-3 gap-6">
-          <!-- Build Card -->
-          <div class="card">
-            <div class="neo-badge mb-4">01 / BUILD</div>
-            <h3 class="font-display text-4xl text-black mb-4">AGENTS &<br/>TOOLS</h3>
-            <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
+
+          <!-- Build -->
+          <div class="card p-8 reveal">
+            <div class="mb-6">
+              <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">01 / BUILD</span>
+            </div>
+            <h3 class="text-4xl mb-5 text-[#000000]">
+              AGENTS<br/>&amp; TOOLS
+            </h3>
+            <p class="text-sm mb-8 leading-relaxed text-[#000000]">
               Provider-neutral AI agent harnesses, closed-loop systems, and research pipelines. Bun, TypeScript, Python — whatever gets the job done.
             </p>
-            <a href="/builds" class="neo-link font-body text-sm font-bold uppercase tracking-wider">VIEW ALL BUILDS →</a>
+            <a href="/builds" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">VIEW ALL BUILDS →</a>
           </div>
 
-          <!-- Community Card -->
-          <div class="card">
-            <div class="neo-badge neo-badge-yellow mb-4">02 / COMMUNITY</div>
-            <h3 class="font-display text-4xl text-black mb-4">AGENT<br/>BUILDERS CLUB</h3>
-            <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
-              600+ members across 6 DFW locations learning to build AI-powered workflows and agents. No fluff. Just builders showing each other what works.
+          <!-- Community -->
+          <div class="card p-8 reveal">
+            <div class="mb-6">
+              <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">02 / COMMUNITY</span>
+            </div>
+            <h3 class="text-4xl mb-5 text-[#000000]">
+              AGENT<br/>BUILDERS CLUB
+            </h3>
+            <p class="text-sm mb-8 leading-relaxed text-[#000000]">
+              600+ members across 6 DFW locations learning to build AI-powered workflows. No fluff. Just builders showing each other what works.
             </p>
-            <a href="/community" class="neo-link font-body text-sm font-bold uppercase tracking-wider">JOIN THE CLUB →</a>
+            <a href="/community" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">JOIN THE CLUB →</a>
           </div>
 
-          <!-- Create Card -->
-          <div class="card">
-            <div class="neo-badge mb-4" style="background: var(--color-black); color: var(--color-white);">03 / CREATE</div>
-            <h3 class="font-display text-4xl text-black mb-4">FILM &<br/>DOCUMENTARY</h3>
-            <p class="text-black/70 font-body text-sm mb-6 leading-relaxed">
+          <!-- Creative -->
+          <div class="card p-8 reveal">
+            <div class="mb-6">
+              <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">03 / CREATE</span>
+            </div>
+            <h3 class="text-4xl mb-5 text-[#000000]">
+              FILM<br/>&amp; STORY
+            </h3>
+            <p class="text-sm mb-8 leading-relaxed text-[#000000]">
               30 days with the Sony ZV-E10. Every clip is a real moment. No crew. No script. Just a camera and whatever showed up that day.
             </p>
-            <a href="/creative" class="neo-link font-body text-sm font-bold uppercase tracking-wider">SEE THE FOOTAGE →</a>
+            <a href="/creative" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">SEE THE FOOTAGE →</a>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- About Snippet -->
-    <section class="section bg-white border-t-3 border-black">
-      <div class="container">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div class="relative">
-            <img
-              src="/assets/creative/tyler-extreme-closeup.jpg"
-              alt="Tyler Delano - Portrait"
-              class="neo-image w-full"
-            />
-            <div class="absolute -top-4 -left-4 bg-yellow px-4 py-2 border-3 border-black shadow-[6px_6px_0_#000]">
-              <span class="font-display text-xl">2024</span>
-              <span class="font-body text-xs block">YEAR OF THE AGENT</span>
+    <!-- ── ABOUT ── -->
+    <section class="border-b-4 border-black">
+      <div class="container py-24 md:py-32">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Photo -->
+          <div class="relative reveal">
+            <div class="border-3 border-[#000000] shadow-[6px_6px_0_#00B8FF]">
+              <img
+                src="/assets/creative/tyler-extreme-closeup.jpg"
+                alt="Tyler Delano — extreme closeup portrait"
+                class="w-full block"
+                width="600"
+                height="750"
+                loading="lazy"
+              />
+            </div>
+            <!-- Year badge -->
+            <div class="absolute -top-4 -left-4 px-4 py-3 bg-[#000000] border-2 border-[#000000] shadow-[4px_4px_0_#00B8FF]">
+              <span class="font-display text-2xl text-[#FFFFFF]">2024</span>
+              <span class="font-body text-xs block text-[#D2D2D2]">YEAR OF THE AGENT</span>
             </div>
           </div>
-          <div>
+
+          <!-- Text -->
+          <div class="reveal">
             <span class="section-label mb-4 block">HOW I GOT HERE</span>
-            <h2 class="font-display text-5xl md:text-6xl text-black mb-6">FROM PIP TO<br/>TINKERER</h2>
-            <div class="space-y-4">
-              <p class="text-black/70 font-body leading-relaxed">
+            <h2 class="text-[var(--text-h2)] font-display mb-8 text-[#FFFFFF]">
+              FROM PIP TO<br/>TINKERER
+            </h2>
+            <div class="space-y-5 mb-10">
+              <p class="text-[var(--text-body)] leading-relaxed">
                 March 2024, Amazon put me on a Performance Improvement Plan. Three months to turn it around or get cut. Instead of panic-applying to jobs, I got curious about AI agents.
               </p>
-              <p class="text-black/70 font-body leading-relaxed">
-                Built a crew of AI subagents to handle the PIP tasks for me. They didn't save my job — but they did something better. They showed me what was actually possible when you stop using AI as a chatbot and start treating it like a workforce.
+              <p class="text-[var(--text-body)] leading-relaxed">
+                Built a crew of AI subagents to handle the PIP tasks for me. They didn't save my job — but they showed me what was actually possible when you stop using AI as a chatbot and start treating it like a workforce.
               </p>
-              <p class="text-black/70 font-body leading-relaxed">
+              <p class="text-[var(--text-body)] leading-relaxed">
                 Got rated "Exceeds High Bar" on my mid-year review. Got a raise. Decided: this is the thing. Let's go all in.
               </p>
             </div>
-            <div class="grid grid-cols-2 gap-4 mt-8">
-              <div class="neo-panel bg-yellow">
-                <span class="font-display text-4xl">600+</span>
-                <span class="font-body text-xs block mt-1">COMMUNITY MEMBERS</span>
+            <!-- Stats row -->
+            <div class="flex gap-8">
+              <div>
+                <span class="stat-number">600+</span>
+                <span class="stat-label">Members</span>
               </div>
-              <div class="neo-panel">
-                <span class="font-display text-4xl">6</span>
-                <span class="font-body text-xs block mt-1">DFW LOCATIONS</span>
+              <div class="border-l-4 border-[#000000] pl-8">
+                <span class="stat-number">6</span>
+                <span class="stat-label">DFW Nodes</span>
               </div>
             </div>
           </div>
@@ -128,125 +159,102 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Projects Grid -->
-    <section class="section bg-surface border-t-3 border-black">
-      <div class="container">
-        <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+    <!-- ── RECENT BUILDS ── -->
+    <section class="border-b-4 border-black">
+      <div class="container py-24 md:py-32">
+        <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
           <div>
             <span class="section-label mb-4 block">RECENT BUILDS</span>
-            <h2 class="font-display text-5xl md:text-6xl text-black">TOOLS, AGENTS<br/>& PIPELINES</h2>
+            <h2 class="font-display">
+              TOOLS, AGENTS<br/>&amp; PIPELINES
+            </h2>
           </div>
-          <a href="/builds" class="btn-ghost bg-white text-black border-black shadow-[6px_6px_0_#000] hover:bg-yellow">
-            ALL BUILDS →
-          </a>
+          <a href="/builds" class="btn-ghost">ALL BUILDS →</a>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <!-- Singularity -->
-          <a href="https://github.com/tylerdotai/singularity" target="_blank" rel="noopener noreferrer" class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000] group">
-            <div class="flex items-start justify-between mb-4">
-              <span class="neo-badge">BUN · TS</span>
+
+          <a href="https://github.com/tylerdotai/singularity" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal">
+            <div class="mb-4">
+              <span class="font-mono text-xs uppercase tracking-widest px-2 py-1 bg-[#000000] text-[#00B8FF]">BUN · TS</span>
             </div>
-            <h3 class="font-display text-3xl text-black mb-3 group-hover:text-blue">SINGULARITY</h3>
-            <p class="text-black/70 font-body text-sm mb-4 leading-relaxed">
+            <h3 class="text-3xl mb-3 text-[#000000]">
+              SINGULARITY
+            </h3>
+            <p class="text-sm mb-6 leading-relaxed text-[#000000]">
               Provider-neutral AI agent harness. Runs on your own API keys. Bun, TypeScript, SQLite.
             </p>
-            <span class="font-mono text-xs text-black/50">github.com/tylerdotai/singularity</span>
+            <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/singularity</span>
           </a>
 
-          <!-- Agent Loop System -->
-          <a href="https://github.com/tylerdotai/agent-loop-system" target="_blank" rel="noopener noreferrer" class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000] group">
-            <div class="flex items-start justify-between mb-4">
-              <span class="neo-badge">PYTHON</span>
+          <a href="https://github.com/tylerdotai/agent-loop-system" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal">
+            <div class="mb-4">
+              <span class="font-mono text-xs uppercase tracking-widest px-2 py-1 bg-[#000000] text-[#00B8FF]">PYTHON</span>
             </div>
-            <h3 class="font-display text-3xl text-black mb-3 group-hover:text-blue">AGENT LOOP SYSTEM</h3>
-            <p class="text-black/70 font-body text-sm mb-4 leading-relaxed">
+            <h3 class="text-3xl mb-3 text-[#000000]">
+              AGENT LOOP<br/>SYSTEM
+            </h3>
+            <p class="text-sm mb-6 leading-relaxed text-[#000000]">
               Closed-loop agent harness with Python and JSON. Structured outputs, step-by-step reasoning.
             </p>
-            <span class="font-mono text-xs text-black/50">github.com/tylerdotai/agent-loop-system</span>
+            <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/agent-loop-system</span>
           </a>
 
-          <!-- AIAgainstParkinson -->
-          <a href="https://github.com/tylerdotai/parkinson-research" target="_blank" rel="noopener noreferrer" class="card bg-white border-3 border-black shadow-[6px_6px_0_#000] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[10px_10px_0_#000] group">
-            <div class="flex items-start justify-between mb-4">
-              <span class="neo-badge neo-badge-yellow">RESEARCH</span>
+          <a href="https://github.com/tylerdotai/parkinson-research" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal">
+            <div class="mb-4">
+              <span class="font-mono text-xs uppercase tracking-widest px-2 py-1 bg-[#D2D2D2] text-[#000000] border-2 border-[#000000]">RESEARCH</span>
             </div>
-            <h3 class="font-display text-3xl text-black mb-3 group-hover:text-blue">AIAGAINST<br/>PARKINSON</h3>
-            <p class="text-black/70 font-body text-sm mb-4 leading-relaxed">
+            <h3 class="text-3xl mb-3 text-[#000000]">
+              AIAGAINST<br/>PARKINSON
+            </h3>
+            <p class="text-sm mb-6 leading-relaxed text-[#000000]">
               Daily AI research pipeline. PubMed → summary → EN/ES delivery. Every day, automatically.
             </p>
-            <span class="font-mono text-xs text-black/50">github.com/tylerdotai/parkinson-research</span>
+            <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/parkinson-research</span>
           </a>
+
         </div>
       </div>
     </section>
 
-    <!-- Yellow CTA Block -->
-    <section class="section bg-yellow border-t-3 border-black">
-      <div class="container">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="font-display text-5xl md:text-7xl text-black mb-6">WANT TO<br/>BUILD WITH ME?</h2>
-            <p class="text-black/70 font-body text-lg mb-8 max-w-lg leading-relaxed">
+    <!-- ── CTA ── -->
+    <section class="border-b-4 border-black">
+      <div class="container py-24 md:py-32">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="reveal">
+            <h2 class="font-display mb-8 text-[#000000]">
+              WANT TO<br/>BUILD WITH ME?
+            </h2>
+            <p class="text-[var(--text-body)] text-lg mb-10 max-w-lg leading-relaxed text-[#000000]">
               Join the Agent Builders Club — 600+ DFW builders learning to ship AI-powered workflows. No hype. Just hands-on work and real connections.
             </p>
             <div class="flex flex-wrap gap-4">
-              <a href="/community" class="btn-primary bg-black text-yellow border-black shadow-[6px_6px_0_#000] hover:bg-blue hover:text-white">
-                JOIN AGENT BUILDERS CLUB
-              </a>
-              <a href="/builds" class="btn-ghost bg-yellow text-black border-black shadow-[6px_6px_0_#000] hover:bg-black hover:text-yellow">
-                SEE MY PROJECTS
-              </a>
+              <a href="/community" class="btn-primary">JOIN AGENT BUILDERS CLUB</a>
+              <a href="/builds" class="btn-ghost">SEE MY PROJECTS</a>
             </div>
           </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="neo-panel bg-white">
-              <span class="font-display text-5xl">600+</span>
-              <span class="font-body text-xs block mt-2">MEMBERS</span>
+
+          <div class="grid grid-cols-2 gap-4 reveal">
+            <div class="p-6 bg-[#FFFFFF] border-3 border-[#000000] shadow-[4px_4px_0_#00B8FF]">
+              <span class="font-mono font-bold text-5xl block text-[#000000]">600+</span>
+              <span class="font-body text-xs mt-2 block text-[#000000] uppercase tracking-[0.1em]">Members</span>
             </div>
-            <div class="neo-panel bg-black text-white">
-              <span class="font-display text-5xl">6</span>
-              <span class="font-body text-xs block mt-2">PHYSICAL NODES</span>
+            <div class="p-6 bg-[#000000] border-3 border-[#000000]">
+              <span class="font-mono font-bold text-5xl block text-[#00B8FF]">6</span>
+              <span class="font-body text-xs mt-2 block text-[#D2D2D2] uppercase tracking-[0.1em]">DFW Nodes</span>
             </div>
-            <div class="neo-panel bg-black text-white">
-              <span class="font-display text-5xl">DFW</span>
-              <span class="font-body text-xs block mt-2">METRO AREA</span>
+            <div class="p-6 bg-[#000000] border-3 border-[#000000]">
+              <span class="font-mono font-bold text-5xl block text-[#00B8FF]">DFW</span>
+              <span class="font-body text-xs mt-2 block text-[#D2D2D2] uppercase tracking-[0.1em]">Metro Area</span>
             </div>
-            <div class="neo-panel bg-white">
-              <span class="font-display text-5xl">2026</span>
-              <span class="font-body text-xs block mt-2">FOUNDED</span>
+            <div class="p-6 bg-[#FFFFFF] border-3 border-[#000000] shadow-[4px_4px_0_#00B8FF]">
+              <span class="font-mono font-bold text-5xl block text-[#000000]">2026</span>
+              <span class="font-body text-xs mt-2 block text-[#000000] uppercase tracking-[0.1em]">Founded</span>
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
-
   <Footer />
 </BaseLayout>
-
-<style>
-  .border-3 {
-    border-width: 3px;
-  }
-  
-  .bg-surface {
-    background: var(--color-surface);
-  }
-  
-  .bg-yellow {
-    background: var(--color-yellow);
-  }
-  
-  .text-yellow {
-    color: var(--color-yellow);
-  }
-  
-  .hover\:text-blue:hover {
-    color: var(--color-blue);
-  }
-  
-  .text-blue {
-    color: var(--color-blue);
-  }
-</style>

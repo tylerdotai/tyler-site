@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" fill="#05070A"/>
-  <path d="M3 3H14V5H5V14H3V3Z" fill="#00F5FF"/>
-  <path d="M29 29H18V27H27V18H29V29Z" fill="#FF2BD6"/>
-  <text x="16" y="22" font-family="Orbitron, Arial Black, sans-serif" font-size="15" font-weight="900" text-anchor="middle" fill="#B6FF00">T</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Neo-brutalist: black rect, thick border, cyan T, white accent -->
+  <rect width="32" height="32" fill="#000000"/>
+  <rect x="2" y="2" width="28" height="28" fill="none" stroke="#00B8FF" stroke-width="2"/>
+  <rect x="1" y="1" width="30" height="30" fill="none" stroke="#00B8FF" stroke-width="1"/>
+  <text x="16" y="23" font-family="Arial Black, Impact, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="#00B8FF">T</text>
 </svg>

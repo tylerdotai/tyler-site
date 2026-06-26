@@ -1,60 +1,157 @@
 ---
 import '../styles/global.css';
+import { SITE } from '../config';
 
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
   canonicalUrl?: string;
+  noindex?: boolean;
+  lang?: string;
 }
 
 const {
   title,
-  description = 'Tinkerer of AI, creative guy, collaborative community builder.',
-  ogImage = '/assets/creative/tyler-portrait-bedroom.jpg',
+  description = SITE.description,
+  ogImage = '/assets/og-default.png',
+  ogType = 'website',
   canonicalUrl,
+  noindex = false,
+  lang = 'en',
 } = Astro.props;
 
-const siteUrl = 'https://tylerdotai.com';
-const fullTitle = title === 'Home' ? '@tylerdotai' : `${title} — @tylerdotai`;
+const siteUrl    = SITE.url;
+const fullTitle  = title === 'Home' ? SITE.title : `${title} — ${SITE.title}`;
 const canonical = canonicalUrl ?? new URL(Astro.url.pathname, siteUrl).href;
+
+// ── JSON-LD: WebSite + Person ────────────────────────────────────────────────
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.title,
+  url: siteUrl,
+  description: SITE.description,
+  author: {
+    '@type': 'Person',
+    name: 'Tyler Delano',
+    url: siteUrl,
+    sameAs: [
+      SITE.x,
+      SITE.linkedin,
+      SITE.github,
+    ],
+  },
+};
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Tyler Delano',
+  alternateName: '@tylerdotai',
+  url: siteUrl,
+  description: SITE.bio,
+  email: SITE.email,
+  image: `${siteUrl}/assets/og-default.png`,
+  sameAs: [
+    SITE.x,
+    SITE.linkedin,
+    SITE.github,
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dallas-Fort Worth',
+    addressRegion: 'TX',
+    addressCountry: 'US',
+  },
+  jobTitle: 'IT Support Associate (L3)',
+  worksFor: { '@type': 'Organization', name: 'Amazon' },
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Core -->
+    <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="author" content="@tylerdotai" />
+    <meta name="author" content={SITE.author} />
+    <meta name="generator" content={Astro.generator} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
+    <meta property="og:site_name" content={SITE.title} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
 
-    <!-- Twitter -->
+    <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@tylerdotai" />
+    <meta name="twitter:creator" content="@tylerdotai" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={`${SITE.title} — ${title}`} />
 
-    <link rel="canonical" href={canonical} />
+    <!-- Geo / Location -->
+    <meta name="geo.region" content="US-TX" />
+    <meta name="geo.placename" content="Dallas-Fort Worth" />
+    <meta name="geo.position" content="32.7767;-96.7970" />
+    <meta name="ICBM" content="32.7767, -96.7970" />
 
-    <!-- Favicon -->
+    <!-- Knowledge Graph -->
+    <meta name="keywords" content="AI agents, agent builder, LLM, OpenClaw, Hermes, DFW, Dallas Fort Worth, AI community, tyler delano" />
+    <meta name="subject" content="AI Agent Building" />
+    <meta name="rating" content="general" />
+
+    <!-- Favicon (SVG, neo-brutalist T on black) -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts: Bebas Neue display + Space Mono body -->
+    <!-- Apple touch icon -->
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- RSS autodiscovery -->
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.title} RSS`} href="/rss.xml" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <title>{fullTitle}</title>
+    <!-- JSON-LD: WebSite + Person -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
   </head>
-  <body class="min-h-screen flex flex-col bg-white">
+
+  <body class="min-h-screen flex flex-col bg-[#D2D2D2]">
     <slot />
+
+    <!-- Scroll reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

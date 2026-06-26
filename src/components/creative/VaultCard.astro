@@ -9,42 +9,56 @@ interface Props {
   size?: string;
 }
 
-const { label, title, image, alt, meta, index, size = 'square' } = Astro.props;
+const { label, title, image, alt, meta, index: _index, size = 'square' } = Astro.props;
 const normalizedSize = ['wide', 'tall', 'square'].includes(size) ? size : 'square';
 const sizeClass = {
   wide: 'md:col-span-2',
   tall: 'md:row-span-2',
   square: '',
-}[normalizedSize];
-const imgClass = normalizedSize === 'tall' ? 'h-full' : normalizedSize === 'wide' ? 'h-full' : 'h-full';
+}[normalizedSize] ?? '';
 ---
 
 <button
   type="button"
-  class={`vault-card brutal-card group relative block w-full overflow-hidden text-left cursor-pointer ${sizeClass}`}
+  class={`vault-card ${sizeClass} w-full bg-white border-3 border-black shadow-[4px_4px_0_#000000] overflow-hidden cursor-pointer text-left`}
   data-lightbox-src={image}
   data-lightbox-title={title}
   data-lightbox-meta={`${label} // ${meta}`}
   aria-label={`Open ${title}`}
 >
-  <!-- Index label -->
-  <div class="absolute left-3 top-3 z-10 font-mono text-[10px] tracking-[0.2em] text-black bg-yellow px-2 py-1 border-2 border-black">
-    IMG_{String(index).padStart(2, '0')}
-  </div>
-
-  <!-- Image — full color, no filter -->
+  <!-- Image -->
   <img
     src={image}
     alt={alt}
     loading="eager"
     decoding="async"
-    class={`${imgClass} w-full object-cover transition duration-200`}
+    class="vault-img w-full h-full object-cover block"
   />
 
-  <!-- Caption bar -->
-  <div class="absolute inset-x-0 bottom-0 p-4 bg-white border-t-3 border-black">
-    <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-black bg-yellow px-2 py-0.5 inline-block border border-black mb-2">{label}</p>
-    <h3 class="text-lg leading-tight text-black font-display uppercase">{title}</h3>
-    <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-black/60">{meta}</p>
+  <!-- Caption bar (hidden by default — lightbox shows the full overlay) -->
+  <div class="caption-bar">
+    <p class="caption-label">{label}</p>
+    <h3 class="caption-title">{title}</h3>
+    <p class="caption-meta">{meta}</p>
   </div>
 </button>
+
+<style>
+  .vault-card {
+    transition: box-shadow 0.1s, transform 0.1s;
+  }
+
+  .vault-card:hover {
+    box-shadow: 7px 7px 0 #00B8FF;
+    transform: translate(-2px, -2px);
+  }
+
+  .vault-card:hover .vault-img {
+    transform: scale(1.02);
+  }
+
+  /* Caption bar — hidden, used by lightbox overlay */
+  .caption-bar {
+    display: none;
+  }
+</style>

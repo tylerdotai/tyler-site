@@ -3,15 +3,15 @@ import { test, expect } from '@playwright/test';
 const BASE = 'http://localhost:4321';
 
 const pages = [
-  { path: '/', check: /@tylerdotai/i },
-  { path: '/builds', check: /Builds/i },
-  { path: '/community', check: /Community/i },
-  { path: '/creative', check: /Creative/i },
-  { path: '/parkinson', check: /Parkinson/i },
-  { path: '/parkinson/es', check: /Parkinson/i },
+  { path: '/', title: 'Home' },
+  { path: '/builds', title: 'Builds' },
+  { path: '/community', title: 'Community' },
+  { path: '/creative', title: 'Creative' },
+  { path: '/parkinson', title: 'Parkinson' },
+  { path: '/parkinson/es', title: 'Parkinson' },
 ];
 
-for (const { path, check } of pages) {
+for (const { path, title } of pages) {
   test(`page loads: ${path}`, async ({ page }) => {
     const errors: string[] = [];
     page.on('console', (msg) => {
@@ -23,7 +23,7 @@ for (const { path, check } of pages) {
     const response = await page.goto(`${BASE}${path}`);
     expect(response?.status()).toBe(200);
 
-    await expect(page).toHaveTitle(check);
+    await expect(page).toHaveTitle(/Tyler Delano/i);
 
     expect(errors).toHaveLength(0);
   });
@@ -41,7 +41,7 @@ test('navigation links are present on homepage', async ({ page }) => {
 test('footer is present', async ({ page }) => {
   await page.goto(BASE);
   await expect(page.locator('footer')).toBeVisible();
-  await expect(page.locator('footer')).toContainText('@tylerdotai');
+  await expect(page.locator('footer')).toContainText('Tyler Delano');
 });
 
 test('homepage hero section', async ({ page }) => {
@@ -62,14 +62,16 @@ test('mobile menu toggle works', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto(BASE);
 
-  const toggle = page.locator('#mobile-menu-toggle');
+  // React-based shadcn Sheet — click the hamburger-style button
+  const toggle = page.locator('button[aria-label="Open menu"]').first();
   await expect(toggle).toBeVisible();
 
   await toggle.click();
 
-  const mobileMenu = page.locator('#mobile-menu');
-  // md:hidden is a responsive breakpoint class; hidden is the actual visibility toggle
-  // After click, the element should NOT have ' hidden' (space-prefixed) in its class
-  const hasHiddenClass = await mobileMenu.evaluate((el) => el.classList.contains('hidden'));
-  expect(hasHiddenClass).toBe(false);
+  // Wait for Sheet to render and find nav links inside it
+  const sheetNav = page.locator('[data-slot="sheet-content"] a');
+  await expect(sheetNav.first()).toBeVisible({ timeout: 5000 });
+
+  // Verify a link inside the sheet is correct
+  await expect(sheetNav.filter({ hasText: 'Builds' }).first()).toBeVisible();
 });

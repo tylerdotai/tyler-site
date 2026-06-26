@@ -2,14 +2,59 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { COMMUNITY } from '../config';
 
-const nextEvent = {
-  title: 'Agent Builders Meetup — June',
-  date: 'Thursday, June 26 · 7:00 PM',
-  location: 'ClawPlex HQ, DFW',
-  description: 'Monthly in-person meetup. This month: live agent demos + open build time. Bring your project.',
-  url: 'https://clawplex.dev',
-};
+const nextEvent = COMMUNITY.nextEvent;
+
+const pastEvents = [
+  {
+    node: 'DFW Node 06 — Hermes',
+    date: 'JUNE 10, 2026',
+    location: 'Spark Coworking, Arlington',
+    photos: [
+      { src: '/assets/community/node-06-hermes-01.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
+      { src: '/assets/community/node-06-hermes-02.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
+      { src: '/assets/community/node-06-hermes-03.webp', alt: 'DFW Node 06 — Hermes at Spark Coworking Arlington' },
+    ],
+    description: 'Builders filled Spark Coworking in Arlington for a deep look at Hermes Agent — live demos, debugging, and a real conversation about what it actually means to ship an agent that gets better the more you use it.',
+  },
+  {
+    node: 'DFW Node 05 — Claude Tools',
+    date: 'JUNE 3, 2026',
+    location: 'Office Evolution, Southlake',
+    photos: [
+      { src: '/assets/community/node-05-claude-tools-01.webp', alt: 'DFW Node 05 — Claude Tools at Office Evolution Southlake' },
+    ],
+    description: '30+ DFW builders gathered for an honest conversation about the AI tools actually on their desks — Cursor, Claude Code, OpenCode, OpenAI, Hermes, OpenClaw, and more. No slides, no pitches.',
+  },
+  {
+    node: 'DFW Node 04 — Frisco',
+    date: 'MAY 13, 2026',
+    location: '25N Coworking, Frisco',
+    photos: [
+      { src: '/assets/community/node-04-frisco-01.jpeg', alt: 'DFW Node 04 — Frisco at 25N Coworking' },
+    ],
+    description: 'Claude In The Wild Meetup. Informal session where people are putting Claude to work on real projects and sharing what actually helps in day-to-day use. Heavy token users showing workflows, automations, and practical setups.',
+  },
+  {
+    node: 'DFW Node 03 — Fort Worth',
+    date: 'MAY 6, 2026',
+    location: 'Fort Worth',
+    photos: [
+      { src: '/assets/community/node-03-fort-worth-01.png', alt: 'DFW Node 03 — Fort Worth Mac Mini OpenClaw Workshop' },
+    ],
+    description: 'Hands-on Mac Mini + OpenClaw install workshop. Live demo of the Mac Mini OpenClaw setup. Great networking and builders of all levels.',
+  },
+  {
+    node: 'ClawCon DFW',
+    date: '2026',
+    location: 'DFW',
+    photos: [
+      { src: '/assets/community/clawcon-01.webp', alt: 'ClawCon DFW — inaugural AI builders conference' },
+    ],
+    description: 'The inaugural ClawCon — DFW\'s first AI builders conference. A full day of live demos, agent builds, and honest conversations about what\'s actually working in AI right now.',
+  },
+];
 ---
 
 <BaseLayout
@@ -19,15 +64,16 @@ const nextEvent = {
   <Header />
 
   <main>
-    <!-- Stats Row -->
-    <section class="border-b-4 border-black" style="background:#FFFDF0;">
+
+    <!-- ── STATS ROW ── -->
+    <section class="bg-[var(--color-ground)] border-b-4 border-black">
       <div class="container py-16 md:py-24">
-        <div class="grid grid-cols-3 gap-0 text-center">
-          <div class="brutal-stat" style="border-right: 3px solid #1A1AFF;">
+        <div class="grid grid-cols-3 divide-x divide-black text-center">
+          <div class="brutal-stat">
             <span class="stat-number">600+</span>
             <span class="stat-label">Members</span>
           </div>
-          <div class="brutal-stat" style="border-right: 3px solid #1A1AFF;">
+          <div class="brutal-stat">
             <span class="stat-number">6</span>
             <span class="stat-label">Nodes</span>
           </div>
@@ -39,259 +85,110 @@ const nextEvent = {
       </div>
     </section>
 
-    <!-- About -->
-    <section class="border-b-4 border-black" style="background:#FFFDF0;">
-      <div class="container py-16 md:py-24">
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Left: text -->
-          <div>
-            <p class="font-mono text-sm uppercase tracking-widest mb-4" style="color:#1A1AFF;">DFW AI Community</p>
-            <h1 class="text-6xl md:text-8xl font-display leading-none mb-8" style="color:#1A1AFF; font-family:'Bebas Neue', sans-serif;">
-              AGENT<br/>BUILDERS<br/>CLUB
-            </h1>
-            <p class="text-base leading-relaxed mb-4" style="color:#1A1AFF;">
+    <!-- ── ABOUT ── -->
+    <section class="border-b-4 border-black">
+      <div class="container py-24 md:py-32">
+
+        <!-- Outer bordered grid: 3 distinct rows -->
+        <div class="border-4 border-black">
+
+          <!-- Row 1: Mascot | Heading -->
+          <div class="grid md:grid-cols-[auto_1fr] border-b-4 border-black">
+            <!-- Mascot cell -->
+            <div class="border-r-4 border-black p-6 flex items-center">
+              <img
+                src="/assets/community/mascot-abc.jpg"
+                alt="Agent Builders Club mascot"
+                class="h-72 w-auto object-contain"
+              />
+            </div>
+            <!-- Heading cell -->
+            <div class="p-6 flex flex-col justify-center">
+              <span class="section-label mb-4 block reveal">DFW AI Community</span>
+              <h1 class="font-display">
+                AGENT<br/>BUILDERS<br/>CLUB
+              </h1>
+            </div>
+          </div>
+
+          <!-- Row 2: Description -->
+          <div class="border-b-4 border-black p-6">
+            <p class="text-[var(--text-body)] leading-relaxed mb-4">
               Agent Builders Club started as a side project in 2026. The idea was simple: a place where people building with AI could show each other the real stuff — workflows, prompts, agent architectures, failures, wins.
             </p>
-            <p class="text-base leading-relaxed mb-4" style="color:#1A1AFF;">
+            <p class="text-[var(--text-body)] leading-relaxed mb-4">
               Not a course. Not a mastermind. Not a content play. Just people who want to build things with AI, meeting regularly to do exactly that.
             </p>
-            <p class="text-base leading-relaxed" style="color:#1A1AFF;">
+            <p class="text-[var(--text-body)] leading-relaxed">
               The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.
             </p>
           </div>
 
-          <!-- Right: next event card -->
-          <div class="flex items-start mt-8 md:mt-0">
-            <div class="brutal-card w-full">
-              <div class="p-8">
-                <p class="font-mono text-xs uppercase tracking-widest mb-4" style="color:#FFFF00;">Next event</p>
-                <h2 class="text-3xl md:text-4xl font-display mb-4" style="color:#1A1AFF; font-family:'Bebas Neue', sans-serif;">
-                  {nextEvent.title}
-                </h2>
-                <div class="space-y-2 mb-6">
-                  <p class="font-mono text-sm" style="color:#1A1AFF;">📅 {nextEvent.date}</p>
-                  <p class="font-mono text-sm" style="color:#1A1AFF;">📍 {nextEvent.location}</p>
-                </div>
-                <p class="text-sm leading-relaxed mb-8" style="color:#1A1AFF;">
-                  {nextEvent.description}
-                </p>
-                <a
-                  href={nextEvent.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="brutal-cta"
-                >
-                  JOIN THE DISCORD
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                  </svg>
-                </a>
-              </div>
+          <!-- Row 3: Buttons -->
+          <div class="p-6">
+            <div class="flex flex-wrap gap-4 reveal">
+              <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-primary">JOIN DISCORD</a>
+              <a href="https://lu.ma/clawplex" target="_blank" rel="noopener noreferrer" class="btn-ghost">SEE ALL EVENTS</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    <!-- Past Events Gallery -->
-    <section class="border-b-4 border-black" style="background:#FFFDF0;">
-      <div class="container py-16 md:py-24">
-        <div class="mb-8">
-          <span class="font-mono text-sm uppercase tracking-widest mb-3 block" style="color:#1A1AFF;">DFW Nodes · 2026</span>
-          <h2 class="text-5xl md:text-7xl font-display leading-none" style="color:#1A1AFF; font-family:'Bebas Neue', sans-serif;">
+
+    <!-- ── PAST EVENTS GALLERY ── -->
+    <section class="border-b-4 border-black">
+      <div class="container py-24 md:py-32">
+        <div class="mb-12">
+          <span class="section-label mb-4 block reveal">DFW Nodes · 2026</span>
+          <h2 class="font-display reveal">
             PAST<br/>EVENTS
           </h2>
         </div>
 
-        <div class="space-y-16">
+        <div class="space-y-20">
 
-          <!-- DFW Node 06 — Hermes -->
-          <div>
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/node-06-hermes-01.webp" alt="DFW Node 06 — Hermes at Spark Coworking Arlington" class="w-full h-64 object-cover" loading="lazy" />
+          {pastEvents.map((event) => (
+            <div class="reveal">
+              <div class="flex flex-col md:flex-row gap-6 mb-6">
+                {event.photos.map((photo) => (
+                  <div class="card-accent flex-1 overflow-hidden relative">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      class="w-full h-64 object-cover"
+                      loading="lazy"
+                    />
+                    <!-- Dark ink label overlay on photo -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-[#000000] px-4 py-3 border-t-3 border-[#000000]">
+                      <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#FFFFFF]">
+                        {event.node}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/node-06-hermes-02.webp" alt="DFW Node 06 — Hermes at Spark Coworking Arlington" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/node-06-hermes-03.webp" alt="DFW Node 06 — Hermes at Spark Coworking Arlington" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="p-4" style="background:#FFFF00; border: 3px solid #000;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest text-black font-bold">DFW Node 06 — Hermes</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">JUNE 10, 2026</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">Spark Coworking, Arlington</span>
-              </div>
-              <p class="text-sm text-black leading-relaxed">
-                Builders filled Spark Coworking in Arlington for a deep look at Hermes Agent — live demos, debugging, and a real conversation about what it actually means to ship an agent that gets better the more you use it.
-              </p>
-            </div>
-          </div>
-
-          <!-- DFW Node 05 — Claude Tools -->
-          <div>
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/node-05-claude-tools-01.webp" alt="DFW Node 05 — Claude Tools at Office Evolution Southlake" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="p-4" style="background:#FFFF00; border: 3px solid #000;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest text-black font-bold">DFW Node 05 — Claude Tools</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">JUNE 3, 2026</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">Office Evolution, Southlake</span>
-              </div>
-              <p class="text-sm text-black leading-relaxed">
-                30+ DFW builders gathered for an honest conversation about the AI tools actually on their desks — Cursor, Claude Code, OpenCode, OpenAI, Hermes, OpenClaw, and more. No slides, no pitches.
-              </p>
-            </div>
-          </div>
-
-          <!-- DFW Node 04 — Frisco -->
-          <div>
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/node-04-frisco-01.jpeg" alt="DFW Node 04 — Frisco at 25N Coworking" class="w-full h-64 object-cover" loading="lazy" />
+              <!-- Dark ink description container with white text -->
+              <div class="bg-[#000000] border-3 border-[#000000] p-5">
+                <div class="flex flex-wrap gap-4 items-center mb-2">
+                  <span class="font-mono text-xs uppercase tracking-widest font-bold text-[#00B8FF]">{event.node}</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">{event.date}</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">·</span>
+                  <span class="font-mono text-xs text-[#D2D2D2]">{event.location}</span>
+                </div>
+                <p class="text-sm leading-relaxed text-[#D2D2D2]">
+                  {event.description}
+                </p>
               </div>
             </div>
-            <div class="p-4" style="background:#FFFF00; border: 3px solid #000;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest text-black font-bold">DFW Node 04 — Frisco</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">MAY 13, 2026</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">25N Coworking, Frisco</span>
-              </div>
-              <p class="text-sm text-black leading-relaxed">
-                Claude In The Wild Meetup. Informal session where people are putting Claude to work on real projects and sharing what actually helps in day-to-day use. Heavy token users showing workflows, automations, and practical setups.
-              </p>
-            </div>
-          </div>
-
-          <!-- DFW Node 03 — Fort Worth -->
-          <div>
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/node-03-fort-worth-01.png" alt="DFW Node 03 — Fort Worth Mac Mini OpenClaw Workshop" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="p-4" style="background:#FFFF00; border: 3px solid #000;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest text-black font-bold">DFW Node 03 — Fort Worth</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">MAY 6, 2026</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">Fort Worth</span>
-              </div>
-              <p class="text-sm text-black leading-relaxed">
-                Hands-on Mac Mini + OpenClaw install workshop. Live demo of the Mac Mini OpenClaw setup. Great networking and builders of all levels.
-              </p>
-            </div>
-          </div>
-
-          <!-- ClawCon DFW -->
-          <div>
-            <div class="flex flex-col md:flex-row gap-6 mb-6">
-              <div class="brutal-card overflow-hidden flex-1" style="background:#000;">
-                <img src="/assets/community/clawcon-01.webp" alt="ClawCon DFW — inaugural AI builders conference" class="w-full h-64 object-cover" loading="lazy" />
-              </div>
-            </div>
-            <div class="p-4" style="background:#FFFF00; border: 3px solid #000;">
-              <div class="flex flex-wrap gap-4 items-center mb-2">
-                <span class="font-mono text-xs uppercase tracking-widest text-black font-bold">ClawCon DFW</span>
-                <span class="font-mono text-xs text-black">·</span>
-                <span class="font-mono text-xs text-black">2026</span>
-              </div>
-              <p class="text-sm text-black leading-relaxed">
-                The inaugural ClawCon — DFW's first AI builders conference. A full day of live demos, agent builds, and honest conversations about what's actually working in AI right now.
-              </p>
-            </div>
-          </div>
+          ))}
 
         </div>
       </div>
     </section>
+
   </main>
 
   <Footer />
 </BaseLayout>
-
-<style>
-  .font-display {
-    font-family: 'Bebas Neue', 'Arial Black', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-  }
-
-  .font-mono {
-    font-family: 'Space Mono', ui-monospace, monospace;
-  }
-
-  .brutal-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem;
-    background: #FFFDF0;
-  }
-
-  .stat-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.75rem, 4vw, 3.5rem);
-    line-height: 1;
-    color: #1A1AFF;
-    letter-spacing: 0.02em;
-  }
-
-  .stat-label {
-    font-family: 'Space Mono', ui-monospace, monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #1A1AFF;
-    margin-top: 0.5rem;
-  }
-
-  .brutal-card {
-    position: relative;
-    border: 3px solid #000000;
-    background: #FFFF00;
-    box-shadow: 6px 6px 0 #000000;
-    transition: box-shadow 150ms ease, transform 150ms ease;
-  }
-
-  .brutal-card:hover {
-    box-shadow: 10px 10px 0 #000000;
-    transform: translate(-2px, -2px);
-  }
-
-  .brutal-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: 'Space Mono', ui-monospace, monospace;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #FFFDF0;
-    border: 3px solid #000000;
-    padding: 0.8rem 1.2rem;
-    background: #1A1AFF;
-    box-shadow: 4px 4px 0 #000000;
-    transition: box-shadow 150ms ease, transform 150ms ease;
-  }
-
-  .brutal-cta:hover {
-    background: #FFFDF0;
-    color: #1A1AFF;
-    box-shadow: 6px 6px 0 #000000;
-    transform: translate(-2px, -2px);
-  }
-</style>
