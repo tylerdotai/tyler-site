@@ -11,14 +11,25 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main>
-    <!-- ── HERO ── -->
-    <section class="bg-[#000000]">
-      <div class="container py-24 md:py-40">
+
+    <!-- ═══════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════ -->
+    <section class="bg-[#000000] relative overflow-hidden">
+      <!-- Background ghost text -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[28vw] text-[#FFFFFF] opacity-[0.03] leading-none whitespace-nowrap">
+          TYLER DELANO
+        </span>
+      </div>
+
+      <div class="container py-24 md:py-40 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
+
           <!-- Text -->
           <div>
-            <span class="section-label mb-6 block reveal">TYLER DELANO</span>
-            <h1 class="text-[var(--text-hero)] font-display leading-[0.9] tracking-[0.01em] mb-8 reveal text-white" style="color:#FFFFFF;">
+            <span class="section-label mb-6 block reveal-left">TYLER DELANO</span>
+            <h1 class="text-[var(--text-hero)] font-display leading-[0.88] tracking-[0.01em] mb-8 reveal text-white" style="color:#FFFFFF;">
               DEVELOPER<br/>OF AI
             </h1>
             <p class="text-[var(--text-body)] text-lg mb-10 max-w-lg leading-relaxed reveal" style="color:#D2D2D2;">
@@ -30,138 +41,227 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
 
-          <!-- Photo — ZV-E10 at desk setup -->
-          <div class="relative reveal">
-            <div class="border-3 border-[#FFFFFF] shadow-[6px_6px_0_#00B8FF]">
+          <!-- Photo + collage -->
+          <div class="relative reveal-right">
+            <!-- Main photo frame -->
+            <div class="border-4 border-[#FFFFFF] shadow-[8px_8px_0_#00B8FF]">
               <img
                 src="/assets/creative/tyler-at-desk.jpg"
-                alt="Tyler Delano at desk — multi-monitor setup, pink mechanical keyboard, ZV-E10 lighting, focused on the work"
+                alt="Tyler Delano at desk — multi-monitor setup, pink mechanical keyboard, ZV-E10 lighting"
                 class="w-full h-auto block"
                 width="600"
                 height="450"
                 loading="eager"
               />
             </div>
-            <!-- Stat pill -->
-            <div class="brutal-stat absolute -bottom-4 -right-4 px-5 py-3">
-              <span class="stat-number">600+</span>
-              <span class="stat-label">COMMUNITY MEMBERS</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ── THREE PILLARS ── -->
-    <section class="border-b-4 border-black">
-      <div class="container py-24 md:py-32">
-        <div class="grid md:grid-cols-3 gap-6">
-
-          <!-- Build -->
-          <div class="card p-8 reveal">
-            <div class="mb-6">
-              <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">01 / BUILD</span>
+            <!-- Overlap sticker — top left -->
+            <div class="absolute -top-5 -left-5 sticker-label-ink">
+              600+ MEMBERS
             </div>
-            <h3 class="text-4xl mb-5 text-[#000000]">
-              AGENTS<br/>&amp; TOOLS
-            </h3>
-            <p class="text-sm mb-8 leading-relaxed text-[#000000]">
-              Provider-neutral AI agent harnesses, closed-loop systems, and research pipelines. Bun, TypeScript, Python — whatever gets the job done.
-            </p>
-            <a href="/builds" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">VIEW ALL BUILDS →</a>
-          </div>
 
-          <!-- Community -->
-          <div class="card p-8 reveal">
-            <div class="mb-6">
-              <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">02 / COMMUNITY</span>
+            <!-- Overlap pill — bottom right -->
+            <div class="brutal-stat absolute -bottom-5 -right-3">
+              <span class="font-mono font-bold text-2xl text-[#000000]">600+</span>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-[#4D4D4D]">MEMBERS</span>
             </div>
-            <h3 class="text-4xl mb-5 text-[#000000]">
-              AGENT<br/>BUILDERS CLUB
-            </h3>
-            <p class="text-sm mb-8 leading-relaxed text-[#000000]">
-              600+ members across 6 DFW locations learning to build AI-powered workflows. No fluff. Just builders showing each other what works.
-            </p>
-            <a href="/community" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">JOIN THE CLUB →</a>
-          </div>
 
-          <!-- Creative -->
-          <div class="card p-8 reveal">
-            <div class="mb-6">
-              <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">03 / CREATE</span>
+            <!-- Rotated label — top right, outside frame -->
+            <div class="absolute -top-3 -right-3 rotate-[-4deg]">
+              <span class="sticker-label">AGENT BUILDERS CLUB</span>
             </div>
-            <h3 class="text-4xl mb-5 text-[#000000]">
-              FILM<br/>&amp; STORY
-            </h3>
-            <p class="text-sm mb-8 leading-relaxed text-[#000000]">
-              30 days with the Sony ZV-E10. Every clip is a real moment. No crew. No script. Just a camera and whatever showed up that day.
-            </p>
-            <a href="/creative" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">SEE THE FOOTAGE →</a>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ── ABOUT ── -->
-    <section class="border-b-4 border-black">
-      <div class="container py-24 md:py-32">
+    <!-- ═══════════════════════════════════════════
+         THREE PILLARS
+    ═══════════════════════════════════════════ -->
+    <section class="relative border-b-4 border-black">
+      <!-- Background section numbers -->
+      <div class="absolute inset-0 pointer-events-none select-none overflow-hidden">
+        <span class="section-number" style="left:-0.5rem; top:-2rem;">01</span>
+        <span class="section-number" style="right:-0.5rem; top:auto; bottom:-3rem; left:auto;">02</span>
+      </div>
+
+      <div class="container py-24 md:py-32 relative z-10">
+
+        <!-- Section header -->
+        <div class="flex flex-wrap items-end justify-between gap-6 mb-16 reveal">
+          <div>
+            <span class="section-label mb-4 block">THE THREE PILLARS</span>
+            <h2 class="font-display text-[#000000]">
+              BUILD // COMMUNITY<br/>// CREATE
+            </h2>
+          </div>
+          <!-- Decorative sticker -->
+          <div class="sticker-label hidden md:inline-block">
+            DFW, TEXAS
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-0 relative">
+
+          <!-- Pillar 01 — BUILD (white card, black type) -->
+          <div class="card p-8 reveal-scale relative" style="z-index:1;">
+            <span class="section-number" style="top:-1rem; left:-0.5rem; font-size:clamp(5rem,12vw,10rem); opacity:0.06;">01</span>
+            <div class="relative z-10">
+              <div class="mb-6">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">01 / BUILD</span>
+              </div>
+              <h3 class="text-4xl mb-5 text-[#000000]">
+                AGENTS<br/>&amp; TOOLS
+              </h3>
+              <p class="text-sm mb-8 leading-relaxed text-[#000000]">
+                Provider-neutral AI agent harnesses, closed-loop systems, and research pipelines. Bun, TypeScript, Python — whatever gets the job done.
+              </p>
+              <a href="/builds" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">VIEW ALL BUILDS →</a>
+            </div>
+          </div>
+
+          <!-- Pillar 02 — COMMUNITY (black card, white/cyan type) -->
+          <div class="card p-8 reveal-scale relative" style="background:#000000; z-index:2; margin-top:1.5rem;">
+            <span class="section-number" style="top:-1rem; left:-0.5rem; font-size:clamp(5rem,12vw,10rem); opacity:0.08; color:#00B8FF; -webkit-text-stroke-color:#00B8FF;">02</span>
+            <div class="relative z-10">
+              <div class="mb-6">
+                <span class="font-mono text-xs uppercase tracking-widest" style="color:#00B8FF;">02 / COMMUNITY</span>
+              </div>
+              <h3 class="text-4xl mb-5" style="color:#FFFFFF;">
+                AGENT<br/>BUILDERS CLUB
+              </h3>
+              <p class="text-sm mb-8 leading-relaxed" style="color:#D2D2D2;">
+                600+ members across 6 DFW locations learning to build AI-powered workflows. No fluff. Just builders showing each other what works.
+              </p>
+              <a href="/community" class="font-mono text-xs uppercase tracking-widest" style="color:#00B8FF;">JOIN THE CLUB →</a>
+            </div>
+            <!-- Overlap element -->
+            <div class="absolute -bottom-4 -right-4 brutal-stat">
+              <span class="font-mono font-bold text-xl text-[#000000]">6</span>
+              <span class="font-mono text-[9px] uppercase tracking-widest text-[#4D4D4D]">DFW NODES</span>
+            </div>
+          </div>
+
+          <!-- Pillar 03 — CREATE (white card) -->
+          <div class="card p-8 reveal-scale relative" style="z-index:1;">
+            <span class="section-number" style="top:-1rem; left:-0.5rem; font-size:clamp(5rem,12vw,10rem); opacity:0.06;">03</span>
+            <div class="relative z-10">
+              <div class="mb-6">
+                <span class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">03 / CREATE</span>
+              </div>
+              <h3 class="text-4xl mb-5 text-[#000000]">
+                FILM<br/>&amp; STORY
+              </h3>
+              <p class="text-sm mb-8 leading-relaxed text-[#000000]">
+                30 days with the Sony ZV-E10. Every clip is a real moment. No crew. No script. Just a camera and whatever showed up that day.
+              </p>
+              <a href="/creative" class="font-mono text-xs uppercase tracking-widest text-[#00B8FF]">SEE THE FOOTAGE →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         ABOUT
+    ═══════════════════════════════════════════ -->
+    <section class="border-b-4 border-black relative overflow-hidden">
+      <!-- Background ghost type -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[20vw] text-[#000000] opacity-[0.03] leading-none">
+          PIP
+        </span>
+      </div>
+
+      <div class="container py-24 md:py-32 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
-          <!-- Photo — desk setup with keyboard -->
-          <div class="relative reveal">
-            <div class="border-3 border-[#000000] shadow-[6px_6px_0_#00B8FF]">
+
+          <!-- Photo with heavy collage elements -->
+          <div class="relative reveal-left">
+            <!-- Main photo -->
+            <div class="border-4 border-[#000000] shadow-[8px_8px_0_#00B8FF] relative z-10">
               <img
                 src="/assets/creative/desk-setup.jpg"
-                alt="Tyler Delano at desk — pink mechanical keyboard, vertical mouse, Elgato Stream Deck, Focusrite audio interface, studio monitors"
+                alt="Tyler Delano at desk — pink mechanical keyboard, multi-monitor setup, studio monitors"
                 class="w-full block"
                 width="600"
                 height="450"
                 loading="lazy"
               />
             </div>
-            <!-- Year badge -->
-            <div class="absolute -top-4 -left-4 px-4 py-3 bg-[#000000] border-2 border-[#000000] shadow-[4px_4px_0_#00B8FF]">
-              <span class="font-display text-2xl text-[#FFFFFF]">2024</span>
-              <span class="font-body text-xs block text-[#D2D2D2]">YEAR OF THE AGENT</span>
+
+            <!-- Year badge — top left, overlaps photo border -->
+            <div class="absolute -top-4 -left-4 px-5 py-4 bg-[#000000] border-4 border-[#000000] shadow-[6px_6px_0_#00B8FF] z-20">
+              <span class="font-display text-3xl text-[#FFFFFF]">2024</span>
+              <span class="font-mono text-[9px] block text-[#00B8FF] uppercase tracking-widest">YEAR OF THE AGENT</span>
+            </div>
+
+            <!-- "EXCEEDS HIGH BAR" sticker — rotated -->
+            <div class="absolute -bottom-4 -right-4 rotate-[-3deg] z-30">
+              <div class="sticker-label">
+                EXCEEDS HIGH BAR
+              </div>
+            </div>
+
+            <!-- Corner fold accent -->
+            <div class="absolute -bottom-0 right-0 w-16 h-16 overflow-hidden pointer-events-none z-30">
+              <div class="absolute bottom-0 right-0 w-[200%] h-[200%] bg-[#D2D2D2] rotate-[-45deg] translate-x-[30%] translate-y-[30%] border-4 border-[#000000]"></div>
             </div>
           </div>
 
           <!-- Text -->
-          <div class="reveal">
+          <div class="reveal-right">
             <span class="section-label mb-4 block">HOW I GOT HERE</span>
-            <h2 class="text-[var(--text-h2)] font-display mb-8 text-[#FFFFFF]">
+            <h2 class="font-display mb-8" style="color:#000000; font-size:var(--text-h2);">
               FROM PIP TO<br/>DEVELOPER
             </h2>
             <div class="space-y-5 mb-10">
-              <p class="text-[var(--text-body)] leading-relaxed">
+              <p class="text-[var(--text-body)] leading-relaxed text-[#000000]">
                 March 2024, Amazon put me on a Performance Improvement Plan. Three months to turn it around or get cut. Instead of panic-applying to jobs, I got curious about AI agents.
               </p>
-              <p class="text-[var(--text-body)] leading-relaxed">
+              <p class="text-[var(--text-body)] leading-relaxed text-[#000000]">
                 Built a crew of AI subagents to handle the PIP tasks for me. They didn't save my job — but they showed me what was actually possible when you stop using AI as a chatbot and start treating it like a workforce.
               </p>
-              <p class="text-[var(--text-body)] leading-relaxed">
+              <p class="text-[var(--text-body)] leading-relaxed text-[#000000]">
                 Got rated "Exceeds High Bar" on my mid-year review. Got a raise. Decided: this is the thing. Let's go all in.
               </p>
             </div>
-            <!-- Stats row -->
-            <div class="flex gap-8">
-              <div>
-                <span class="stat-number">600+</span>
-                <span class="stat-label">Members</span>
+
+            <!-- Stats row with brutal styling -->
+            <div class="flex gap-0">
+              <div class="p-6 bg-[#FFFFFF] border-4 border-[#000000] shadow-[5px_5px_0_#00B8FF]">
+                <span class="font-display text-5xl text-[#000000] block leading-none">600+</span>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-[#4D4D4D] mt-1 block">Members</span>
               </div>
-              <div class="border-l-4 border-[#000000] pl-8">
-                <span class="stat-number">6</span>
-                <span class="stat-label">DFW Nodes</span>
+              <div class="p-6 bg-[#000000] border-4 border-[#000000] border-l-0">
+                <span class="font-display text-5xl text-[#00B8FF] block leading-none">6</span>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-[#D2D2D2] mt-1 block">DFW Nodes</span>
+              </div>
+              <div class="p-6 bg-[#FFFFFF] border-4 border-[#000000] border-l-0 shadow-[5px_5px_0_#4D4D4D]">
+                <span class="font-display text-5xl text-[#000000] block leading-none">2026</span>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-[#4D4D4D] mt-1 block">Founded</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ── RECENT BUILDS ── -->
-    <section class="border-b-4 border-black">
-      <div class="container py-24 md:py-32">
+    <!-- ═══════════════════════════════════════════
+         RECENT BUILDS
+    ═══════════════════════════════════════════ -->
+    <section class="border-b-4 border-black relative overflow-hidden">
+      <div class="absolute top-0 right-0 pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[16vw] text-[#000000] opacity-[0.03] leading-none translate-y-[-15%]">
+          BUILDS
+        </span>
+      </div>
+
+      <div class="container py-24 md:py-32 relative z-10">
+
         <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
           <div>
             <span class="section-label mb-4 block">RECENT BUILDS</span>
@@ -169,59 +269,85 @@ import Footer from '../components/Footer.astro';
               TOOLS, AGENTS<br/>&amp; PIPELINES
             </h2>
           </div>
-          <a href="/builds" class="btn-ghost">ALL BUILDS →</a>
+          <div class="flex gap-3">
+            <div class="sticker-label-ink hidden md:inline-block">OPEN SOURCE</div>
+            <a href="/builds" class="btn-ghost">ALL BUILDS →</a>
+          </div>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
 
-          <a href="https://github.com/tylerdotai/singularity" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal">
-            <div class="mb-4">
-              <span class="font-mono text-xs uppercase tracking-widest px-2 py-1 bg-[#000000] text-[#00B8FF]">BUN · TS</span>
+          <!-- Singularity -->
+          <a href="https://github.com/tylerdotai/singularity" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal-scale relative">
+            <!-- Overlap label -->
+            <div class="absolute -top-3 -right-3 rotate-[3deg] z-10">
+              <span class="sticker-label">BUN · TS</span>
             </div>
-            <h3 class="text-3xl mb-3 text-[#000000]">
-              SINGULARITY
-            </h3>
-            <p class="text-sm mb-6 leading-relaxed text-[#000000]">
-              Provider-neutral AI agent harness. Runs on your own API keys. Bun, TypeScript, SQLite.
-            </p>
-            <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/singularity</span>
+            <div class="relative z-10">
+              <h3 class="text-3xl mb-3 text-[#000000] mt-4">
+                SINGULARITY
+              </h3>
+              <p class="text-sm mb-6 leading-relaxed text-[#000000]">
+                Provider-neutral AI agent harness. Runs on your own API keys. Bun, TypeScript, SQLite.
+              </p>
+              <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/singularity</span>
+            </div>
           </a>
 
-          <a href="https://github.com/tylerdotai/agent-loop-system" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal">
-            <div class="mb-4">
-              <span class="font-mono text-xs uppercase tracking-widest px-2 py-1 bg-[#000000] text-[#00B8FF]">PYTHON</span>
+          <!-- Agent Loop System -->
+          <a href="https://github.com/tylerdotai/agent-loop-system" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal-scale relative" style="margin-top:1.5rem; background:#000000;">
+            <!-- Overlap label -->
+            <div class="absolute -top-3 -right-3 rotate-[-2deg] z-10">
+              <span class="sticker-label">PYTHON</span>
             </div>
-            <h3 class="text-3xl mb-3 text-[#000000]">
-              AGENT LOOP<br/>SYSTEM
-            </h3>
-            <p class="text-sm mb-6 leading-relaxed text-[#000000]">
-              Closed-loop agent harness with Python and JSON. Structured outputs, step-by-step reasoning.
-            </p>
-            <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/agent-loop-system</span>
+            <div class="relative z-10">
+              <h3 class="text-3xl mb-3" style="color:#FFFFFF;">
+                AGENT LOOP<br/>SYSTEM
+              </h3>
+              <p class="text-sm mb-6 leading-relaxed" style="color:#D2D2D2;">
+                Closed-loop agent harness with Python and JSON. Structured outputs, step-by-step reasoning.
+              </p>
+              <span class="font-mono text-xs" style="color:#00B8FF;">github.com/tylerdotai/agent-loop-system</span>
+            </div>
           </a>
 
-          <a href="https://github.com/tylerdotai/parkinson-research" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal">
-            <div class="mb-4">
-              <span class="font-mono text-xs uppercase tracking-widest px-2 py-1 bg-[#D2D2D2] text-[#000000] border-2 border-[#000000]">RESEARCH</span>
+          <!-- AIAgainstParkinson -->
+          <a href="https://github.com/tylerdotai/parkinson-research" target="_blank" rel="noopener noreferrer" class="card p-6 group reveal-scale relative">
+            <!-- Overlap label -->
+            <div class="absolute -top-3 -right-3 rotate-[2deg] z-10">
+              <span class="sticker-label">RESEARCH</span>
             </div>
-            <h3 class="text-3xl mb-3 text-[#000000]">
-              AIAGAINST<br/>PARKINSON
-            </h3>
-            <p class="text-sm mb-6 leading-relaxed text-[#000000]">
-              Daily AI research pipeline. PubMed → summary → EN/ES delivery. Every day, automatically.
-            </p>
-            <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/parkinson-research</span>
+            <div class="relative z-10">
+              <h3 class="text-3xl mb-3 text-[#000000] mt-4">
+                AIAGAINST<br/>PARKINSON
+              </h3>
+              <p class="text-sm mb-6 leading-relaxed text-[#000000]">
+                Daily AI research pipeline. PubMed → summary → EN/ES delivery. Every day, automatically.
+              </p>
+              <span class="font-mono text-xs text-[#00B8FF]">github.com/tylerdotai/parkinson-research</span>
+            </div>
           </a>
 
         </div>
       </div>
     </section>
 
-    <!-- ── CTA ── -->
-    <section class="border-b-4 border-black">
-      <div class="container py-24 md:py-32">
+    <!-- ═══════════════════════════════════════════
+         CTA
+    ═══════════════════════════════════════════ -->
+    <section class="relative overflow-hidden">
+      <!-- Background ghost text -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[18vw] text-[#000000] opacity-[0.025] leading-none">
+          BUILD WITH ME
+        </span>
+      </div>
+
+      <div class="container py-24 md:py-32 relative z-10">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
+
           <div class="reveal">
+            <span class="section-label mb-4 block">JOIN THE CLUB</span>
             <h2 class="font-display mb-8 text-[#000000]">
               WANT TO<br/>BUILD WITH ME?
             </h2>
@@ -234,27 +360,35 @@ import Footer from '../components/Footer.astro';
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4 reveal">
-            <div class="p-6 bg-[#FFFFFF] border-3 border-[#000000] shadow-[4px_4px_0_#00B8FF]">
-              <span class="font-mono font-bold text-5xl block text-[#000000]">600+</span>
-              <span class="font-body text-xs mt-2 block text-[#000000] uppercase tracking-[0.1em]">Members</span>
+          <!-- Asymmetric stat grid -->
+          <div class="grid grid-cols-2 gap-4 reveal-right">
+            <!-- Large top-left -->
+            <div class="p-8 bg-[#FFFFFF] border-4 border-[#000000] shadow-[8px_8px_0_#00B8FF]">
+              <span class="font-display font-bold text-6xl text-[#000000] leading-none block">600+</span>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-[#4D4D4D] mt-2 block">Members</span>
             </div>
-            <div class="p-6 bg-[#000000] border-3 border-[#000000]">
-              <span class="font-mono font-bold text-5xl block text-[#00B8FF]">6</span>
-              <span class="font-body text-xs mt-2 block text-[#D2D2D2] uppercase tracking-[0.1em]">DFW Nodes</span>
+            <!-- Tall right column -->
+            <div class="row-span-2 p-6 bg-[#000000] border-4 border-[#000000] flex flex-col justify-between">
+              <div>
+                <span class="font-display text-5xl text-[#00B8FF] leading-none block">6</span>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-[#D2D2D2] mt-1 block">DFW Nodes</span>
+              </div>
+              <div class="mt-8">
+                <span class="font-display text-5xl text-[#00B8FF] leading-none block">DFW</span>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-[#D2D2D2] mt-1 block">Metro Area</span>
+              </div>
             </div>
-            <div class="p-6 bg-[#000000] border-3 border-[#000000]">
-              <span class="font-mono font-bold text-5xl block text-[#00B8FF]">DFW</span>
-              <span class="font-body text-xs mt-2 block text-[#D2D2D2] uppercase tracking-[0.1em]">Metro Area</span>
-            </div>
-            <div class="p-6 bg-[#FFFFFF] border-3 border-[#000000] shadow-[4px_4px_0_#00B8FF]">
-              <span class="font-mono font-bold text-5xl block text-[#000000]">2026</span>
-              <span class="font-body text-xs mt-2 block text-[#000000] uppercase tracking-[0.1em]">Founded</span>
+            <!-- Small bottom-left -->
+            <div class="p-6 bg-[#FFFFFF] border-4 border-[#000000] shadow-[8px_8px_0_#00B8FF]">
+              <span class="font-display font-bold text-5xl text-[#000000] leading-none block">2026</span>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-[#4D4D4D] mt-1 block">Founded</span>
             </div>
           </div>
+
         </div>
       </div>
     </section>
+
   </main>
   <Footer />
 </BaseLayout>

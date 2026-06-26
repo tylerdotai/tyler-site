@@ -9,7 +9,7 @@ export const SITE = {
   description: 'AI Developer. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
   author: 'Tyler Delano',
   tagline: 'AI DEVELOPER',
-  bio: 'IT Support Associate (L3) at Amazon by day. AI agent builder by night. Exceeds High Bar.',
+  bio: 'Community builder. Running the Agent Builders Club — a DFW community of 600+ people learning to build with AI.',
   location: 'DFW, Texas',
   email: 'tyler@tylerdotai.com',
   github: 'https://github.com/tylerdotai',
