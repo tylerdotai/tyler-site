@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/components/ui/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -16,14 +16,13 @@ interface MobileNavProps {
 export function MobileNav({ currentPath }: MobileNavProps) {
   const [open, setOpen] = useState(false);
 
-  // Close on route change
   useEffect(() => {
     setOpen(false);
   }, [currentPath]);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
+      <SheetTrigger>
         <button
           aria-label="Open menu"
           className="flex flex-col justify-center gap-[5px] w-8 h-8 bg-transparent border-none cursor-pointer p-0 z-50 relative"
@@ -70,7 +69,6 @@ export function MobileNav({ currentPath }: MobileNavProps) {
           </a>
         </nav>
 
-        {/* Close button */}
         <button
           onClick={() => setOpen(false)}
           aria-label="Close menu"

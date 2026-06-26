@@ -9,7 +9,7 @@ interface Props {
   size?: string;
 }
 
-const { label, title, image, alt, meta, index, size = 'square' } = Astro.props;
+const { label, title, image, alt, meta, index: _index, size = 'square' } = Astro.props;
 const normalizedSize = ['wide', 'tall', 'square'].includes(size) ? size : 'square';
 const sizeClass = {
   wide: 'md:col-span-2',

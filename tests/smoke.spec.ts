@@ -3,15 +3,15 @@ import { test, expect } from '@playwright/test';
 const BASE = 'http://localhost:4321';
 
 const pages = [
-  { path: '/', check: /@tylerdotai/i },
-  { path: '/builds', check: /Builds/i },
-  { path: '/community', check: /Community/i },
-  { path: '/creative', check: /Creative/i },
-  { path: '/parkinson', check: /Parkinson/i },
-  { path: '/parkinson/es', check: /Parkinson/i },
+  { path: '/', title: 'Home' },
+  { path: '/builds', title: 'Builds' },
+  { path: '/community', title: 'Community' },
+  { path: '/creative', title: 'Creative' },
+  { path: '/parkinson', title: 'Parkinson' },
+  { path: '/parkinson/es', title: 'Parkinson' },
 ];
 
-for (const { path, check } of pages) {
+for (const { path, title } of pages) {
   test(`page loads: ${path}`, async ({ page }) => {
     const errors: string[] = [];
     page.on('console', (msg) => {

@@ -2,14 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { COMMUNITY } from '../config';
 
-const nextEvent = {
-  title: 'Agent Builders Meetup — June',
-  date: 'Thursday, June 26 · 7:00 PM',
-  location: 'ClawPlex HQ, DFW',
-  description: 'Monthly in-person meetup. This month: live agent demos + open build time. Bring your project.',
-  url: 'https://lu.ma/clawplex',
-};
+const nextEvent = COMMUNITY.nextEvent;
 
 const pastEvents = [
   {
