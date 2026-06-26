@@ -1,317 +1,307 @@
-# TYLER DELANO — TYLERDOTAI.COM
-## BOLD NEO-BRUTALISM COLOR CLASH — MASTER SPEC
+# MASTER PROMPT: TYLERDOTAI.COM — BOLD NEO-BRUTALISM AUDIT & FIX
+
+## BEFORE ANYTHING: READ THESE FILES
+
+Every time you touch this site, you MUST read and cross-reference:
+1. `~/.hermes/memories/MEMORY.md` — user preferences
+2. `/home/tyler/tyler-site/SPEC.md` — design system spec (this file)
+3. `/home/tyler/tyler-site/src/styles/global.css` — current CSS variables and classes
+4. The specific page file you're editing
+
+Do NOT make color decisions from memory. The palette lives in SPEC.md and global.css.
 
 ---
 
-## 1. DESIGN PHILOSOPHY
+## PALETTE — LOCKED, DO NOT DEVIATE
 
-Neo-brutalism: raw, direct, maximalist typography. Think protest posters, xerox flyers, bold newspaper headlines. Not "clean and modern" — aggressive and memorable. The design should feel like someone who builds real things and doesn't have time for polish theater.
+| Token | Hex | Use | NEVER use |
+|-------|-----|-----|-----------|
+| `ground` | `#E6E6E6` | Page background (light) | `#0A0A0A`, `#111111`, `#333333` |
+| `ink` | `#212121` | Text, borders, dark sections | `#0A0A0A`, `#333333`, `#555555` |
+| `signal` | `#FF3D00` | CTAs, active states, emphasis | `#CCFF00`, `#FF6B00`, `#FFAA00` |
+| `electric` | `#00B0FF` | Links, secondary accents | `#0055FF`, `#0066FF` |
+| `white` | `#FFFFFF` | Reversed text on dark | — |
+| `muted` | `#555555` | Secondary text on light bg | `#888888`, `#AAAAAA`, `#CCCCCC` |
 
-**Key quote from Tutsplus neo-brutalism article:**
-> "Brutalism loved concrete, but now it's translated into monochrome designs and oversized typography. Both styles are linked to rebellion, counterculture, and directness. They're a reaction against oversaturated and highly decorated designs."
+**Signal vs Electric rules:**
+- `#FF3D00` (signal) → CTAs, active nav, hover states, section labels, stat numbers, primary emphasis
+- `#00B0FF` (electric) → links (`<a>` tags), secondary badges, video labels
+- Dark section backgrounds → `#212121` only
+- Light section backgrounds → `#E6E6E6` or `#FFFFFF`
 
-**Reference sites:**
-- lydiaamaruch.com — massive condensed typography, collage-style layering, yellow signature accent
-- studio-job.com — baroque maximalism, all-caps headings, bold black borders
-- Bold Neobrutalism Color Clash — flat color-blocking, no gradients, sharp contrast
-
----
-
-## 2. COLOR PALETTE — BOLD NEO-BRUTALISM COLOR CLASH
-
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--color-ground` | `#E6E6E6` | Page background (light gray) |
-| `--color-ink` | `#212121` | Primary text (near-black) |
-| `--color-signal` | `#FF3D00` | Primary accent — CTAs, active states, emphasis (red-orange) |
-| `--color-electric` | `#00B0FF` | Secondary accent — links, highlights, secondary actions (light blue) |
-| `--color-border` | `#212121` | All borders (3px solid) |
-| `--color-white` | `#FFFFFF` | Reversed text on dark sections |
-
-### Usage Rules
-- **#FF3D00** (`signal`) → CTAs, active nav, hover states, emphasis blocks, section labels
-- **#00B0FF** (`electric`) → Links, secondary accents, tags, secondary buttons
-- **#212121** (`ink`) → Body text, borders, dark sections
-- **#E6E6E6** (`ground`) → Page background (light mode brutalist)
-- **White reversed text** on #212121 dark blocks only
-- **No gradients. No blur. No drop shadows with opacity.**
-- **Box shadows** — always solid offset (4px 4px 0 #212121) or colored offset (4px 4px 0 #FF3D00)
+**Forbidden colors — ZERO tolerance:**
+- `#0A0A0A` — everywhere, no exceptions
+- `#111111` — everywhere, no exceptions
+- `#333333` — use `#212121` for borders
+- `#CCFF00` / `#AAE000` — old lime accent, gone
+- `#0055FF` / `#0066FF` — old blue, gone
+- `#FFFF00` / `#FFE600` — old yellow, gone
+- `#888888` / `#AAAAAA` / `#CCCCCC` — muted text on LIGHT backgrounds ONLY; on DARK backgrounds use `#E6E6E6` or `#FFFFFF`
 
 ---
 
-## 3. TYPOGRAPHY
+## TYPOGRAPHY RULES
 
-### Font Stack
-- **Display**: `'Bebas Neue'` — ultra-condensed, aggressive, maximum impact (Google Fonts)
-- **Body**: `'Space Grotesk'` — geometric, modern, readable (Google Fonts)
-- **Mono**: `'Space Mono'` — labels, metadata, code (Google Fonts)
+### Fonts
+| Role | Font | Fallback |
+|------|------|----------|
+| Display | `'Bebas Neue'` | `'Arial Black', Impact, sans-serif` |
+| Body | `'Space Grotesk'` | `system-ui, sans-serif` |
+| Mono | `'Space Mono'` | `ui-monospace, monospace` |
+
+**NEVER use:** Syne, JetBrains Mono (replaced by Space Mono), Fraunces, Source Serif 4.
 
 ### Type Scale
-| Name | Size | Font | Weight | Usage |
-|------|------|------|--------|-------|
-| `text-hero` | clamp(5rem, 14vw, 12rem) | Bebas Neue | 400 | Full-page headlines |
-| `text-display` | clamp(3rem, 8vw, 7rem) | Bebas Neue | 400 | Section titles |
-| `text-h1` | clamp(2.5rem, 6vw, 5rem) | Bebas Neue | 400 | Page titles |
-| `text-h2` | clamp(1.75rem, 4vw, 3rem) | Bebas Neue | 400 | Card titles |
-| `text-h3` | clamp(1.25rem, 2.5vw, 1.75rem) | Space Grotesk | 700 | Subheadings |
-| `text-body` | 1.0625rem (17px) | Space Grotesk | 400 | Body copy |
-| `text-sm` | 0.875rem | Space Grotesk | 400 | Secondary text |
-| `text-xs` | 0.75rem | Space Mono | 400 | Labels, metadata |
+```css
+--text-hero:   clamp(5rem, 14vw, 12rem);  /* Bebas Neue — page titles */
+--text-h1:     clamp(2.5rem, 6vw, 5rem);   /* Bebas Neue */
+--text-h2:     clamp(1.75rem, 4vw, 3rem);  /* Bebas Neue */
+--text-h3:     clamp(1.25rem, 2.5vw, 1.75rem); /* Space Grotesk 700 */
+--text-body:   1.0625rem;  /* Space Grotesk 400 */
+--text-sm:     0.875rem;  /* Space Grotesk 400 */
+--text-xs:     0.75rem;   /* Space Mono — labels, metadata */
+```
 
-### Type Rules
-- Display text: ALWAYS uppercase, Bebas Neue, tight letter-spacing (-0.02em)
-- Body text: Sentence case, Space Grotesk, line-height 1.65
-- Labels/metadata: UPPERCASE, Space Mono, letter-spacing 0.1em
-- No italic except for hand-written-style accents (if any)
-- Text overflow: ellipsis only on truncation; never hide content
-- Line-length: max 72ch on body text
+### Display text rules
+- H1, H2, page titles: ALWAYS `font-family: 'Bebas Neue'`, `text-transform: uppercase`, `font-weight: 400`
+- Body text: `Space Grotesk`, sentence case
+- Labels/metadata: `Space Mono`, UPPERCASE, `letter-spacing: 0.1em`
+- NO italic in UI (only for hand-written accents if any)
 
 ---
 
-## 4. NEO-BRUTALIST MECHANICS
+## NEO-BRUTALIST MECHANICS
 
 ### Borders
-- **Default border**: `3px solid #212121`
-- **Heavy border**: `4px solid #212121`
-- **No border-radius anywhere** — zero, zip, none
-- Borders go on: cards, buttons, inputs, sections, nav
+- Default: `3px solid #212121`
+- Heavy: `4px solid #212121`
+- ZERO border-radius — no exceptions
 
-### Shadows (Hard Offset — NO blur)
-- **Card shadow**: `box-shadow: 4px 4px 0 #212121`
-- **Hover shadow**: `box-shadow: 6px 6px 0 #212121; transform: translate(-2px, -2px)`
-- **Signal shadow**: `box-shadow: 4px 4px 0 #FF3D00` (for signal-colored cards)
-- **Electric shadow**: `box-shadow: 4px 4px 0 #00B0FF` (for blue elements)
-- Shadow transitions: `transition: box-shadow 0.1s, transform 0.1s`
+### Shadows
+- Default card: `box-shadow: 4px 4px 0 #212121`
+- Hover: `box-shadow: 7px 7px 0 #212121; transform: translate(-3px, -3px)`
+- Signal accent shadow: `box-shadow: 4px 4px 0 #FF3D00`
+- Electric accent shadow: `box-shadow: 4px 4px 0 #00B0FF`
+- NO blur, NO opacity — solid offset only
 
-### Hover States
-- **Cards**: lift — translate(-2px, -2px) + bigger shadow
-- **Buttons**: invert — background becomes #212121, text becomes white
-- **Links**: underline with signal color (#FF3D00), no default blue
-
-### Zero Rules
-- Zero border-radius
-- Zero gradients
-- Zero blur shadows
-- Zero decorative ornament
-- Zero emoji in UI (use inline SVGs if icons needed)
+### Hover states
+- Cards: translate(-3px, -3px) + bigger shadow
+- Buttons primary: bg becomes `#212121`, text becomes `#FFFFFF`
+- Buttons ghost: bg becomes `#212121`, text becomes `#FFFFFF`
+- Links: color → `#00B0FF` (electric), underline
 
 ---
 
-## 5. SPACING & LAYOUT
+## CONTRAST RULES — NON-NEGOTIABLE
 
-### Container
-- Max-width: 1400px
-- Padding: 1.5rem sides (mobile), 3rem sides (desktop)
-- Grid: 12-column on desktop, 4-column on mobile
+### Light background (`#E6E6E6` or `#FFFFFF`)
+- Body text: `#212121`
+- Muted text: `#555555`
+- Links: `#00B0FF`
 
-### Section Spacing
-- Section padding: `py-16 md:py-24`
-- Between sections: `border-b-4 border-ink` (4px solid black divider)
-- No decorative dividers — borders only
+### Dark background (`#212121`)
+- Body text: `#FFFFFF` or `#E6E6E6`
+- Muted text: `#AAAAAA` or `#E6E6E6`
+- NEVER: `#555555`, `#888888`, `#AAAAAA` on `#212121` — this is unreadable
 
-### Grid Patterns
-- **Project cards**: 3-col desktop, 2-col tablet, 1-col mobile
-- **Photo grids**: loose asymmetric — intentionally not perfectly aligned
-- **Stats row**: equal-width columns with borders between
+### Signal accent (`#FF3D00`) on dark
+- Works fine as accent — stat numbers, labels, borders
 
----
+### Electric (`#00B0FF`) on dark
+- Works fine as link color on dark backgrounds
 
-## 6. PAGE ARCHITECTURE
-
-### INDEX.HTML — Home
-```
-[HEADER — sticky, dark ink bg, white nav]
-[HERO — full-bleed photo left, giant display type right, signal CTA button]
-[DIVIDER]
-[3 PILLARS — icon, bold number, short label — signal/electric accents]
-[DIVIDER]
-[ABOUT — 2-col: photo right, text left, ink bg section]
-[DIVIDER]
-[BUILD — grid of 3 project cards]
-[DIVIDER]
-[COMMUNITY STRIP — stat badges, link to community page]
-[DIVIDER]
-[FOOTER — minimal, ink bg, white text, mono]
-```
-
-### BUILDS.HTML — Builds
-```
-[HEADER]
-[PAGE TITLE — "BUILDS" in massive Bebas Neue]
-[FILTER TABS — signal underline on active]
-[PROJECT GRID — 3-col, neo-brutalist cards]
-[FOOTER]
-```
-
-### COMMUNITY.HTML — Community
-```
-[HEADER]
-[STATS ROW — 600+ members / 6 nodes / monthly]
-[DIVIDER]
-[ABOUT — what is ABC]
-[DIVIDER]
-[NEXT EVENT — bold signal card]
-[DIVIDER]
-[PAST EVENTS — photo gallery, real node photos, real descriptions]
-[FOOTER]
-```
-
-### CREATIVE.HTML — Creative / Signal Vault
-```
-[HEADER]
-[HERO — full-bleed dark section, video or photo, vault label]
-[DIVIDER]
-[VAULT GRID — 2-col, fixed height rows, neo-brutalist photo cards]
-[DIVIDER]
-[REEL SECTION — video reel, diagnostic labels]
-[DIVIDER]
-[FOOTER]
-```
-
-### PARKINSON PAGES — /parkinson & /parkinson/es
-```
-[HEADER — simplified]
-[PAGE TITLE]
-[CONTENT — maintain current layout, apply color updates]
-[FOOTER]
-```
+**COMMON ERROR:** `color:#888888` on `background:#0A0A0A` or `background:#212121` — THIS IS UNREADABLE. Fix: use `#E6E6E6` or `#FFFFFF` for text on dark backgrounds.
 
 ---
 
-## 7. COMPONENT SPECS
+## PAGE-BY-PAGE AUDIT CHECKLIST
 
-### `<Header />`
-- Position: sticky top-0, z-50
-- Background: #212121 (ink) with 3px bottom border in #212121
-- Height: auto with py-4 vertical padding
-- Logo: `@TYLERDOTAI` in white, Space Mono, bold
-- Nav: HOME / BUILDS / COMMUNITY / CREATIVE — white uppercase, tracked, hover: #FF3D00 underline
-- Active state: #FF3D00 text + underline
-- Mobile: hamburger → full-screen overlay with large centered nav links
-- NO sticky blur backdrop — raw solid color
+### BaseLayout.astro
+- [ ] `<body>` background: `#E6E6E6` (ground) — NOT `#0A0A0A`
+- [ ] No inline styles on `<body>`
 
-### `<Footer />`
-- Background: #212121 (ink)
-- Border-top: 4px solid #212121
-- Text: white / #E6E6E6 (muted)
-- Copyright: `© {year} @TYLERDOTAI` in Space Mono, xs size
-- Social links: X, LinkedIn, GitHub — white, hover: #FF3D00
-- Layout: 2-col — copyright left, socials right
-- NO accent backgrounds — keep it minimal
+### index.astro (HOME)
+- [ ] Hero section: `background:#212121`, text `#FFFFFF`
+- [ ] All section backgrounds: `#E6E6E6` — NO `#0A0A0A` anywhere
+- [ ] All section borders: `border-[#212121]`
+- [ ] Section labels: `color:#FF3D00` (signal)
+- [ ] H3 headings: `font-family:'Bebas Neue'`, `color:#212121`
+- [ ] Stats section cards: white background `#FFFFFF`, stat numbers `color:#FF3D00`
+- [ ] Dark stat card (`background:#0A0A0A`): REPLACE with `background:#212121` + text `#FFFFFF`
+- [ ] Link color: `#00B0FF` (electric) — NOT `#CCFF00`
+- [ ] Tag/label backgrounds: `#212121` with `#FFFFFF` text — NOT `#0A0A0A`
+- [ ] `#CCFF00` anywhere → replace with `#FF3D00` (signal) for emphasis or `#00B0FF` (electric) for links
+- [ ] `#888888` text on dark bg → `#E6E6E6`
+- [ ] `#AAAAAA` text → `#212121` on light, `#E6E6E6` on dark
+- [ ] `Syne` anywhere → `Bebas Neue`
+- [ ] `JetBrains Mono` anywhere → `Space Mono`
+- [ ] CTA buttons: `.btn-primary` class (signal fill)
 
-### `<ProjectCard />`
-- Border: 3px solid #212121
-- Shadow: 4px 4px 0 #212121
-- Hover: translate(-2px, -2px) + 6px 6px 0 #212121
-- Title: Bebas Neue, h2 size
-- Tag: Space Mono, xs, uppercase, signal (#FF3D00) color
-- Background: white (#FFFFFF) or #E6E6E6 depending on section
-- Padding: 1.5rem
-- NO image grayscale — show photos in full color
+### builds.astro
+- [ ] Page title: `font-family:'Bebas Neue'`, `text-transform:uppercase`
+- [ ] Background: `#E6E6E6`
+- [ ] Cards: white `#FFFFFF`, border `3px solid #212121`
+- [ ] Tags: `.tag` or `.tag-signal` class
+- [ ] `#0A0A0A` → `#E6E6E6` or `#212121`
 
-### `<StatBadge />`
-- Equal-width flex child
-- Border between: 3px solid #212121 (right side only)
-- Number: Bebas Neue, display size, #FF3D00 (signal)
-- Label: Space Grotesk, sm, uppercase, muted
-- Background: white
+### community.astro
+- [ ] Stats row: `.brutal-stat` (white bg, border), `.stat-number` (signal red)
+- [ ] Next event card: `.card-signal` (signal shadow)
+- [ ] Past events photo containers: dark `#212121` overlay, white text labels
+- [ ] Section labels: `.section-label` (signal)
+- [ ] `#888888` text on dark → `#E6E6E6`
+- [ ] No `#CCFF00` — use `#FF3D00` or `#00B0FF`
 
-### `<VaultCard />`
-- Border: 3px solid #212121
-- Shadow: 4px 4px 0 #212121
-- Image: full-width, h-full (grid controls height)
-- Hover: translate(-2px, -2px), bigger shadow
-- Label: Space Mono, xs, white on ink overlay
-- Title: Bebas Neue, h3
+### creative.astro
+- [ ] Hero: `#212121` dark vault
+- [ ] `.vault-card`: white bg, 3px ink border, hover shadow `#FF3D00`
+- [ ] Metadata: `#00B0FF` electric links
+- [ ] CTAs: `.btn-primary`
+- [ ] Labels: `Space Mono`, uppercase
+- [ ] No `#0A0A0A` — use `#212121`
 
-### Buttons
-- Primary: bg #FF3D00, text white, border 3px #212121, shadow 4px 4px 0 #212121
-  - Hover: bg #212121, text white, shadow grows
-  - Active: translate(2px, 2px), shadow shrinks
-- Ghost: bg transparent, text #212121, border 3px #212121
-  - Hover: bg #212121, text white
+### Header.astro
+- [ ] Background: `#212121` solid
+- [ ] Nav links: white `#FFFFFF`, uppercase
+- [ ] Active: `#FF3D00` text + signal underline
+- [ ] Hover: signal underline animation
+- [ ] Logo: `@TYLERDOTAI` in Bebas Neue
 
----
+### Footer.astro
+- [ ] Background: `#212121`
+- [ ] Text: `#FFFFFF` / `#E6E6E6`
+- [ ] Social links: white → `#FF3D00` on hover
+- [ ] Copyright: `© {year} @tylerdotai` in Space Mono
 
-## 8. PHOTO / MEDIA RULES
-- All photos: real ZV-E10 photography only
-- No stock imagery
-- Label every image: `PHOTO` / `VIDEO STILL` / `VIDEO` in Space Mono
-- Alt text: descriptive, specific to content (no "image of person smiling")
-- Creative vault: dark overlay on photos, labels visible
-
----
-
-## 9. WHAT CHANGES FROM CURRENT SITE
-
-### Colors (entire site)
-- REMOVE: #0A0A0A (dark bg), #CCFF00 (lime accent)
-- REMOVE: #0055FF (blue), #FFFF00 (yellow)
-- ADD: #E6E6E6 (ground/light bg), #FF3D00 (signal), #00B0FF (electric), #212121 (ink)
-
-### Typography
-- REMOVE: Syne (display) — replace with Bebas Neue
-- KEEP: Space Grotesk (body), Space Mono (mono)
-- Increase display type scale — it should dominate
-
-### Atmosphere
-- REMOVE: dark editorial aesthetic
-- ADD: light-ground brutalist — #E6E6E6 page background, bold color accents
-- Think: xerox zine meets Bloomberg terminal
+### parkinson/index.astro + parkinson/es.astro
+- [ ] Background: `#E6E6E6`
+- [ ] Dark title section: `#212121` with white text
+- [ ] CTAs: `.btn-primary`
 
 ---
 
-## 10. MASTER PROMPT FOR REDESIGN
+## SMOKE TEST — RUN AFTER EVERY CHANGE
 
-### Phase 1: Write SPEC.md (this document)
-- Done ✅
+```bash
+cd /home/tyler/tyler-site
+npm run build        # must succeed
+npm run test:e2e    # must be 11/11
+```
 
-### Phase 2: Update global.css
-- Replace entire `@theme` block with new color tokens
-- Add new font imports (Bebas Neue)
-- Rewrite base/body styles for light-ground brutalist
-- Update shadow utilities
-- Update button/card component styles
+## COLOR AUDIT COMMAND
 
-### Phase 3: Update all page files
-- Apply light-ground backgrounds
-- Replace Syne with Bebas Neue on all display text
-- Update inline color styles to use new palette
-- Ensure signal (#FF3D00) is used for CTAs and active states
-- Ensure electric (#00B0FF) is used for links and secondary accents
+After any color change, run this to catch any remaining stale values:
 
-### Phase 4: Update Header/Footer
-- Header: solid #212121 bg (no blur), white text, signal (#FF3D00) active state
-- Footer: solid #212121 bg, simplified layout
+```bash
+grep -rn "#0A0A0A\|#111111\|#CCFF00\|#333333\|#888888\|Syne\|JetBrains" src/ --include="*.astro" --include="*.css" | grep -v "node_modules"
+```
 
-### Phase 5: Update creative page
-- Vault grid: maintain fixed row height
-- Apply new color scheme throughout
-
-### Phase 6: Verify
-- `npm run build` — clean
-- `npm run test:e2e` — 11/11
-- Browser visual check on all pages
+Every match must be an intentional design choice or a commented note. Zero unaccounted matches.
 
 ---
 
-## 11. VALIDATION CHECKLIST
+## WHAT "GOOD" LOOK LIKE
 
-Before calling any change "done," verify ALL of:
+### index.astro stats section (CORRECT):
+```astro
+<!-- Stats row: 3 equal white cards -->
+<div class="flex gap-0" style="background:#FFFFFF;">
+  <div class="brutal-stat flex-1 p-6">
+    <span class="stat-number">600+</span>
+    <span class="stat-label">Members</span>
+  </div>
+  <!-- border-right: 3px solid #212121 -->
+  <div class="brutal-stat flex-1 p-6">
+    <span class="stat-number">6</span>
+    <span class="stat-label">DFW Nodes</span>
+  </div>
+  <!-- border-right: 3px solid #212121 -->
+  <div class="brutal-stat flex-1 p-6">
+    <span class="stat-number">2026</span>
+    <span class="stat-label">Founded</span>
+  </div>
+</div>
+```
 
-- [ ] No #0A0A0A anywhere in source or built output
-- [ ] No #CCFF00 anywhere in source or built output
-- [ ] No #0055FF anywhere in source or built output
-- [ ] No #FFFF00 anywhere in source or built output
-- [ ] Bebas Neue loads from Google Fonts
-- [ ] No border-radius on any element
-- [ ] No gradient backgrounds anywhere
-- [ ] Shadows are all solid offset (4px 4px 0, no blur)
-- [ ] Hero/display type is uppercase Bebas Neue
-- [ ] CTAs use #FF3D00 background
-- [ ] Links use #00B0FF
-- [ ] Body text uses #212121 on light backgrounds
-- [ ] `npm run build` succeeds
-- [ ] `npm run test:e2e` — 11/11
-- [ ] Visual: page loads without white flash
-- [ ] Mobile: hamburger menu works
+### index.astro section label (CORRECT):
+```astro
+<span class="section-label">01 / BUILD</span>
+```
+
+### Dark section on light page (CORRECT):
+```astro
+<section style="background:#212121;" class="border-b-4 border-black">
+  <div class="container py-16">
+    <h2 class="text-white uppercase" style="font-family:'Bebas Neue',sans-serif;">
+      CREATIVE
+    </h2>
+    <p class="text-[#E6E6E6]">
+      Real footage. Shot on Sony ZV-E10.
+    </p>
+  </div>
+</section>
+```
+
+### WRONG (stale):
+```astro
+<!-- WRONG: dark gray on dark background — unreadable -->
+<p style="color:#888888;">Some muted text</p>  ← on dark bg, use #E6E6E6
+
+<!-- WRONG: old lime green accent -->
+<span style="color:#CCFF00;">LABEL</span>  ← use #FF3D00
+
+<!-- WRONG: old dark bg -->
+<section style="background:#0A0A0A;">  ← use #212121
+
+<!-- WRONG: wrong font -->
+<h2 style="font-family:'Syne',sans-serif;">  ← use Bebas Neue
+
+<!-- WRONG: wrong mono font -->
+<span style="font-family:'JetBrains Mono',monospace;">  ← use Space Mono
+```
+
+---
+
+## MASTER AUDIT SCRIPT — RUN THIS BEFORE ANY PR
+
+Before opening a PR, run ALL of:
+
+```bash
+# 1. Check for stale colors
+grep -rn "#0A0A0A\|#111111\|#CCFF00\|#333333\|#888888" src/ --include="*.astro" --include="*.css" | grep -v "node_modules"
+# Expected: empty (all should be replaced with spec colors)
+
+# 2. Check for wrong fonts
+grep -rn "Syne\|JetBrains Mono" src/ --include="*.astro" --include="*.css" | grep -v "node_modules"
+# Expected: empty (Syne → Bebas Neue, JetBrains Mono → Space Mono)
+
+# 3. Check for wrong border-radius (should be zero)
+grep -rn "border-radius" src/ --include="*.astro" --include="*.css" | grep -v "node_modules"
+# Expected: empty (zero border-radius everywhere)
+
+# 4. Build and test
+npm run build && npm run test:e2e
+# Expected: build succeeds, 11/11 tests pass
+```
+
+---
+
+## SUMMARY: THE EXACT REPLACEMENT MAP
+
+| Old color/value | Replace with | Where |
+|-----------------|-------------|-------|
+| `#0A0A0A` | `#212121` | All dark backgrounds |
+| `#111111` | `#212121` | All dark backgrounds |
+| `#333333` | `#212121` | All borders |
+| `#CCFF00` | `#FF3D00` | Signal accents (CTAs, labels) |
+| `#CCFF00` | `#00B0FF` | Links |
+| `#888888` (on dark bg) | `#E6E6E6` | Muted text on dark |
+| `#AAAAAA` (on dark bg) | `#E6E6E6` | Muted text on dark |
+| `#888888` (on light bg) | `#555555` | Muted text on light |
+| `#AAAAAA` (on light bg) | `#212121` | Body text on light |
+| `Syne` | `Bebas Neue` | All display headings |
+| `JetBrains Mono` | `Space Mono` | All mono text |
+| `font-weight: 800` (Bebas) | `font-weight: 400` | Bebas Neue only has 400 |
+| `border-radius: 8px` etc. | `border-radius: 0` | Remove all |
+
+If you see something that doesn't match this map, STOP and re-read SPEC.md and global.css before touching anything.
