@@ -71,14 +71,14 @@ const pastEvents = [
   <main>
 
     <!-- ── STATS ROW ── -->
-    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
+    <section class="bg-[var(--color-ground)] border-b-4 border-black">
       <div class="container py-16 md:py-24">
-        <div class="grid grid-cols-3 gap-0 text-center">
-          <div class="brutal-stat" style="border-right: 4px solid #000000;">
+        <div class="grid grid-cols-3 divide-x divide-black text-center">
+          <div class="brutal-stat">
             <span class="stat-number">600+</span>
             <span class="stat-label">Members</span>
           </div>
-          <div class="brutal-stat" style="border-right: 4px solid #000000;">
+          <div class="brutal-stat">
             <span class="stat-number">6</span>
             <span class="stat-label">Nodes</span>
           </div>
@@ -91,44 +91,58 @@ const pastEvents = [
     </section>
 
     <!-- ── ABOUT ── -->
-    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
+    <section class="border-b-4 border-black">
       <div class="container py-24 md:py-32">
-        <div class="grid lg:grid-cols-[auto_1fr] gap-12 lg:gap-16 items-start">
-          <!-- Left: mascot -->
-          <div class="reveal" style="flex-shrink:0;">
-            <img
-              src="/assets/community/mascot-abc.jpg"
-              alt="Agent Builders Club mascot"
-              style="max-height:380px; width:auto; display:block;"
-            />
+
+        <!-- Outer bordered grid: 3 distinct rows -->
+        <div class="border-4 border-black">
+
+          <!-- Row 1: Mascot | Heading -->
+          <div class="grid md:grid-cols-[auto_1fr] border-b-4 border-black">
+            <!-- Mascot cell -->
+            <div class="border-r-4 border-black p-6 flex items-center">
+              <img
+                src="/assets/community/mascot-abc.jpg"
+                alt="Agent Builders Club mascot"
+                class="h-72 w-auto object-contain"
+              />
+            </div>
+            <!-- Heading cell -->
+            <div class="p-6 flex flex-col justify-center">
+              <span class="section-label mb-4 block reveal">DFW AI Community</span>
+              <h1 class="font-display" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#000000; font-size:var(--text-h1);">
+                AGENT<br/>BUILDERS<br/>CLUB
+              </h1>
+            </div>
           </div>
 
-          <!-- Right: heading + text -->
-          <div>
-            <span class="section-label mb-6 block reveal">DFW AI Community</span>
-            <h1 class="font-display mb-8" style="font-family:'Bebas Neue',sans-serif; font-weight:400; text-transform:uppercase; line-height:0.9; color:#000000; font-size:var(--text-h1);">
-              AGENT<br/>BUILDERS<br/>CLUB
-            </h1>
-            <p class="text-[var(--text-body)] leading-relaxed mb-5">
+          <!-- Row 2: Description -->
+          <div class="border-b-4 border-black p-6">
+            <p class="text-[var(--text-body)] leading-relaxed mb-4">
               Agent Builders Club started as a side project in 2026. The idea was simple: a place where people building with AI could show each other the real stuff — workflows, prompts, agent architectures, failures, wins.
             </p>
-            <p class="text-[var(--text-body)] leading-relaxed mb-5">
+            <p class="text-[var(--text-body)] leading-relaxed mb-4">
               Not a course. Not a mastermind. Not a content play. Just people who want to build things with AI, meeting regularly to do exactly that.
             </p>
-            <p class="text-[var(--text-body)] leading-relaxed mb-10">
+            <p class="text-[var(--text-body)] leading-relaxed">
               The community grew to 600+ across 6 physical nodes in the DFW metro. Each node is independently organized. Each has its own flavor. All of them are focused on the same thing: building.
             </p>
-            <div class="flex gap-6 reveal">
+          </div>
+
+          <!-- Row 3: Buttons -->
+          <div class="p-6">
+            <div class="flex flex-wrap gap-4 reveal">
               <a href="https://discord.gg/q8kEquTu3z" target="_blank" rel="noopener noreferrer" class="btn-primary">JOIN DISCORD</a>
               <a href="https://lu.ma/clawplex" target="_blank" rel="noopener noreferrer" class="btn-ghost">SEE ALL EVENTS</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
     <!-- ── PAST EVENTS GALLERY ── -->
-    <section style="background:#D2D2D2; border-bottom: 4px solid #000000;">
+    <section class="border-b-4 border-black">
       <div class="container py-24 md:py-32">
         <div class="mb-12">
           <span class="section-label mb-4 block reveal">DFW Nodes · 2026</span>
