@@ -9,24 +9,28 @@ const projects = [
     description: 'Provider-neutral AI agent harness. Swap between OpenAI, Anthropic, Ollama, or anything with an OpenAI-compatible API — the agent logic stays the same. Structured tool calling, JSON state, SQLite persistence. Built for agents that need to run reliably without a cloud provider.',
     tech: ['Bun', 'TypeScript', 'SQLite'],
     url: 'https://github.com/tylerdotai/singularity',
+    status: 'ACTIVE',
   },
   {
     name: 'Agent Loop System',
     description: 'Closed-loop agent harness with structured outputs and step-by-step reasoning. Python-first. Define your agent\'s tools in JSON, wire them up, and get traceable, auditable agent runs. Good for agents that need to justify every decision.',
     tech: ['Python', 'JSON', 'SQLite'],
     url: 'https://github.com/tylerdotai/agent-loop-system',
+    status: 'ACTIVE',
   },
   {
     name: 'AIAgainstParkinson',
     description: 'Daily automated research pipeline for Parkinson\'s disease. Every morning, a cron job pulls the latest PubMed papers, generates plain-language summaries in English and Spanish, and delivers them — automatically. No paywall. No algorithm. Just research, delivered.',
     tech: ['Python', 'PubMed', 'MiniMax'],
     url: 'https://github.com/tylerdotai/parkinson-research',
+    status: 'MAINTENANCED',
   },
   {
     name: 'Voice Agent',
     description: 'Real-time voice agent using WebRTC and a local LLM. No cloud API for the voice leg — the audio stays local. Built for agents that need to talk without latency or dependency on a third-party voice API.',
     tech: ['Python', 'WebRTC', 'LLM'],
     url: 'https://github.com/tylerdotai/voice-agent',
+    status: 'ALPHA',
   },
 ];
 ---
@@ -38,28 +42,70 @@ const projects = [
   <Header />
 
   <main>
+
     <!-- ── PAGE HEADER ── -->
-    <section class="page-header">
-      <div class="container py-24 md:py-32">
-        <span class="section-label mb-6 block reveal">Open Source</span>
-        <h1 class="page-title">BUILDS</h1>
-        <p class="page-subtitle max-w-xl reveal">
-          AI tools, agent harnesses, and research pipelines. Most of it's open. The stuff that isn't is because I'm still figuring it out.
-        </p>
+    <section class="relative overflow-hidden border-b-4 border-black">
+      <!-- Ghost type watermark -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span class="font-display text-[22vw] text-[#000000] opacity-[0.04] leading-none whitespace-nowrap">
+          BUILDS
+        </span>
+      </div>
+
+      <div class="container py-24 md:py-32 relative z-10">
+        <div class="max-w-3xl">
+          <span class="section-label mb-4 block reveal">OPEN SOURCE · DFW</span>
+          <div class="flex items-end gap-6 mb-6">
+            <h1 class="font-display" style="font-size:var(--text-h1); line-height:0.85; letter-spacing:-0.02em;">
+              BUILDS
+            </h1>
+            <span class="font-mono text-xs text-[#4D4D4D] uppercase tracking-widest mb-3 hidden md:block">01</span>
+          </div>
+          <p class="text-lg text-[var(--text-body)] max-w-xl reveal">
+            AI tools, agent harnesses, and research pipelines. Most of it's open. The stuff that isn't is because I'm still figuring it out.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ── -->
+    <section class="border-b-4 border-black">
+      <div class="container">
+        <div class="grid grid-cols-3 divide-x-4 divide-black">
+          <div class="brutal-stat">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Builds</span>
+          </div>
+          <div class="brutal-stat" style="background:#000000;">
+            <span class="stat-number" style="color:#00B8FF;">OPEN</span>
+            <span class="stat-label" style="color:#D2D2D2;">Source</span>
+          </div>
+          <div class="brutal-stat">
+            <span class="stat-number">DFW</span>
+            <span class="stat-label">Based</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ── PROJECT GRID ── -->
-    <section class="projects-section">
-      <div class="container pb-24 md:pb-32">
-        <div class="grid md:grid-cols-2 gap-0 border-3 border-ink">
+    <section class="relative overflow-hidden">
+      <div class="container py-20 md:py-28">
+        <div class="grid md:grid-cols-2 gap-6">
 
           {projects.map((project, i) => (
             <article
               class="card reveal"
-              style={i % 2 === 0 ? 'border-right: 3px solid #000000;' : 'border-left: 3px solid #000000;'}
+              style={i % 2 === 0 ? '' : 'margin-top: 2rem;'}
             >
-              <div class="p-8 md:p-10">
+              <!-- Status sticker -->
+              <div class="absolute -top-3 left-4 z-10">
+                <span class={`sticker-label ${project.status === 'ACTIVE' ? '' : project.status === 'MAINTENANCED' ? 'sticker-label-ink' : 'sticker-label-muted'}`}>
+                  {project.status}
+                </span>
+              </div>
+
+              <div class="p-8 md:p-10 pt-12">
                 <!-- Title -->
                 <h2 class="card-title mb-6">
                   {project.name}
@@ -96,69 +142,33 @@ const projects = [
         </div>
       </div>
     </section>
+
   </main>
 
   <Footer />
 </BaseLayout>
 
 <style>
-  /* Page header */
-  .page-header {
-    background: #D2D2D2;
-    border-bottom: 4px solid #000000;
-  }
-
-  .page-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400;
-    font-size: clamp(5rem, 14vw, 12rem);
-    text-transform: uppercase;
-    line-height: 0.85;
-    letter-spacing: -0.02em;
-    color: #000000;
-    margin-bottom: 1.5rem;
-  }
-
-  .page-subtitle {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    color: #000000;
-  }
-
-  .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #00B8FF;
-  }
-
-  /* Projects section */
-  .projects-section {
-    background: #D2D2D2;
-  }
-
   /* Card */
   .card {
     background: #FFFFFF;
-    border-top: 3px solid #000000;
-    border-bottom: 3px solid #000000;
-    box-shadow: 4px 4px 0 #000000;
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0 #000000;
     transition: transform 0.1s, box-shadow 0.1s;
+    position: relative;
   }
 
   .card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #000000;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #00B8FF;
   }
 
   .card-title {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
     text-transform: uppercase;
-    line-height: 0.95;
+    line-height: 0.9;
     letter-spacing: -0.02em;
     color: #000000;
   }
@@ -167,20 +177,19 @@ const projects = [
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.0625rem;
     line-height: 1.65;
-    color: #000000;
+    color: #4D4D4D;
   }
 
   /* Tag */
   .tag {
     font-family: 'Space Mono', monospace;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.25rem 0.6rem;
     background: transparent;
     color: #00B8FF;
     border: 2px solid #00B8FF;
-    font-weight: 400;
   }
 
   /* Primary button */
@@ -190,7 +199,7 @@ const projects = [
     gap: 0.5rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: #FFFFFF;
@@ -199,13 +208,13 @@ const projects = [
     padding: 0.75rem 1.25rem;
     box-shadow: 4px 4px 0 #000000;
     text-decoration: none;
-    transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+    transition: transform 0.08s, box-shadow 0.08s, background 0.08s;
   }
 
   .btn-primary:hover {
     background: #000000;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #000000;
+    box-shadow: 6px 6px 0 #00B8FF;
   }
 
   .btn-primary:active {
