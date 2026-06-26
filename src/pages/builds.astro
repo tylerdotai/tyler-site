@@ -39,43 +39,41 @@ const projects = [
 
   <main>
     <!-- ── PAGE HEADER ── -->
-    <section style="background:#0A0A0A; border-bottom: 1px solid #333;">
+    <section class="page-header">
       <div class="container py-24 md:py-32">
         <span class="section-label mb-6 block reveal">Open Source</span>
-        <h1 class="font-display mb-8" style="font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.9; color:#FFFFFF; font-size:var(--text-h1);">
-          WHAT<br/>I BUILD.
-        </h1>
-        <p class="text-lg max-w-xl leading-relaxed reveal" style="color:#888888;">
+        <h1 class="page-title">BUILDS</h1>
+        <p class="page-subtitle max-w-xl reveal">
           AI tools, agent harnesses, and research pipelines. Most of it's open. The stuff that isn't is because I'm still figuring it out.
         </p>
       </div>
     </section>
 
     <!-- ── PROJECT GRID ── -->
-    <section style="background:#0A0A0A;">
+    <section class="projects-section">
       <div class="container pb-24 md:pb-32">
-        <div class="grid md:grid-cols-2 gap-0">
+        <div class="grid md:grid-cols-2 gap-0 border-3 border-ink">
 
           {projects.map((project, i) => (
             <article
-              class="project-card reveal"
-              style={i % 2 === 0 ? 'border-right: 1px solid #333;' : 'border-left: 1px solid #333;'}
+              class="card reveal"
+              style={i % 2 === 0 ? 'border-right: 3px solid #212121;' : 'border-left: 3px solid #212121;'}
             >
               <div class="p-8 md:p-10">
                 <!-- Title -->
-                <h2 class="text-4xl md:text-5xl font-display mb-6" style="color:#FFFFFF; font-family:'Syne',sans-serif; font-weight:800; text-transform:uppercase; line-height:0.95;">
+                <h2 class="card-title mb-6">
                   {project.name}
                 </h2>
 
-                <!-- Tech chips -->
+                <!-- Tech tags -->
                 <div class="flex flex-wrap gap-2 mb-8">
                   {project.tech.map(t => (
-                    <span class="tech-chip">{t}</span>
+                    <span class="tag">{t}</span>
                   ))}
                 </div>
 
                 <!-- Description -->
-                <p class="leading-relaxed mb-10" style="color:#888888;">
+                <p class="card-description mb-10">
                   {project.description}
                 </p>
 
@@ -84,9 +82,9 @@ const projects = [
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="project-link"
+                  class="btn-primary"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color:#0A0A0A;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                   </svg>
                   VIEW ON GITHUB
@@ -104,48 +102,114 @@ const projects = [
 </BaseLayout>
 
 <style>
-  .project-card {
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
-    transition: background 120ms ease;
+  /* Page header */
+  .page-header {
+    background: #E6E6E6;
+    border-bottom: 4px solid #212121;
   }
 
-  .project-card:hover {
-    background: #111111;
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: clamp(5rem, 14vw, 12rem);
+    text-transform: uppercase;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: #212121;
+    margin-bottom: 1.5rem;
   }
 
-  .tech-chip {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
+  .page-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #212121;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FF3D00;
+  }
+
+  /* Projects section */
+  .projects-section {
+    background: #E6E6E6;
+  }
+
+  /* Card */
+  .card {
+    background: #FFFFFF;
+    border-top: 3px solid #212121;
+    border-bottom: 3px solid #212121;
+    box-shadow: 4px 4px 0 #212121;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #212121;
+  }
+
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: #212121;
+  }
+
+  .card-description {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #212121;
+  }
+
+  /* Tag */
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     padding: 0.25rem 0.6rem;
     background: transparent;
-    color: #CCFF00;
-    border: 1px solid #CCFF00;
-    font-weight: 700;
+    color: #FF3D00;
+    border: 2px solid #FF3D00;
+    font-weight: 400;
   }
 
-  .project-link {
+  /* Primary button */
+  .btn-primary {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #0A0A0A;
-    background: #CCFF00;
-    border: 2px solid #0A0A0A;
-    padding: 0.6rem 1rem;
-    box-shadow: 4px 4px 0 #0A0A0A;
+    color: #FFFFFF;
+    background: #FF3D00;
+    border: 3px solid #212121;
+    padding: 0.75rem 1.25rem;
+    box-shadow: 4px 4px 0 #212121;
     text-decoration: none;
-    transition: transform 120ms ease, box-shadow 120ms ease;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
   }
 
-  .project-link:hover {
+  .btn-primary:hover {
+    background: #212121;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 #0A0A0A;
+    box-shadow: 6px 6px 0 #212121;
+  }
+
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #212121;
   }
 </style>

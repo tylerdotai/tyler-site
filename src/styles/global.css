@@ -58,8 +58,7 @@
   --spacing-section-md:  8rem;
 }
 
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+/* ── Google Fonts already loaded above @theme ── */
 
 /* ── Base ── */
 @layer base {
