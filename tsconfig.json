@@ -3,7 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@components/*": ["src/components/*"],
+      "@components/components/*": ["src/components/components/ui/*"],
+      "@components/lib/*": ["src/components/lib/*"],
+      "@components/hooks/*": ["src/components/hooks/*"],
       "@layouts/*": ["src/layouts/*"],
       "@styles/*": ["src/styles/*"]
     }

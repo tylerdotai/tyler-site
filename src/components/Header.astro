@@ -1,12 +1,11 @@
 ---
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/builds', label: 'Builds' },
-  { href: '/community', label: 'Community' },
-  { href: '/creative', label: 'Creative' },
-];
+import { MobileNav } from '../components/ui/MobileNav';
+import { NAV_LINKS, SITE } from '../config';
 
 const pathname = Astro.url.pathname;
+const socialLinks = [
+  { href: SITE.x, label: 'X / TWITTER' },
+];
 ---
 
 <header id="site-header">
@@ -19,7 +18,7 @@ const pathname = Astro.url.pathname;
 
       <!-- Desktop nav -->
       <nav class="nav-desktop" aria-label="Main navigation">
-        {navLinks.map(link => (
+        {NAV_LINKS.map(link => (
           <a
             href={link.href}
             class={`nav-link ${pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href)) ? 'active' : ''}`}
@@ -27,66 +26,18 @@ const pathname = Astro.url.pathname;
             {link.label}
           </a>
         ))}
-        <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="nav-link nav-link--social">
+        <a href={SITE.x} target="_blank" rel="noopener noreferrer" class="nav-link">
           X / TWITTER
         </a>
       </nav>
 
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- Mobile nav (React) -->
+      <div class="nav-mobile">
+        <MobileNav client:load currentPath={pathname} />
+      </div>
     </div>
   </div>
-
-  <!-- Mobile overlay -->
-  <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true">
-    <nav aria-label="Mobile navigation">
-      {navLinks.map(link => (
-        <a href={link.href} class="mobile-nav-link">{link.label}</a>
-      ))}
-      <a href="https://x.com/tylerdotai" target="_blank" rel="noopener noreferrer" class="mobile-nav-link">X / TWITTER</a>
-    </nav>
-  </div>
 </header>
-
-<script>
-  const header = document.getElementById('site-header');
-  const hamburger = document.getElementById('hamburger');
-  const overlay = document.getElementById('mobile-overlay');
-  let overlayOpen = false;
-
-  // Scroll → add border
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-  }, { passive: true });
-
-  // Hamburger toggle
-  hamburger?.addEventListener('click', () => {
-    overlayOpen = !overlayOpen;
-    hamburger.setAttribute('aria-expanded', String(overlayOpen));
-    overlay?.classList.toggle('open', overlayOpen);
-    hamburger.classList.toggle('open', overlayOpen);
-    document.body.style.overflow = overlayOpen ? 'hidden' : '';
-  });
-
-  // Close on link click
-  overlay?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      overlayOpen = false;
-      hamburger?.setAttribute('aria-expanded', 'false');
-      overlay?.classList.remove('open');
-      hamburger?.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-</script>
 
 <style>
   #site-header {
@@ -96,13 +47,7 @@ const pathname = Astro.url.pathname;
     right: 0;
     z-index: 100;
     background: #000000;
-    transition: border-color 200ms ease;
     border-bottom: 3px solid #000000;
-    border-radius: 0;
-  }
-
-  #site-header.scrolled {
-    border-bottom-color: #000000;
   }
 
   .header-inner {
@@ -122,7 +67,6 @@ const pathname = Astro.url.pathname;
     color: #FFFFFF;
     text-decoration: none;
     transition: opacity 120ms ease;
-    border-radius: 0;
   }
 
   .logo:hover {
@@ -150,9 +94,8 @@ const pathname = Astro.url.pathname;
     letter-spacing: 0.15em;
     color: #FFFFFF;
     text-decoration: none;
-    transition: color 120ms ease;
     position: relative;
-    border-radius: 0;
+    transition: color 120ms ease;
   }
 
   .nav-link::after {
@@ -183,92 +126,14 @@ const pathname = Astro.url.pathname;
     background: #00B8FF;
   }
 
-  .nav-link--social {
-    color: #FFFFFF;
-  }
-
-  .nav-link--social:hover {
-    color: #00B8FF;
-  }
-
-  /* Hamburger */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 200;
-    position: relative;
+  /* Mobile nav */
+  .nav-mobile {
+    display: block;
   }
 
   @media (min-width: 768px) {
-    .hamburger {
+    .nav-mobile {
       display: none;
     }
-  }
-
-  .hamburger span {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #FFFFFF;
-    transition: transform 200ms ease, opacity 200ms ease;
-    transform-origin: center;
-  }
-
-  .hamburger.open span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .hamburger.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.open span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* Mobile overlay */
-  .mobile-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: #000000;
-    z-index: 150;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-  }
-
-  .mobile-overlay.open {
-    display: flex;
-  }
-
-  .mobile-overlay nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  .mobile-nav-link {
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: 400;
-    font-size: clamp(2rem, 8vw, 3.5rem);
-    text-transform: uppercase;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: color 120ms ease;
-  }
-
-  .mobile-nav-link:hover {
-    color: #00B8FF;
   }
 </style>

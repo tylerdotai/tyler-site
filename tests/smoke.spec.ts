@@ -62,12 +62,16 @@ test('mobile menu toggle works', async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto(BASE);
 
-  const toggle = page.locator('#hamburger');
+  // React-based shadcn Sheet — click the hamburger-style button
+  const toggle = page.locator('button[aria-label="Open menu"]').first();
   await expect(toggle).toBeVisible();
 
   await toggle.click();
 
-  const overlay = page.locator('#mobile-overlay');
-  const hasOpenClass = await overlay.evaluate((el) => el.classList.contains('open'));
-  expect(hasOpenClass).toBe(true);
+  // Wait for Sheet to render and find nav links inside it
+  const sheetNav = page.locator('[data-slot="sheet-content"] a');
+  await expect(sheetNav.first()).toBeVisible({ timeout: 5000 });
+
+  // Verify a link inside the sheet is correct
+  await expect(sheetNav.filter({ hasText: 'Builds' }).first()).toBeVisible();
 });
